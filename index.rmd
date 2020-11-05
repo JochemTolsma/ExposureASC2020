@@ -1,0 +1,29 @@
+---
+title: "Exposure to Asylum Seekers"
+author: '[Jochem Tolsma](https://www.jochemtolsma.nl)
+  - Radboud University, the Netherlands'
+bibliography: p-references.bib
+---
+
+----
+
+This website is a supplement to "Exposure to Asylum Seekers and Changing Support for the Radical Right: A Natural Experiment in the Netherlands" by @JochemTolsma2020. It contains R code to replicate all Tables in the manuscript. 
+
+Use the top menu to navigate to the ...
+
+All data and scripts can be found on [Github]()
+
+----
+
+### Data
+You can find simulated example datasets (1189 units, 5 repeated-measures) on [Github](https://github.com/ellenhamaker/RI-CLPM/tree/master/data) to get hands-on experience with this modeling approach. The example data are motivated by @Narmandakh2020 who obtained five waves of data from 1189 adolescents on their sleep problems and anxiety over 15 years.
+
+----
+
+### Contact
+Questions can be addressed to the first author of the corresponding article, [Jeroen Mulder](mailto:j.d.mulder@uu.nl). 
+
+----
+
+### References
+

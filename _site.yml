@@ -1,0 +1,20 @@
+name: "Replication package PLOSONE"
+output_dir: "docs"
+navbar:
+  title: "Replication package"
+  left:
+    - text: "Tables Manuscript"
+      href: index.html
+    - text: "Supplementary Material"
+      href: SM.html
+    - text: "Response Reviewer"
+      href: RR.html
+    - text: "Data preperation"
+      href: dataprep.html
+output:
+  html_document:
+    theme: flatly
+    highlight: default
+    
+
+ 
