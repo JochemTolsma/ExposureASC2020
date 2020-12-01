@@ -1,0 +1,926 @@
+---
+title: "Exposure to Asylum Seekers"
+author: '[Jochem Tolsma](https://www.jochemtolsma.nl) - Radboud University, the Netherlands'
+bibliography: references.bib
+date: "Last compiled on `r format(Sys.time(), '%B, %Y')`"
+output: 
+  html_document:
+    toc:  true
+    toc_float: true
+    number_sections: false
+    code_folding: show
+    code_download: yes
+---
+
+```{r, globalsettings, echo=FALSE, warning=FALSE}
+library(knitr)
+opts_chunk$set(tidy.opts=list(width.cutoff=100),tidy=TRUE, warning = FALSE, message = FALSE,comment = "#>", cache=TRUE, class.source=c("test"), class.output=c("test2"))
+options(width = 100)
+rgl::setupKnitr()
+
+
+colorize <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{%s}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color, 
+      x)
+  } else x
+}
+
+```
+
+```{r klippy, echo=FALSE, include=TRUE}
+klippy::klippy(position = c('top', 'right'))
+#klippy::klippy(color = 'darkred')
+#klippy::klippy(tooltip_message = 'Click to copy', tooltip_success = 'Done')
+```
+
+```{css, echo=FALSE}
+pre.test {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: auto;
+  margin: 0px;
+}
+
+pre.test2 {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: auto;
+  margin: 0px;
+  background-color: white
+}
+
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 24px;
+}
+
+
+```
+
+----
+
+This website is a replication package for the paper "Exposure to Asylum Seekers and Changing Support for the Radical Right: A Natural Experiment in the Netherlands" by @Tolsma2020. It contains R code to replicate all Tables in the manuscript. 
+
+Use the top menu to navigate to the section of interest. The section replicates the **Appendix** of the manuscript. 
+
+To copy the code click the button in the upper right corner of the code-chunks. 
+
+
+----
+
+## Data
+All data and scripts can be found on [Github](https://github.com/JochemTolsma/ExposureASC2020)
+
+----
+
+## Contact
+Questions can be addressed to the first author of the corresponding article, [Jochem Tolsma](mailto:j.tolsma@ru.nl). 
+
+----  
+
+## additional dataprep  
+
+We start with a datafile in long format we obtained after performing our dataprep, see [here](data/evazc v22122017.dta).  
+
+- We delete observations of respondents where respondents were not allowed to vote or did not give an answer.  
+- We delete observations with missing values on zipcode information.  
+- We delete respondents with only one observation.  
+- We construct the dichotomous dependent variable.  
+- We construct the multinomial dependent variable. 
+- We decided to perform additional robustness checks and need to match more raw data on crisis ASC. 
+
+
+
+
+```{r, results='hide'}
+rm(list=ls())
+
+library(haven)
+
+dataset <- read_stata("data/evazc v22122017.dta")
+
+#dependent variable.
+#delete not allowed to vote
+table(dataset$vote, useNA = "always")
+sum(table(dataset$vote, useNA = "always"))
+dataset <- dataset[dataset$vote!=16,]
+dataset <- dataset[dataset$vote!=17,]
+#add 'VNL' to other party
+dataset$vote[dataset$vote==12] <- 18
+#"1"="vvd", "2"="pvda", "3"="pvv", "4"="cda", "5"="sp"
+#"6"="d66", "7"="gl", "8"="cu", "9"="sgp", "10"="dier"
+#"11"="50plus", "12"="vnl","13="blanco","14"="dontknow","15="no vote", "18"="other"
+#define dichotomous dependent variable
+dataset$y_pvv <- ifelse(dataset$vote==3, 1, 0)
+#define multinomial dependent variable
+dataset$vote_rwsp <- NA
+dataset$vote_rwsp[dataset$vote==2 | dataset$vote==6 | dataset$vote==7 | dataset$vote==8 | dataset$vote==10 | dataset$vote==11 | dataset$vote==12 | dataset$vote==18] <- 0 #other
+dataset$vote_rwsp[dataset$vote==1 | dataset$vote==4 | dataset$vote==9] <- 1 # right-wing
+dataset$vote_rwsp[dataset$vote==5] <- 2 # anti-establishment 
+dataset$vote_rwsp[dataset$vote==13 | dataset$vote==14 | dataset$vote==15] <- 3 #demobilized
+dataset$vote_rwsp[dataset$vote==3] <- 4
+# 1: right-wing; 2: anti-establishment; 3: demobilized; 0: other; 4: PVV
+
+#delete respondents with missing data on zipcode
+sum(is.na(dataset$pc4))
+dataset <- dataset[!is.na(dataset$pc4),]
+
+#delete respondents with only one observation.
+dataset$one <- 1 
+test <- aggregate(dataset$one, by=list(dataset$PanelistIdQuestion), FUN=sum)
+names(test) <- c("PanelistIdQuestion", "ncases")
+dataset <- merge(dataset, test)
+table(dataset$ncases)
+dataset <- dataset[dataset$ncases!=1,]
+
+#recode tijd/time variable
+table(dataset$tijd, useNA = "always")
+dataset$tijd <- dataset$tijd - 1
+
+#capacity of ASC
+#s1 is regular, s2=temporary, s3=crisis, s123=total
+dataset$s1pc4 <- ifelse(dataset$tijd==0, dataset$s1cap_pc4t1rel,dataset$s1cap_pc4t2rel)
+dataset$s2pc4 <- ifelse(dataset$tijd==0, dataset$s2cap_pc4t1rel,dataset$s2cap_pc4t2rel)
+dataset$s3pc4 <- ifelse(dataset$tijd==0, dataset$s3cap_pc4t1rel,dataset$s3cap_pc4t2rel)
+dataset$s123pc4 <- dataset$s1pc4 + dataset$s2pc4 + dataset$s3pc4
+
+#compute variables for hybrid model: within individual means (between vars) and deviations from mean (within vars). 
+test <- aggregate(dataset[,c("contactnw", "threat", "s123pc4", "s1pc4", "s2pc4", "s3pc4", "y_pvv", "vote_rwsp" )], by=list(dataset$PanelistIdQuestion), FUN=mean)
+names(test) <- c("PanelistIdQuestion", "contactnw_mean", "threat_mean",    "s123pc4_mean" ,  "s1pc4_mean" ,    "s2pc4_mean" ,    "s3pc4_mean" ,    "y_pvv_mean", "vote_rwsp_mean")
+dataset <- merge(dataset, test)
+dataset$contactnw_afw = dataset$contactnw - dataset$contactnw_mean
+dataset$threat_afw = dataset$threat - dataset$threat_mean
+dataset$s123pc4_afw = dataset$s123pc4 - dataset$s123pc4_mean
+dataset$s1pc4_afw = dataset$s1pc4 - dataset$s1pc4_mean
+dataset$s2pc4_afw = dataset$s2pc4 - dataset$s2pc4_mean
+dataset$s3pc4_afw = dataset$s3pc4 - dataset$s3pc4_mean
+
+#create filter vars for analyses: fe is fixed effects, fem is fixed effects multinomial
+dataset$sel_fe = (dataset$y_pvv != dataset$y_pvv_mean)
+dataset$sel_fem = (dataset$vote_rwsp != dataset$vote_rwsp_mean)
+dataset$sel_s123pc4 = (dataset$s123pc4 != dataset$s123pc4_mean)
+
+#match additional data on crisis ASC
+#these data have been added in a later phase 
+duur <- read.csv2("data/Adressen alle AZCs_17022017.csv")
+names(duur)
+duur <- duur[,c("PC4", "Soort", "Cap_Gem", "Duur.tot.4.11")]
+names(duur) <- c("pc4", "soort", "cap", "duur")
+duur <- duur[duur$soort==3,]
+sort(unique(duur$pc4[duur$cap>0]))
+
+#we are multiplying length of stay with number of AS
+duur$s3_altop <- duur$duur * duur$cap
+duur2 <- aggregate(duur[,c("cap", "duur", "s3_altop")], by=list(duur$pc4), FUN=sum)
+#duur2
+names(duur2)[1] <- c("pc4")
+
+dataset <- merge(dataset, duur2, all.x=T)
+dataset$duur[is.na(dataset$duur)] <- 0
+dataset$s3_altop[is.na(dataset$s3_altop)] <- 0
+dataset$cap[is.na(dataset$cap)] <- 0
+
+#asylum seekers in crisis centers per 1000 inhabitants weighted by length of stay
+dataset$s3_altop2 <- 1000 * dataset$s3_altop / (dataset$inw2014_pc4 * dataset$pauto2014_pc4)
+dataset$cap2 <- 1000 * dataset$cap / (dataset$inw2014_pc4 * dataset$pauto2014_pc4)
+dataset$s3_altop <- 1000 * dataset$s3_altop / dataset$inw2014_pc4
+dataset$cap <- 1000 * dataset$cap / dataset$inw2014_pc4
+
+
+```
+
+
+---  
+
+## Appendix A1 {.tabset .tabset-fade}
+
+
+In our manuscript we exploit the panel design of our sample and analyze native Dutch respondents who participated in wave 1 *and* wave 2. (In our fixed effects models we further select on respondents who changed voting intention). Following the suggestion of reviewer#1 We investigated the possibility that PVV supporters in wave 1 are more motivated to accept the invitation to the 2nd survey than non-PVV supporters. We would like to point out that if this type of selection occurred our results will be biased **against** our findings, because we are then less likely to observe an increase in PVV support between wave 1 and wave 2. 
+
+
+```{r}
+#this is our data in long format, before we select on panel members
+data_attrition <- haven::read_dta('data\\evazc attrition v12042017.dta')
+
+table(data_attrition$tijd)
+
+#we check whether respondents of wave1 also participated in wave2
+data_attrition$w2_participation <- NA
+data_attrition$w2_participation[data_attrition$tijd==1] <- data_attrition$PanelistIdQuestion[data_attrition$tijd==1] %in% data_attrition$PanelistIdQuestion[data_attrition$tijd==2]
+
+#we check whether zipcodes will experience increase in ASC
+data_attrition$s1cap_pc4difrel <- data_attrition$s1cap_pc4t2rel - data_attrition$s1cap_pc4t1rel
+data_attrition$s2cap_pc4difrel <- data_attrition$s2cap_pc4t2rel - data_attrition$s2cap_pc4t1rel
+data_attrition$s3cap_pc4difrel <-  data_attrition$s3cap_pc4t2rel - data_attrition$s3cap_pc4t1rel
+data_attrition$s123cap_pc4difrel <-  (data_attrition$s1cap_pc4t2rel + data_attrition$s2cap_pc4t2rel + data_attrition$s3cap_pc4t2rel) - (data_attrition$s1cap_pc4t1rel + data_attrition$s2cap_pc4t1rel + data_attrition$s3cap_pc4t1rel)
+
+
+data_at_t1 <- data_attrition[data_attrition$tijd==1,]
+data_at_t2 <- data_attrition[data_attrition$tijd==2,]
+
+```
+
+### Model 1  
+
+Is support for PVV in wave1 related to participation in wave 2?  
+
+```{r}
+m1 <- glm(w2_participation ~ PVV , family=binomial, data=data_at_t1)
+summary(m1)
+logLik(m1)
+```
+
+The results of this test indeed shows that PVV supporters in wave 1 are more likely to participate in wave 2 than non-PVV supporters in wave 1. We hence conclude that we are likely to **underestimate** the positive relationship between an increase in local exposure to asylum seekers and support for the PVV. 
+
+---  
+
+### Model 2  
+
+Perhaps more importantly, we would like to investigate whether respondents of Wave 1 who are going to experience an increase in local experience are more likely to participate in Wave 2. 
+
+```{r}
+
+m2 <- glm(w2_participation ~ s1cap_pc4difrel + s2cap_pc4difrel + s3cap_pc4difrel, family=binomial, data=data_at_t1)
+summary(m2)
+logLik(m2)
+
+```
+
+The answer is NO. There is no selectivity with respect to our 'treatment', increased exposure to asylum seekers. Not in general, and not among the PVV supporters in wave 1. 
+
+
+---  
+
+### Model 3 
+
+And in particular if this is the case for PVV supporters in Wave 1. 
+
+```{r}
+
+m3 <- glm(w2_participation ~ s1cap_pc4difrel*PVV + s2cap_pc4difrel*PVV + s3cap_pc4difrel*PVV, family=binomial, data=data_at_t1)
+summary(m3)
+logLik(m3)
+
+```
+
+---  
+
+
+
+
+## Appendix A2 {.tabset .tabset-fade}
+
+Unfortunately, in R it is not possible to estimate a fixed effects multinomial logit model. 
+we have to switch to STATA. I will use R to call Stata. 
+
+To replicate this part, please make sure to have Stata installed and within stata the package `femlogit`.
+
+Party labels:  
+
+* 1: right-wing  
+* 2: anti-establishment  
+* 3: demobilized  
+* 0: other  
+* 4: PVV (ref.cat.)  
+
+
+
+### Table A1.  
+
+Set your stata path with `chooseStataBin()`
+```{r}
+require(RStata)
+dataset_sel <- dataset[dataset$sel_fe==1,]
+dataset_selfem <- dataset[dataset$sel_fem==1,]
+
+stata_src <- '
+femlogit vote_rwsp s1pc4 s2pc4 s3pc4 tijd threat contactnw, group(PanelistIdQuestion) base(4) 
+'
+stata(stata_src, data.in = dataset_selfem, stata.version = 15, stata.path = "\"C:\\Program Files (x86)\\Stata15\\StataSE-64\"")
+
+
+```
+
+---  
+
+### Constraints
+
+We tested whether effects were significantly different across choices with setting constraints. An example of how we did this is given below. 
+
+```{r, eval=FALSE}
+stata_src <- '
+cons 7 [0=1]: s2pc4 
+cons 8 [1=2]: s2pc4
+cons 9 [2=3]: s2pc4
+
+femlogit vote_rwsp s1pc4 s2pc4 s3pc4 tijd threat contactnw, group(PanelistIdQuestion) base(4)
+
+estimates store m1
+
+femlogit vote_rwsp s1pc4 s2pc4 s3pc4 tijd threat contactnw, group(PanelistIdQuestion) base(4) const(7/11)
+
+estimates store m2
+
+lrtest m2 m1
+
+'
+
+
+stata(stata_src, data.in = dataset_selfem, stata.version = 15, stata.path = "\"C:\\Program Files (x86)\\Stata15\\StataSE-64\"")
+
+
+```
+---  
+
+
+## Appendix A3 {.tabset .tabset-fade}
+
+### original results
+
+```{r, results="hold"}
+require(survival)
+ev_sel <- dataset[dataset$sel_fe==1,]
+ev_sel2 <- ev_sel[ev_sel$tijd==1,]
+
+#need to multiply _afw with 2 (thus becomes t2-t1 (First difference design), instead of t2 - mean(t2,t1) (fixed effects design)
+ev_sel2$s123pc4_afw <- 2*ev_sel2$s123pc4_afw
+ev_sel2$s1pc4_afw <- 2*ev_sel2$s1pc4_afw
+ev_sel2$s2pc4_afw <- 2*ev_sel2$s2pc4_afw
+ev_sel2$s3pc4_afw <- 2*ev_sel2$s3pc4_afw
+ev_sel2$threat_afw <- 2*ev_sel2$threat_afw
+ev_sel2$contactnw_afw <- 2*ev_sel2$contactnw_afw
+
+#robustness check with newly matched crisis data. 
+m1_alt1e <- glm(y_pvv ~ s123pc4_afw , data=ev_sel2, family=binomial)
+m1_alt2e <- glm(y_pvv ~ s1pc4_afw + s2pc4_afw + cap , data=ev_sel2, family=binomial)
+m1_alt3e <- glm(y_pvv ~ s1pc4_afw + s2pc4_afw + cap + contactnw_afw + threat_afw , data=ev_sel2, family=binomial)
+#summary(m1_alt1e)
+#summary(m1_alt2e)
+summary(m1_alt3e)
+#very small changes, due to 3 additional matched zipcodes
+
+```
+
+---  
+
+### time heterogeneity in exposure
+
+- Conclusion: it is not exposure (number of asylum seekers multiplied by days in zipcode) that increases support. 
+```{r}
+#robustness check with time heterogeneity
+m1_alt1c <- glm(y_pvv ~ s123pc4_afw , data=ev_sel2, family=binomial)
+m1_alt2c <- glm(y_pvv ~ s1pc4_afw  + s2pc4_afw  + s3_altop , data=ev_sel2, family=binomial)
+m1_alt3c <- glm(y_pvv ~ s1pc4_afw  + s2pc4_afw  + s3_altop + contactnw_afw + threat_afw , data=ev_sel2, family=binomial)
+#summary(m1_alt1c)
+#summary(m1_alt2c)
+summary(m1_alt3c)
+```
+
+---  
+
+### controlling for days crisis ASC were used  
+
+- Conclusion 1: the longer crisis ASC were used, the less likely that PVV support increased.  
+- Conclusion 2: the larger the crisis ASC, the more likely that PVV support increased.  
+- Conclusion 3: brief and large influx of asylum seekers in crisis ASC increase support for PVV  
+
+```{r}
+#robustness check with time only, not shown in manuscript
+m1_alt3c2 <- glm(y_pvv ~ s1pc4_afw  + s2pc4_afw  + duur + contactnw_afw + threat_afw , data=ev_sel2, family=binomial)
+
+#controlling for days crisis ASC were used. 
+m1_alt4c2 <- glm(y_pvv ~ s1pc4_afw  + s2pc4_afw + s3pc4_afw  + duur + contactnw_afw + threat_afw , data=ev_sel2, family=binomial)
+
+#summary(m1_alt3c2)
+summary(m1_alt4c2)
+
+```
+
+
+---  
+
+### binarization of exposure (treatment effect)  
+
+- Conclusion: It is not whether there was an influx. The size of the influx matters.    
+
+```{r}
+ev_sel2$treatment <- ev_sel2$s123pc4_afw>0
+ev_sel2$treatments1 <- ev_sel2$s1pc4_afw>0
+ev_sel2$treatments2 <- ev_sel2$s2pc4_afw>0
+ev_sel2$treatments3 <- ev_sel2$s3pc4_afw>0
+m1_alt1b <- glm(y_pvv ~ treatment , data=ev_sel2, family=binomial)
+m1_alt2b <- glm(y_pvv ~ treatments1 + treatments2 + treatments3 , data=ev_sel2, family=binomial)
+m1_alt3b <- glm(y_pvv ~ treatments1 + treatments2 + treatments3 + contactnw_afw + threat_afw , data=ev_sel2, family=binomial)
+#summary(m1_alt1b)
+#summary(m1_alt2b)
+summary(m1_alt3b)
+
+```
+
+---  
+
+
+### exposure at municipality level  
+
+This one is not shown in manuscript. There is a discussion in the literature at which geographical scale we could expect 'context effects'. The crisis centers were a very local phenomenon. We thus do not expect effects at municipality level. Most residents will not be aware of crisis centers. At the municipality level the discussion was more focused on new temporary centers.  
+  
+- Conclusion: At the municipality-level an increase in asylum seekers in temporary centers increases support for the PVV.  
+
+
+```{r}
+
+#robustness check with exposure on municipality level 
+ev_sel2$s123gc_afw <- 1000 * (ev_sel2$s1cap_gct2 + ev_sel2$s2cap_gct2 + ev_sel2$s3cap_gct2 - ev_sel2$s1cap_gct1 - ev_sel2$s2cap_gct1 - ev_sel2$s3cap_gct1)/ev_sel2$inw2014_gc
+ev_sel2$s1gc_afw <- 1000 * (ev_sel2$s1cap_gct2 - ev_sel2$s1cap_gct1)/ev_sel2$inw2014_gc
+ev_sel2$s2gc_afw <- 1000 * (ev_sel2$s2cap_gct2 - ev_sel2$s2cap_gct1)/ev_sel2$inw2014_gc
+ev_sel2$s3gc_afw <- 1000 * (ev_sel2$s3cap_gct2 - ev_sel2$s3cap_gct1)/ev_sel2$inw2014_gc
+
+
+m1_alt1d <- glm(y_pvv ~ s123gc_afw , data=ev_sel2, family=binomial)
+m1_alt2d <- glm(y_pvv ~ s1gc_afw  + s2gc_afw  + s3gc_afw , data=ev_sel2, family=binomial)
+m1_alt3d <- glm(y_pvv ~ s1gc_afw  + s2gc_afw  + s3gc_afw + contactnw_afw + threat_afw , data=ev_sel2, family=binomial)
+#summary(m1_alt1d)
+#summary(m1_alt2d)
+summary(m1_alt3d)
+```
+ 
+---  
+
+### weighted sample
+
+Let us construct sample weights for the fixed effects sample. We show descriptive statistics pre- and post-weighting in Appendix 4. 
+
+```{r, results= 'hold'}
+require(anesrake)
+ev_sel <- dataset[dataset$sel_fe==1,]
+ev_sel2 <- ev_sel[ev_sel$tijd==1,]
+
+#need to multiply _afw with 2 (thus becomes t2-t1 (First difference design), instead of t2 - mean(t2,t1) (fixed effects design)
+ev_sel2$s123pc4_afw <- 2*ev_sel2$s123pc4_afw
+ev_sel2$s1pc4_afw <- 2*ev_sel2$s1pc4_afw
+ev_sel2$s2pc4_afw <- 2*ev_sel2$s2pc4_afw
+ev_sel2$s3pc4_afw <- 2*ev_sel2$s3pc4_afw
+ev_sel2$threat_afw <- 2*ev_sel2$threat_afw
+ev_sel2$contactnw_afw <- 2*ev_sel2$contactnw_afw
+
+
+#ADD WEIGHTS TO Data
+#make caseidn
+ev_sel2$caseidn <- 1:length(ev_sel2[,1])
+
+N <- length(ev_sel2[,1])
+
+#MAKE TARGET VALUES
+#Geslacht
+gender_w <- c(0.503,0.497) # vrouw - man
+
+#Age: 3cats
+age_w <- c(0.238,0.344,0.418) #18-35,35-55,55+
+names(age_w) <- c("age1", "age2", "age3")
+
+#Opl: 3cats
+educ_w <- c(0.323,0.393,0.284) #basis/vmbo/mbo1,mbo2-4/HV/VWO,HBO/WO 
+names(educ_w) <- c("opl1", "opl2", "opl3")
+
+targets <- list(gender_w,age_w, educ_w) 
+names(targets) <- c("gender_w","age_w", "educ_w") 
+
+#check variables in data
+#table(ev_sel2$gender, useNA="always") #man=1
+ev_sel2$gender_w <- as.logical(ev_sel2$gender)
+#table(ev_sel2$gender_w, useNA="always")
+
+#age: 3cats
+#table(ev_sel2$age, useNA="always") #18-35,35-55,55+
+ev_sel2$age_w <- NA
+ev_sel2$age_w[ev_sel2$age<=35] <- 1
+ev_sel2$age_w[ev_sel2$age>35 & ev_sel2$age<=55] <- 2
+ev_sel2$age_w[ev_sel2$age>55] <- 3 
+ev_sel2$age_w <- as.factor(ev_sel2$age_w)
+levels(ev_sel2$age_w) <- c("age1", "age2", "age3")
+#table(ev_sel2$age_w, useNA="always")
+
+#Opl: 3cats
+#table(ev_sel2$educ, useNA="always") 
+ev_sel2$educ_w <- NA
+ev_sel2$educ_w[ev_sel2$educ<=8] <- 1
+ev_sel2$educ_w[ev_sel2$educ> 8 & ev_sel2$educ<=12] <- 2
+ev_sel2$educ_w[ev_sel2$educ>12] <- 3
+ev_sel2$educ_w <-  as.factor(ev_sel2$educ_w)
+levels(ev_sel2$educ_w) <- c("opl1", "opl2", "opl3")
+#table(ev_sel2$educ_w, useNA="always") 
+
+# Education (years of education that constitute the shortest route to obtain a university degree. (After this coding, all values are subtracted from the maximum years of schooling necessary to obtain a university grade))
+#(opl1) 5 lagere school not finished (4yrs) /lagere school (6yrs) 
+#(opl1) 7 lbo, vmbo-kb/bbl (6,5yrs) /mavo, vmbo-tl (8yrs) 
+#(opl2) 11 havo (10yrs) / vwo/gymnasium (12yrs)
+#(opl2) 9,5 mbo-kort (kmbo) (8,5yrs) /mbo-tussen/lang (mbo) (10,5yrs) 
+#(opl3) 14 hbo (14yrs) 
+#(opl3) 16,5 universiteit (bachelormaster, doctoraal)(16,5)
+
+#make weights 
+weighted <- anesrake(inputter=targets, dataframe=ev_sel2, choosemethod="total",caseid=ev_sel2$caseidn,cap = 3, pctlim=5, verbose=FALSE)
+test <- weightassess(targets, ev_sel2, weighted$weightvec)
+#test
+
+# table(ev_sel2$educ)
+# oplp <- test$educ_w[c(1:3),1]*N
+# oplw <- test$educ_w[c(1:3),4]
+# opls <- table(ev_sel2$educ_w)
+# test2 <- matrix(c(oplp, oplw, opls), byrow=T, nrow=3)
+# dimnames(test2) <- list(weightype=c("population","weighted sample", "original sample"),opl=c("low","medium","high"))
+# test2
+# chisq.test(test2[1:2,])
+# 
+# agep <- test$age_w[c(1:3),1]*N
+# agew <- test$age_w[c(1:3),4]
+# test2 <- matrix(c(agep, agew), byrow=T, nrow=2)
+# dimnames(test2) <- list(weightype=c("p","w"),age=c("1","2","3"))
+# test2
+# chisq.test(test2)
+# 
+# geslp <- test$gender_w[c(1:2),1]*N
+# geslw <- test$gender_w[c(1:2),4]
+# test2 <- matrix(c(geslp, geslw), byrow=T, nrow=2)
+# dimnames(test2) <- list(weightype=c("p","w"),age=c("v","m"))
+# test2
+# chisq.test(test2)
+
+ev_sel2 <- cbind(ev_sel2, weighted$weightvec)
+names(ev_sel2)[names(ev_sel2)=="weighted$weightvec"] <- "weightvec3"
+
+```
+
+And let us perform a robustness check on the weighted sample. 
+
+```{r}
+require(survey)
+
+des2 <- svydesign(id = ~1,  weights = ~weightvec3, data = ev_sel2)
+
+# check if weighing gives correct mean
+# svymean(~gender, des2)
+# yes it does. 
+
+glm.sampling.weights1 <- svyglm(y_pvv ~ s123pc4_afw , family = quasibinomial(), design=des2)
+glm.sampling.weights2 <- svyglm(y_pvv ~ s1pc4_afw + s2pc4_afw + s3pc4_afw , family = quasibinomial(), design=des2)
+glm.sampling.weights3 <- svyglm(y_pvv ~ s1pc4_afw + s2pc4_afw + s3pc4_afw + contactnw_afw + threat_afw, family = quasibinomial(), design=des2)
+
+summary(glm.sampling.weights3)
+
+
+
+```
+
+
+--- 
+
+### matched sample  
+
+We analyze whether persons are more likely to have voted in Time1 for PVV than at Time0. Although we use a fixed effects model (thus focus on within person changes) and thereby control for time-stable heterogeneity, we cannot control for time-varying heterogeneity. Because of possible pre-treatment differences among individuals (both measured, and unmeasured), the causal effect may also differ across individuals.
+  
+The idea with pre-processing our data with a matching procedure is that our treated group is as similar as possible to the control group after matching and that the treatment is closer to being independent to (unmeasured time-varying) covariates. After matching we can be more confidant that we have 'no ommitted variable bias'. 
+
+
+> "Recall that under the usual econometric conditions for omitted variable bias, a variable Xi must be controlled for if it is causally
+prior to Ti, empirically related to Ti, and affects Yi conditional on Ti. If instead one or more
+of the three conditions do not hold, then Xi may be omitted without any resulting bias
+(although the variance may increase)."  
+
+@ho_imai_king_stuart_2007 
+  
+We define the treatment as zipcodes that experienced in increase in asylum seekers in ASC.  Although we define a binary treatment variable, in the model we use the continuous 'treatment' (i.e. the increase in asylum seekers per 1000 neigbhorhood residents) as predictor.   
+
+- Conclusion 1: the binary treatment is not significant.  
+- Conclusion 2: in a matched sample the originally reported estimates become stronger. 
+
+```{r, results="hold"}
+require("MatchIt")
+require(optmatch)
+
+ev_sel2 <- ev_sel[ev_sel$tijd==1,]
+
+#start preprocessing data (matching)
+#because we also want to match on ethnic density of NB and SES of NB need to remove missing values.
+#table(ev_sel2$pnwal2014_pc4, useNA="always")
+ev_sel2 <- ev_sel2[!is.na(ev_sel2$pnwal2014_pc4),]
+#lost 3 respondents, no treated
+#table(ev_sel2$woz2012_pc4, useNA="always")
+ev_sel2 <- ev_sel2[!(ev_sel2$woz2012_pc4==0),]
+#lost 1 respondents, no treated
+#take log of NBses
+ev_sel2$LNwoz <- log(ev_sel2$woz2012_pc4)
+summary(ev_sel2$LNwoz)
+
+#define treatment variable: whether there has been an increase in total asylum seekers.  
+ev_sel2$treatment <- ev_sel2$s123pc4_afw>0
+table(ev_sel2$treatment, useNA="always")
+#111 treated
+
+#define treatment variable2: whether there has been an increase in asylum seekers in crisis centers.  
+ev_sel2$treatment2 <- ev_sel2$s3pc4_afw>0
+table(ev_sel2$treatment2, useNA="always")
+#75 treated
+
+ev_sel2$threat_t1 <- ev_sel2$threat_mean - ev_sel2$threat_afw
+ev_sel2$contactnw_t1 <- ev_sel2$contactnw_mean - ev_sel2$contactnw_afw
+
+#let use smaller dataset (to remove missing values in non relevant vars)
+ev_sel2 <- ev_sel2[,c("y_pvv", "treatment","treatment2", "s123pc4_afw", "s1pc4_afw", "s2pc4_afw" , "s3pc4_afw" , "gender", "age", "educ", "contactnw_afw", "threat_afw", "contactnw_t1" , "threat_t1" , "pnwal2014_pc4" , "woz2012_pc4", "LNwoz")]
+
+
+m.out <- matchit(treatment ~ gender + scale(age) + scale(educ) + scale(contactnw_t1) + scale(threat_t1) + scale(pnwal2014_pc4) + scale(LNwoz), data=ev_sel2)
+data_matched <- match.data(m.out)
+
+#quickly see effect of matching
+prop.table(table(ev_sel2$treatment, ev_sel2$y_pvv), margin=1)
+prop.table(table(data_matched$treatment, data_matched$y_pvv), margin=1)
+#conclusion: treated areas less likely to see increase in support for PVV
+summary(glm(y_pvv ~ treatment, data=data_matched, family=binomial))
+# but not significant
+
+#m1_alt_matched1 <- glm(y_pvv ~ s123pc4_afw , data=data_matched, family=binomial)
+#m1_alt_matched2 <- glm(y_pvv ~ s1pc4_afw + s2pc4_afw + s3pc4_afw , data=data_matched, family=binomial)
+m1_alt_matched3 <- glm(y_pvv ~ s1pc4_afw + s2pc4_afw + s3pc4_afw + contactnw_afw + threat_afw, data=data_matched, family=binomial)
+
+#summary(m1_alt_matched1)
+#summary(m1_alt_matched2)
+summary(m1_alt_matched3)
+```
+
+---  
+
+
+### matched sample (alternative treatment)  
+
+This one is not shown in manuscript. We now define a binary treatment based on an increase in crisis centers. 
+
+```{r, results="hold"}
+
+# ## lets match on crisis centers
+ m.out2 <- matchit(treatment2 ~ scale(gender) +  scale(age) + scale(educ) + scale(contactnw_t1) + scale(threat_t1) + scale(pnwal2014_pc4) + scale(LNwoz), data=ev_sel2)
+summary(m.out2)
+ data_matched2 <- match.data(m.out2)
+
+# #quickly see effect of matching
+ prop.table(table(ev_sel2$treatment2, ev_sel2$y_pvv), margin=1)
+ prop.table(table(data_matched2$treatment2, data_matched2$y_pvv), margin=1)
+# #conclusion: in treated zipcodes stronger increase in support for PVV
+ summary(glm(y_pvv ~ treatment2, data=data_matched2, family=binomial))
+#but not significant. 
+ 
+m1_alt_matched1b <- glm(y_pvv ~ s123pc4_afw , data=data_matched2, family=binomial)
+m1_alt_matched2b <- glm(y_pvv ~ s3pc4_afw , data=data_matched2, family=binomial)
+m1_alt_matched3b <- glm(y_pvv ~ s3pc4_afw + contactnw_afw + threat_afw, data=data_matched2, family=binomial)
+ 
+#summary(m1_alt_matched2b)
+summary(m1_alt_matched3b)
+# #conclusion: matching makes effect stronger
+
+
+```
+
+---  
+
+## Appendix A4
+
+The weighing statistics. 
+
+```{r}
+test
+```
+---  
+
+
+## Appendix A5  
+
+The balance statistics.
+
+```{r}
+summary(m.out)
+```
+
+---  
+
+
+## Appendix A6 {.tabset .tabset-fade}
+
+To obtain DiD estimators, we estimate our dichotomous outcome variable with a Linear Probability Model. 
+We use "identity" as link function set the variance to "mu(1-mu)" (as in the binomial distribution) and we allow for (possible) overdispersion. We report cluster corrected standard errors, with individuals as clusters. The DiD model is estimated on the 'hybrid sample'. 
+
+
+```{r}
+require(sandwich)
+require(lmtest)
+ev <- dataset
+
+
+#Because we include ethnic density of NB and SES of NB need as time-constant covariates we have to remove missing values. Similar to our analyses reported in the main text. 
+
+sum(is.na(ev$pnwal2014_pc4))
+ev_sel4 <- ev[!is.na(ev$pnwal2014_pc4),]
+#lost 90 respondents
+
+ev_sel4 <- ev_sel4[!(ev_sel4$woz2012_pc4==0),]
+#lost 22 respondents
+ev_sel4 <- ev_sel4[!is.na(ev_sel4$woz2012_pc4),]
+#lost 3 respondents
+
+#center variables! 
+ev_sel4$age_c <- ev_sel4$age - mean(ev_sel4$age)
+ev_sel4$educ_c <- ev_sel4$educ - mean(ev_sel4$educ)
+ev_sel4$pnwal2014_pc4_c <- ev_sel4$pnwal2014_pc4 - mean(ev_sel4$pnwal2014_pc4)
+ev_sel4$woz2012_pc4_c <- ev_sel4$woz2012_pc4 - mean(ev_sel4$woz2012_pc4)
+
+#divide to help estimation
+ev_sel4$woz2012_pc4_c <- ev_sel4$woz2012_pc4_c/100
+
+ev <- ev_sel4
+
+#define treatments!
+#for continuous treatment vars we multiple the deviations from mean exposure with 2
+
+#treatment (total - binary)
+ev$treatment_did1b <- ifelse((ev$s123pc4_afw>0 & ev$tijd==1) | (ev$s123pc4_afw<0 & ev$tijd==0), 1, 0)
+
+#treatment (crisis - continuous)
+ev$treatment_did1c <- 2 * ifelse(ev$tijd==1, ev$s123pc4_afw, -ev$s123pc4_afw)
+
+#treatment (crisis - binary)
+ev$treatment_did2b <- ifelse((ev$s3pc4_afw>0 & ev$tijd==1) | (ev$s3pc4_afw<0 & ev$tijd==0), 1, 0)
+
+#treatment (crisis - continuous)
+ev$treatment_did2c <- 2 * ifelse(ev$tijd==1, ev$s3pc4_afw, -ev$s3pc4_afw)
+
+```
+
+
+### treatment 'total exposure' (binary)
+
+```{r}
+
+#summary(ev$woz2012_pc4_c)
+did_lm <- lm(y_pvv ~ treatment_did1b + tijd + tijd:treatment_did1b + gender + age_c + educ_c + pnwal2014_pc4_c + woz2012_pc4_c, data=ev) 
+#summary(did_lm)
+#round(coeftest(did_lm, vcov = vcovCL(did_lm, cluster = ~ PanelistIdQuestion)), 3)
+#coef(did_lm)
+
+#did_lpm <- glm(y_pvv ~ treatment_did1b + tijd + tijd:treatment_did1b + gender + age_c + educ_c + pnwal2014_pc4_c + woz2012_pc4_c, family=binomial(link="identity"), data=ev, start=round(coef(did_lm),2))
+#summary(did_lpm)
+#round(coeftest(did_lpm_het, vcov = vcovCL(did_lpm_het, cluster = ~ PanelistIdQuestion)), 3)
+
+did_lpm_het <- glm(y_pvv ~ treatment_did1b + tijd + tijd:treatment_did1b + gender + age_c + educ_c + pnwal2014_pc4_c + woz2012_pc4_c, family=quasi(link="identity", variance = "mu(1-mu)"), data=ev,  start=round(coef(did_lm),2)) 
+
+#summary(did_lpm_het)
+round(coeftest(did_lpm_het, vcov = vcovCL(did_lpm_het, cluster = ~ PanelistIdQuestion)), 3)
+```
+
+#### repeat without covariates
+
+```{r}
+
+did_lm <- lm(y_pvv ~ treatment_did1b + tijd + tijd:treatment_did1b, data=ev) 
+#summary(did_lm)
+#round(coeftest(did_lm, vcov = vcovCL(did_lm, cluster = ~ PanelistIdQuestion)), 3)
+#coef(did_lm)
+
+#did_lpm <- glm(y_pvv ~ treatment_did1b + tijd + tijd:treatment_did1b + gender + age_c + educ_c + pnwal2014_pc4_c + woz2012_pc4_c, family=binomial(link="identity"), data=ev, start=round(coef(did_lm),2))
+#summary(did_lpm)
+#round(coeftest(did_lpm_het, vcov = vcovCL(did_lpm_het, cluster = ~ PanelistIdQuestion)), 3)
+
+did_lpm_het <- glm(y_pvv ~ treatment_did1b + tijd + tijd:treatment_did1b, family=quasi(link="identity", variance = "mu(1-mu)"), data=ev,  start=round(coef(did_lm),2)) 
+
+#summary(did_lpm_het)
+round(coeftest(did_lpm_het, vcov = vcovCL(did_lpm_het, cluster = ~ PanelistIdQuestion)), 3)
+```
+
+---  
+
+### treatment 'total exposure' (continuous)
+
+```{r}
+
+did_lm <- lm(y_pvv ~ treatment_did1c + tijd + tijd:treatment_did1c + gender + age_c + educ_c + pnwal2014_pc4_c + woz2012_pc4_c, data=ev) 
+#summary(did_lm)
+#round(coeftest(did_lm, vcov = vcovCL(did_lm, cluster = ~ PanelistIdQuestion)), 3)
+#coef(did_lm)
+
+#did_lpm <- glm(y_pvv ~ treatment_did1b + tijd + tijd:treatment_did1b + gender + age_c + educ_c + pnwal2014_pc4_c + woz2012_pc4_c, family=binomial(link="identity"), data=ev, start=round(coef(did_lm),2))
+#summary(did_lpm)
+#round(coeftest(did_lpm_het, vcov = vcovCL(did_lpm_het, cluster = ~ PanelistIdQuestion)), 3)
+
+did_lpm_het <- glm(y_pvv ~ treatment_did1c + tijd + tijd:treatment_did1c + gender + age_c + educ_c + pnwal2014_pc4_c + woz2012_pc4_c, family=quasi(link="identity", variance = "mu(1-mu)"), data=ev,  start=round(coef(did_lm),2)) 
+
+summary(did_lpm_het)
+round(coeftest(did_lpm_het, vcov = vcovCL(did_lpm_het, cluster = ~ PanelistIdQuestion)), 3)
+```
+
+#### repeat without covariates
+
+```{r}
+
+did_lm <- lm(y_pvv ~ treatment_did1c + tijd + tijd:treatment_did1c, data=ev) 
+#summary(did_lm)
+#round(coeftest(did_lm, vcov = vcovCL(did_lm, cluster = ~ PanelistIdQuestion)), 3)
+#coef(did_lm)
+
+#did_lpm <- glm(y_pvv ~ treatment_did1b + tijd + tijd:treatment_did1b + gender + age_c + educ_c + pnwal2014_pc4_c + woz2012_pc4_c, family=binomial(link="identity"), data=ev, start=round(coef(did_lm),2))
+#summary(did_lpm)
+#round(coeftest(did_lpm_het, vcov = vcovCL(did_lpm_het, cluster = ~ PanelistIdQuestion)), 3)
+
+did_lpm_het <- glm(y_pvv ~ treatment_did1c + tijd + tijd:treatment_did1c, family=quasi(link="identity", variance = "mu(1-mu)"), data=ev,  start=round(coef(did_lm),2)) 
+
+#summary(did_lpm_het)
+round(coeftest(did_lpm_het, vcov = vcovCL(did_lpm_het, cluster = ~ PanelistIdQuestion)), 4)
+```
+
+---  
+
+### treatment 'crisis exposure' (binary)
+
+```{r}
+
+did_lm <- lm(y_pvv ~ treatment_did2b + tijd + tijd:treatment_did2b + gender + age_c + educ_c + pnwal2014_pc4_c + woz2012_pc4_c, data=ev) 
+#summary(did_lm)
+#round(coeftest(did_lm, vcov = vcovCL(did_lm, cluster = ~ PanelistIdQuestion)), 3)
+#coef(did_lm)
+
+#did_lpm <- glm(y_pvv ~ treatment_did1b + tijd + tijd:treatment_did1b + gender + age_c + educ_c + pnwal2014_pc4_c + woz2012_pc4_c, family=binomial(link="identity"), data=ev, start=round(coef(did_lm),2))
+#summary(did_lpm)
+#round(coeftest(did_lpm_het, vcov = vcovCL(did_lpm_het, cluster = ~ PanelistIdQuestion)), 3)
+
+did_lpm_het <- glm(y_pvv ~ treatment_did2b + tijd + tijd:treatment_did2b + gender + age_c + educ_c + pnwal2014_pc4_c + woz2012_pc4_c, family=quasi(link="identity", variance = "mu(1-mu)"), data=ev,  start=round(coef(did_lm),2)) 
+
+#summary(did_lpm_het)
+round(coeftest(did_lpm_het, vcov = vcovCL(did_lpm_het, cluster = ~ PanelistIdQuestion)), 3)
+```
+
+#### repeat without covariates
+
+```{r}
+
+did_lm <- lm(y_pvv ~ treatment_did2b + tijd + tijd:treatment_did2b, data=ev) 
+#summary(did_lm)
+#round(coeftest(did_lm, vcov = vcovCL(did_lm, cluster = ~ PanelistIdQuestion)), 3)
+#coef(did_lm)
+
+#did_lpm <- glm(y_pvv ~ treatment_did1b + tijd + tijd:treatment_did1b + gender + age_c + educ_c + pnwal2014_pc4_c + woz2012_pc4_c, family=binomial(link="identity"), data=ev, start=round(coef(did_lm),2))
+#summary(did_lpm)
+#round(coeftest(did_lpm_het, vcov = vcovCL(did_lpm_het, cluster = ~ PanelistIdQuestion)), 3)
+
+did_lpm_het <- glm(y_pvv ~ treatment_did2b + tijd + tijd:treatment_did2b, family=quasi(link="identity", variance = "mu(1-mu)"), data=ev,  start=round(coef(did_lm),2)) 
+
+#summary(did_lpm_het)
+round(coeftest(did_lpm_het, vcov = vcovCL(did_lpm_het, cluster = ~ PanelistIdQuestion)), 3)
+```
+
+---  
+
+### treatment 'crisis exposure' (continuous)
+
+```{r}
+
+did_lm <- lm(y_pvv ~ treatment_did2c + tijd + tijd:treatment_did2c + gender + age_c + educ_c + pnwal2014_pc4_c + woz2012_pc4_c, data=ev) 
+#summary(did_lm)
+#round(coeftest(did_lm, vcov = vcovCL(did_lm, cluster = ~ PanelistIdQuestion)), 3)
+#coef(did_lm)
+
+#did_lpm <- glm(y_pvv ~ treatment_did1b + tijd + tijd:treatment_did1b + gender + age_c + educ_c + pnwal2014_pc4_c + woz2012_pc4_c, family=binomial(link="identity"), data=ev, start=round(coef(did_lm),2))
+#summary(did_lpm)
+#round(coeftest(did_lpm_het, vcov = vcovCL(did_lpm_het, cluster = ~ PanelistIdQuestion)), 3)
+
+did_lpm_het <- glm(y_pvv ~ treatment_did2c + tijd + tijd:treatment_did2c + gender + age_c + educ_c + pnwal2014_pc4_c + woz2012_pc4_c, family=quasi(link="identity", variance = "mu(1-mu)"), data=ev,  start=round(coef(did_lm),2)) 
+
+#summary(did_lpm_het)
+round(coeftest(did_lpm_het, vcov = vcovCL(did_lpm_het, cluster = ~ PanelistIdQuestion)), 3)
+```
+
+#### repeat without covariates
+
+
+```{r}
+
+did_lm <- lm(y_pvv ~ treatment_did2c + tijd + tijd:treatment_did2c, data=ev) 
+#summary(did_lm)
+#round(coeftest(did_lm, vcov = vcovCL(did_lm, cluster = ~ PanelistIdQuestion)), 3)
+#coef(did_lm)
+
+#did_lpm <- glm(y_pvv ~ treatment_did1b + tijd + tijd:treatment_did1b + gender + age_c + educ_c + pnwal2014_pc4_c + woz2012_pc4_c, family=binomial(link="identity"), data=ev, start=round(coef(did_lm),2))
+#summary(did_lpm)
+#round(coeftest(did_lpm_het, vcov = vcovCL(did_lpm_het, cluster = ~ PanelistIdQuestion)), 3)
+
+did_lpm_het <- glm(y_pvv ~ treatment_did2c + tijd + tijd:treatment_did2c, family=quasi(link="identity", variance = "mu(1-mu)"), data=ev,  start=round(coef(did_lm),2)) 
+
+#summary(did_lpm_het)
+round(coeftest(did_lpm_het, vcov = vcovCL(did_lpm_het, cluster = ~ PanelistIdQuestion)), 3)
+```
+
+---  
+
+
+---  
+
+

@@ -1,0 +1,98 @@
+Locatienaam;Locatienaam_2;Adres;PC6;PC4;Plaats ;Cap_01012015;Cap_15112015;Soort;Duur
+Amsterdam HS;AmsterdamHS;Havenstraat 6;1075PR;1075;Amsterdam;0;350;2;53
+Amsterdam ST;AmsterdamST;Haaksbergweg 4;1101BX;1101;Amsterdam Zuidoost;0;220;2;54
+Amsterdam DWI;AmsterdamDWI;Flierbosdreef 2;1102BC;1102;Amsterdam Zuidoost;0;510;2;60
+Almere;Almere;Engelse mijl 6;1318EN;1318;Almere;809;823;1;
+Zaandam;Zaandam;Heijemansstraat 127;1502DJ;1502;Zaandam;0;877;2;48
+Heerhugowaard;Heerhugowaard;Van Noortwijklaan 2;1701BP;1701;Heerhugowaard;0;590;1;67
+Den Helder Maaskamp;DenHelderMaaskamp;Nieuweweg 3;1782AZ;1782;Den Helder;590;640;1;
+Den Helder Droggershoek;DenHelderDroggershoek;Burg Ritmeesterweg 20;1784NV;1784;Den Helder;0;560;1;83
+Alkmaar;Alkmaar;Picassolaan 9;1816MD;1816;Alkmaar;507;500;1;
+Bergen aan Zee;BergenaanZee;Parkweg 12;1865AJ;1865;Bergen Aan Zee;100;100;1;
+Haarlem de Koepel;HaarlemdeKoepel;Hamenjansweg 4;2031WK;2031;Haarlem;0;392;2;61
+Katwijk;Katwijk;1e Mientlaan 33;2223LG;2223;Katwijk Zh;1111;1170;1;
+Duinrell;Duinrell;Duinrell 1;2242JP;2242;Wassenaar;627;750;1;
+Leiden;Leiden1;Wassenaarseweg 54;2333AL;2333;Leiden;0;251;2;18
+Alphen ad Rijn DJI;AlphenadRijn;Eikenlaan 36;2404BR;2404;Alphen Aan Den Rijn;0;1085;2;26
+Den Haag;DenHaag2;Kiwistraat 5;2552DH;2552;S-Gravenhage;0;40;2;32
+Den Haag;DenHaagSWZ;Anna van Hannoverstraat 4;2595BJ;2595;S-Gravenhage;0;100;2;6
+Utrecht;Utrecht;Joseph Haydenlaan 2;3533AE;3533;Utrecht;440;440;1;
+Zeist;ZeistKamp;Kampweg 122;3707JX;3707;Zeist;364;490;2;
+Amersfoort;Amersfoort1;Barchman Wuytierslaan 53;3819AB;3819;Amersfoort;301;293;1;
+Putten;Putten;Voorthuizerstraat 75;3881SE;3881;Putten;0;30;2;30
+Nieuw Milligen;NieuwMilligen;Grevenhout 21;3888NR;3888;Uddel;0;30;2;30
+Leersum;Leersum;Hoogstraat 8;3956NB;3956;Leersum;675;675;1;
+Overberg;Overberg;Dwarsweg 45;3959AE;3959;Overberg;116;194;1;
+Middelburg;Middelburg1;Laurens Stommesweg 1;4335AX;4335;Middelbrug;0;280;1;140
+Goes;Goes;Albert Plesmanweg 23;4462GC;4462;Goes;302;302;1;
+Breda;Breda1;Nassausingel 26;4811DG;4811;Breda;345;400;1;
+Tilburg;Tilburg1;Ringbaan-Noord 7;5013EA;5013;Tilburg;0;225;2;32
+Oisterwijk;Oisterwijk1;Kievitsblekweg 4;5062SV;5062;Oisterwijk;452;451;1;
+Gilze en Rijen;GilzeenRijen;Prinsenbosch 2;5126ND;5126;Gilze;890;1192;1;
+Rosmalen;Rosmalen;Graafsebaan 133;5248NL;5248;Rosmalen;0;498;2;70
+Grave;Grave;Generaal de Bonsweg 1;5363ST;5363;Velp Nb;556;672;1;
+Hapert;Hapert;Schouwberg 7;5527JH;5527;Hapert;0;30;2;30
+Eindhoven;Eindhoven;Castillielaan 15;5629CH;5629;Eindhoven;630;700;1;
+Overloon;Overloon;Stevensbeekseweg 14A;5825JC;5825;Overloon;799;810;1;
+Venlo;Venlo;Weselseweg 53;5916RD;5916;Venlo;555;480;1;
+Reuver;Reuver;Lommerbergen 1;5953TT;5953;Reuver;0;30;2;30
+Weert;Weert;Kazernelaan 101;6006SP;6006;Weert;0;999;2;63
+Budel;Budel;Randweg-Oost 32;6021PB;6021;Budel;1500;1430;1;
+Budel-Dorplein;BudelDorplein;Hoofdstraat 80;6024AA;6024;Budel-Dorplein;219;235;1;
+Beexen;Beexen;Exaeten 1;6095PD;6095;Baexem;355;525;1;
+Echt;Echt;Pepinusbrug 2;6102RJ;6102;Echt;408;412;1;
+Sweikhuizen;Sweikhuizen;Moorheide 1;6174RZ;6174;Sweikhuizen;238;197;1;
+Maastricht;Maastricht1;Willem Alexanderweg 21;6222NA;6222;Maastricht;470;610;1;
+Gulpen Landsrade;GulpenLandsrade;Landsrade 9;6271NZ;6271;Gulpen;200;250;1;
+Vaals;Vaals;Randweg  21;6291DC;6291;Vaals;0;30;2;30
+Heerlen;Heerlen;Imstenrade 6;6419PL;6419;Heerlen;348;348;1;
+Nijmegen;Nijmegen;Dommer v Poldersveldtweg 112;6523DC;6523;Nijmegen;343;385;1;
+Nijmegen Heumesoord;NijmegenHeumesoord;Beukenlaan 3;6581KV;6581;Malden;0;2952;2;46
+Wageningen;Wageningen;Keijenbergseweg 10;6705BN;6705;Wageningen;294;328;1;
+Ede;Ede;Nieuwe Kazernelaan 2;6711JC;6711;Ede Gld;0;300;2;31
+Arnhem De Berg;ArnhemDeBerg;Wilhelminastraat 16;6812CW;6812;Arnhem;0;400;2;64
+Arnhem-Vreeden;ArnhemVreeden;Groningensingel 1225;6835HZ;6835;Arnhem;329;329;1;
+Velp;Velp;Broekstraat 9;6882GZ;6882;Velp Gld;0;250;1;261
+Eerbeek;Eerbeek;Boshoffweg 6;6961LD;6961;Eerbeek;0;30;2;30
+Doetinchem;Doetinchem1;Hogenslagweg 8;7009CD;7009;Doetinchem;350;576;1;
+Winterswijk;Winterswijk1;Amstelstraat 9;7103JP;7103;Winterswijk;500;501;2;
+Borculo;Borculo;Wessel van Eylilaan 15;7271NT;7271;Borculo;0;130;2;25
+Apeldoorn;Apeldoorn;De Voorwaarde 440;7321MG;7321;Apeldoorn;0;479;2;77
+Hoenderloo;Hoenderloo;Miggelenbergweg 65;7351BP;7351;Hoenderloo;0;30;2;30
+Beekbergen;Beekbergen;Hoge Bergweg 30;7361GS;7361;Beekbergen;0;30;2;30
+Deventer;Deventer;Het Vlier 28;7414AS;7414;Deventer;0;50;2;15
+Schalkaar;Schalkaar;Frieswijkerweg 2;7433RB;7433;Schalkhaar;606;660;1;
+Holten;Holten;Landuwerweg 17;7451SP;7451;Holten;0;30;2;30
+Hengelo;Hengelo;Willemstraat 47;7551DL;7551;Hengelo Ov;0;135;1;47
+Almelo;Almelo;Vriezenveenseweg 170a;7602PV;7602;Almelo;394;336;1;
+Azelo;Azelo;Bornerbroeksestraat 103;7621AE;7621;Borne;300;340;1;
+Ootmarsum;Ootmarsum;Tichelwerk 1;7631CJ;7631;Ootmarsum;0;230;1;190
+Ommen;Ommen1;Besthemerberg 1;7731PB;7731;Ommen;370;362;1;
+Emmen;Emmen;Wilhelmsweg 85;7814VG;7814;Emmen;515;647;1;
+Aalden;Aalden;Aelderholt 4;7854TZ;7854;Aalden;0;30;2;30
+Zweeloo;Zweeloo;Witte Zandpad 1;7854TW;7854;Aalden;470;450;1;
+Hoogeveen;Hoogeveen;Kinholtsweg 7;7909CA;7909;Hoogeveen;0;973;1;266
+Geeuwenbrug;Geeuwenbrug;De Eikenhorst 5;7985NP;7985;Geeuwenbrug;87;124;1;
+Zwolle;Zwolle;Rieteweg 4;8011AB;8011;Zwolle;0;400;2;120
+Vierhouten;Vierhouten1;t Frusselt 30;8076RE;8076;Vierhouten;0;60;2;54
+Dronten;Dronten;Vossemeerdijk 40;8251PN;8251;Dronten;1168;1365;1;
+Luttelgeest;Luttelgeest;Oosterringweg 41;8315PS;8315;Luttelgeest;1000;1400;1;
+Scheerwolde;Scheerwolde;Blokzijlseweg 8;8371VG;8371;Scheerwolde;0;35;2;41
+Vledder;Vledder;Vledderweg 19;8381AB;8381;Vledder;120;180;1;
+Leeuwarden WTC;LeeuwardenWTC;Heliconweg 52;8914AT;8914;Leeuwarden;0;600;2;32
+Maagdepalm 116;Maagdepalm116;Maagdepalm 116;8935NH;8935;Leeuwarden;12;12;1;
+Maagdepalm 122;Maagdepalm122;Maagdepalm 122;8935NH;8935;Leeuwarden;8;12;1;
+St. Annaparochie;Annaparochie;Middelweg-West 176;9076GE;9076;St.-Annaparochie;400;411;1;
+Drachten;Drachten;Noorderend 2;9207AL;9207;Drachten;469;344;1;
+Burgum;Burgum;Elingsloane 63;9251MN;9251;Burgum;480;480;1;
+Veenhuizen;Veenhuizen1;Bankenbosweg 2;9341BE;9341;Veenhuizen;385;599;1;
+Oranje;Oranje;Oranje 8;9416TC;9416;Oranje;0;700;1;47
+Pagedal;Pagedal;Hoveniersweg 1;9502BW;9502;Stadskanaal;0;538;2;57
+Ter Apel;TerApel;Ter Apelervenen 5;9561MC;9561;Ter Apel;1922;1663;1;
+Musselkanaal;Musselkanaal;De Brink 7;9581TR;9581;Musselkanaal;550;530;1;
+Slochteren;Slochteren;A. Einsteinlaan 3;9615TE;9615;Kolham;0;144;2;6
+Oude Pekela;OudePekela;Hooiweg 1;9665TZ;9665;Oude Pekela;467;500;1;
+Bellingwolde 'De Grenshof';Bellingwolde;Hoofdweg 261;9695AH;9695;Bellingwolde;330;344;1;
+Groningen;Groningen;Van Swietenlaan 23;9728NX;9728;Groningen;0;410;2;32
+Onnen;Onnen;Dorpsweg 67A;9755PB;9755;Onnen;480;479;1;
+Delfzijl;Delfzijl;Zwet 40;9932AB;9932;Delfzijl;570;452;1;

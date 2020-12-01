@@ -7,14 +7,15 @@ navbar:
       href: index.html
     - text: "Supplementary Material"
       href: SM.html
-    - text: "Response Reviewer"
-      href: RR.html
     - text: "Data preperation"
       href: dataprep.html
+  right:
+    - icon: fa-github
+      href: https://github.com/JochemTolsma
 output:
   html_document:
     theme: flatly
     highlight: default
+    include:
+      after_body: footer.html
     
-
- 

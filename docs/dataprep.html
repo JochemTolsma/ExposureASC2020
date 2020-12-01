@@ -1,0 +1,1945 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Jochem Tolsma - Radboud University, the Netherlands" />
+
+
+<title>Exposure to Asylum Seekers</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<script src="site_libs/navigation-1.1/sourceembed.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="site_libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="site_libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="site_libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+#rmd-source-code {
+  display: none;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Replication package</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Tables Manuscript</a>
+</li>
+<li>
+  <a href="SM.html">Supplementary Material</a>
+</li>
+<li>
+  <a href="dataprep.html">Data preperation</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/JochemTolsma">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+<li role="separator" class="divider"></li>
+<li><a id="rmd-download-source" href="#">Download Rmd</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Exposure to Asylum Seekers</h1>
+<h4 class="author"><a href="https://www.jochemtolsma.nl">Jochem Tolsma</a> - Radboud University, the Netherlands</h4>
+<h4 class="date">Last compiled on december, 2020</h4>
+
+</div>
+
+
+<script>
+  addClassKlippyTo("pre.r, pre.markdown");
+  addKlippy('right', 'top', 'auto', '1', 'Copy code', 'Copied!');
+</script>
+<style type="text/css">
+pre.test {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: auto;
+  margin: 0px;
+}
+
+pre.test2 {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: auto;
+  margin: 0px;
+  background-color: white
+}
+
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 24px;
+}
+
+
+</style>
+<hr />
+<p>This website is a replication package for the paper “Exposure to Asylum Seekers and Changing Support for the Radical Right: A Natural Experiment in the Netherlands” by <span class="citation">Tolsma, Laméris, and Savelkoul (n.d.)</span>. It contains all necessary R code and datasets to replicate all Tables in the manuscript.</p>
+<p>Use the top menu to navigate to the section of interest. The section introduces the original survey data of <a href="https://eenvandaag.avrotros.nl/panels/opiniepanel/">1VOP</a> and the data of the <a href="https://www.coa.nl/en">Central Agency for the Reception of Asylum Seekers (COA)</a>.</p>
+<p>To copy the code click the button in the upper right corner of the code-chunks.</p>
+<hr />
+<div id="contact" class="section level2">
+<h2>Contact</h2>
+<p>Questions can be addressed to the first author of the corresponding article, <a href="mailto:j.tolsma@ru.nl">Jochem Tolsma</a>.</p>
+<hr />
+</div>
+<div id="data-1vop" class="section level2">
+<h2>DATA 1VOP</h2>
+<p>The original datasets can be acquired by sending a request to 1VOP. The names of the used datasets were:</p>
+<ul>
+<li>Wave 1: top1provincialestaten.sav<br />
+</li>
+<li>Wave 2: AZC TOLSMA 3_17.11.15_08.40.15.AM.sav</li>
+</ul>
+<p>Below we show the variable names and an excerpt of the original datasets.</p>
+<p><strong>WAVE 1:</strong></p>
+<pre class="test2"><code>#&gt;  [1] &quot;Stemmen&quot;                                                         
+#&gt;  [2] &quot;NietStemmenReden_Ikkannietopdiedag&quot;                              
+#&gt;  [3] &quot;NietStemmenReden_Ikbenhetnieteensmetdekoersvanhetprovinciebestuu&quot;
+#&gt;  [4] &quot;NietStemmenReden_Ikweetnietwathetprovinciebestuurdoet&quot;           
+#&gt;  [5] &quot;NietStemmenReden_Ikhebgeenvertrouweninderegionalepolitiek&quot;       
+#&gt;  [6] &quot;NietStemmenReden_Ikhebgeenvertrouwenindepolitiekinhetalgemeen&quot;   
+#&gt;  [7] &quot;NietStemmenReden_Ikvindprovincialeverkiezingennietbelangrijk&quot;    
+#&gt;  [8] &quot;NietStemmenReden_Ikkendekandidatenenhunstandpuntenniet&quot;          
+#&gt;  [9] &quot;NietStemmenReden_Ikgaeigenlijknooitstemmen&quot;                      
+#&gt; [10] &quot;NietStemmenReden_Mijnstemmaaktgeenverschil&quot;                      
+#&gt; [11] &quot;NietStemmenReden_Andereredennamelijk&quot;                            
+#&gt; [12] &quot;NietStemmenReden_Weetnietgeenmening&quot;                             
+#&gt; [13] &quot;NietStemmenReden_11_other&quot;                                       
+#&gt; [14] &quot;stemvraagPS&quot;                                                     
+#&gt; [15] &quot;ZekerStemkeuze&quot;                                                  
+#&gt; [16] &quot;BelangLandProv&quot;                                                  
+#&gt; [17] &quot;StemmenAnders&quot;                                                   
+#&gt; [18] &quot;stemvraag&quot;                                                       
+#&gt; [19] &quot;Age_Rollup_Opinie&quot;                                               
+#&gt; [20] &quot;Education_Rollup_Opinie&quot;                                         
+#&gt; [21] &quot;Stem2012_Rollup_Opinie&quot;                                          
+#&gt; [22] &quot;Geslacht_Opinie&quot;                                                 
+#&gt; [23] &quot;Geboortedatum_Opinie&quot;                                            
+#&gt; [24] &quot;Burgerlijke_staat_Opinie&quot;                                        
+#&gt; [25] &quot;Situatie_huishouden_Opinie&quot;                                      
+#&gt; [26] &quot;Provincie_Opinie&quot;                                                
+#&gt; [27] &quot;Postcode_Opinie&quot;                                                 
+#&gt; [28] &quot;Opleiding_Opinie&quot;                                                
+#&gt; [29] &quot;Dagelijkse_activiteit_Opinie&quot;                                    
+#&gt; [30] &quot;Stemgedrag_TK_Opinie&quot;                                            
+#&gt; [31] &quot;Herkomst_familie_Opinie&quot;                                         
+#&gt; [32] &quot;PanelistIdQuestion&quot;                                              
+#&gt; [33] &quot;RB_1&quot;                                                            
+#&gt; [34] &quot;RB_2&quot;                                                            
+#&gt; [35] &quot;RB_3a&quot;                                                           
+#&gt; [36] &quot;RB_3b&quot;</code></pre>
+<pre class="test2"><code>#&gt;    Stemmen NietStemmenReden_Ikkannietopdiedag
+#&gt; 50       1                                 NA
+#&gt; 51       1                                 NA
+#&gt; 52       1                                 NA
+#&gt; 53       1                                 NA
+#&gt; 54       1                                 NA
+#&gt; 55       1                                 NA
+#&gt; 56       4                                 NA
+#&gt; 57       1                                 NA
+#&gt; 58       1                                 NA
+#&gt; 59       1                                 NA
+#&gt; 60       1                                 NA
+#&gt;    NietStemmenReden_Ikbenhetnieteensmetdekoersvanhetprovinciebestuu
+#&gt; 50                                                               NA
+#&gt; 51                                                               NA
+#&gt; 52                                                               NA
+#&gt; 53                                                               NA
+#&gt; 54                                                               NA
+#&gt; 55                                                               NA
+#&gt; 56                                                               NA
+#&gt; 57                                                               NA
+#&gt; 58                                                               NA
+#&gt; 59                                                               NA
+#&gt; 60                                                               NA
+#&gt;    NietStemmenReden_Ikweetnietwathetprovinciebestuurdoet
+#&gt; 50                                                    NA
+#&gt; 51                                                    NA
+#&gt; 52                                                    NA
+#&gt; 53                                                    NA
+#&gt; 54                                                    NA
+#&gt; 55                                                    NA
+#&gt; 56                                                    NA
+#&gt; 57                                                    NA
+#&gt; 58                                                    NA
+#&gt; 59                                                    NA
+#&gt; 60                                                    NA
+#&gt;    NietStemmenReden_Ikhebgeenvertrouweninderegionalepolitiek
+#&gt; 50                                                        NA
+#&gt; 51                                                        NA
+#&gt; 52                                                        NA
+#&gt; 53                                                        NA
+#&gt; 54                                                        NA
+#&gt; 55                                                        NA
+#&gt; 56                                                        NA
+#&gt; 57                                                        NA
+#&gt; 58                                                        NA
+#&gt; 59                                                        NA
+#&gt; 60                                                        NA
+#&gt;    NietStemmenReden_Ikhebgeenvertrouwenindepolitiekinhetalgemeen
+#&gt; 50                                                            NA
+#&gt; 51                                                            NA
+#&gt; 52                                                            NA
+#&gt; 53                                                            NA
+#&gt; 54                                                            NA
+#&gt; 55                                                            NA
+#&gt; 56                                                            NA
+#&gt; 57                                                            NA
+#&gt; 58                                                            NA
+#&gt; 59                                                            NA
+#&gt; 60                                                            NA
+#&gt;    NietStemmenReden_Ikvindprovincialeverkiezingennietbelangrijk
+#&gt; 50                                                           NA
+#&gt; 51                                                           NA
+#&gt; 52                                                           NA
+#&gt; 53                                                           NA
+#&gt; 54                                                           NA
+#&gt; 55                                                           NA
+#&gt; 56                                                           NA
+#&gt; 57                                                           NA
+#&gt; 58                                                           NA
+#&gt; 59                                                           NA
+#&gt; 60                                                           NA
+#&gt;    NietStemmenReden_Ikkendekandidatenenhunstandpuntenniet
+#&gt; 50                                                     NA
+#&gt; 51                                                     NA
+#&gt; 52                                                     NA
+#&gt; 53                                                     NA
+#&gt; 54                                                     NA
+#&gt; 55                                                     NA
+#&gt; 56                                                     NA
+#&gt; 57                                                     NA
+#&gt; 58                                                     NA
+#&gt; 59                                                     NA
+#&gt; 60                                                     NA
+#&gt;    NietStemmenReden_Ikgaeigenlijknooitstemmen NietStemmenReden_Mijnstemmaaktgeenverschil
+#&gt; 50                                         NA                                         NA
+#&gt; 51                                         NA                                         NA
+#&gt; 52                                         NA                                         NA
+#&gt; 53                                         NA                                         NA
+#&gt; 54                                         NA                                         NA
+#&gt; 55                                         NA                                         NA
+#&gt; 56                                         NA                                         NA
+#&gt; 57                                         NA                                         NA
+#&gt; 58                                         NA                                         NA
+#&gt; 59                                         NA                                         NA
+#&gt; 60                                         NA                                         NA
+#&gt;    NietStemmenReden_Andereredennamelijk NietStemmenReden_Weetnietgeenmening
+#&gt; 50                                   NA                                  NA
+#&gt; 51                                   NA                                  NA
+#&gt; 52                                   NA                                  NA
+#&gt; 53                                   NA                                  NA
+#&gt; 54                                   NA                                  NA
+#&gt; 55                                   NA                                  NA
+#&gt; 56                                   NA                                  NA
+#&gt; 57                                   NA                                  NA
+#&gt; 58                                   NA                                  NA
+#&gt; 59                                   NA                                  NA
+#&gt; 60                                   NA                                  NA
+#&gt;    NietStemmenReden_11_other stemvraagPS ZekerStemkeuze BelangLandProv StemmenAnders stemvraag
+#&gt; 50                                     6              1              2             1         6
+#&gt; 51                                    13             NA             NA             4         6
+#&gt; 52                                    13             NA             NA             4        13
+#&gt; 53                                     7              2              3             1         7
+#&gt; 54                                    13             NA             NA             2        13
+#&gt; 55                                     3              1              1             1         3
+#&gt; 56                                    NA             NA             NA             1         5
+#&gt; 57                                     4              1              1             1         4
+#&gt; 58                                     6              1              3             1         6
+#&gt; 59                                     1              1              3             1         1
+#&gt; 60                                     6              2              1             2         6
+#&gt;    Age_Rollup_Opinie Education_Rollup_Opinie Stem2012_Rollup_Opinie Geslacht_Opinie
+#&gt; 50                 1                       5                     10               2
+#&gt; 51                 1                       5                      2               1
+#&gt; 52                 1                       5                      1               1
+#&gt; 53                 1                       5                      2               1
+#&gt; 54                 1                       5                      3               1
+#&gt; 55                 1                       5                      1               1
+#&gt; 56                 1                       5                      4               2
+#&gt; 57                 1                       5                      5               1
+#&gt; 58                 1                       5                      6               2
+#&gt; 59                 1                       5                      1               1
+#&gt; 60                 1                       5                      1               1
+#&gt;    Geboortedatum_Opinie Burgerlijke_staat_Opinie Situatie_huishouden_Opinie Provincie_Opinie
+#&gt; 50           1991-10-13                        4                          1                9
+#&gt; 51           1992-02-18                        4                          4                9
+#&gt; 52           1990-08-26                        4                          7                9
+#&gt; 53           1991-07-08                        4                          1                5
+#&gt; 54           1992-05-06                        4                          1                1
+#&gt; 55           1991-10-31                        4                          1                9
+#&gt; 56           1991-09-11                        4                          1                5
+#&gt; 57           1992-04-24                        4                          4                4
+#&gt; 58           1991-04-14                        4                          2                9
+#&gt; 59           1990-08-05                        4                          1                8
+#&gt; 60           1991-06-12                        4                          2                6
+#&gt;    Postcode_Opinie Opleiding_Opinie Dagelijkse_activiteit_Opinie Stemgedrag_TK_Opinie
+#&gt; 50            2352                6                            5                   10
+#&gt; 51            3063                6                            5                    2
+#&gt; 52            2593                5                            5                    1
+#&gt; 53            8316                5                            5                    2
+#&gt; 54            9561                5                            5                    3
+#&gt; 55            2564                5                            5                    1
+#&gt; 56            1335                5                            3                    4
+#&gt; 57            8021                5                            5                    5
+#&gt; 58            3245                6                            5                    6
+#&gt; 59            1705                5                            5                    1
+#&gt; 60            6828                5                            5                    1
+#&gt;    Herkomst_familie_Opinie PanelistIdQuestion RB_1 RB_2 RB_3a RB_3b
+#&gt; 50                       1                510    4   60     7     3
+#&gt; 51                       1                513    4   10     7     7
+#&gt; 52                       1                521    2   10     2     6
+#&gt; 53                       1                522    5    5     4     3
+#&gt; 54                       1                530    4    1     8     8
+#&gt; 55                       1                541    1    3     7     8
+#&gt; 56                      14                548    5    2     1     1
+#&gt; 57                       1                557    3   10     7     7
+#&gt; 58                       1                582    5    1     3     3
+#&gt; 59                       1                589    2    8     2     2
+#&gt; 60                       1                593    2   25     2     5</code></pre>
+<hr />
+<p><strong>WAVE 2:</strong></p>
+<pre class="test2"><code>#&gt;   [1] &quot;PanelistIdQuestion&quot;                                    
+#&gt;   [2] &quot;Rutte_gedaan_hoe&quot;                                      
+#&gt;   [3] &quot;Open_hoe_Rutte_typeren&quot;                                
+#&gt;   [4] &quot;vertrouwen_mp_rutte&quot;                                   
+#&gt;   [5] &quot;rapportcijfer_mp_rutte&quot;                                
+#&gt;   [6] &quot;vertrouwen_kabinet_Rutte2&quot;                             
+#&gt;   [7] &quot;rapportcijfer_kabinet&quot;                                 
+#&gt;   [8] &quot;aanpak_kabinet&quot;                                        
+#&gt;   [9] &quot;leiderschap_Rutte&quot;                                     
+#&gt;  [10] &quot;Open_Rutte_leiderschap&quot;                                
+#&gt;  [11] &quot;Asielzoekers_oorlogsgebieden&quot;                          
+#&gt;  [12] &quot;vluchtelingen_opnemen_2&quot;                               
+#&gt;  [13] &quot;hoe_veel_dit_jaar_toelaten&quot;                            
+#&gt;  [14] &quot;hoe_veel_volgend_jaar_toelaten&quot;                        
+#&gt;  [15] &quot;Invloed_nederland&quot;                                     
+#&gt;  [16] &quot;Positief_negatief&quot;                                     
+#&gt;  [17] &quot;Invloed_nederland_open&quot;                                
+#&gt;  [18] &quot;Asielzoekers_buurt&quot;                                    
+#&gt;  [19] &quot;Ervaringen_opvang&quot;                                     
+#&gt;  [20] &quot;Overlast_vluchtelingen&quot;                                
+#&gt;  [21] &quot;Overlast_open&quot;                                         
+#&gt;  [22] &quot;Asielzoekers_gemeente&quot;                                 
+#&gt;  [23] &quot;Ervaring_opvang_gemeente&quot;                              
+#&gt;  [24] &quot;Overlast_opvang_gemeente&quot;                              
+#&gt;  [25] &quot;Overlast_gemeente_open&quot;                                
+#&gt;  [26] &quot;Buurt&quot;                                                 
+#&gt;  [27] &quot;komst_minderheden&quot;                                     
+#&gt;  [28] &quot;Niet_westers&quot;                                          
+#&gt;  [29] &quot;Oost_europees&quot;                                         
+#&gt;  [30] &quot;Niet_Westers_open&quot;                                     
+#&gt;  [31] &quot;Open_westers&quot;                                          
+#&gt;  [32] &quot;aankijken_tegen_moslims_37&quot;                            
+#&gt;  [33] &quot;verrijking_10&quot;                                         
+#&gt;  [34] &quot;bedreiging_11&quot;                                         
+#&gt;  [35] &quot;verrijking_bedreiging_8&quot;                               
+#&gt;  [36] &quot;lichttoe_verrijking_bedreiging_9&quot;                      
+#&gt;  [37] &quot;stemvraag&quot;                                             
+#&gt;  [38] &quot;stemvraag_18_other&quot;                                    
+#&gt;  [39] &quot;toelichting_stemvraag&quot;                                 
+#&gt;  [40] &quot;CompletedDate&quot;                                         
+#&gt;  [41] &quot;StartedDate&quot;                                           
+#&gt;  [42] &quot;InvitationDate&quot;                                        
+#&gt;  [43] &quot;CompletionTime&quot;                                        
+#&gt;  [44] &quot;ResponseStatus&quot;                                        
+#&gt;  [45] &quot;Version&quot;                                               
+#&gt;  [46] &quot;Sample&quot;                                                
+#&gt;  [47] &quot;Communication_InvitationSent&quot;                          
+#&gt;  [48] &quot;Communication_Reminder1Sent&quot;                           
+#&gt;  [49] &quot;Communication_Reminder2Sent&quot;                           
+#&gt;  [50] &quot;Communication_Reminder3Sent&quot;                           
+#&gt;  [51] &quot;PointsEarned&quot;                                          
+#&gt;  [52] &quot;BrowserData&quot;                                           
+#&gt;  [53] &quot;RespondentSource_SparqPortal&quot;                          
+#&gt;  [54] &quot;RespondentSource_FacebookPortal&quot;                       
+#&gt;  [55] &quot;OSType&quot;                                                
+#&gt;  [56] &quot;DeviceType&quot;                                            
+#&gt;  [57] &quot;BrowserType&quot;                                           
+#&gt;  [58] &quot;BrowserVersion&quot;                                        
+#&gt;  [59] &quot;PluginType_Flash&quot;                                      
+#&gt;  [60] &quot;PluginType_NoDetectablePlugin&quot;                         
+#&gt;  [61] &quot;PluginType_flash_other&quot;                                
+#&gt;  [62] &quot;BrowserExperience_VisualQuestionReady&quot;                 
+#&gt;  [63] &quot;BrowserExperience_JavascriptEnabled&quot;                   
+#&gt;  [64] &quot;BrowserExperience_UserAgent&quot;                           
+#&gt;  [65] &quot;BrowserExperience_ClientSideErrorEncountered&quot;          
+#&gt;  [66] &quot;BrowserExperience_ServerSideErrorEncountered&quot;          
+#&gt;  [67] &quot;BrowserExperience_useragent_other&quot;                     
+#&gt;  [68] &quot;RespondentExperience&quot;                                  
+#&gt;  [69] &quot;Age_Rollup_Jongeren&quot;                                   
+#&gt;  [70] &quot;Age_Years_Rollup_Jongeren&quot;                             
+#&gt;  [71] &quot;Age_Rollup_Opinie&quot;                                     
+#&gt;  [72] &quot;Age_Rollup_Jongeren_II&quot;                                
+#&gt;  [73] &quot;Age_Rollup_Jongeren_III&quot;                               
+#&gt;  [74] &quot;Education_Rollup_Opinie&quot;                               
+#&gt;  [75] &quot;Stem2012_Rollup_Opinie&quot;                                
+#&gt;  [76] &quot;Community_Segment&quot;                                     
+#&gt;  [77] &quot;Geboortedatum_Jongeren&quot;                                
+#&gt;  [78] &quot;Geslacht_Jongeren&quot;                                     
+#&gt;  [79] &quot;Provincie_Jongeren&quot;                                    
+#&gt;  [80] &quot;Postcode_Jongeren&quot;                                     
+#&gt;  [81] &quot;Situatie_Jongeren&quot;                                     
+#&gt;  [82] &quot;Opleiding_Jongeren&quot;                                    
+#&gt;  [83] &quot;Onderwijs_verdeling_Jongeren&quot;                          
+#&gt;  [84] &quot;Herkomst_familie_Jongeren&quot;                             
+#&gt;  [85] &quot;Herkomst_familie_Jongeren_17_other&quot;                    
+#&gt;  [86] &quot;Geslacht_Opinie&quot;                                       
+#&gt;  [87] &quot;Geboortedatum_Opinie&quot;                                  
+#&gt;  [88] &quot;Burgerlijke_staat_Opinie&quot;                              
+#&gt;  [89] &quot;Situatie_huishouden_Opinie&quot;                            
+#&gt;  [90] &quot;Leeftijd_kinderen_Opinie_03jaar&quot;                       
+#&gt;  [91] &quot;Leeftijd_kinderen_Opinie_412jaar&quot;                      
+#&gt;  [92] &quot;Leeftijd_kinderen_Opinie_1318jaar&quot;                     
+#&gt;  [93] &quot;Leeftijd_kinderen_Opinie_1924jaar&quot;                     
+#&gt;  [94] &quot;Leeftijd_kinderen_Opinie_25jaarenouder&quot;                
+#&gt;  [95] &quot;Leeftijd_kinderen_Opinie_Ikhebgeenthuiswonendekinderen&quot;
+#&gt;  [96] &quot;Provincie_Opinie&quot;                                      
+#&gt;  [97] &quot;Stad_Opinie&quot;                                           
+#&gt;  [98] &quot;Postcode_Opinie&quot;                                       
+#&gt;  [99] &quot;Huis_Opinie&quot;                                           
+#&gt; [100] &quot;Opleiding_Opinie&quot;                                      
+#&gt; [101] &quot;Dagelijkse_activiteit_Opinie&quot;                          
+#&gt; [102] &quot;Werk_sector_Opinie&quot;                                    
+#&gt; [103] &quot;Gezondheidszorg_Opinie&quot;                                
+#&gt; [104] &quot;Onderwijs_Opinie&quot;                                      
+#&gt; [105] &quot;Vervoer_Opinie&quot;                                        
+#&gt; [106] &quot;Inkomen_Opinie&quot;                                        
+#&gt; [107] &quot;Lidmaatschap_politieke_partij_Opinie&quot;                  
+#&gt; [108] &quot;Stemgedrag_TK_Opinie&quot;                                  
+#&gt; [109] &quot;Vakbond_Opinie&quot;                                        
+#&gt; [110] &quot;Herkomst_familie_Opinie&quot;                               
+#&gt; [111] &quot;Herkomst_familie_Opinie_22_other&quot;                      
+#&gt; [112] &quot;Religie_Opinie&quot;                                        
+#&gt; [113] &quot;Religie_Opinie_7_other&quot;                                
+#&gt; [114] &quot;ERR_MSG&quot;                                               
+#&gt; [115] &quot;Cohort_Jongeren&quot;                                       
+#&gt; [116] &quot;Cohort_Opinie&quot;                                         
+#&gt; [117] &quot;debug&quot;                                                 
+#&gt; [118] &quot;Post_Code_Rollup_Opinie&quot;</code></pre>
+<p>PanelistIdQuestion Rutte_gedaan_hoe Open_hoe_Rutte_typeren vertrouwen_mp_rutte 70 681 4 Afwezig 3 71 684 NA NA 72 693 NA NA 73 694 3 3 74 717 NA NA 75 719 3 3 76 722 2 2 77 724 NA NA 78 725 4 4 79 730 3 3 80 761 3 3 rapportcijfer_mp_rutte vertrouwen_kabinet_Rutte2 rapportcijfer_kabinet aanpak_kabinet 70 3.0 3 5 4 71 NA NA NA 2 72 NA NA NA 3 73 6.0 3 4 4 74 NA NA NA 3 75 5.0 2 7 2 76 7.0 2 NA 3 77 NA NA NA 3 78 1.0 4 1 3 79 5.5 4 1 4 80 5.0 3 5 3 leiderschap_Rutte 70 2 71 3 72 2 73 3 74 2 75 2 76 1 77 2 78 2 79 2 80 2 Open_Rutte_leiderschap 70<br />
+71<br />
+72<br />
+73<br />
+74<br />
+75<br />
+76<br />
+77<br />
+78<br />
+79 Wat ik Rutte hoor zeggen is wat ik Brussel hoor zeggen. Geen idee wat Rutte zelf eigenlijk zou wilen, hij is in dezen gewoon een spreekbuis van de EU. 80<br />
+Asielzoekers_oorlogsgebieden vluchtelingen_opnemen_2 hoe_veel_dit_jaar_toelaten 70 1 1 7 71 2 2 3 72 2 1 7 73 4 2 1 74 2 1 8 75 1 1 8 76 2 1 6 77 3 2 2 78 3 2 1 79 3 2 1 80 2 1 5 hoe_veel_volgend_jaar_toelaten Invloed_nederland Positief_negatief 70 6 3 1 71 1 1 3 72 7 3 2 73 1 1 3 74 8 3 2 75 8 3 3 76 6 3 2 77 2 3 3 78 3 2 3 79 1 1 3 80 5 3 2 Invloed_nederland_open 70<br />
+71<br />
+72 Het zal positieve en negatieve invloed hebben. : op de kortere termijn meer banen. Op de langere termijn steeds meer een multiculturele samenleving. : momenteel (te) hoge werkdruk voor werknemers die met vluchtelingen werken. De verschillen tussen culturen zullen gaan botsen, hier moeten we doorheen. Daarna zijn de verschillende culturen een positief punt, en kunnen we waarschijnlijk veel van elkaar leren. 73<br />
+74<br />
+75 Door de reactie van mensen 76<br />
+77<br />
+78<br />
+79 Omdat het hier voornamelijk om islamitische vluchtelingen gaat, betekent dat hoogstwaarschijnlijk een zeer snelle islamisering van bijvoorbeeld schoolklassen en buurten. Dat betekent dat op scholen en in goedkope buurten het klimaat voor bijvoorbeeld homo’s heel angstig gaat worden. 80<br />
+Asielzoekers_buurt Ervaringen_opvang Overlast_vluchtelingen Overlast_open Asielzoekers_gemeente 70 4 NA NA 4 71 4 NA NA 3 72 4 NA NA 2 73 4 NA NA 3 74 4 NA NA 5 75 4 NA NA 1 76 2 4 4 NA 77 4 NA NA 3 78 2 3 2 NA 79 4 NA NA 1 80 4 NA NA 1 Ervaring_opvang_gemeente Overlast_opvang_gemeente Overlast_gemeente_open Buurt komst_minderheden 70 NA NA 2 5 71 NA NA 1 1 72 4 4 1 5 73 NA NA 1 4 74 NA NA 1 4 75 4 4 3 2 76 NA NA 3 2 77 NA NA 1 2 78 NA NA 2 1 79 4 4 1 4 80 2 4 1 5 Niet_westers Oost_europees 70 2 3 71 8 8 72 3 7 73 7 7 74 7 7 75 5 7 76 5 7 77 7 7 78 3 3 79 6 6 80 8 8 Niet_Westers_open 70<br />
+71<br />
+72<br />
+73<br />
+74<br />
+75 Alleen de directe buurvrouw. Gaat alleen over praktische dingen, zoals ontvangen post. 76<br />
+77<br />
+78<br />
+79 Ik heb veel contact met allochtonen van niet-westerse afkomst, maar niet in mijn eigen buurt. (Zeg ik maar even omdat het in uw onderzoek tot nu toe om de eigen buurt ging.) kan het altijd goed vinden met moslims omdat ik lang temidden van hun (lichtelijk vernederlandste) cultuur heb doorgebracht, bijvoorbeel toen ik op de middelbare school en het hbo zat. Toch vind ik het onaangenaam om bij ze in de buurt te zijn. Met mij in het bijzonder praten ze er niet zo vaak over, maar onderling hebben ze het openlijk over het vermoorden van Joden en prijzen ze de holocaust. Het zit niet echt in de weg van mijn contact met hen, maar ik vind geïslamiseerde omgevingen wel degelijk akelig. 80<br />
+Open_westers 70<br />
+71<br />
+72<br />
+73<br />
+74<br />
+75<br />
+76<br />
+77<br />
+78<br />
+79 Af en toe komen hier Poolse klusjesmannen werken. Dat zijn toffe kerels, ookal is er meestal maar eentje bij die een beetje Nederlands kan spreken en dat maakt communiceren heel moeilijk. Dat is mijn enige bezwaar; verder vind ik het leuke lui. 80<br />
+aankijken_tegen_moslims_37 verrijking_10 bedreiging_11 verrijking_bedreiging_8 70 2 2 4 1 71 4 4 1 2 72 2 2 4 1 73 5 4 1 2 74 2 3 3 3 75 3 5 5 3 76 4 3 2 3 77 3 4 2 2 78 2 3 2 4 79 5 4 1 2 80 2 2 4 1 lichttoe_verrijking_bedreiging_9 70<br />
+71<br />
+72<br />
+73<br />
+74<br />
+75<br />
+76<br />
+77 vind het niet juist dat de nederlandse samenleving zich vergaand moet aanpassen aan mensen met een geloof dat oorspronkelijk hier niet voor komt. Elk modern gebouw moet een gebedsruimte hebben, scholen moeten speciale wasruimten hebben, etc. Het slaat door, rekening houden oke, maar alles aanpassen voor mensen vanwege hun geloof vind ik niet nodig. Ze kunnen hun geloof op hun eigen manier belijden zoals ze willen maar daar hoeft niet de hele nederlandse samenleving voor worden aangepast. Ditzelfde geldt bijv in de zwarte-pieten discussie. 78<br />
+79 Het is niet makkelijk te merken in omgevingen waarin moslims nog steeds een minderheid zijn, maar schoolklassen waarin ik heb gezeten waarin moslims een ruime meerderheid waren waren heel akelig. Zoals in mijn eerdere antwoorden in dit onderzoek beschreven, kan ik het prima met jonge moslims vinden, maar weet ik dat zij onderling praten over het vermoorden van Joden en prijzen zij de holocaust. De reden dat ik de islam een bedreiging vind voor de Nederlandse cultuur is dat het onontkoombaar is dat er steeds meer omgevingen gaan komen waarin moslims de meerderheid zijn. Dat zorgt voor regelrecht gevaarlijke omgevingen voor homo’s, vrouwen, Joden en op den duur ook voor christenen, atheïsten en islamcritici. 80<br />
+stemvraag stemvraag_18_other 70 2<br />
+71 2<br />
+72 7<br />
+73 1<br />
+74 7<br />
+75 6<br />
+76 8<br />
+77 4<br />
+78 3<br />
+79 3<br />
+80 14<br />
+toelichting_stemvraag 70<br />
+71<br />
+72<br />
+73<br />
+74<br />
+75<br />
+76<br />
+77 goede middenweg 78<br />
+79 Omdat de PVV de enige is die zijn handen vuil durft te maken aan kritiek op de islam, die niet beteugeld wordt door het enge “fatsoensdenken” waarin het onmogelijk is om nare punten van de islam te benoemen. Ik heb regelmatig akelige ervaringen met omgevingen waarin moslims de meerderheid zijn. Ik voel me daar naar bij en verlang terug naar de tijd dat iedereen in mijn omgeving ruimdenkend en tolerant was. Dat gaat niet gebeuren onder leiding van een andere partij dan de PVV. 80<br />
+CompletedDate StartedDate InvitationDate CompletionTime ResponseStatus 70 2014-07-05 03:53:32 2014-07-05 03:51:01 2014-07-04 10:00:29 2.51 2 71 2014-07-28 02:32:26 2014-07-28 02:28:46 2014-07-04 04:08:57 3.66 2 72 2014-09-14 05:40:02 2014-09-14 05:22:13 2014-07-04 05:38:16 17.82 2 73 2014-07-04 14:27:20 2014-07-04 14:23:16 2014-07-04 07:01:13 4.06 2 74 2014-07-04 09:23:48 2014-07-04 09:18:51 2014-07-04 07:02:30 4.96 2 75 2014-07-04 07:36:08 2014-07-04 07:32:25 2014-07-04 07:02:59 3.71 2 76 2014-07-18 13:49:38 2014-07-18 13:47:27 2014-07-04 08:30:26 2.18 2 77 2014-09-12 09:22:25 2014-09-12 09:16:50 2014-07-04 05:38:43 5.58 2 78 2014-07-04 23:35:31 2014-07-04 23:32:32 2014-07-04 08:32:26 2.98 2 79 2014-07-04 07:13:39 2014-07-04 07:11:21 2014-07-04 07:02:35 2.31 2 80 2014-07-22 05:31:23 2014-07-22 05:28:57 2014-07-04 08:30:23 2.43 2 Version Sample Communication_InvitationSent Communication_Reminder1Sent 70 1.0 9 1 0 71 1.2 9 1 1 72 1.3 9 1 1 73 1.0 9 1 0 74 1.0 9 1 0 75 1.0 9 1 0 76 1.2 9 1 1 77 1.3 9 1 1 78 1.0 9 1 0 79 1.0 9 1 0 80 1.2 9 1 1 Communication_Reminder2Sent Communication_Reminder3Sent PointsEarned 70 0 0 0 71 0 0 0 72 1 1 0 73 0 0 0 74 0 0 0 75 0 0 0 76 0 0 0 77 1 1 0 78 0 0 0 79 0 0 0 80 0 0 0 BrowserData RespondentSource_SparqPortal 70 b_Flash=14.0.0&amp;b_IExternal=1&amp;b_JavaScript=1&amp;b_Resolution=1280x800&amp; 1 71 b_Flash=14.0.0&amp;b_IExternal=1&amp;b_JavaScript=1&amp;b_Resolution=1366x768&amp; 1 72 b_Flash=14.0.0&amp;b_IExternal=1&amp;b_JavaScript=1&amp;b_Resolution=1366x768&amp; 1 73 1 74 1 75 1 76 b_Flash=14.0.0&amp;b_IExternal=1&amp;b_JavaScript=1&amp;b_Resolution=1366x768&amp; 1 77 1 78 b_Flash=14.0.0&amp;b_IExternal=1&amp;b_JavaScript=1&amp;b_Resolution=1600x900&amp; 1 79 b_Flash=14.0.0&amp;b_IExternal=1&amp;b_JavaScript=1&amp;b_Resolution=1680x1050&amp; 1 80 1 RespondentSource_FacebookPortal OSType DeviceType BrowserType BrowserVersion PluginType_Flash 70 0 mac desktop chrome 35 1 71 0 windows desktop chrome 36 1 72 0 windows desktop chrome 37 1 73 0 ios tablet NA 0 74 0 android phone android NA 1 75 0 android phone chrome 25 0 76 0 windows desktop chrome 35 1 77 0 android phone android NA 0 78 0 windows desktop chrome 35 1 79 0 windows desktop firefox 300 1 80 0 android phone chrome 25 0 PluginType_NoDetectablePlugin PluginType_flash_other BrowserExperience_VisualQuestionReady 70 0 14 1 71 0 14 1 72 0 14 1 73 1 0 74 0 0 75 1 0 76 0 14 1 77 1 0 78 0 14 1 79 0 14 1 80 1 0 BrowserExperience_JavascriptEnabled BrowserExperience_UserAgent 70 1 1 71 1 1 72 1 1 73 0 1 74 1 1 75 1 1 76 1 1 77 1 1 78 1 1 79 1 1 80 1 1 BrowserExperience_ClientSideErrorEncountered BrowserExperience_ServerSideErrorEncountered 70 0 0 71 0 0 72 0 0 73 0 0 74 0 0 75 0 0 76 0 0 77 0 0 78 0 0 79 0 0 80 0 0 BrowserExperience_useragent_other 70 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36 71 Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36 72 Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.103 Safari/537.36 73 Mozilla/5.0 (iPad; CPU OS 7_1_2 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) CriOS/35.0.1916.41 Mobile/11D257 Safari/9537.53 74 Mozilla/5.0 (Linux; U; Android 4.3; nl-nl; GT-I9300 Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 75 Mozilla/5.0 (Linux; Android 4.1.2; LG-P880 Build/JZO54K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.141 Mobile Safari/537.36 76 Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36 77 Mozilla/5.0 (Linux; U; Android 2.3.6; nl-nl; GT-I9070 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 78 Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36 79 Mozilla/5.0 (Windows NT 6.1; rv:30.0) Gecko/20100101 Firefox/30.0 80 Mozilla/5.0 (Linux; Android 4.4.2; SM-G900F Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.141 Mobile Safari/537.36 RespondentExperience Age_Rollup_Jongeren Age_Years_Rollup_Jongeren Age_Rollup_Opinie 70 visualvi NA NA 2 71 visualvi NA NA 1 72 visualvi NA NA 1 73 flatview NA NA 1 74 mobilevi NA NA 1 75 mobilevi NA NA 1 76 visualvi NA NA 2 77 mobilevi NA NA 1 78 visualvi NA NA 1 79 visualvi NA NA 1 80 mobilevi NA NA 1 Age_Rollup_Jongeren_II Age_Rollup_Jongeren_III Education_Rollup_Opinie Stem2012_Rollup_Opinie 70 NA NA 5 2 71 NA NA 5 0 72 NA NA 5 8 73 NA NA 5 1 74 NA NA 5 8 75 NA NA 5 6 76 NA NA 5 7 77 NA NA 5 13 78 NA NA 5 2 79 NA NA 5 1 80 NA NA 5 2 Community_Segment Geboortedatum_Jongeren Geslacht_Jongeren Provincie_Jongeren Postcode_Jongeren 70 2 <NA> NA NA<br />
+71 2 <NA> NA NA<br />
+72 2 <NA> NA NA<br />
+73 2 <NA> NA NA<br />
+74 2 <NA> NA NA<br />
+75 2 <NA> NA NA<br />
+76 2 <NA> NA NA<br />
+77 2 <NA> NA NA<br />
+78 2 <NA> NA NA<br />
+79 2 <NA> NA NA<br />
+80 2 <NA> NA NA<br />
+Situatie_Jongeren Opleiding_Jongeren Onderwijs_verdeling_Jongeren Herkomst_familie_Jongeren 70 NA NA NA NA 71 NA NA NA NA 72 NA NA NA NA 73 NA NA NA NA 74 NA NA NA NA 75 NA NA NA NA 76 NA NA NA NA 77 NA NA NA NA 78 NA NA NA NA 79 NA NA NA NA 80 NA NA NA NA Herkomst_familie_Jongeren_17_other Geslacht_Opinie Geboortedatum_Opinie Burgerlijke_staat_Opinie 70 1 1990-07-19 4 71 2 1991-04-06 4 72 2 1991-01-25 4 73 1 1991-01-12 4 74 1 1991-03-31 4 75 2 1991-04-17 4 76 2 1990-10-04 4 77 2 1991-03-17 4 78 1 1990-12-27 4 79 1 1991-03-02 4 80 2 1991-04-03 4 Situatie_huishouden_Opinie Leeftijd_kinderen_Opinie_03jaar Leeftijd_kinderen_Opinie_412jaar 70 1 NA NA 71 1 NA NA 72 2 NA NA 73 1 NA NA 74 5 NA NA 75 5 NA NA 76 4 NA NA 77 5 NA NA 78 7 NA NA 79 1 NA NA 80 1 NA NA Leeftijd_kinderen_Opinie_1318jaar Leeftijd_kinderen_Opinie_1924jaar 70 NA NA 71 NA NA 72 NA NA 73 NA NA 74 NA NA 75 NA NA 76 NA NA 77 NA NA 78 NA NA 79 NA NA 80 NA NA Leeftijd_kinderen_Opinie_25jaarenouder Leeftijd_kinderen_Opinie_Ikhebgeenthuiswonendekinderen 70 NA NA 71 NA NA 72 NA NA 73 NA NA 74 NA NA 75 NA NA 76 NA NA 77 NA NA 78 NA NA 79 NA NA 80 NA NA Provincie_Opinie Stad_Opinie Postcode_Opinie Huis_Opinie Opleiding_Opinie 70 8 22 1965 1 5 71 8 21 1971 2 6 72 11 7 5211 1 5 73 3 22 9305 2 6 74 1 10 9722 2 6 75 5 1 1314 1 5 76 9 21 2312 1 6 77 1 21 9672 1 6 78 10 21 4384 1 5 79 9 17 3043 2 5 80 8 21 1823 2 5 Dagelijkse_activiteit_Opinie Werk_sector_Opinie Gezondheidszorg_Opinie Onderwijs_Opinie 70 5 NA NA NA 71 5 NA NA NA 72 5 NA NA NA 73 5 NA NA NA 74 1 11 6 NA 75 5 NA NA NA 76 5 NA NA NA 77 5 NA NA NA 78 5 NA NA NA 79 5 NA NA NA 80 5 NA NA NA Vervoer_Opinie Inkomen_Opinie Lidmaatschap_politieke_partij_Opinie Stemgedrag_TK_Opinie 70 NA 1 1 2 71 NA 8 1 16 72 NA 1 1 8 73 NA 6 1 1 74 NA 3 9 8 75 NA 1 7 6 76 NA 1 8 7 77 NA 2 1 14 78 NA 3 1 2 79 NA 8 1 1 80 NA 1 1 2 Vakbond_Opinie Herkomst_familie_Opinie Herkomst_familie_Opinie_22_other Religie_Opinie 70 1 22 Hong Kong 3 71 1 1 1 72 1 1 1 73 1 1 1 74 1 1 1 75 2 1 1 76 1 1 3 77 1 1 1 78 1 1 1 79 1 1 1 80 1 1 1 Religie_Opinie_7_other ERR_MSG Cohort_Jongeren Cohort_Opinie debug Post_Code_Rollup_Opinie 70 NA 8 NA 3 71 NA 2 NA 3 72 NA 9 NA 3 73 NA 10 NA 3 74 NA 6 NA 3 75 NA 5 NA 3 76 NA 3 NA 2 77 NA 7 NA 3 78 NA 4 NA 3 79 NA 8 NA 1 80 NA 8 NA 3</p>
+<hr />
+</div>
+<div id="data-coa" class="section level2">
+<h2>DATA COA</h2>
+<p>We made a request to COA for data on the number of Asylum Seekers COA housed. We received two pdf files which may be accessed below.</p>
+<ul>
+<li>for data on regular and temporary ASCs see <a href="data/AZCs%20COA%20gegevens.pdf">here</a><br />
+</li>
+<li>for data on crisis ASCs see <a href="gegevens%20crisisopvang%20gemeenten.pdf">here</a></li>
+</ul>
+<hr />
+</div>
+<div id="data-preperation" class="section level2">
+<h2>Data preperation</h2>
+<p>To have peak at our data mangling. Please see below.</p>
+<pre class="r test"><code># rm (list = ls( )) Load required R packages
+require(XML)
+require(foreign)
+require(sp)
+require(maptools)
+require(rgdal)
+require(splancs)
+require(spatstat)
+require(RColorBrewer)
+require(spdep)
+require(raster)
+require(reshape)
+require(stringr)
+require(psych)
+require(lme4)
+require(sjPlot)
+require(plyr)
+require(Hmisc)
+require(rgeos)
+require(anesrake)
+require(weights)
+
+# CONTENT 1. Data AZCS - pc4 en gc 2. Data other characteristics - pc4 and gc 3. EV data 4. merge EV
+# data with other data 5. EV data - make indv level vars
+
+
+# FOR READ in DATA setwd(&#39;C:/Users/U497130/AppData/Local/surfdrive_data/artikel azc/data/&#39;) thuis
+# setwd(&#39;C:/Users/Joran/SURFdrive/artikel azc/data/&#39;)
+setwd(&quot;U:/Surfdrive backup/artikel azc/data/&quot;)
+
+# COMBINE REGULAR AND CRISIS CENTRE AZC DATA regulier en nood
+regnood &lt;- read.csv2(file = &quot;Adressenlijst opvanglocaties jan 2015_16082016.csv&quot;)
+head(regnood)
+# Landal:https://www.landaleigenaren.nl/nl-nl/nieuws/landal-levert-bijdrage-aan-vluchtelingenopvang-14659
+
+# crisis tussen 18/09 en 22/12
+crisis &lt;- read.csv2(file = &quot;Adressen opvanglocatie CNO capaciteit_16082016.csv&quot;)
+head(crisis)
+
+# samenvoegen azcs
+rbind.all.columns &lt;- function(x, y) {
+    
+    x.diff &lt;- setdiff(colnames(x), colnames(y))
+    y.diff &lt;- setdiff(colnames(y), colnames(x))
+    
+    x[, c(as.character(y.diff))] &lt;- NA
+    
+    y[, c(as.character(x.diff))] &lt;- NA
+    
+    return(rbind(x, y))
+}
+
+azc &lt;- rbind.all.columns(regnood, crisis)
+head(azc)
+
+# KOPPEL GCODE AAN AZC.
+pc4gc_2013 &lt;- read.csv2(file = &quot;pc4gc_2013.csv&quot;, row.names = &quot;X&quot;)
+head(pc4gc_2013)
+azc &lt;- merge(azc, pc4gc_2013, all.x = T, by.x = &quot;PC4&quot;, by.y = &quot;pc4&quot;, sort = F)
+head(azc)
+
+# make azc vars
+azc$s1cap_pc4t1 &lt;- ifelse(azc$Soort == 1, azc$Cap_01012015, 0)
+azc$s1cap_pc4t2 &lt;- ifelse(azc$Soort == 1, azc$Cap_15112015, 0)
+
+azc$s2cap_pc4t1 &lt;- ifelse(azc$Soort == 2, azc$Cap_01012015, 0)
+azc$s2cap_pc4t2 &lt;- ifelse(azc$Soort == 2, azc$Cap_15112015, 0)
+
+azc$s3cap_pc4t1 &lt;- 0
+azc$s3cap_pc4t2 &lt;- ifelse(azc$Soort == 3, azc$Cap_Gem, 0)
+
+head(azc)
+
+# Handle pc4 with 2 or more azc (beslisregels:Stappen AZC data 15032017.doc)
+dups &lt;- rbind(azc[duplicated(azc$PC4), ], azc[duplicated(azc$PC4, fromLast = TRUE), ])
+dups &lt;- dups[order(dups$PC4), ]
+dups[, c(1, 2, 13:18)]
+azc_sel &lt;- azc[, c(1, 12, 13:18)]
+azc_sel &lt;- azc_sel[rownames(azc_sel) != &quot;153&quot;, ]
+azc_sel &lt;- azc_sel[rownames(azc_sel) != &quot;29&quot;, ]
+azc_sel$s3cap_pc4t2[rownames(azc_sel) == &quot;30&quot;] &lt;- azc_sel$s3cap_pc4t2[rownames(azc_sel) == &quot;31&quot;]
+azc_sel &lt;- azc_sel[rownames(azc_sel) != &quot;31&quot;, ]
+azc_sel$s3cap_pc4t2[rownames(azc_sel) == &quot;171&quot;] &lt;- azc_sel$s3cap_pc4t2[rownames(azc_sel) == &quot;171&quot;] + 
+    azc_sel$s3cap_pc4t2[rownames(azc_sel) == &quot;172&quot;]
+azc_sel &lt;- azc_sel[rownames(azc_sel) != &quot;172&quot;, ]
+azc_sel$s3cap_pc4t2[rownames(azc_sel) == &quot;40&quot;] &lt;- azc_sel$s3cap_pc4t2[rownames(azc_sel) == &quot;39&quot;]
+azc_sel &lt;- azc_sel[rownames(azc_sel) != &quot;39&quot;, ]
+azc_sel$s1cap_pc4t2[rownames(azc_sel) == &quot;47&quot;] &lt;- azc_sel$s1cap_pc4t2[rownames(azc_sel) == &quot;47&quot;] + azc_sel$s3cap_pc4t2[rownames(azc_sel) == 
+    &quot;48&quot;]
+azc_sel &lt;- azc_sel[rownames(azc_sel) != &quot;48&quot;, ]
+azc_sel$s2cap_pc4t2[rownames(azc_sel) == &quot;75&quot;] &lt;- azc_sel$s2cap_pc4t2[rownames(azc_sel) == &quot;76&quot;]
+azc_sel &lt;- azc_sel[rownames(azc_sel) != &quot;76&quot;, ]
+azc_sel &lt;- azc_sel[rownames(azc_sel) != &quot;80&quot;, ]
+azc_sel$s1cap_pc4t1[rownames(azc_sel) == &quot;87&quot;] &lt;- azc_sel$s1cap_pc4t1[rownames(azc_sel) == &quot;87&quot;] + azc_sel$s1cap_pc4t1[rownames(azc_sel) == 
+    &quot;88&quot;]
+azc_sel$s1cap_pc4t2[rownames(azc_sel) == &quot;87&quot;] &lt;- azc_sel$s1cap_pc4t2[rownames(azc_sel) == &quot;87&quot;] + azc_sel$s1cap_pc4t2[rownames(azc_sel) == 
+    &quot;88&quot;]
+azc_sel &lt;- azc_sel[rownames(azc_sel) != &quot;88&quot;, ]
+azc_sel$s1cap_pc4t2[rownames(azc_sel) == &quot;92&quot;] &lt;- azc_sel$s1cap_pc4t2[rownames(azc_sel) == &quot;92&quot;] + azc_sel$s3cap_pc4t2[rownames(azc_sel) == 
+    &quot;93&quot;]
+azc_sel &lt;- azc_sel[rownames(azc_sel) != &quot;93&quot;, ]
+
+
+# AGGREGEER NAAR GC.
+azcgc &lt;- aggregate(azc_sel[, c(&quot;s1cap_pc4t1&quot;, &quot;s1cap_pc4t2&quot;, &quot;s2cap_pc4t1&quot;, &quot;s2cap_pc4t2&quot;, &quot;s3cap_pc4t1&quot;, 
+    &quot;s3cap_pc4t2&quot;)], by = list(azc_sel$gc), FUN = sum)
+names(azcgc) &lt;- c(&quot;gc&quot;, &quot;s1cap_gct1&quot;, &quot;s1cap_gct2&quot;, &quot;s2cap_gct1&quot;, &quot;s2cap_gct2&quot;, &quot;s3cap_gct1&quot;, &quot;s3cap_gct2&quot;)
+head(azcgc)
+
+
+# MATCH AZC DATA aan PC4 FILE
+
+# Load PC4 shape
+shapepc4 &lt;- readOGR(&quot;U:/PhD Documents/PC4Basic/shape&quot;, layer = &quot;Nlp4_r14_basic&quot;)
+# thuis shapepc4 &lt;- readOGR(&#39;C:/Users/Joran/Documents/PhD Nijmegen/PC4Basic/shape&#39;,
+# layer=&#39;Nlp4_r14_basic&#39;)
+shapepc4 &lt;- shapepc4[, c(&quot;PC4NR&quot;)]
+
+pc4 &lt;- merge(shapepc4, pc4gc_2013, all.x = T, by.x = &quot;PC4NR&quot;, by.y = &quot;pc4&quot;, sort = F)
+pc4 &lt;- merge(pc4, azc_sel, by.x = c(&quot;PC4NR&quot;, &quot;gc&quot;), by.y = c(&quot;PC4&quot;, &quot;gc&quot;), sort = F)
+pc4 &lt;- merge(pc4, azcgc, by.x = c(&quot;gc&quot;), by.y = c(&quot;gc&quot;), sort = F)
+
+pc4@data[, c(3:14)][is.na(pc4@data[, c(3:14)])] &lt;- 0
+
+
+# AGGREGEER NAAR AANGR
+pc4_nbq &lt;- poly2nb(pc4, row.names = c(1:nrow(pc4)))
+
+pc4$s3cap_aangrt2 &lt;- pc4$s3cap_aangrt1 &lt;- pc4$s2cap_aangrt2 &lt;- pc4$s2cap_aangrt1 &lt;- pc4$s1cap_aangrt2 &lt;- pc4$s1cap_aangrt1 &lt;- rep(NA, 
+    nrow(pc4))
+
+funs1t1 &lt;- function(x) {
+    sum(pc4$s1cap_pc4t1[x])
+}
+funs1t2 &lt;- function(x) {
+    sum(pc4$s1cap_pc4t2[x])
+}
+funs2t1 &lt;- function(x) {
+    sum(pc4$s2cap_pc4t1[x])
+}
+funs2t2 &lt;- function(x) {
+    sum(pc4$s2cap_pc4t2[x])
+}
+funs3t1 &lt;- function(x) {
+    sum(pc4$s3cap_pc4t1[x])
+}
+funs3t2 &lt;- function(x) {
+    sum(pc4$s3cap_pc4t2[x])
+}
+
+pc4$s1cap_aangrt1 &lt;- sapply(pc4_nbq, funs1t1)
+pc4$s1cap_aangrt2 &lt;- sapply(pc4_nbq, funs1t2)
+pc4$s2cap_aangrt1 &lt;- sapply(pc4_nbq, funs2t1)
+pc4$s2cap_aangrt2 &lt;- sapply(pc4_nbq, funs2t2)
+pc4$s3cap_aangrt1 &lt;- sapply(pc4_nbq, funs3t1)
+pc4$s3cap_aangrt2 &lt;- sapply(pc4_nbq, funs3t2)
+
+# plus eigen buurt er ook bij
+pc4$s1cap_aangrt1 &lt;- pc4$s1cap_aangrt1 + pc4$s1cap_pc4t1
+pc4$s1cap_aangrt2 &lt;- pc4$s1cap_aangrt2 + pc4$s1cap_pc4t2
+pc4$s2cap_aangrt1 &lt;- pc4$s2cap_aangrt1 + pc4$s2cap_pc4t1
+pc4$s2cap_aangrt2 &lt;- pc4$s2cap_aangrt2 + pc4$s2cap_pc4t2
+pc4$s3cap_aangrt1 &lt;- pc4$s3cap_aangrt1 + pc4$s3cap_pc4t1
+pc4$s3cap_aangrt2 &lt;- pc4$s3cap_aangrt2 + pc4$s3cap_pc4t2
+
+
+# ADD OTHER NBHOOD CHARACTERISTICS
+
+# LOAD %NONWEST, WOZ, INW alternatief via spTransform
+rd2wgs84 &lt;- function(X, Y) {
+    # http://www.dekoepel.nl/pdf/Transformatieformules.pdf basispunten definieren
+    X0 &lt;- 155000
+    Y0 &lt;- 463000
+    j0 &lt;- 52.1551744
+    l0 &lt;- 5.38720621
+    # coefficienten definieren
+    K01 &lt;- 3235.65389
+    K20 &lt;- -32.58297
+    K02 &lt;- -0.2475
+    K21 &lt;- -0.84978
+    K03 &lt;- -0.0655
+    K22 &lt;- -0.01709
+    K10 &lt;- -0.00738
+    K40 &lt;- 0.0053
+    K23 &lt;- -0.00039
+    K41 &lt;- 0.00033
+    K11 &lt;- -0.00012
+    
+    L10 &lt;- 5260.52916
+    L11 &lt;- 105.94684
+    L12 &lt;- 2.45656
+    L30 &lt;- -0.81885
+    L13 &lt;- 0.05594
+    L31 &lt;- -0.05607
+    L01 &lt;- 0.01199
+    L32 &lt;- -0.00256
+    L14 &lt;- 0.00128
+    L02 &lt;- 0.00022
+    L20 &lt;- -0.00022
+    L50 &lt;- 0.00026
+    
+    dX &lt;- (X - X0) * 10^-5
+    dY &lt;- (Y - Y0) * 10^-5
+    {
+        j &lt;- j0 + (K01 * dX^0 * dY^1 + K02 * dX^0 * dY^2 + K03 * dX^0 * dY^3 + K10 * dX^1 * dY^0 + K20 * 
+            dX^2 * dY^0 + K21 * dX^2 * dY^1 + K22 * dX^2 * dY^2 + K23 * dX^1 * dY^3 + K40 * dX^2 * dY^0 + 
+            K41 * dX^2 * dY^1)/3600
+    }
+    
+    {
+        l &lt;- l0 + (L10 * dX^1 * dY^0 + L11 * dX^1 * dY^1 + L12 * dX^1 * dY^2 + L30 * dX^3 * dY^0 + L13 * 
+            dX^1 * dY^3 + L31 * dX^3 * dY^1 + L01 * dX^0 * dY^1 + L32 * dX^3 * dY^2 + L14 * dX^1 * dY^4 + 
+            L02 * dX^0 * dY^2 + L20 * dX^2 * dY^0 + L50 * dX^5 * dY^0)/3600
+    }
+    wgs84 &lt;- cbind(j, l)
+    return(wgs84)
+}
+
+# load cbs100
+setwd(&quot;U:/PhD Documents/CBS vierkant 2014/&quot;)
+# Thuis setwd(&#39;C:/Users/Joran/Documents/PhD Nijmegen/CBS vierkant 2014/&#39;)
+
+cbs100 &lt;- read.spss(file = &quot;CBSvierkant100m201410.sav&quot;, use.value.labels = FALSE, to.data.frame = T)
+names(cbs100)
+length(cbs100[, 1])
+
+cbs100$E &lt;- as.numeric(substr(cbs100$c28992r100, 2, 5))
+cbs100$N &lt;- as.numeric(substr(cbs100$c28992r100, 7, length(cbs100$c28992r100)))
+cbs100$east &lt;- (cbs100$E * 100) + 50
+cbs100$north &lt;- (cbs100$N * 100) + 50
+cbs100 &lt;- cbind(cbs100, rd2wgs84(cbs100$east, cbs100$north))
+cbs100$ncel &lt;- 1
+cbs100$celid &lt;- 1:length(cbs100$ncel)
+head(cbs100)
+
+# RECODE CBS100 OP BASIS VAN DISTRIBUTIE IN BUURTEN. 2014
+nedb &lt;- readOGR(&quot;U:/PhD Documents/CBS shapefiles/shape 2014&quot;, layer = &quot;buurt_2014&quot;)
+# thuis nedb &lt;- readOGR(&#39;C:/Users/Joran/Documents/PhD Nijmegen/CBS shapefiles/shape 2014&#39;,
+# layer=&#39;buurt_2014&#39;)
+
+nedb &lt;- nedb[nedb$WATER == &quot;NEE&quot;, ]
+names(nedb)
+
+# alleen land delen.
+nedb2 &lt;- nedb[nedb$WATER == &quot;NEE&quot;, ]
+nedb2$P_N_W_AL &lt;- ifelse(nedb2$P_N_W_AL == -99999997, 0, nedb2$P_N_W_AL)
+nedb2$P_WEST_AL &lt;- ifelse(nedb2$P_WEST_AL == -99999997, 0, nedb2$P_WEST_AL)
+nedb2$P_AUT &lt;- 100 - nedb2$P_N_W_AL - nedb2$P_WEST_AL
+
+# volgens cbs handleiding 5: geen autochtonen 4: 90 procent of meer autochtonen 3: 75 tot 90 procent
+# autochtonen 2: 60 tot 75 procent autochtonen 1: 40 tot 60 procent autochtonen 7: minder dan 40
+# procent autochtonen
+
+# 5: geen westerse allochtonen 3: 45 procent of meer westerse allochtonen 2: 25 tot 45 procent
+# westerse allochtonen 1: 15 tot 25 procent westerse allochtonen 4: 8 tot 15 procent westerse
+# allochtonen 7: minder dan 8 procent westerse allochtonen
+
+# 5: geen niet-westerse allochtonen 4: 67 procent of meer niet-westerse allochtonen 3: 45 tot 67
+# procent niet-westerse allochtonen 2: 25 tot 45 procent niet-westerse allochtonen 1: 10 tot 25
+# procent niet-westerse allochtonen 7: minder dan 10 procent niet-westerse allochtonen
+
+# 2014
+nedb2$P_AUT2[nedb2$P_AUT == 0] &lt;- 0
+nedb2$P_AUT2[nedb2$P_AUT &gt;= 90] &lt;- 1
+nedb2$P_AUT2[nedb2$P_AUT &gt;= 75 &amp; nedb2$P_AUT &lt; 90] &lt;- 2
+nedb2$P_AUT2[nedb2$P_AUT &gt;= 60 &amp; nedb2$P_AUT &lt; 75] &lt;- 3
+nedb2$P_AUT2[nedb2$P_AUT &gt;= 40 &amp; nedb2$P_AUT &lt; 65] &lt;- 4
+nedb2$P_AUT2[nedb2$P_AUT &gt; 0 &amp; nedb2$P_AUT &lt; 40] &lt;- 5
+
+des &lt;- describeBy(nedb2$P_AUT, nedb2$P_AUT2)
+pautrecode &lt;- matrix(as.numeric(unclass(unlist(des))), nrow = dim(des), byrow = T)
+pautrecode &lt;- data.frame(pautrecode)
+colnames(pautrecode) &lt;- names(des[[1]])
+pautrecode$mean
+# [1] 0.00000 97.37508 82.06138 69.92389 50.40706 23.88861
+
+nedb2$P_WEST_AL2[nedb2$P_WEST_AL == 0] &lt;- 0
+nedb2$P_WEST_AL2[nedb2$P_WEST_AL &gt;= 45] &lt;- 1
+nedb2$P_WEST_AL2[nedb2$P_WEST_AL &gt;= 25 &amp; nedb2$P_WEST_AL &lt; 45] &lt;- 2
+nedb2$P_WEST_AL2[nedb2$P_WEST_AL &gt;= 15 &amp; nedb2$P_WEST_AL &lt; 25] &lt;- 3
+nedb2$P_WEST_AL2[nedb2$P_WEST_AL &gt;= 8 &amp; nedb2$P_WEST_AL &lt; 15] &lt;- 4
+nedb2$P_WEST_AL2[nedb2$P_WEST_AL &gt; 0 &amp; nedb2$P_WEST_AL &lt; 8] &lt;- 5
+
+des &lt;- describeBy(nedb2$P_WEST_AL, nedb2$P_WEST_AL2)
+pwalrecode &lt;- matrix(as.numeric(unclass(unlist(des))), nrow = dim(des), byrow = T)
+pwalrecode &lt;- data.frame(pwalrecode)
+colnames(pwalrecode) &lt;- names(des[[1]])
+pwalrecode$mean
+# [1] 0.000000 51.931746 31.865649 16.231917 10.027004 5.405292
+
+nedb2$P_N_W_AL2[nedb2$P_N_W_AL == 0] &lt;- 0
+nedb2$P_N_W_AL2[nedb2$P_N_W_AL &gt;= 67] &lt;- 1
+nedb2$P_N_W_AL2[nedb2$P_N_W_AL &gt;= 45 &amp; nedb2$P_N_W_AL &lt; 67] &lt;- 2
+nedb2$P_N_W_AL2[nedb2$P_N_W_AL &gt;= 25 &amp; nedb2$P_N_W_AL &lt; 45] &lt;- 3
+nedb2$P_N_W_AL2[nedb2$P_N_W_AL &gt;= 10 &amp; nedb2$P_N_W_AL &lt; 25] &lt;- 4
+nedb2$P_N_W_AL2[nedb2$P_N_W_AL &gt; 0 &amp; nedb2$P_N_W_AL &lt; 10] &lt;- 5
+
+des &lt;- describeBy(nedb2$P_N_W_AL, nedb2$P_N_W_AL2)
+pnwalrecode &lt;- matrix(as.numeric(unclass(unlist(des))), nrow = dim(des), byrow = T)
+pnwalrecode &lt;- data.frame(pnwalrecode)
+colnames(pnwalrecode) &lt;- names(des[[1]])
+pnwalrecode$mean
+# [1] 0.000000 75.998914 53.030019 30.792600 15.197071 4.109998
+
+# make numeric first
+cbs100$p_auto2014 &lt;- as.numeric(cbs100$p_auto2014)
+cbs100$p_wal2014 &lt;- as.numeric(cbs100$p_wal2014)
+cbs100$p_nwal2014 &lt;- as.numeric(cbs100$p_nwal2014)
+
+# recategorize auto
+cbs100$pauto2014[cbs100$p_auto2014 == 5] &lt;- 0
+cbs100$pauto2014[cbs100$p_auto2014 == 4] &lt;- pautrecode$mean[1]
+cbs100$pauto2014[cbs100$p_auto2014 == 3] &lt;- pautrecode$mean[2]
+cbs100$pauto2014[cbs100$p_auto2014 == 2] &lt;- pautrecode$mean[3]
+cbs100$pauto2014[cbs100$p_auto2014 == 1] &lt;- pautrecode$mean[4]
+cbs100$pauto2014[cbs100$p_auto2014 == 7] &lt;- pautrecode$mean[5]
+cbs100$nauto2014 &lt;- cbs100$inw2014 * (cbs100$pauto2014/100)
+cbs100$nauto2014[cbs100$inw2014 == 0] &lt;- 0
+cbs100$nauto2014b &lt;- cbs100$nauto2014
+cbs100$nauto2014b[is.na(cbs100$nauto2014b)] &lt;- 2
+cbs100$nauto2014mis &lt;- ifelse(is.na(cbs100$nauto2014), 1, 0)
+cbs100$nauto2014[is.na(cbs100$nauto2014)] &lt;- 0
+sum(cbs100$nauto2014, na.rm = T)
+
+# recategorize wal
+cbs100$pwal2014[cbs100$p_wal2014 == 5] &lt;- pwalrecode$mean[1]
+cbs100$pwal2014[cbs100$p_wal2014 == 3] &lt;- pwalrecode$mean[2]
+cbs100$pwal2014[cbs100$p_wal2014 == 2] &lt;- pwalrecode$mean[3]
+cbs100$pwal2014[cbs100$p_wal2014 == 1] &lt;- pwalrecode$mean[4]
+cbs100$pwal2014[cbs100$p_wal2014 == 4] &lt;- pwalrecode$mean[5]
+cbs100$pwal2014[cbs100$p_wal2014 == 7] &lt;- pwalrecode$mean[6]
+cbs100$nwal2014 &lt;- cbs100$inw2014 * (cbs100$pwal2014/100)
+cbs100$nwal2014[cbs100$inw2014 == 0] &lt;- 0
+cbs100$nwal2014b &lt;- cbs100$nwal2014
+cbs100$nwal2014b[is.na(cbs100$nwal2014b)] &lt;- 2
+cbs100$nwal2014mis &lt;- ifelse(is.na(cbs100$nwal2014), 1, 0)
+cbs100$nwal2014[is.na(cbs100$nwal2014)] &lt;- 0
+sum(cbs100$nwal2014, na.rm = T)
+
+# recategorize nwal
+cbs100$pnwal2014[cbs100$p_nwal2014 == 5] &lt;- pnwalrecode$mean[1]
+cbs100$pnwal2014[cbs100$p_nwal2014 == 4] &lt;- pnwalrecode$mean[2]
+cbs100$pnwal2014[cbs100$p_nwal2014 == 3] &lt;- pnwalrecode$mean[3]
+cbs100$pnwal2014[cbs100$p_nwal2014 == 2] &lt;- pnwalrecode$mean[4]
+cbs100$pnwal2014[cbs100$p_nwal2014 == 1] &lt;- pnwalrecode$mean[5]
+cbs100$pnwal2014[cbs100$p_nwal2014 == 7] &lt;- pnwalrecode$mean[6]
+cbs100$nnwal2014 &lt;- cbs100$inw2014 * (cbs100$pnwal2014/100)
+cbs100$nnwal2014[cbs100$inw2014 == 0] &lt;- 0
+cbs100$nnwal2014b &lt;- cbs100$nnwal2014
+cbs100$nnwal2014b[is.na(cbs100$nnwal2014b)] &lt;- 2
+cbs100$nnwal2014mis &lt;- ifelse(is.na(cbs100$nnwal2014), 1, 0)
+cbs100$nnwal2014[is.na(cbs100$nnwal2014)] &lt;- 0
+sum(cbs100$nnwal2014, na.rm = T)
+
+# bevolking
+ntotaal &lt;- sum(cbs100$nauto2014, na.rm = T) + sum(cbs100$nwal2014, na.rm = T) + sum(cbs100$nnwal2014, 
+    na.rm = T)
+ntotaalb &lt;- sum(cbs100$nauto2014b, na.rm = T) + sum(cbs100$nwal2014b, na.rm = T) + sum(cbs100$nnwal2014b, 
+    na.rm = T)
+sum(cbs100$nwal2014, na.rm = T)/ntotaal
+
+########################### 
+
+# oppervlakte
+oppv &lt;- as.numeric(gArea(shapepc4, byid = T)/1000^2)  #nu in vierkante km
+# 134km^2 voor postcode 8252 klopt
+oppv &lt;- as.data.frame(cbind(oppv, shapepc4$PC4NR))
+oppv &lt;- rename(oppv, c(V2 = &quot;PC4NR&quot;))
+
+pc4 &lt;- merge(pc4, oppv, by = &quot;PC4NR&quot;)
+
+# coordinaatstelsel omzetten pc4
+shapepc4 &lt;- spTransform(shapepc4, CRS(&quot;+proj=longlat +ellps=WGS84&quot;))
+proj4string(shapepc4)
+
+# gridcells voor elke PC4 selecteren
+coordinates(cbs100) = c(&quot;l&quot;, &quot;j&quot;)
+llCRS &lt;- CRS(&quot;+proj=longlat +ellps=WGS84&quot;)
+loc_g &lt;- SpatialPoints(cbs100, proj4string = llCRS)
+proj4string(loc_g) &lt;- proj4string(shapepc4)
+locg &lt;- over(shapepc4, loc_g, returnList = T)
+
+# 2014 select necessary data
+popcounts &lt;- cbs100[c(&quot;nauto2014&quot;, &quot;nwal2014&quot;, &quot;nnwal2014&quot;, &quot;inw2014&quot;)]
+popcounts$inw2014[popcounts$inw2014 &lt; 0] &lt;- NA
+
+# calculate proportions for every pc4.
+prop &lt;- function(x) {
+    ifelse(cbind(length(x) != 0, length(x) != 0, length(x) != 0), colSums(as.data.frame(popcounts@data[x, 
+        1:3]))/sum(colSums(as.data.frame(popcounts@data[x, 1:3]))), c(NA, NA, NA))
+}
+prop2 &lt;- lapply(locg, prop)
+PC4prop &lt;- data.frame(matrix(unlist(prop2), nrow = length(locg), ncol = 3, byrow = T))
+colnames(PC4prop) &lt;- c(&quot;pauto2014&quot;, &quot;pwal2014&quot;, &quot;pnwal2014&quot;)
+
+pc4prop &lt;- cbind(PC4prop, shapepc4$PC4NR)
+pc4prop &lt;- rename(pc4prop, c(`shapepc4$PC4NR` = &quot;PC4NR&quot;))
+head(pc4prop)
+
+pc4 &lt;- merge(pc4, pc4prop, by = &quot;PC4NR&quot;)
+
+# calculate aantinw
+inw &lt;- function(x) {
+    ifelse(length(x) != 0, sum(as.data.frame(popcounts@data[x, 4]), na.rm = TRUE), c(NA))
+}
+inw2 &lt;- lapply(locg, inw)
+PC4inw &lt;- data.frame(matrix(unlist(inw2), nrow = length(locg), ncol = 1, byrow = T))
+colnames(PC4inw) &lt;- c(&quot;inw2014&quot;)
+
+pc4inw &lt;- cbind(PC4inw, shapepc4$PC4NR)
+pc4inw &lt;- rename(pc4inw, c(`shapepc4$PC4NR` = &quot;PC4NR&quot;))
+head(pc4inw)
+
+pc4 &lt;- merge(pc4, pc4inw, by = &quot;PC4NR&quot;)
+
+# calculate weightedwoz
+wozcounts &lt;- cbs100[c(&quot;wozwon2012&quot;, &quot;won2012&quot;)]
+wozcounts$wozwon2012[wozcounts$wozwon2012 &lt; 0] &lt;- NA
+wozcounts$won2012[wozcounts$won2012 &lt; 0] &lt;- NA
+
+woz &lt;- function(x) {
+    ifelse(length(x) != 0, sum(as.data.frame(wozcounts@data[x, 1]) * as.data.frame(wozcounts@data[x, 
+        2]), na.rm = T)/sum(as.data.frame(wozcounts@data[x, 2]), na.rm = T), c(NA))
+}
+woz2 &lt;- lapply(locg, woz)
+PC4woz &lt;- data.frame(matrix(unlist(woz2), nrow = length(locg), ncol = 1, byrow = T))
+colnames(PC4woz) &lt;- c(&quot;woz2012&quot;)
+
+pc4woz &lt;- cbind(PC4woz, shapepc4$PC4NR)
+pc4woz &lt;- rename(pc4woz, c(`shapepc4$PC4NR` = &quot;PC4NR&quot;))
+head(pc4woz)
+
+pc4 &lt;- merge(pc4, pc4woz, by = &quot;PC4NR&quot;)
+
+# add coordinates centroids pc4
+pc4$l &lt;- coordinates(shapepc4)[, 1]
+pc4$j &lt;- coordinates(shapepc4)[, 2]
+
+head(pc4)
+
+pc4$nnwal &lt;- pc4$pnwal2014 * pc4$inw2014
+
+
+# AANGRENZENDE context data
+names(pc4@data)[21:28] &lt;- paste(names(pc4@data[, c(21:28)]), &quot;pc4&quot;, sep = &quot;_&quot;)
+
+pc4$woz2012_aangr &lt;- pc4$inw2014_aangr &lt;- pc4$pnwal2014_aangr &lt;- rep(NA, nrow(pc4))
+
+funinw &lt;- function(x) {
+    sum(pc4$inw2014_pc4[x], na.rm = T)
+}
+funpnw &lt;- function(x) {
+    sum(pc4$pnwal2014_pc4[x] * pc4$inw2014_pc4[x], na.rm = T)/sum(pc4$inw2014_pc4[x], na.rm = T)
+}
+funwoz &lt;- function(x) {
+    sum(pc4$woz2012_pc4[x], na.rm = T)/length(pc4$woz2012_pc4[x])
+}
+funlen &lt;- function(x) {
+    length(pc4$woz2012_pc4[x])
+}
+
+pc4$inw2014_aangr &lt;- sapply(pc4_nbq, funinw)
+pc4$pnwal2014_aangr &lt;- sapply(pc4_nbq, funpnw)
+pc4$woz2012_aangr &lt;- sapply(pc4_nbq, funwoz)
+pc4$wozlength &lt;- sapply(pc4_nbq, funlen)
+
+# plus eigen buurt erbij
+pc4$inw2014_aangr &lt;- pc4$inw2014_aangr + pc4$inw2014_pc4
+pc4$pnwal2014_aangr &lt;- (pc4$pnwal2014_aangr * pc4$inw2014_aangr + pc4$pnwal2014_pc4 * pc4$inw2014_pc4)/(pc4$inw2014_aangr + 
+    pc4$inw2014_pc4)
+pc4$woz2012_aangr &lt;- ((pc4$woz2012_aangr * pc4$wozlength) + pc4$woz2012_pc4)/(pc4$wozlength + 1)
+
+pc4 &lt;- pc4[, c(1:ncol(pc4) - 1)]
+
+# GEMEENTES context data
+nedg &lt;- readOGR(&quot;U:/PhD Documents/CBS shapefiles/shape 2014&quot;, layer = &quot;gem_2014&quot;)
+# thuis nedg &lt;- readOGR(&#39;C:/Users/Joran/Documents/PhD Nijmegen/CBS shapefiles/shape 2014&#39;,
+# layer=&#39;gem_2014&#39;)
+
+nedg &lt;- nedg[nedg$WATER == &quot;NEE&quot;, ]
+gemeente &lt;- as.character(nedg@data$GM_CODE)
+gemeente &lt;- substr(gemeente, 3, length(gemeente))
+nedg$gcode &lt;- as.numeric(gemeente)
+
+# oppervlakte
+oppv &lt;- as.numeric(gArea(nedg, byid = T)/1000^2)  #nu in vierkante km
+# 134km^2 voor postcode 8252 klopt
+oppv &lt;- as.data.frame(cbind(oppv, nedg$gcode))
+oppv &lt;- rename(oppv, c(V2 = &quot;gcode&quot;))
+
+# Transform into spatial data
+nedg &lt;- spTransform(nedg, CRS(&quot;+proj=longlat +ellps=WGS84&quot;))
+# gridcells voor elke gemeente selecteren
+llCRS &lt;- CRS(&quot;+proj=longlat +ellps=WGS84&quot;)
+loc_g &lt;- SpatialPoints(cbs100, proj4string = llCRS)
+proj4string(loc_g) &lt;- proj4string(nedg)
+locg &lt;- over(nedg, loc_g, returnList = T)
+
+# select necessary data
+popcounts &lt;- cbs100[c(&quot;nauto2014&quot;, &quot;nwal2014&quot;, &quot;nnwal2014&quot;, &quot;inw2014&quot;)]
+popcounts$inw2014[popcounts$inw2014 &lt; 0] &lt;- NA
+
+# calculate proportions for every gem.
+prop &lt;- function(x) {
+    ifelse(cbind(length(x) != 0, length(x) != 0, length(x) != 0), colSums(as.data.frame(popcounts@data[x, 
+        1:3]))/sum(colSums(as.data.frame(popcounts@data[x, 1:3]))), c(NA, NA, NA))
+}
+prop2 &lt;- lapply(locg, prop)
+gemprop &lt;- data.frame(matrix(unlist(prop2), nrow = length(locg), ncol = 3, byrow = T))
+colnames(gemprop) &lt;- c(&quot;pauto2014&quot;, &quot;pwal2014&quot;, &quot;pnwal2014&quot;)
+
+gemprop &lt;- cbind(gemprop, nedg$gcode)
+gem &lt;- rename(gemprop, c(`nedg$gcode` = &quot;gcode&quot;))
+head(gem)
+
+# calculate aantinw
+inw &lt;- function(x) {
+    ifelse(length(x) != 0, sum(as.data.frame(popcounts@data[x, 4]), na.rm = TRUE), c(NA))
+}
+inw2 &lt;- lapply(locg, inw)
+geminw &lt;- data.frame(matrix(unlist(inw2), nrow = length(locg), ncol = 1, byrow = T))
+colnames(geminw) &lt;- c(&quot;inw2014&quot;)
+
+geminw &lt;- cbind(geminw, nedg$gcode)
+geminw &lt;- rename(geminw, c(`nedg$gcode` = &quot;gcode&quot;))
+head(geminw)
+
+gem &lt;- merge(gem, geminw, by = &quot;gcode&quot;)
+
+# calculate weightedwoz
+wozcounts &lt;- cbs100[c(&quot;wozwon2012&quot;, &quot;won2012&quot;)]
+wozcounts$wozwon2012[wozcounts$wozwon2012 &lt; 0] &lt;- NA
+wozcounts$won2012[wozcounts$won2012 &lt; 0] &lt;- NA
+
+woz &lt;- function(x) {
+    ifelse(length(x) != 0, sum(as.data.frame(wozcounts@data[x, 1]) * as.data.frame(wozcounts@data[x, 
+        2]), na.rm = T)/sum(as.data.frame(wozcounts@data[x, 2]), na.rm = T), c(NA))
+}
+woz2 &lt;- lapply(locg, woz)
+gemwoz &lt;- data.frame(matrix(unlist(woz2), nrow = length(locg), ncol = 1, byrow = T))
+colnames(gemwoz) &lt;- c(&quot;woz2012&quot;)
+
+gemwoz &lt;- cbind(gemwoz, nedg$gcode)
+gemwoz &lt;- rename(gemwoz, c(`nedg$gcode` = &quot;gcode&quot;))
+head(gemwoz)
+
+gem &lt;- merge(gem, gemwoz, by = &quot;gcode&quot;)
+
+# add oppv
+gem &lt;- merge(gem, oppv, by = &quot;gocde&quot;)
+
+# add centroid coordinates for gem
+head(coordinates(nedg))
+gem$l &lt;- coordinates(nedg)[, 1]
+gem$j &lt;- coordinates(nedg)[, 2]
+
+# _gc to datanames
+colnames(gem)[2:8] &lt;- paste(colnames(gem[2:8]), &quot;gc&quot;, sep = &quot;_&quot;)
+
+# READ IN 1VOP DATA setwd(&#39;C:/Users/U497130/AppData/Local/surfdrive_data/artikel azc/data/&#39;) thuis
+# setwd(&#39;C:/Users/Joran/SURFdrive/artikel azc/data/&#39;)
+setwd(&quot;U:/Surfdrive backup/Artikel azc/data&quot;)
+
+# Data Beide Waves data W2 1vandaag
+ev_t2 &lt;- read.spss(file = &quot;AZC TOLSMA 3_17.11.15_08.40.15.AM.sav&quot;, use.value.labels = FALSE, to.data.frame = T)
+
+# pc4 var aanmaken
+names(ev_t2)
+ev_t2 &lt;- rename(ev_t2, c(Postcode_Opinie = &quot;pc4&quot;))
+ev_t2$pc4 &lt;- str_trim(ev_t2$pc4)
+ev_t2$pc4 &lt;- as.numeric(ev_t2$pc4)  #666 zonder geldige pc4
+
+# select necessary vars
+ev_t2 &lt;- ev_t2[, c(1, 29:35, 45:47, 58:60, 71:74, 95:99, 109, 173:176, 183:197, 199)]
+names(ev_t2)
+
+# #Recode vars met _t2 erbij except id and pc4 colnames(ev_t2) &lt;- paste(colnames(ev_t2),&#39;t2&#39;, sep =
+# &#39;_&#39;) ev_t2 &lt;- rename(ev_t2, c(PanelistIdQuestion_t2=&#39;PanelistIdQuestion&#39;)) ev_t2 &lt;- rename(ev_t2,
+# c(pc4_t2=&#39;pc4&#39;))
+
+# data W1 1vandaag
+ev_t1 &lt;- read.spss(file = &quot;top1provincialestaten.sav&quot;, use.value.labels = FALSE, to.data.frame = T)
+
+# pc4 var aanmaken
+names(ev_t1)
+ev_t1 &lt;- rename(ev_t1, c(Postcode_Opinie = &quot;pc4&quot;))
+ev_t1$pc4 &lt;- str_trim(ev_t1$pc4)
+ev_t1$pc4[11317] &lt;- substr(ev_t1$pc4[11317], 1, 4)
+ev_t1$pc4 &lt;- as.numeric(ev_t1$pc4)  #473 zonder geldige pc4
+
+# select necessary vars
+ev_t1 &lt;- ev_t1[, c(1, 15, 19:37)]
+names(ev_t1)
+
+# #Recode vars met _t1 erbij except id and pc4 colnames(ev_t1) &lt;- paste(colnames(ev_t1),&#39;t1&#39;, sep =
+# &#39;_&#39;) ev_t1 &lt;- rename(ev_t1, c(PanelistIdQuestion_t1=&#39;PanelistIdQuestion&#39;)) ev_t1 &lt;- rename(ev_t1,
+# c(pc4_t1=&#39;pc4&#39;))
+
+# merge waves - COLUMN-WISE evpanel &lt;- merge(ev_t2, ev_t1, by.x=&#39;PanelistIdQuestion&#39;,
+# by.y=&#39;PanelistIdQuestion&#39;, sort=F) #20844 resps evpanel$pc4 &lt;- ifelse(is.na(evpanel$pc4_t1),
+# evpanel$pc4_t2, evpanel$pc4_t2) #same pc4s missings beide waves
+
+# merge waves - ROW-WISE ID var for wave
+ev_t1$tijd &lt;- 1
+ev_t2$tijd &lt;- 2
+head(ev_t1$PanelistIdQuestion)
+head(ev_t2$PanelistIdQuestion)
+# Rowbind and order two dataframes
+evpanel &lt;- rbind.fill(ev_t1, ev_t2)
+evpanel &lt;- evpanel[order(evpanel[, &quot;PanelistIdQuestion&quot;], evpanel[, &quot;tijd&quot;]), ]
+head(evpanel)
+names(evpanel)
+
+# merge 1vandaag aan gc codes
+head(pc4gc_2013)
+evpanel &lt;- merge(evpanel, pc4gc_2013, all.x = T, by = &quot;pc4&quot;, sort = F)
+
+# GCCODES 2013 OMZETTEN NAAR GCODES 2014, ZOVER ALS MOGELIJK
+unique(evpanel$gc[!(evpanel$gc %in% nedg$gcode)])  # 499   82   55   51 1672  653 
+
+# gcodes 2013 shape laden
+nedg2 &lt;- readOGR(&quot;U:/PhD Documents/CBS shapefiles/shape 2013&quot;, layer = &quot;gem_2013_v1&quot;)
+nedg2 &lt;- nedg2[nedg2$WATER == &quot;NEE&quot;, ]
+gemeente &lt;- as.character(nedg2@data$GM_CODE)
+gemeente &lt;- substr(gemeente, 3, length(gemeente))
+nedg2$gcode &lt;- as.numeric(gemeente)
+
+nedg2$GM_NAAM[nedg2$gcode == 499]  # boskoop wordt alhpen aan de rijn
+nedg2$GM_NAAM[nedg2$gcode == 1672]  #rijnwoude wordt alhpen aan de rijn
+nedg2$GM_NAAM[nedg2$gcode == 82]  #lemsterland wordt de friese meren
+nedg2$GM_NAAM[nedg2$gcode == 55]  #Boarnsterhim wordt de friese meren
+nedg2$GM_NAAM[nedg2$gcode == 51]  #SkarsterlÃ¢n wordt de friese meren
+nedg2$GM_NAAM[nedg2$gcode == 653]  #GaasterlÃ¢n-Sleat wordt de friese meren
+
+nedg$gcode[nedg$GM_NAAM == &quot;Alphen aan den Rijn&quot;]  #484
+nedg$gcode[nedg$GM_NAAM == &quot;De Friese Meren&quot;]  #1921
+
+evpanel$gc[evpanel$gc == 499] &lt;- 484
+evpanel$gc[evpanel$gc == 1672] &lt;- 484
+evpanel$gc[evpanel$gc == 82] &lt;- 1921
+evpanel$gc[evpanel$gc == 51] &lt;- 1921
+evpanel$gc[evpanel$gc == 55] &lt;- 1921
+evpanel$gc[evpanel$gc == 653] &lt;- 1921
+
+
+# ONE PERSON IN NEW AREA, SHOULD HAVE A GCODE
+pc4$PC4NR[is.na(pc4$gc)]  # (1114) 1706 (5057)
+evpanel$pc4[evpanel$pc4 == 1114 | evpanel$pc4 == 1706 | evpanel$pc4 == 5057]  #one respondent in 1706
+# 1706 is heerhugowaard
+names(nedg)
+nedg[nedg$GM_NAAM == &quot;Heerhugowaard&quot;, ]  # gc = 398
+evpanel$gc[!is.na(evpanel$pc4) &amp; evpanel$pc4 == 1706] &lt;- 398
+
+# pc4s that are not in pc4 shape
+evpanel$pc4[!(evpanel$pc4 %in% pc4$PC4NR)]
+
+# [1] 1000 1001 1020 1050 1070 1090 1100 1130 1200 1224 1234 1250 1270 1300 1500 1533 1550 [19] 1612
+# 1672 1800 1917 1922 1940 1986 2000 2030 2100 2130 2300 2310 2399 2400 2482 2500 2501 [37] 2569 2588
+# 2600 2695 2700 2800 2900 3000 3127 3160 3200 3283 3300 3350 3377 3391 3407 3440 [55] 3450 3500 3519
+# 3535 3600 3620 3647 3700 3745 3760 3800 3810 3854 3900 3964 3977 4200 4330 [73] 4490 4500 4517 4530
+# 4600 4750 4777 4800 4831 4857 4900 4919 4940 5000 5110 5120 5183 5200 [91] 5210 5300 5350 5360 5500
+# 5520 5565 5572 5596 5600 5650 5700 5743 5800 5900 5945 5967 5983 [109] 6000 6040 6100 6130 6200
+# 6203 6293 6400 6434 6500 6501 6552 6614 6800 6872 6906 6970 7000 [127] 7153 7175 7200 7219 7240
+# 7248 7270 7300 7320 7360 7400 7500 7550 7600 7650 7698 7743 7770 [145] 7800 7900 7976 8000 8100
+# 8180 8200 8234 8352 8440 8470 8500 8520 8543 8692 8705 8795 8847 [163] 8860 8900 9400 9480 9500
+# 9504 9506 9540 9600 9700 9704 9800 9818 9930
+
+# other pc4 that should have gc codes
+nedg[nedg$GM_NAAM == &quot;Blaricum&quot;, ]  # gc = 376
+evpanel$gc[!is.na(evpanel$pc4) &amp; evpanel$pc4 == 1262] &lt;- 376
+
+# pc4s on NA die niet bestaan, on the basis of pc4 shape, postbussen etc
+evpanel$pc4[!(evpanel$pc4 %in% pc4$PC4NR)] &lt;- NA
+
+
+# MATCH EV DATA TO AZCS &amp; OTHER DATA
+pc4_sel &lt;- pc4[, c(1, 3:25, 28:31)]
+evpanel &lt;- merge(evpanel, pc4_sel, all.x = T, by.x = &quot;pc4&quot;, by.y = &quot;PC4NR&quot;, sort = F)
+
+gem_sel &lt;- gem[, c(1:6)]
+evpanel &lt;- merge(evpanel, gem_sel, all.x = T, by.x = &quot;gc&quot;, by.y = &quot;gcode&quot;, sort = F)
+
+
+# AZC SIZE AS number of seekers per 1000inhab OF PC4/PC4aangr/GC
+azcproppc4 &lt;- evpanel[, c(56:61)]/(evpanel[, c(77)]/1000)
+summary(evpanel[is.na(evpanel$inw2014_pc4), c(1, 2, 56:61)])
+# azcproppc4[is.na(azcproppc4) &amp; !is.na(evpanel$pc4)] &lt;- 0 #allemaal 0, dus NA kan op 0
+colnames(azcproppc4) &lt;- paste(colnames(azcproppc4), &quot;rel&quot;, sep = &quot;&quot;)
+evpanel &lt;- cbind(evpanel, azcproppc4)
+
+azcpropaangr &lt;- evpanel[, c(68:73)]/(evpanel[, c(81)]/1000)
+summary(evpanel[is.na(evpanel$inw2014_pc4), c(1, 2, 68:73)])
+# azcpropaangr[is.na(azcpropaangr)] &lt;- 0 #allemaal 0, dus NA kan op 0
+colnames(azcpropaangr) &lt;- paste(colnames(azcpropaangr), &quot;rel&quot;, sep = &quot;&quot;)
+evpanel &lt;- cbind(evpanel, azcpropaangr)
+
+azcpropgc &lt;- evpanel[, c(62:67)]/(evpanel[, c(86)]/1000)
+summary(evpanel[is.na(evpanel$inw2014_gc), c(1, 2, 62:67)])
+# azcpropgc[is.na(azcpropgc)] &lt;- 0 #allemaal 0, dus NA kan op 0
+colnames(azcpropgc) &lt;- paste(colnames(azcpropgc), &quot;rel&quot;, sep = &quot;&quot;)
+evpanel &lt;- cbind(evpanel, azcpropgc)
+evpanel[!is.na(evpanel$gc) &amp; is.na(evpanel$s1cap_gct1rel), c(100:105)] &lt;- 0
+names(evpanel)
+
+# AZC SIZE AS number of seekers per nb non west OF PC4
+azcnwpc4 &lt;- evpanel[, c(56:61)]/(evpanel[, c(79)])
+summary(evpanel[is.na(evpanel$inw2014_pc4), c(1, 2, 56:61)])
+# azcproppc4[is.na(azcproppc4) &amp; !is.na(evpanel$pc4)] &lt;- 0 #allemaal 0, dus NA kan op 0
+colnames(azcnwpc4) &lt;- paste(colnames(azcnwpc4), &quot;nw&quot;, sep = &quot;&quot;)
+evpanel &lt;- cbind(evpanel, azcnwpc4)
+
+####################################### CReate individual VARIABLES
+
+# Select only native Dutch respondents
+table(evpanel$Herkomst_familie_Opinie, useNA = &quot;always&quot;)
+evpanel &lt;- evpanel[evpanel$Herkomst_familie_Opinie == 1 &amp; !is.na(evpanel$Herkomst_familie_Opinie), ]  # minus (849) respondents 
+table(evpanel$Herkomst_familie_Opinie, useNA = &quot;always&quot;)
+
+
+# DEPENDENT VARIABLES
+
+# Voting intentions - W1
+table(evpanel$stemvraag, useNA = &quot;always&quot;)
+evpanel$vote &lt;- evpanel$stemvraag
+# t1: &#39;1&#39;=&#39;vvd&#39;, &#39;2&#39;=&#39;pvda&#39;, &#39;3&#39;=&#39;pvv&#39;, &#39;4&#39;=&#39;cda&#39;, &#39;5&#39;=&#39;sp&#39;, &#39;6&#39;=&#39;d66&#39;, &#39;7&#39;=&#39;gl&#39;, &#39;8&#39;=&#39;cu&#39;,
+# &#39;9&#39;=&#39;sgp&#39;, &#39;10&#39;=&#39;dier&#39;, &#39;11&#39;=&#39;50plus&#39;, &#39;12&#39;=&#39;blanco&#39;, &#39;13&#39;=&#39;dontknow&#39;, &#39;14&#39;=&#39;novote&#39;,&#39;15&#39;=not
+# allowed&#39;,&#39;16&#39;=&#39;no answer&#39;, &#39;17&#39;=&#39;other&#39; t2: &#39;1&#39;=&#39;vvd&#39;, &#39;2&#39;=&#39;pvda&#39;, &#39;3&#39;=&#39;pvv&#39;, &#39;4&#39;=&#39;cda&#39;, &#39;5&#39;=&#39;sp&#39;,
+# &#39;6&#39;=&#39;d66&#39;, &#39;7&#39;=&#39;gl&#39;, &#39;8&#39;=&#39;cu&#39;, &#39;9&#39;=&#39;sgp&#39;, &#39;10&#39;=&#39;dier&#39;, &#39;11&#39;=&#39;50plus&#39;, &#39;12&#39;=&#39;vnl&#39;,&#39;13&#39;=&#39;blanco&#39;,
+# &#39;14&#39;=&#39;dontknow&#39;, &#39;15&#39;=&#39;novote&#39;, &#39;16&#39;=not allowed&#39;,&#39;17&#39;=&#39;no answer&#39;, &#39;18&#39;=&#39;other&#39;))
+evpanel$vote[evpanel$tijd == 1 &amp; evpanel$vote == 17] &lt;- 18
+evpanel$vote[evpanel$tijd == 1 &amp; evpanel$vote == 16] &lt;- 17
+evpanel$vote[evpanel$tijd == 1 &amp; evpanel$vote == 15] &lt;- 16
+evpanel$vote[evpanel$tijd == 1 &amp; evpanel$vote == 14] &lt;- 15
+evpanel$vote[evpanel$tijd == 1 &amp; evpanel$vote == 13] &lt;- 14
+evpanel$vote[evpanel$tijd == 1 &amp; evpanel$vote == 12] &lt;- 13
+
+# evpanel$vote &lt;- ifelse(evpanel$vote==13,NA,evpanel$vote) evpanel$vote &lt;-
+# ifelse(evpanel$vote==15,NA,evpanel$vote) evpanel$vote &lt;- ifelse(evpanel$vote==16,NA,evpanel$vote)
+# evpanel$vote &lt;- ifelse(evpanel$vote==17,NA,evpanel$vote)
+table(evpanel$vote, useNA = &quot;always&quot;)
+
+# PVV vote 12=Blanco (0.6%), 13=Weet ik nog niet (11,4%), 14=Wel gerechtigd, ga niet (1,1%), 15=niet
+# stemgerectigd (0.004%), 16=geen opgave (0.5%),17=andere partij
+evpanel$PVV &lt;- ifelse(evpanel$vote == 3, 1, 0)
+table(evpanel$PVV, useNA = &quot;always&quot;)
+
+# Vote GL
+evpanel$GL &lt;- ifelse(evpanel$vote == 7, 1, 0)
+table(evpanel$GL, useNA = &quot;always&quot;)
+
+
+# threat for threatDV as DV dont know with
+evpanel$threat &lt;- NA
+evpanel$threat[evpanel$RB_1 == 1] &lt;- 4
+evpanel$threat[evpanel$RB_1 == 2] &lt;- 3
+evpanel$threat[evpanel$RB_1 == 3] &lt;- 2
+evpanel$threat[evpanel$RB_1 == 4] &lt;- 1
+evpanel$threat[evpanel$RB_1 == 5] &lt;- 0
+evpanel$threat[evpanel$RB_1 == 6] &lt;- 2  #dont know cat.
+table(evpanel$threat, useNA = &quot;always&quot;)
+
+
+evpanel$threat[evpanel$komst_minderheden == 1] &lt;- 4
+evpanel$threat[evpanel$komst_minderheden == 2] &lt;- 3
+evpanel$threat[evpanel$komst_minderheden == 3] &lt;- 2
+evpanel$threat[evpanel$komst_minderheden == 4] &lt;- 1
+evpanel$threat[evpanel$komst_minderheden == 5] &lt;- 0
+evpanel$threat[evpanel$komst_minderheden == 6] &lt;- 2  #dont know cat.
+table(evpanel$threat, useNA = &quot;always&quot;)
+
+
+# contact Contact (Hoe vaak heeft u in uw buurt persoonlijk contact met iemand van niet-westerse
+# herkomst/oost europees) 1=bijna elke dag, 7=nooit, 8=nvt
+evpanel$contactnw &lt;- NA
+evpanel$contactnw[evpanel$RB_3a == 1] &lt;- 6
+evpanel$contactnw[evpanel$RB_3a == 2] &lt;- 5
+evpanel$contactnw[evpanel$RB_3a == 3] &lt;- 4
+evpanel$contactnw[evpanel$RB_3a == 4] &lt;- 3
+evpanel$contactnw[evpanel$RB_3a == 5] &lt;- 2
+evpanel$contactnw[evpanel$RB_3a == 6] &lt;- 1
+evpanel$contactnw[evpanel$RB_3a == 7] &lt;- 0  #NOOIT
+evpanel$contactnw[evpanel$RB_3a == 8] &lt;- 0  #NVT
+table(evpanel$contactnw, useNA = &quot;always&quot;)
+
+table(evpanel$Niet_westers)
+evpanel$contactnw[evpanel$Niet_westers == 1] &lt;- 6
+evpanel$contactnw[evpanel$Niet_westers == 2] &lt;- 5
+evpanel$contactnw[evpanel$Niet_westers == 3] &lt;- 4
+evpanel$contactnw[evpanel$Niet_westers == 4] &lt;- 3
+evpanel$contactnw[evpanel$Niet_westers == 5] &lt;- 2
+evpanel$contactnw[evpanel$Niet_westers == 6] &lt;- 1
+evpanel$contactnw[evpanel$Niet_westers == 7] &lt;- 0
+evpanel$contactnw[evpanel$Niet_westers == 8] &lt;- 0
+table(evpanel$contactnw, useNA = &quot;always&quot;)
+
+
+# azc vars
+
+# perceptie azc in de buurt? Worden er in uw buurt vluchtelingen opgevangen of zijn daar plannen
+# voor? 1.Ja, in mijn buurt staat een azc 2.Ja, in mijn buurt is er een tijdelijke opvang voor
+# vluchtelingen 3.Nee, maar daar zijn wel plannen voor 4.Nee, in mijn buurt worden geen vluchtelingen
+# opgevangen 5.Weet niet / geen mening table(evpanel$Opvang_buurt, useNA=&#39;always&#39;) evpanel$percpc4azc
+# &lt;- ifelse(evpanel$Opvang_buurt==1 | evpanel$Opvang_buurt==2, 1, 0) table(evpanel$percpc4azc,
+# useNA=&#39;always&#39;) #dummy version evpanel$percpc4azc_dum &lt;- as.factor(evpanel$Opvang_buurt)
+# levels(evpanel$percpc4azc_dum ) &lt;- c(&#39;ja, azc&#39;,&#39;ja, tijdelijk&#39;,&#39;wel plannen&#39;, &#39;nee&#39;, &#39;weet niet&#39;)
+
+# Covariates
+
+# Gender
+table(evpanel$Geslacht_Opinie, useNA = &quot;always&quot;)
+evpanel$gender &lt;- ifelse(evpanel$Geslacht_Opinie == 1, 1, 0)  # 1= male
+table(evpanel$gender, useNA = &quot;always&quot;)
+
+# Age table(evpanel$Geboortedatum_Opinie)
+evpanel$gebdat &lt;- as.POSIXlt(evpanel$Geboortedatum_Opinie, origin = &quot;1582/10/14&quot;)
+evpanel$ages &lt;- as.character(evpanel$gebdat)
+evpanel$age &lt;- substr(evpanel$ages, 1, 4)
+evpanel$age &lt;- as.numeric(evpanel$age)
+evpanel$age &lt;- 2015 - evpanel$age
+table(evpanel$age, useNA = &quot;always&quot;)
+# Select on Age higher than 18
+evpanel &lt;- evpanel[evpanel$age &gt;= 18, ]
+
+# Education (years of education that constitute the shortest route to obtain a university degreeAfter
+# this coding, all values are subtracted from the maximum years of schooling necessary to obtain a
+# university grade)) (1) 5 lagere school not finished (4yrs) /lagere school (6yrs) (2) 7 lbo,
+# vmbo-kb/bbl (6,5yrs) /mavo, vmbo-tl (8yrs) (3) 11 havo (10yrs) / vwo/gymnasium (12yrs) (4) 9,5
+# mbo-kort (kmbo) (8,5yrs) /mbo-tussen/lang (mbo) (10,5yrs) (5) 14 hbo (14yrs) (6) 16,5 universiteit
+# (bachelormaster, doctoraal)(16,5)
+
+table(evpanel$Opleiding_Opinie, useNA = &quot;always&quot;)
+evpanel$educ &lt;- NA
+evpanel$educ[evpanel$Opleiding_Opinie == 1] &lt;- 5
+evpanel$educ[evpanel$Opleiding_Opinie == 2] &lt;- 7
+evpanel$educ[evpanel$Opleiding_Opinie == 3] &lt;- 11
+evpanel$educ[evpanel$Opleiding_Opinie == 4] &lt;- 9.5
+evpanel$educ[evpanel$Opleiding_Opinie == 5] &lt;- 14
+evpanel$educ[evpanel$Opleiding_Opinie == 6] &lt;- 16.5
+table(evpanel$educ, useNA = &quot;always&quot;)
+
+# Civil status 1=gehuwd/gereg partner, 2=gescheiden,3=weduwe,4=ongehuwd
+table(evpanel$Burgerlijke_staat_Opinie, useNA = &quot;always&quot;)
+evpanel$civilstatus &lt;- evpanel$Burgerlijke_staat_Opinie
+table(evpanel$civilstatus, useNA = &quot;always&quot;)
+
+# Household comp 1=inw bij ouders,2=single no kids, 3=single kids, 4=student/community,5=married no
+# kids, 6=married kids, 7=other
+table(evpanel$Situatie_huishouden_Opinie, useNA = &quot;always&quot;)
+evpanel$household &lt;- NA
+evpanel$household[evpanel$Situatie_huishouden_Opinie == 2] &lt;- 1
+evpanel$household[evpanel$Situatie_huishouden_Opinie == 3] &lt;- 2
+evpanel$household[evpanel$Situatie_huishouden_Opinie == 5] &lt;- 3
+evpanel$household[evpanel$Situatie_huishouden_Opinie == 6] &lt;- 4
+evpanel$household[evpanel$Situatie_huishouden_Opinie == 1] &lt;- 5
+evpanel$household[evpanel$Situatie_huishouden_Opinie == 4] &lt;- 5
+evpanel$household[evpanel$Situatie_huishouden_Opinie == 7] &lt;- 5
+table(evpanel$household, useNA = &quot;always&quot;)
+# 1=single no kids, 2=single kids, 3=married no kids, 4=married kids, 5=other
+
+# Daily activity 1=betaald werk,
+# 2=zelfstandig,3=werkzoekend,4=arbeidsong,5=student,6=huisvrouw,7=pensoen,8=other
+table(evpanel$Dagelijkse_activiteit_Opinie, useNA = &quot;always&quot;)
+evpanel$dailyact &lt;- NA
+evpanel$dailyact[evpanel$Dagelijkse_activiteit_Opinie == 1] &lt;- 1
+evpanel$dailyact[evpanel$Dagelijkse_activiteit_Opinie == 2] &lt;- 1
+evpanel$dailyact[evpanel$Dagelijkse_activiteit_Opinie == 3] &lt;- 2
+evpanel$dailyact[evpanel$Dagelijkse_activiteit_Opinie == 4] &lt;- 3
+evpanel$dailyact[evpanel$Dagelijkse_activiteit_Opinie == 5] &lt;- 4
+evpanel$dailyact[evpanel$Dagelijkse_activiteit_Opinie == 6] &lt;- 5
+evpanel$dailyact[evpanel$Dagelijkse_activiteit_Opinie == 7] &lt;- 6
+evpanel$dailyact[evpanel$Dagelijkse_activiteit_Opinie == 8] &lt;- 7
+# 1=betaald werk/zelfstandig,2=werkzoekend,3=arbeidsong,4=student,5=huisvrouw,6=pensoen,7=other
+table(evpanel$dailyact, useNA = &quot;always&quot;)
+
+
+# only keep relevant vars
+evpanel_sel &lt;- evpanel[, c(1, 2, 18, 23, 56:113, 115:117, 120:124)]
+
+names(evpanel)
+
+# SELECTION ON PANEL resps
+evpanel_sel &lt;- evpanel_sel[evpanel_sel$PanelistIdQuestion %in% evpanel_sel$PanelistIdQuestion[duplicated(evpanel_sel$PanelistIdQuestion)], 
+    ]
+
+
+# ADD WEIGHTS TO Data
+
+# make caseidn
+evpanel_sel$caseidn &lt;- 1:length(evpanel_sel[, 1])
+
+# MAKE TARGET VALUES Geslacht
+gender_w &lt;- c(0.503, 0.497)  # vrouw - man
+sum(gender_w)
+
+# Age: 3cats
+age_w &lt;- c(0.238, 0.344, 0.418)  #18-35,35-55,55+
+names(age_w) &lt;- c(&quot;age1&quot;, &quot;age2&quot;, &quot;age3&quot;)
+sum(age_w)
+
+# Opl: 3cats
+educ_w &lt;- c(0.323, 0.393, 0.284)  #basis/vmbo/mbo1,mbo2-4/HV/VWO,HBO/WO 
+names(educ_w) &lt;- c(&quot;opl1&quot;, &quot;opl2&quot;, &quot;opl3&quot;)
+sum(educ_w)
+
+targets &lt;- list(gender_w, age_w, educ_w)
+names(targets) &lt;- c(&quot;gender_w&quot;, &quot;age_w&quot;, &quot;educ_w&quot;)
+
+# check variables in data
+table(evpanel_sel$gender, useNA = &quot;always&quot;)  #man=1
+evpanel_sel$gender_w &lt;- as.logical(evpanel_sel$gender)
+table(evpanel_sel$gender_w, useNA = &quot;always&quot;)
+
+# age: 3cats
+table(evpanel_sel$age, useNA = &quot;always&quot;)  #18-35,35-55,55+
+evpanel_sel$age_w &lt;- NA
+evpanel_sel$age_w[evpanel_sel$age &lt;= 35] &lt;- 1
+evpanel_sel$age_w[evpanel_sel$age &gt; 35 &amp; evpanel_sel$age &lt;= 55] &lt;- 2
+evpanel_sel$age_w[evpanel_sel$age &gt; 55] &lt;- 3
+evpanel_sel$age_w &lt;- as.factor(evpanel_sel$age_w)
+levels(evpanel_sel$age_w) &lt;- c(&quot;age1&quot;, &quot;age2&quot;, &quot;age3&quot;)
+table(evpanel_sel$age_w, useNA = &quot;always&quot;)
+
+# Opl: 3cats
+table(evpanel_sel$educ, useNA = &quot;always&quot;)
+evpanel_sel$educ_w &lt;- NA
+evpanel_sel$educ_w[evpanel_sel$educ &lt;= 8] &lt;- 1
+evpanel_sel$educ_w[evpanel_sel$educ &gt; 8 &amp; evpanel_sel$educ &lt;= 12] &lt;- 2
+evpanel_sel$educ_w[evpanel_sel$educ &gt; 12] &lt;- 3
+evpanel_sel$educ_w &lt;- as.factor(evpanel_sel$educ_w)
+levels(evpanel_sel$educ_w) &lt;- c(&quot;opl1&quot;, &quot;opl2&quot;, &quot;opl3&quot;)
+table(evpanel_sel$educ_w, useNA = &quot;always&quot;)
+
+# make weights (for 3cats cap is 6cap)
+weighted &lt;- anesrake(inputter = targets, dataframe = evpanel_sel, choosemethod = &quot;max&quot;, caseid = evpanel_sel$caseidn, 
+    cap = 5)
+test &lt;- weightassess(targets, evpanel_sel, weighted$weightvec)
+
+oplp &lt;- test$educ_w[c(1:3), 1] * 39976
+oplw &lt;- test$educ_w[c(1:3), 4]
+test2 &lt;- matrix(c(oplp, oplw), byrow = T, nrow = 2)
+dimnames(test2) &lt;- list(weightype = c(&quot;p&quot;, &quot;w&quot;), opl = c(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;))
+chisq.test(test2)
+
+agep &lt;- test$age_w[c(1:3), 1] * 39976
+agew &lt;- test$age_w[c(1:3), 4]
+test2 &lt;- matrix(c(agep, agew), byrow = T, nrow = 2)
+dimnames(test2) &lt;- list(weightype = c(&quot;p&quot;, &quot;w&quot;), age = c(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;))
+chisq.test(test2)
+
+geslp &lt;- test$gender_w[c(1:2), 1] * 39976
+geslw &lt;- test$gender_w[c(1:2), 4]
+test2 &lt;- matrix(c(geslp, geslw), byrow = T, nrow = 2)
+dimnames(test2) &lt;- list(weightype = c(&quot;p&quot;, &quot;w&quot;), age = c(&quot;v&quot;, &quot;m&quot;))
+chisq.test(test2)
+
+evpanel_sel &lt;- cbind(evpanel_sel, weighted$weightvec)
+evpanel_sel &lt;- rename(evpanel_sel, c(`weighted$weightvec` = &quot;weightvec&quot;))
+
+
+# scale weights to cluster (https://www.statmodel.com/download/Scaling3.pdf)
+
+# PC4
+nresppc4 &lt;- aggregate(evpanel_sel$weightvec, by = list(evpanel_sel$pc4), FUN = length)
+weightpc4 &lt;- aggregate(evpanel_sel$weightvec, by = list(evpanel_sel$pc4), FUN = sum)
+evpanel_sel$weightvec_pc4 &lt;- evpanel_sel$weightvec * ((nresppc4$x[match(evpanel_sel$pc4, nresppc4$Group.1)])/(weightpc4$x[match(evpanel_sel$pc4, 
+    weightpc4$Group.1)]))
+
+# PC4
+nrespgc &lt;- aggregate(evpanel_sel$weightvec, by = list(evpanel_sel$gc), FUN = length)
+weightgc &lt;- aggregate(evpanel_sel$weightvec, by = list(evpanel_sel$gc), FUN = sum)
+evpanel_sel$weightvec_gc &lt;- evpanel_sel$weightvec * ((nrespgc$x[match(evpanel_sel$gc, nrespgc$Group.1)])/(weightgc$x[match(evpanel_sel$gc, 
+    weightgc$Group.1)]))
+
+
+evpanel_sel &lt;- evpanel_sel[, c(1:70, 75:77)]
+
+# data wegscrhrijven write.table(evpanel_sel,
+# file=&#39;C:/Users/U497130/AppData/Local/surfdrive_data/Artikel azc/data/evazc v15032017.csv&#39;) thuis
+# write.table(evpanel_sel, file=&#39;C:/Users/Joran/SURFdrive/Artikel azc/data/evazc v22122017.csv&#39;)
+
+# data to stata write.dta(evpanel_sel, &#39;C:/Users/u497130/AppData/Local/Surfdrive_data/Artikel
+# azc/data/evazc v22122017.dta&#39;) thuis
+write.dta(evpanel_sel, file = &quot;U:/Surfdrive backup/Artikel azc/data/evazc v22122017II.dta&quot;)</code></pre>
+<hr />
+<div id="refs" class="references">
+<div id="ref-Tolsma2020">
+<p>Tolsma, Jochem, Joran Laméris, and Michael Savelkoul. n.d. “Exposure to Asylum Seekers and Changing Support for the Radical Right: A Natural Experiment in the Netherlands.” <em>PLOS ONE</em> - (-): –. <a href="https://journals.plos.org/plosone/">https://journals.plos.org/plosone/</a>.</p>
+</div>
+</div>
+</div>
+
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkV4cG9zdXJlIHRvIEFzeWx1bSBTZWVrZXJzIg0KYXV0aG9yOiAnW0pvY2hlbSBUb2xzbWFdKGh0dHBzOi8vd3d3LmpvY2hlbXRvbHNtYS5ubCkgLSBSYWRib3VkIFVuaXZlcnNpdHksIHRoZSBOZXRoZXJsYW5kcycNCmJpYmxpb2dyYXBoeTogcmVmZXJlbmNlcy5iaWINCmRhdGU6ICJMYXN0IGNvbXBpbGVkIG9uIGByIGZvcm1hdChTeXMudGltZSgpLCAnJUIsICVZJylgIg0Kb3V0cHV0OiANCiAgaHRtbF9kb2N1bWVudDoNCiAgICB0b2M6ICB0cnVlDQogICAgdG9jX2Zsb2F0OiB0cnVlDQogICAgbnVtYmVyX3NlY3Rpb25zOiBmYWxzZQ0KICAgIGNvZGVfZm9sZGluZzogc2hvdw0KICAgIGNvZGVfZG93bmxvYWQ6IHllcw0KLS0tDQoNCmBgYHtyLCBnbG9iYWxzZXR0aW5ncywgZWNobz1GQUxTRSwgd2FybmluZz1GQUxTRX0NCmxpYnJhcnkoa25pdHIpDQpvcHRzX2NodW5rJHNldCh0aWR5Lm9wdHM9bGlzdCh3aWR0aC5jdXRvZmY9MTAwKSx0aWR5PVRSVUUsIHdhcm5pbmcgPSBGQUxTRSwgbWVzc2FnZSA9IEZBTFNFLGNvbW1lbnQgPSAiIz4iLCBjYWNoZT1UUlVFLA0KY2xhc3Muc291cmNlPWMoInRlc3QiKSwgY2xhc3Mub3V0cHV0PWMoInRlc3QyIikpDQpvcHRpb25zKHdpZHRoID0gMTAwKQ0KcmdsOjpzZXR1cEtuaXRyKCkNCg0KDQpjb2xvcml6ZSA8LSBmdW5jdGlvbih4LCBjb2xvcikgew0KICBpZiAoa25pdHI6OmlzX2xhdGV4X291dHB1dCgpKSB7DQogICAgc3ByaW50ZigiXFx0ZXh0Y29sb3J7JXN9eyVzfSIsIGNvbG9yLCB4KQ0KICB9IGVsc2UgaWYgKGtuaXRyOjppc19odG1sX291dHB1dCgpKSB7DQogICAgc3ByaW50ZigiPHNwYW4gc3R5bGU9J2NvbG9yOiAlczsnPiVzPC9zcGFuPiIsIGNvbG9yLCANCiAgICAgIHgpDQogIH0gZWxzZSB4DQp9DQoNCmBgYA0KDQpgYGB7ciBrbGlwcHksIGVjaG89RkFMU0UsIGluY2x1ZGU9VFJVRX0NCmtsaXBweTo6a2xpcHB5KHBvc2l0aW9uID0gYygndG9wJywgJ3JpZ2h0JykpDQoja2xpcHB5OjprbGlwcHkoY29sb3IgPSAnZGFya3JlZCcpDQoja2xpcHB5OjprbGlwcHkodG9vbHRpcF9tZXNzYWdlID0gJ0NsaWNrIHRvIGNvcHknLCB0b29sdGlwX3N1Y2Nlc3MgPSAnRG9uZScpDQpgYGANCg0KYGBge2NzcywgZWNobz1GQUxTRX0NCnByZS50ZXN0IHsNCiAgbWF4LWhlaWdodDogMzAwcHg7DQogIG92ZXJmbG93LXk6IGF1dG87DQogIG92ZXJmbG93LXg6IGF1dG87DQogIG1hcmdpbjogMHB4Ow0KfQ0KDQpwcmUudGVzdDIgew0KICBtYXgtaGVpZ2h0OiAzMDBweDsNCiAgb3ZlcmZsb3cteTogYXV0bzsNCiAgb3ZlcmZsb3cteDogYXV0bzsNCiAgbWFyZ2luOiAwcHg7DQogIGJhY2tncm91bmQtY29sb3I6IHdoaXRlDQp9DQoNCg0KaDEsIC5oMSwgaDIsIC5oMiwgaDMsIC5oMyB7DQogICAgbWFyZ2luLXRvcDogMjRweDsNCn0NCg0KDQpgYGANCg0KDQotLS0tDQoNClRoaXMgd2Vic2l0ZSBpcyBhIHJlcGxpY2F0aW9uIHBhY2thZ2UgZm9yIHRoZSBwYXBlciAiRXhwb3N1cmUgdG8gQXN5bHVtIFNlZWtlcnMgYW5kIENoYW5naW5nIFN1cHBvcnQgZm9yIHRoZSBSYWRpY2FsIFJpZ2h0OiBBIE5hdHVyYWwgRXhwZXJpbWVudCBpbiB0aGUgTmV0aGVybGFuZHMiIGJ5IEBUb2xzbWEyMDIwLiBJdCBjb250YWlucyBhbGwgbmVjZXNzYXJ5IFIgY29kZSBhbmQgZGF0YXNldHMgdG8gcmVwbGljYXRlIGFsbCBUYWJsZXMgaW4gdGhlIG1hbnVzY3JpcHQuIA0KDQpVc2UgdGhlIHRvcCBtZW51IHRvIG5hdmlnYXRlIHRvIHRoZSBzZWN0aW9uIG9mIGludGVyZXN0LiBUaGUgc2VjdGlvbiBpbnRyb2R1Y2VzIHRoZSBvcmlnaW5hbCBzdXJ2ZXkgZGF0YSBvZiBbMVZPUF0oaHR0cHM6Ly9lZW52YW5kYWFnLmF2cm90cm9zLm5sL3BhbmVscy9vcGluaWVwYW5lbC8pIGFuZCB0aGUgZGF0YSBvZiB0aGUgW0NlbnRyYWwgQWdlbmN5IGZvciB0aGUgUmVjZXB0aW9uIG9mIEFzeWx1bSBTZWVrZXJzIChDT0EpXShodHRwczovL3d3dy5jb2EubmwvZW4pLiANCg0KVG8gY29weSB0aGUgY29kZSBjbGljayB0aGUgYnV0dG9uIGluIHRoZSB1cHBlciByaWdodCBjb3JuZXIgb2YgdGhlIGNvZGUtY2h1bmtzLiANCg0KDQotLS0tDQoNCiMjIENvbnRhY3QNClF1ZXN0aW9ucyBjYW4gYmUgYWRkcmVzc2VkIHRvIHRoZSBmaXJzdCBhdXRob3Igb2YgdGhlIGNvcnJlc3BvbmRpbmcgYXJ0aWNsZSwgW0pvY2hlbSBUb2xzbWFdKG1haWx0bzpqLnRvbHNtYUBydS5ubCkuIA0KDQotLS0tICANCg0KIyMgREFUQSAxVk9QIA0KDQpUaGUgb3JpZ2luYWwgZGF0YXNldHMgY2FuIGJlIGFjcXVpcmVkIGJ5IHNlbmRpbmcgYSByZXF1ZXN0IHRvIDFWT1AuIA0KVGhlIG5hbWVzIG9mIHRoZSB1c2VkIGRhdGFzZXRzIHdlcmU6IA0KDQotIFdhdmUgMTogdG9wMXByb3ZpbmNpYWxlc3RhdGVuLnNhdiAgDQotIFdhdmUgMjogQVpDIFRPTFNNQSAzXzE3LjExLjE1XzA4LjQwLjE1LkFNLnNhdg0KDQpCZWxvdyB3ZSBzaG93IHRoZSB2YXJpYWJsZSBuYW1lcyBhbmQgYW4gZXhjZXJwdCBvZiB0aGUgb3JpZ2luYWwgZGF0YXNldHMuIA0KDQogICAgICANCioqV0FWRSAxOioqDQpgYGB7ciwgZWNobz1GQUxTRX0NCnJlcXVpcmUoRFQpIA0Kcm0obGlzdD1scygpKQ0KDQpsb2FkKCJkYXRhL29yaWdpbmFsL3dhdmUxLlJkYXRhIikNCm5hbWVzKHdhdmUxKQ0KYGBgDQoNCmBgYHtyLCBlY2hvPUZBTFNFfQ0KI3N1bW1hcnkod2F2ZTFbMToxMCxdLCBjYXB0aW9uPSIxVk9QIFdhdmUgMSIpDQoNCndhdmUxWzUwOjYwLF0NCiAgICAgIA0KDQpgYGANCg0KLS0tDQoNCioqV0FWRSAyOioqDQpgYGB7ciwgZWNobz1GQUxTRX0NCmxvYWQoImRhdGEvb3JpZ2luYWwvd2F2ZTIuUmRhdGEiKQ0KbmFtZXMod2F2ZTIpDQpgYGANCg0KYGBge3IsIGVjaG89RkFMU0UsIHJlc3VsdHM9J2FzaXMnfQ0Kd2F2ZTJbNzA6ODAsXQ0KDQpgYGANCg0KLS0tDQoNCiMjIERBVEEgQ09BDQoNCldlIG1hZGUgYSByZXF1ZXN0IHRvIENPQSBmb3IgZGF0YSBvbiB0aGUgbnVtYmVyIG9mIEFzeWx1bSBTZWVrZXJzIENPQSBob3VzZWQuIFdlIHJlY2VpdmVkIHR3byBwZGYgZmlsZXMgd2hpY2ggbWF5IGJlIGFjY2Vzc2VkIGJlbG93LiAgDQoNCi0gZm9yIGRhdGEgb24gcmVndWxhciBhbmQgdGVtcG9yYXJ5IEFTQ3Mgc2VlIFtoZXJlXShkYXRhL0FaQ3MgQ09BIGdlZ2V2ZW5zLnBkZikgIA0KLSBmb3IgZGF0YSBvbiBjcmlzaXMgQVNDcyBzZWUgW2hlcmVdKGdlZ2V2ZW5zIGNyaXNpc29wdmFuZyBnZW1lZW50ZW4ucGRmKQ0KDQotLS0gDQoNCiMjIERhdGEgcHJlcGVyYXRpb24gDQoNClRvIGhhdmUgcGVhayBhdCBvdXIgZGF0YSBtYW5nbGluZy4gUGxlYXNlIHNlZSBiZWxvdy4NCg0KYGBge3IsIGV2YWw9RkFMU0V9DQoNCiNybSAobGlzdCA9IGxzKCApKQ0KIyBMb2FkIHJlcXVpcmVkIFIgcGFja2FnZXMgDQpyZXF1aXJlKFhNTCkNCnJlcXVpcmUoZm9yZWlnbikNCnJlcXVpcmUoc3ApDQpyZXF1aXJlKG1hcHRvb2xzKQ0KcmVxdWlyZShyZ2RhbCkNCnJlcXVpcmUoc3BsYW5jcykNCnJlcXVpcmUoc3BhdHN0YXQpDQpyZXF1aXJlKFJDb2xvckJyZXdlcikNCnJlcXVpcmUoc3BkZXApDQpyZXF1aXJlKHJhc3RlcikNCnJlcXVpcmUocmVzaGFwZSkNCnJlcXVpcmUoc3RyaW5ncikNCnJlcXVpcmUocHN5Y2gpDQpyZXF1aXJlKGxtZTQpDQpyZXF1aXJlKHNqUGxvdCkNCnJlcXVpcmUocGx5cikNCnJlcXVpcmUoSG1pc2MpDQpyZXF1aXJlKHJnZW9zKQ0KcmVxdWlyZShhbmVzcmFrZSkNCnJlcXVpcmUod2VpZ2h0cykNCg0KI0NPTlRFTlQNCiMxLiBEYXRhIEFaQ1MgLSBwYzQgZW4gZ2MNCiMyLiBEYXRhIG90aGVyIGNoYXJhY3RlcmlzdGljcyAtIHBjNCBhbmQgZ2MNCiMzLiBFViBkYXRhDQojNC4gbWVyZ2UgRVYgZGF0YSB3aXRoIG90aGVyIGRhdGEgDQojNS4gRVYgZGF0YSAtIG1ha2UgIGluZHYgbGV2ZWwgdmFycw0KDQoNCiNGT1IgUkVBRCBpbiBEQVRBDQojc2V0d2QoIkM6L1VzZXJzL1U0OTcxMzAvQXBwRGF0YS9Mb2NhbC9zdXJmZHJpdmVfZGF0YS9hcnRpa2VsIGF6Yy9kYXRhLyIpDQojdGh1aXMNCiNzZXR3ZCgiQzovVXNlcnMvSm9yYW4vU1VSRmRyaXZlL2FydGlrZWwgYXpjL2RhdGEvIikNCnNldHdkKCJVOi9TdXJmZHJpdmUgYmFja3VwL2FydGlrZWwgYXpjL2RhdGEvIikNCg0KI0NPTUJJTkUgUkVHVUxBUiBBTkQgQ1JJU0lTIENFTlRSRSBBWkMgREFUQQ0KI3JlZ3VsaWVyIGVuIG5vb2QNCnJlZ25vb2QgPC0gcmVhZC5jc3YyKGZpbGU9IkFkcmVzc2VubGlqc3Qgb3B2YW5nbG9jYXRpZXMgamFuIDIwMTVfMTYwODIwMTYuY3N2IikNCmhlYWQocmVnbm9vZCkNCiNMYW5kYWw6aHR0cHM6Ly93d3cubGFuZGFsZWlnZW5hcmVuLm5sL25sLW5sL25pZXV3cy9sYW5kYWwtbGV2ZXJ0LWJpamRyYWdlLWFhbi12bHVjaHRlbGluZ2Vub3B2YW5nLTE0NjU5DQoNCiNjcmlzaXMgdHVzc2VuIDE4LzA5IGVuIDIyLzEyDQpjcmlzaXMgPC0gcmVhZC5jc3YyKGZpbGU9IkFkcmVzc2VuIG9wdmFuZ2xvY2F0aWUgQ05PIGNhcGFjaXRlaXRfMTYwODIwMTYuY3N2IikNCmhlYWQoY3Jpc2lzKQ0KDQojc2FtZW52b2VnZW4gYXpjcw0KcmJpbmQuYWxsLmNvbHVtbnMgPC0gZnVuY3Rpb24oeCwgeSkgew0KIA0KICAgIHguZGlmZiA8LSBzZXRkaWZmKGNvbG5hbWVzKHgpLCBjb2xuYW1lcyh5KSkNCiAgICB5LmRpZmYgPC0gc2V0ZGlmZihjb2xuYW1lcyh5KSwgY29sbmFtZXMoeCkpDQogDQogICAgeFssIGMoYXMuY2hhcmFjdGVyKHkuZGlmZikpXSA8LSBOQQ0KIA0KICAgIHlbLCBjKGFzLmNoYXJhY3Rlcih4LmRpZmYpKV0gPC0gTkENCiANCiAgICByZXR1cm4ocmJpbmQoeCwgeSkpDQp9DQoNCmF6YyA8LSByYmluZC5hbGwuY29sdW1ucyhyZWdub29kLCBjcmlzaXMpDQpoZWFkKGF6YykNCg0KI0tPUFBFTCBHQ09ERSBBQU4gQVpDLiANCnBjNGdjXzIwMTMgPC0gcmVhZC5jc3YyKGZpbGU9InBjNGdjXzIwMTMuY3N2Iiwgcm93Lm5hbWVzPSJYIikNCmhlYWQocGM0Z2NfMjAxMykNCmF6YzwtIG1lcmdlKGF6YywgcGM0Z2NfMjAxMywgYWxsLng9VCwgYnkueD0iUEM0IiwgYnkueT0icGM0Iiwgc29ydD1GKQ0KaGVhZChhemMpDQoNCiNtYWtlIGF6YyB2YXJzDQphemMkczFjYXBfcGM0dDEgPC0gaWZlbHNlKGF6YyRTb29ydD09MSwgYXpjJENhcF8wMTAxMjAxNSwgMCkNCmF6YyRzMWNhcF9wYzR0MiA8LSBpZmVsc2UoYXpjJFNvb3J0PT0xLCBhemMkQ2FwXzE1MTEyMDE1LCAwKQ0KDQphemMkczJjYXBfcGM0dDEgPC0gaWZlbHNlKGF6YyRTb29ydD09MiwgYXpjJENhcF8wMTAxMjAxNSwgMCkNCmF6YyRzMmNhcF9wYzR0MiA8LSBpZmVsc2UoYXpjJFNvb3J0PT0yLCBhemMkQ2FwXzE1MTEyMDE1LCAwKQ0KDQphemMkczNjYXBfcGM0dDEgPC0gMA0KYXpjJHMzY2FwX3BjNHQyIDwtIGlmZWxzZShhemMkU29vcnQ9PTMsIGF6YyRDYXBfR2VtLCAwKQ0KDQpoZWFkKGF6YykNCg0KI0hhbmRsZSBwYzQgd2l0aCAyIG9yIG1vcmUgYXpjIChiZXNsaXNyZWdlbHM6U3RhcHBlbiBBWkMgZGF0YSAxNTAzMjAxNy5kb2MpDQpkdXBzIDwtIHJiaW5kKGF6Y1tkdXBsaWNhdGVkKGF6YyRQQzQpLF0sYXpjW2R1cGxpY2F0ZWQoYXpjJFBDNCwgZnJvbUxhc3Q9VFJVRSksXSkNCmR1cHMgPC0gZHVwc1tvcmRlcihkdXBzJFBDNCksXQ0KZHVwc1ssYygxLDIsMTM6MTgpXQ0KYXpjX3NlbCA8LSBhemNbLGMoMSwxMiwxMzoxOCldDQphemNfc2VsIDwtIGF6Y19zZWxbcm93bmFtZXMoYXpjX3NlbCkhPSIxNTMiLF0NCmF6Y19zZWwgPC0gYXpjX3NlbFtyb3duYW1lcyhhemNfc2VsKSE9IjI5IixdDQphemNfc2VsJHMzY2FwX3BjNHQyW3Jvd25hbWVzKGF6Y19zZWwpPT0iMzAiXSA8LSBhemNfc2VsJHMzY2FwX3BjNHQyW3Jvd25hbWVzKGF6Y19zZWwpPT0iMzEiXQ0KYXpjX3NlbCA8LSBhemNfc2VsW3Jvd25hbWVzKGF6Y19zZWwpIT0iMzEiLF0NCmF6Y19zZWwkczNjYXBfcGM0dDJbcm93bmFtZXMoYXpjX3NlbCk9PSIxNzEiXSA8LSBhemNfc2VsJHMzY2FwX3BjNHQyW3Jvd25hbWVzKGF6Y19zZWwpPT0iMTcxIl0rYXpjX3NlbCRzM2NhcF9wYzR0Mltyb3duYW1lcyhhemNfc2VsKT09IjE3MiJdDQphemNfc2VsIDwtIGF6Y19zZWxbcm93bmFtZXMoYXpjX3NlbCkhPSIxNzIiLF0NCmF6Y19zZWwkczNjYXBfcGM0dDJbcm93bmFtZXMoYXpjX3NlbCk9PSI0MCJdIDwtIGF6Y19zZWwkczNjYXBfcGM0dDJbcm93bmFtZXMoYXpjX3NlbCk9PSIzOSJdDQphemNfc2VsIDwtIGF6Y19zZWxbcm93bmFtZXMoYXpjX3NlbCkhPSIzOSIsXQ0KYXpjX3NlbCRzMWNhcF9wYzR0Mltyb3duYW1lcyhhemNfc2VsKT09IjQ3Il0gPC0gYXpjX3NlbCRzMWNhcF9wYzR0Mltyb3duYW1lcyhhemNfc2VsKT09IjQ3Il0gKyBhemNfc2VsJHMzY2FwX3BjNHQyW3Jvd25hbWVzKGF6Y19zZWwpPT0iNDgiXSANCmF6Y19zZWwgPC0gYXpjX3NlbFtyb3duYW1lcyhhemNfc2VsKSE9IjQ4IixdDQphemNfc2VsJHMyY2FwX3BjNHQyW3Jvd25hbWVzKGF6Y19zZWwpPT0iNzUiXSA8LSBhemNfc2VsJHMyY2FwX3BjNHQyW3Jvd25hbWVzKGF6Y19zZWwpPT0iNzYiXSANCmF6Y19zZWwgPC0gYXpjX3NlbFtyb3duYW1lcyhhemNfc2VsKSE9Ijc2IixdDQphemNfc2VsIDwtIGF6Y19zZWxbcm93bmFtZXMoYXpjX3NlbCkhPSI4MCIsXQ0KYXpjX3NlbCRzMWNhcF9wYzR0MVtyb3duYW1lcyhhemNfc2VsKT09Ijg3Il0gPC0gYXpjX3NlbCRzMWNhcF9wYzR0MVtyb3duYW1lcyhhemNfc2VsKT09Ijg3Il0gKyBhemNfc2VsJHMxY2FwX3BjNHQxW3Jvd25hbWVzKGF6Y19zZWwpPT0iODgiXQ0KYXpjX3NlbCRzMWNhcF9wYzR0Mltyb3duYW1lcyhhemNfc2VsKT09Ijg3Il0gPC0gYXpjX3NlbCRzMWNhcF9wYzR0Mltyb3duYW1lcyhhemNfc2VsKT09Ijg3Il0gKyBhemNfc2VsJHMxY2FwX3BjNHQyW3Jvd25hbWVzKGF6Y19zZWwpPT0iODgiXQ0KYXpjX3NlbCA8LSBhemNfc2VsW3Jvd25hbWVzKGF6Y19zZWwpIT0iODgiLF0NCmF6Y19zZWwkczFjYXBfcGM0dDJbcm93bmFtZXMoYXpjX3NlbCk9PSI5MiJdIDwtIGF6Y19zZWwkczFjYXBfcGM0dDJbcm93bmFtZXMoYXpjX3NlbCk9PSI5MiJdICsgYXpjX3NlbCRzM2NhcF9wYzR0Mltyb3duYW1lcyhhemNfc2VsKT09IjkzIl0NCmF6Y19zZWwgPC0gYXpjX3NlbFtyb3duYW1lcyhhemNfc2VsKSE9IjkzIixdDQoNCg0KI0FHR1JFR0VFUiBOQUFSIEdDLiANCmF6Y2djIDwtIGFnZ3JlZ2F0ZShhemNfc2VsWyxjKCJzMWNhcF9wYzR0MSIsICJzMWNhcF9wYzR0MiIsICJzMmNhcF9wYzR0MSIsInMyY2FwX3BjNHQyIiwiczNjYXBfcGM0dDEiLCJzM2NhcF9wYzR0MiIpXSwgYnk9bGlzdChhemNfc2VsJGdjKSwgRlVOPXN1bSkNCm5hbWVzKGF6Y2djKSA8LSBjKCJnYyIsInMxY2FwX2djdDEiLCAiczFjYXBfZ2N0MiIsICJzMmNhcF9nY3QxIiwiczJjYXBfZ2N0MiIsInMzY2FwX2djdDEiLCJzM2NhcF9nY3QyIikNCmhlYWQoYXpjZ2MpDQoNCg0KI01BVENIIEFaQyBEQVRBIGFhbiBQQzQgRklMRQ0KDQojTG9hZCBQQzQgc2hhcGUNCnNoYXBlcGM0IDwtIHJlYWRPR1IoIlU6L1BoRCBEb2N1bWVudHMvUEM0QmFzaWMvc2hhcGUiLCBsYXllcj0iTmxwNF9yMTRfYmFzaWMiKQ0KI3RodWlzDQojc2hhcGVwYzQgPC0gcmVhZE9HUigiQzovVXNlcnMvSm9yYW4vRG9jdW1lbnRzL1BoRCBOaWptZWdlbi9QQzRCYXNpYy9zaGFwZSIsIGxheWVyPSJObHA0X3IxNF9iYXNpYyIpDQpzaGFwZXBjNCA8LSBzaGFwZXBjNFssIGMoIlBDNE5SIildDQoNCnBjNCA8LSBtZXJnZShzaGFwZXBjNCwgcGM0Z2NfMjAxMywgYWxsLng9VCwgYnkueD0iUEM0TlIiLCBieS55PSJwYzQiLCBzb3J0PUYpDQpwYzQgPC0gbWVyZ2UocGM0LCBhemNfc2VsLCBieS54PWMoIlBDNE5SIiwgImdjIiksIGJ5Lnk9YygiUEM0IiwiZ2MiKSwgc29ydD1GKSANCnBjNCA8LSBtZXJnZShwYzQsIGF6Y2djLCBieS54PWMoImdjIiksIGJ5Lnk9YygiZ2MiKSwgc29ydD1GKSANCg0KcGM0QGRhdGFbLGMoMzoxNCldW2lzLm5hKHBjNEBkYXRhWyxjKDM6MTQpXSldIDwtIDANCg0KDQojQUdHUkVHRUVSIE5BQVIgQUFOR1INCnBjNF9uYnE8LXBvbHkybmIocGM0LCByb3cubmFtZXMgPSBjKDE6bnJvdyhwYzQpKSkNCg0KcGM0JHMzY2FwX2FhbmdydDIgIDwtIHBjNCRzM2NhcF9hYW5ncnQxIDwtIHBjNCRzMmNhcF9hYW5ncnQyIDwtIHBjNCRzMmNhcF9hYW5ncnQxIDwtIHBjNCRzMWNhcF9hYW5ncnQyIDwtIHBjNCRzMWNhcF9hYW5ncnQxIDwtIHJlcChOQSwgbnJvdyhwYzQpKQ0KDQpmdW5zMXQxIDwtIGZ1bmN0aW9uKHgpIHsgc3VtKHBjNCRzMWNhcF9wYzR0MVt4XSkgfQ0KZnVuczF0MiA8LSBmdW5jdGlvbih4KSB7IHN1bShwYzQkczFjYXBfcGM0dDJbeF0pIH0NCmZ1bnMydDEgPC0gZnVuY3Rpb24oeCkgeyBzdW0ocGM0JHMyY2FwX3BjNHQxW3hdKSB9DQpmdW5zMnQyIDwtIGZ1bmN0aW9uKHgpIHsgc3VtKHBjNCRzMmNhcF9wYzR0Mlt4XSkgfQ0KZnVuczN0MSA8LSBmdW5jdGlvbih4KSB7IHN1bShwYzQkczNjYXBfcGM0dDFbeF0pIH0NCmZ1bnMzdDIgPC0gZnVuY3Rpb24oeCkgeyBzdW0ocGM0JHMzY2FwX3BjNHQyW3hdKSB9DQoNCnBjNCRzMWNhcF9hYW5ncnQxIDwtIHNhcHBseShwYzRfbmJxLCBmdW5zMXQxKSANCnBjNCRzMWNhcF9hYW5ncnQyIDwtIHNhcHBseShwYzRfbmJxLCBmdW5zMXQyKSANCnBjNCRzMmNhcF9hYW5ncnQxIDwtIHNhcHBseShwYzRfbmJxLCBmdW5zMnQxKSANCnBjNCRzMmNhcF9hYW5ncnQyIDwtIHNhcHBseShwYzRfbmJxLCBmdW5zMnQyKSANCnBjNCRzM2NhcF9hYW5ncnQxIDwtIHNhcHBseShwYzRfbmJxLCBmdW5zM3QxKSANCnBjNCRzM2NhcF9hYW5ncnQyIDwtIHNhcHBseShwYzRfbmJxLCBmdW5zM3QyKSANCg0KI3BsdXMgZWlnZW4gYnV1cnQgZXIgb29rIGJpag0KcGM0JHMxY2FwX2FhbmdydDEgPC0gcGM0JHMxY2FwX2FhbmdydDEgKyBwYzQkczFjYXBfcGM0dDENCnBjNCRzMWNhcF9hYW5ncnQyIDwtIHBjNCRzMWNhcF9hYW5ncnQyICsgcGM0JHMxY2FwX3BjNHQyDQpwYzQkczJjYXBfYWFuZ3J0MSA8LSBwYzQkczJjYXBfYWFuZ3J0MSArIHBjNCRzMmNhcF9wYzR0MQ0KcGM0JHMyY2FwX2FhbmdydDIgPC0gcGM0JHMyY2FwX2FhbmdydDIgKyBwYzQkczJjYXBfcGM0dDINCnBjNCRzM2NhcF9hYW5ncnQxIDwtIHBjNCRzM2NhcF9hYW5ncnQxICsgcGM0JHMzY2FwX3BjNHQxDQpwYzQkczNjYXBfYWFuZ3J0MiA8LSBwYzQkczNjYXBfYWFuZ3J0MiArIHBjNCRzM2NhcF9wYzR0Mg0KDQoNCiNBREQgT1RIRVIgTkJIT09EIENIQVJBQ1RFUklTVElDUw0KDQojTE9BRCAlTk9OV0VTVCwgV09aLCBJTlcNCiNhbHRlcm5hdGllZiB2aWEgc3BUcmFuc2Zvcm0NCnJkMndnczg0IDwtIGZ1bmN0aW9uKFgsIFkpDQp7DQojaHR0cDovL3d3dy5kZWtvZXBlbC5ubC9wZGYvVHJhbnNmb3JtYXRpZWZvcm11bGVzLnBkZg0KI2Jhc2lzcHVudGVuIGRlZmluaWVyZW4NClgwIDwtIDE1NTAwMC4wMCANClkwIDwtIDQ2MzAwMC4wMCANCmowIDwtIDUyLjE1NTE3NDQwDQpsMCA8LSA1LjM4NzIwNjIxDQojY29lZmZpY2llbnRlbiBkZWZpbmllcmVuDQpLMDE8LSAzMjM1LjY1Mzg5IA0KSzIwPC0gLTMyLjU4Mjk3DQpLMDI8LSAtMC4yNDc1MCANCksyMTwtIC0wLjg0OTc4IA0KSzAzPC0gLTAuMDY1NTAgDQpLMjI8LSAtMC4wMTcwOSANCksxMDwtIC0wLjAwNzM4IA0KSzQwPC0gMC4wMDUzMCANCksyMzwtIC0wLjAwMDM5IA0KSzQxPC0gMC4wMDAzMyANCksxMTwtIC0wLjAwMDEyIA0KDQpMMTA8LSA1MjYwLjUyOTE2DQpMMTE8LSAxMDUuOTQ2ODQNCkwxMjwtIDIuNDU2NTYNCkwzMDwtIC0wLjgxODg1DQpMMTM8LSAwLjA1NTk0DQpMMzE8LSAtMC4wNTYwNw0KTDAxPC0gMC4wMTE5OQ0KTDMyPC0gLTAuMDAyNTYNCkwxNDwtIDAuMDAxMjgNCkwwMjwtIDAuMDAwMjINCkwyMDwtIC0wLjAwMDIyDQpMNTA8LSAwLjAwMDI2DQoNCmRYIDwtIChYIC0gWDApKjEwXi01DQpkWSA8LSAoWSAtIFkwKSoxMF4tNSANCgl7DQoJaiA8LSBqMCArIA0KCSgNCglLMDEqZFheMCpkWV4xICsNCglLMDIqZFheMCpkWV4yICsNCglLMDMqZFheMCpkWV4zICsNCglLMTAqZFheMSpkWV4wICsNCglLMjAqZFheMipkWV4wICsNCglLMjEqZFheMipkWV4xICsNCglLMjIqZFheMipkWV4yICsNCglLMjMqZFheMSpkWV4zICsNCglLNDAqZFheMipkWV4wICsNCglLNDEqZFheMipkWV4xIA0KCSkvMzYwMA0KCX0NCg0KCXsNCglsIDwtIGwwICsgDQoJKA0KCUwxMCpkWF4xKmRZXjAgKw0KCUwxMSpkWF4xKmRZXjEgKw0KCUwxMipkWF4xKmRZXjIgKw0KCUwzMCpkWF4zKmRZXjAgKw0KCUwxMypkWF4xKmRZXjMgKw0KCUwzMSpkWF4zKmRZXjEgKw0KCUwwMSpkWF4wKmRZXjEgKw0KCUwzMipkWF4zKmRZXjIgKw0KCUwxNCpkWF4xKmRZXjQgKw0KCUwwMipkWF4wKmRZXjIgKw0KCUwyMCpkWF4yKmRZXjAgKw0KCUw1MCpkWF41KmRZXjAgDQoJKS8zNjAwDQoJfQ0Kd2dzODQ8LWNiaW5kKGosbCkNCnJldHVybih3Z3M4NCkNCn0NCg0KI2xvYWQgY2JzMTAwDQpzZXR3ZCgiVTovUGhEIERvY3VtZW50cy9DQlMgdmllcmthbnQgMjAxNC8iKQ0KI1RodWlzDQojc2V0d2QoIkM6L1VzZXJzL0pvcmFuL0RvY3VtZW50cy9QaEQgTmlqbWVnZW4vQ0JTIHZpZXJrYW50IDIwMTQvIikgDQoNCmNiczEwMDwtIHJlYWQuc3BzcyhmaWxlPSJDQlN2aWVya2FudDEwMG0yMDE0MTAuc2F2Iix1c2UudmFsdWUubGFiZWxzPUZBTFNFLCB0by5kYXRhLmZyYW1lPVQpDQpuYW1lcyhjYnMxMDApDQpsZW5ndGgoY2JzMTAwWywxXSkNCg0KY2JzMTAwJEUgPC0gYXMubnVtZXJpYyhzdWJzdHIoY2JzMTAwJGMyODk5MnIxMDAsIDIsIDUpKQ0KY2JzMTAwJE4gPC0gYXMubnVtZXJpYyhzdWJzdHIoY2JzMTAwJGMyODk5MnIxMDAsIDcsIGxlbmd0aChjYnMxMDAkYzI4OTkycjEwMCkpKQ0KY2JzMTAwJGVhc3Q8LShjYnMxMDAkRSoxMDApKzUwDQpjYnMxMDAkbm9ydGg8LShjYnMxMDAkTioxMDApKzUwDQpjYnMxMDA8LSBjYmluZChjYnMxMDAsIHJkMndnczg0KGNiczEwMCRlYXN0LCBjYnMxMDAkbm9ydGgpKQ0KY2JzMTAwJG5jZWw8LTENCmNiczEwMCRjZWxpZCA8LSAxOmxlbmd0aChjYnMxMDAkbmNlbCkNCmhlYWQoY2JzMTAwKQ0KDQojUkVDT0RFIENCUzEwMCBPUCBCQVNJUyBWQU4gRElTVFJJQlVUSUUgSU4gQlVVUlRFTi4NCiMyMDE0DQpuZWRiIDwtIHJlYWRPR1IoIlU6L1BoRCBEb2N1bWVudHMvQ0JTIHNoYXBlZmlsZXMvc2hhcGUgMjAxNCIsIGxheWVyPSJidXVydF8yMDE0IikNCiN0aHVpcw0KI25lZGIgPC0gcmVhZE9HUigiQzovVXNlcnMvSm9yYW4vRG9jdW1lbnRzL1BoRCBOaWptZWdlbi9DQlMgc2hhcGVmaWxlcy9zaGFwZSAyMDE0IiwgbGF5ZXI9ImJ1dXJ0XzIwMTQiKQ0KDQpuZWRiIDwtIG5lZGJbbmVkYiRXQVRFUj09Ik5FRSIsXQ0KbmFtZXMobmVkYikNCg0KI2FsbGVlbiBsYW5kIGRlbGVuLg0KbmVkYjIgPC0gbmVkYltuZWRiJFdBVEVSPT0iTkVFIixdDQpuZWRiMiRQX05fV19BTCAgPC0gaWZlbHNlKG5lZGIyJFBfTl9XX0FMPT0tOTk5OTk5OTcsMCxuZWRiMiRQX05fV19BTCkNCm5lZGIyJFBfV0VTVF9BTCAgPC0gaWZlbHNlKG5lZGIyJFBfV0VTVF9BTD09LTk5OTk5OTk3LDAsbmVkYjIkUF9XRVNUX0FMKQ0KbmVkYjIkUF9BVVQgIDwtIDEwMCAtIG5lZGIyJFBfTl9XX0FMICAtICBuZWRiMiRQX1dFU1RfQUwgDQoNCiN2b2xnZW5zIGNicyBoYW5kbGVpZGluZw0KIzU6IGdlZW4gYXV0b2NodG9uZW4NCiM0OiA5MCBwcm9jZW50IG9mIG1lZXIgYXV0b2NodG9uZW4NCiMzOiA3NSB0b3QgOTAgcHJvY2VudCBhdXRvY2h0b25lbg0KIzI6IDYwIHRvdCA3NSBwcm9jZW50IGF1dG9jaHRvbmVuDQojMTogNDAgdG90IDYwIHByb2NlbnQgYXV0b2NodG9uZW4NCiM3OiBtaW5kZXIgZGFuIDQwIHByb2NlbnQgYXV0b2NodG9uZW4NCg0KIzU6IGdlZW4gd2VzdGVyc2UgYWxsb2NodG9uZW4NCiMzOiA0NSBwcm9jZW50IG9mIG1lZXIgd2VzdGVyc2UgYWxsb2NodG9uZW4NCiMyOiAyNSB0b3QgNDUgcHJvY2VudCB3ZXN0ZXJzZSBhbGxvY2h0b25lbg0KIzE6IDE1IHRvdCAyNSBwcm9jZW50IHdlc3RlcnNlIGFsbG9jaHRvbmVuDQojNDogOCB0b3QgMTUgcHJvY2VudCB3ZXN0ZXJzZSBhbGxvY2h0b25lbg0KIzc6IG1pbmRlciBkYW4gOCBwcm9jZW50IHdlc3RlcnNlIGFsbG9jaHRvbmVuDQoNCiM1OiBnZWVuIG5pZXQtd2VzdGVyc2UgYWxsb2NodG9uZW4NCiM0OiA2NyBwcm9jZW50IG9mIG1lZXIgbmlldC13ZXN0ZXJzZSBhbGxvY2h0b25lbg0KIzM6IDQ1IHRvdCA2NyBwcm9jZW50IG5pZXQtd2VzdGVyc2UgYWxsb2NodG9uZW4NCiMyOiAyNSB0b3QgNDUgcHJvY2VudCBuaWV0LXdlc3RlcnNlIGFsbG9jaHRvbmVuDQojMTogMTAgdG90IDI1IHByb2NlbnQgbmlldC13ZXN0ZXJzZSBhbGxvY2h0b25lbg0KIzc6IG1pbmRlciBkYW4gMTAgcHJvY2VudCBuaWV0LXdlc3RlcnNlIGFsbG9jaHRvbmVuDQoNCiMyMDE0DQpuZWRiMiRQX0FVVDJbbmVkYjIkUF9BVVQ9PTBdIDwtIDANCm5lZGIyJFBfQVVUMltuZWRiMiRQX0FVVD49OTBdIDwtIDENCm5lZGIyJFBfQVVUMltuZWRiMiRQX0FVVD49NzUgJiBuZWRiMiRQX0FVVDwgOTBdIDwtIDINCm5lZGIyJFBfQVVUMltuZWRiMiRQX0FVVD49NjAgJiBuZWRiMiRQX0FVVDwgNzVdIDwtIDMNCm5lZGIyJFBfQVVUMltuZWRiMiRQX0FVVD49NDAgJiBuZWRiMiRQX0FVVDwgNjVdIDwtIDQNCm5lZGIyJFBfQVVUMltuZWRiMiRQX0FVVD4wICYgbmVkYjIkUF9BVVQ8IDQwXSA8LSA1DQoNCmRlcyA8LSBkZXNjcmliZUJ5KG5lZGIyJFBfQVVULG5lZGIyJFBfQVVUMikgCQ0KcGF1dHJlY29kZSA8LSBtYXRyaXgoYXMubnVtZXJpYyh1bmNsYXNzKHVubGlzdChkZXMpKSksIG5yb3c9ZGltKGRlcyksIGJ5cm93PVQpDQpwYXV0cmVjb2RlIDwtIGRhdGEuZnJhbWUocGF1dHJlY29kZSkNCmNvbG5hbWVzKHBhdXRyZWNvZGUpIDwtIG5hbWVzKGRlc1tbMV1dKQ0KcGF1dHJlY29kZSRtZWFuDQojIFsxXSAgMC4wMDAwMCA5Ny4zNzUwOCA4Mi4wNjEzOCA2OS45MjM4OSA1MC40MDcwNiAyMy44ODg2MQ0KDQpuZWRiMiRQX1dFU1RfQUwyW25lZGIyJFBfV0VTVF9BTD09MF0gPC0gMA0KbmVkYjIkUF9XRVNUX0FMMltuZWRiMiRQX1dFU1RfQUw+PTQ1XSA8LSAxDQpuZWRiMiRQX1dFU1RfQUwyW25lZGIyJFBfV0VTVF9BTD49MjUgJiBuZWRiMiRQX1dFU1RfQUw8IDQ1XSA8LSAyDQpuZWRiMiRQX1dFU1RfQUwyW25lZGIyJFBfV0VTVF9BTD49MTUgJiBuZWRiMiRQX1dFU1RfQUw8IDI1XSA8LSAzDQpuZWRiMiRQX1dFU1RfQUwyW25lZGIyJFBfV0VTVF9BTD49OCAmIG5lZGIyJFBfV0VTVF9BTDwgMTVdIDwtIDQNCm5lZGIyJFBfV0VTVF9BTDJbbmVkYjIkUF9XRVNUX0FMPjAgJiBuZWRiMiRQX1dFU1RfQUw8IDhdIDwtIDUNCg0KZGVzIDwtIGRlc2NyaWJlQnkobmVkYjIkUF9XRVNUX0FMLG5lZGIyJFBfV0VTVF9BTDIpIAkNCnB3YWxyZWNvZGUgPC0gbWF0cml4KGFzLm51bWVyaWModW5jbGFzcyh1bmxpc3QoZGVzKSkpLCBucm93PWRpbShkZXMpLCBieXJvdz1UKQ0KcHdhbHJlY29kZSA8LSBkYXRhLmZyYW1lKHB3YWxyZWNvZGUpDQpjb2xuYW1lcyhwd2FscmVjb2RlKSA8LSBuYW1lcyhkZXNbWzFdXSkNCnB3YWxyZWNvZGUkbWVhbg0KIyBbMV0gIDAuMDAwMDAwIDUxLjkzMTc0NiAzMS44NjU2NDkgMTYuMjMxOTE3IDEwLjAyNzAwNCAgNS40MDUyOTINCg0KbmVkYjIkUF9OX1dfQUwyW25lZGIyJFBfTl9XX0FMPT0wXSA8LSAwDQpuZWRiMiRQX05fV19BTDJbbmVkYjIkUF9OX1dfQUw+PTY3XSA8LSAxDQpuZWRiMiRQX05fV19BTDJbbmVkYjIkUF9OX1dfQUw+PTQ1ICYgbmVkYjIkUF9OX1dfQUw8IDY3XSA8LSAyDQpuZWRiMiRQX05fV19BTDJbbmVkYjIkUF9OX1dfQUw+PTI1ICYgbmVkYjIkUF9OX1dfQUw8IDQ1XSA8LSAzDQpuZWRiMiRQX05fV19BTDJbbmVkYjIkUF9OX1dfQUw+PTEwICYgbmVkYjIkUF9OX1dfQUw8IDI1XSA8LSA0DQpuZWRiMiRQX05fV19BTDJbbmVkYjIkUF9OX1dfQUw+MCAmIG5lZGIyJFBfTl9XX0FMPCAxMF0gPC0gNQ0KDQpkZXMgPC0gZGVzY3JpYmVCeShuZWRiMiRQX05fV19BTCxuZWRiMiRQX05fV19BTDIpIAkNCnBud2FscmVjb2RlIDwtIG1hdHJpeChhcy5udW1lcmljKHVuY2xhc3ModW5saXN0KGRlcykpKSwgbnJvdz1kaW0oZGVzKSwgYnlyb3c9VCkNCnBud2FscmVjb2RlIDwtIGRhdGEuZnJhbWUocG53YWxyZWNvZGUpDQpjb2xuYW1lcyhwbndhbHJlY29kZSkgPC0gbmFtZXMoZGVzW1sxXV0pDQpwbndhbHJlY29kZSRtZWFuDQojWzFdICAwLjAwMDAwMCA3NS45OTg5MTQgNTMuMDMwMDE5IDMwLjc5MjYwMCAxNS4xOTcwNzEgIDQuMTA5OTk4DQoNCiNtYWtlIG51bWVyaWMgZmlyc3QNCmNiczEwMCRwX2F1dG8yMDE0IDwtIGFzLm51bWVyaWMoY2JzMTAwJHBfYXV0bzIwMTQpDQpjYnMxMDAkcF93YWwyMDE0IDwtIGFzLm51bWVyaWMoY2JzMTAwJHBfd2FsMjAxNCkNCmNiczEwMCRwX253YWwyMDE0IDwtIGFzLm51bWVyaWMoY2JzMTAwJHBfbndhbDIwMTQpDQoNCiNyZWNhdGVnb3JpemUgYXV0bw0KY2JzMTAwJHBhdXRvMjAxNFtjYnMxMDAkcF9hdXRvMjAxND09NV0gPC0gMA0KY2JzMTAwJHBhdXRvMjAxNFtjYnMxMDAkcF9hdXRvMjAxND09NF0gPC0gcGF1dHJlY29kZSRtZWFuWzFdDQpjYnMxMDAkcGF1dG8yMDE0W2NiczEwMCRwX2F1dG8yMDE0PT0zXSA8LSBwYXV0cmVjb2RlJG1lYW5bMl0NCmNiczEwMCRwYXV0bzIwMTRbY2JzMTAwJHBfYXV0bzIwMTQ9PTJdIDwtIHBhdXRyZWNvZGUkbWVhblszXQ0KY2JzMTAwJHBhdXRvMjAxNFtjYnMxMDAkcF9hdXRvMjAxND09MV0gPC0gcGF1dHJlY29kZSRtZWFuWzRdDQpjYnMxMDAkcGF1dG8yMDE0W2NiczEwMCRwX2F1dG8yMDE0PT03XSA8LSBwYXV0cmVjb2RlJG1lYW5bNV0NCmNiczEwMCRuYXV0bzIwMTQgPC0gY2JzMTAwJGludzIwMTQgKiAoY2JzMTAwJHBhdXRvMjAxNC8xMDApDQpjYnMxMDAkbmF1dG8yMDE0W2NiczEwMCRpbncyMDE0PT0wXSA8LSAwDQpjYnMxMDAkbmF1dG8yMDE0YiA8LSBjYnMxMDAkbmF1dG8yMDE0DQpjYnMxMDAkbmF1dG8yMDE0Yltpcy5uYShjYnMxMDAkbmF1dG8yMDE0YildIDwtIDINCmNiczEwMCRuYXV0bzIwMTRtaXMgPC0gaWZlbHNlKGlzLm5hKGNiczEwMCRuYXV0bzIwMTQpLCAxLCAwKQ0KY2JzMTAwJG5hdXRvMjAxNFtpcy5uYShjYnMxMDAkbmF1dG8yMDE0KV0gPC0gMA0Kc3VtKGNiczEwMCRuYXV0bzIwMTQsIG5hLnJtPVQpDQoNCiNyZWNhdGVnb3JpemUgd2FsDQpjYnMxMDAkcHdhbDIwMTRbY2JzMTAwJHBfd2FsMjAxND09NV0gPC0gcHdhbHJlY29kZSRtZWFuWzFdDQpjYnMxMDAkcHdhbDIwMTRbY2JzMTAwJHBfd2FsMjAxND09M10gPC0gcHdhbHJlY29kZSRtZWFuWzJdDQpjYnMxMDAkcHdhbDIwMTRbY2JzMTAwJHBfd2FsMjAxND09Ml0gPC0gcHdhbHJlY29kZSRtZWFuWzNdDQpjYnMxMDAkcHdhbDIwMTRbY2JzMTAwJHBfd2FsMjAxND09MV0gPC0gcHdhbHJlY29kZSRtZWFuWzRdDQpjYnMxMDAkcHdhbDIwMTRbY2JzMTAwJHBfd2FsMjAxND09NF0gPC0gcHdhbHJlY29kZSRtZWFuWzVdDQpjYnMxMDAkcHdhbDIwMTRbY2JzMTAwJHBfd2FsMjAxND09N10gPC0gcHdhbHJlY29kZSRtZWFuWzZdDQpjYnMxMDAkbndhbDIwMTQgPC0gY2JzMTAwJGludzIwMTQgKiAoY2JzMTAwJHB3YWwyMDE0LzEwMCkNCmNiczEwMCRud2FsMjAxNFtjYnMxMDAkaW53MjAxND09MF0gPC0gMA0KY2JzMTAwJG53YWwyMDE0YiA8LSBjYnMxMDAkbndhbDIwMTQNCmNiczEwMCRud2FsMjAxNGJbaXMubmEoY2JzMTAwJG53YWwyMDE0YildIDwtIDINCmNiczEwMCRud2FsMjAxNG1pcyA8LSBpZmVsc2UoaXMubmEoY2JzMTAwJG53YWwyMDE0KSwgMSwgMCkNCmNiczEwMCRud2FsMjAxNFtpcy5uYShjYnMxMDAkbndhbDIwMTQpXSA8LSAwDQpzdW0oY2JzMTAwJG53YWwyMDE0LCBuYS5ybT1UKQ0KDQojcmVjYXRlZ29yaXplIG53YWwNCmNiczEwMCRwbndhbDIwMTRbY2JzMTAwJHBfbndhbDIwMTQ9PTVdIDwtIHBud2FscmVjb2RlJG1lYW5bMV0NCmNiczEwMCRwbndhbDIwMTRbY2JzMTAwJHBfbndhbDIwMTQ9PTRdIDwtIHBud2FscmVjb2RlJG1lYW5bMl0NCmNiczEwMCRwbndhbDIwMTRbY2JzMTAwJHBfbndhbDIwMTQ9PTNdIDwtIHBud2FscmVjb2RlJG1lYW5bM10NCmNiczEwMCRwbndhbDIwMTRbY2JzMTAwJHBfbndhbDIwMTQ9PTJdIDwtIHBud2FscmVjb2RlJG1lYW5bNF0NCmNiczEwMCRwbndhbDIwMTRbY2JzMTAwJHBfbndhbDIwMTQ9PTFdIDwtIHBud2FscmVjb2RlJG1lYW5bNV0NCmNiczEwMCRwbndhbDIwMTRbY2JzMTAwJHBfbndhbDIwMTQ9PTddIDwtIHBud2FscmVjb2RlJG1lYW5bNl0NCmNiczEwMCRubndhbDIwMTQgPC0gY2JzMTAwJGludzIwMTQgKiAoY2JzMTAwJHBud2FsMjAxNC8xMDApDQpjYnMxMDAkbm53YWwyMDE0W2NiczEwMCRpbncyMDE0PT0wXSA8LSAwDQpjYnMxMDAkbm53YWwyMDE0YiA8LSBjYnMxMDAkbm53YWwyMDE0DQpjYnMxMDAkbm53YWwyMDE0Yltpcy5uYShjYnMxMDAkbm53YWwyMDE0YildIDwtIDINCmNiczEwMCRubndhbDIwMTRtaXMgPC0gaWZlbHNlKGlzLm5hKGNiczEwMCRubndhbDIwMTQpLCAxLCAwKQ0KY2JzMTAwJG5ud2FsMjAxNFtpcy5uYShjYnMxMDAkbm53YWwyMDE0KV0gPC0gMA0Kc3VtKGNiczEwMCRubndhbDIwMTQsIG5hLnJtPVQpDQoNCiNiZXZvbGtpbmcNCm50b3RhYWwgPC0gc3VtKGNiczEwMCRuYXV0bzIwMTQsIG5hLnJtPVQpICsgc3VtKGNiczEwMCRud2FsMjAxNCwgbmEucm09VCkgKyBzdW0oY2JzMTAwJG5ud2FsMjAxNCwgbmEucm09VCkNCm50b3RhYWxiIDwtIHN1bShjYnMxMDAkbmF1dG8yMDE0YiwgbmEucm09VCkgKyBzdW0oY2JzMTAwJG53YWwyMDE0YiwgbmEucm09VCkgKyBzdW0oY2JzMTAwJG5ud2FsMjAxNGIsIG5hLnJtPVQpDQpzdW0oY2JzMTAwJG53YWwyMDE0LCBuYS5ybT1UKSAvIG50b3RhYWwNCg0KIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjDQoNCiNvcHBlcnZsYWt0ZQ0Kb3BwdiA8LSBhcy5udW1lcmljKGdBcmVhKHNoYXBlcGM0LCBieWlkPVQpLzEwMDBeMikgI251IGluIHZpZXJrYW50ZSBrbQ0KIzEzNGttXjIgdm9vciBwb3N0Y29kZSA4MjUyIGtsb3B0DQpvcHB2IDwtIGFzLmRhdGEuZnJhbWUoY2JpbmQob3Bwdiwgc2hhcGVwYzQkUEM0TlIpKQ0Kb3BwdiA8LSByZW5hbWUob3BwdiwgYygiVjIiPSJQQzROUiIpKQ0KDQpwYzQgPC0gbWVyZ2UocGM0LCBvcHB2LCBieT0iUEM0TlIiKQ0KDQojY29vcmRpbmFhdHN0ZWxzZWwgb216ZXR0ZW4gcGM0DQpzaGFwZXBjNCA8LSBzcFRyYW5zZm9ybShzaGFwZXBjNCxDUlMoIitwcm9qPWxvbmdsYXQgK2VsbHBzPVdHUzg0IikpIA0KcHJvajRzdHJpbmcoc2hhcGVwYzQpDQoNCiNncmlkY2VsbHMgdm9vciBlbGtlIFBDNCBzZWxlY3RlcmVuDQpjb29yZGluYXRlcyhjYnMxMDApID0gYygibCIsImoiKQ0KbGxDUlM8LUNSUygiK3Byb2o9bG9uZ2xhdCArZWxscHM9V0dTODQiKQ0KbG9jX2c8LVNwYXRpYWxQb2ludHMoY2JzMTAwLHByb2o0c3RyaW5nPWxsQ1JTKQ0KcHJvajRzdHJpbmcobG9jX2cpPC1wcm9qNHN0cmluZyhzaGFwZXBjNCkNCmxvY2c8LW92ZXIoc2hhcGVwYzQsIGxvY19nLCByZXR1cm5MaXN0PVQpDQoNCiMyMDE0DQojc2VsZWN0IG5lY2Vzc2FyeSBkYXRhDQpwb3Bjb3VudHMgPC0gY2JzMTAwW2MoIm5hdXRvMjAxNCIsICJud2FsMjAxNCIsICJubndhbDIwMTQiLCAiaW53MjAxNCIpXQ0KcG9wY291bnRzJGludzIwMTRbcG9wY291bnRzJGludzIwMTQ8MF0gPC0gTkENCg0KI2NhbGN1bGF0ZSBwcm9wb3J0aW9ucyBmb3IgZXZlcnkgcGM0Lg0KcHJvcCA8LSBmdW5jdGlvbih4KSB7DQppZmVsc2UoY2JpbmQobGVuZ3RoKHgpIT0wLCBsZW5ndGgoeCkhPTAsIGxlbmd0aCh4KSE9MCksIGNvbFN1bXMoYXMuZGF0YS5mcmFtZShwb3Bjb3VudHNAZGF0YVt4LDE6M10pKS9zdW0oY29sU3Vtcyhhcy5kYXRhLmZyYW1lKHBvcGNvdW50c0BkYXRhW3gsMTozXSkpKSxjKE5BLE5BLE5BKSkgfQ0KcHJvcDIgPC0gbGFwcGx5KGxvY2csIHByb3ApDQpQQzRwcm9wIDwtZGF0YS5mcmFtZShtYXRyaXgodW5saXN0KHByb3AyKSwgbnJvdz1sZW5ndGgobG9jZyksbmNvbD0zLCBieXJvdz1UKSkNCmNvbG5hbWVzKFBDNHByb3ApIDwtIGMoInBhdXRvMjAxNCIsICJwd2FsMjAxNCIsICAicG53YWwyMDE0IikNCg0KcGM0cHJvcCA8LSBjYmluZChQQzRwcm9wLCBzaGFwZXBjNCRQQzROUikNCnBjNHByb3AgPC0gcmVuYW1lKHBjNHByb3AsIGMoInNoYXBlcGM0JFBDNE5SIj0iUEM0TlIiKSkNCmhlYWQocGM0cHJvcCkNCg0KcGM0IDwtIG1lcmdlKHBjNCwgcGM0cHJvcCwgYnk9IlBDNE5SIikNCg0KI2NhbGN1bGF0ZSBhYW50aW53DQppbncgPC0gZnVuY3Rpb24oeCkgew0KaWZlbHNlKGxlbmd0aCh4KSE9MCwgc3VtKGFzLmRhdGEuZnJhbWUocG9wY291bnRzQGRhdGFbeCw0XSksbmEucm0gPSBUUlVFKSxjKE5BKSkgfQ0KaW53MiA8LSBsYXBwbHkobG9jZywgaW53KQ0KUEM0aW53IDwtZGF0YS5mcmFtZShtYXRyaXgodW5saXN0KGludzIpLCBucm93PWxlbmd0aChsb2NnKSxuY29sPTEsIGJ5cm93PVQpKQ0KY29sbmFtZXMoUEM0aW53KSA8LSBjKCJpbncyMDE0IikNCg0KcGM0aW53IDwtIGNiaW5kKFBDNGludywgc2hhcGVwYzQkUEM0TlIpDQpwYzRpbncgPC0gcmVuYW1lKHBjNGludywgYygic2hhcGVwYzQkUEM0TlIiPSJQQzROUiIpKQ0KaGVhZChwYzRpbncpDQoNCnBjNCA8LSBtZXJnZShwYzQsIHBjNGludywgYnk9IlBDNE5SIikNCg0KI2NhbGN1bGF0ZSB3ZWlnaHRlZHdveg0Kd296Y291bnRzIDwtIGNiczEwMFtjKCJ3b3p3b24yMDEyIiwgIndvbjIwMTIiKV0NCndvemNvdW50cyR3b3p3b24yMDEyW3dvemNvdW50cyR3b3p3b24yMDEyPDBdIDwtIE5BDQp3b3pjb3VudHMkd29uMjAxMlt3b3pjb3VudHMkd29uMjAxMjwwXSA8LSBOQQ0KDQp3b3ogPC0gZnVuY3Rpb24oeCkgew0KaWZlbHNlKGxlbmd0aCh4KSE9MCwgc3VtKGFzLmRhdGEuZnJhbWUod296Y291bnRzQGRhdGFbeCwxXSkqYXMuZGF0YS5mcmFtZSh3b3pjb3VudHNAZGF0YVt4LDJdKSxuYS5ybT1UKS9zdW0oYXMuZGF0YS5mcmFtZSh3b3pjb3VudHNAZGF0YVt4LDJdKSxuYS5ybT1UKSxjKE5BKSkgfQ0Kd296MiA8LSBsYXBwbHkobG9jZywgd296KQ0KUEM0d296PC1kYXRhLmZyYW1lKG1hdHJpeCh1bmxpc3Qod296MiksIG5yb3c9bGVuZ3RoKGxvY2cpLG5jb2w9MSwgYnlyb3c9VCkpDQpjb2xuYW1lcyhQQzR3b3opIDwtIGMoIndvejIwMTIiKQ0KDQpwYzR3b3ogPC0gY2JpbmQoUEM0d296LCBzaGFwZXBjNCRQQzROUikNCnBjNHdveiA8LSByZW5hbWUocGM0d296LCBjKCJzaGFwZXBjNCRQQzROUiI9IlBDNE5SIikpDQpoZWFkKHBjNHdveikNCg0KcGM0IDwtIG1lcmdlKHBjNCwgcGM0d296LCBieT0iUEM0TlIiKSANCg0KI2FkZCBjb29yZGluYXRlcyBjZW50cm9pZHMgcGM0DQpwYzQkbCA8LSBjb29yZGluYXRlcyhzaGFwZXBjNClbLDFdDQpwYzQkaiA8LSBjb29yZGluYXRlcyhzaGFwZXBjNClbLDJdDQoNCmhlYWQocGM0KQ0KDQpwYzQkbm53YWwgPC0gcGM0JHBud2FsMjAxNCpwYzQkaW53MjAxNA0KDQoNCiNBQU5HUkVOWkVOREUgY29udGV4dCBkYXRhDQpuYW1lcyhwYzRAZGF0YSlbMjE6MjhdIDwtIHBhc3RlKG5hbWVzKHBjNEBkYXRhWyxjKDIxOjI4KV0pLCJwYzQiLCBzZXAgPSAiXyIpDQoNCnBjNCR3b3oyMDEyX2FhbmdyIDwtIHBjNCRpbncyMDE0X2FhbmdyIDwtIHBjNCRwbndhbDIwMTRfYWFuZ3IgPC0gcmVwKE5BLCBucm93KHBjNCkpDQoNCmZ1bmludyA8LSBmdW5jdGlvbih4KSB7IHN1bShwYzQkaW53MjAxNF9wYzRbeF0sIG5hLnJtPVQpfSANCmZ1bnBudyA8LSBmdW5jdGlvbih4KSB7IHN1bShwYzQkcG53YWwyMDE0X3BjNFt4XSAqICBwYzQkaW53MjAxNF9wYzRbeF0gLCBuYS5ybT1UKS8gc3VtKHBjNCRpbncyMDE0X3BjNFt4XSwgbmEucm09VCkgfSANCmZ1bndveiA8LSBmdW5jdGlvbih4KSB7IHN1bShwYzQkd296MjAxMl9wYzRbeF0sIG5hLnJtPVQpLyBsZW5ndGgocGM0JHdvejIwMTJfcGM0W3hdKSB9IA0KZnVubGVuIDwtIGZ1bmN0aW9uKHgpIHsgbGVuZ3RoKHBjNCR3b3oyMDEyX3BjNFt4XSkgfSANCg0KcGM0JGludzIwMTRfYWFuZ3IgPC0gc2FwcGx5KHBjNF9uYnEsIGZ1bmludykgDQpwYzQkcG53YWwyMDE0X2FhbmdyIDwtIHNhcHBseShwYzRfbmJxLCBmdW5wbncpIA0KcGM0JHdvejIwMTJfYWFuZ3IgPC0gc2FwcGx5KHBjNF9uYnEsIGZ1bndveikNCnBjNCR3b3psZW5ndGggPC0gc2FwcGx5KHBjNF9uYnEsIGZ1bmxlbikNCg0KI3BsdXMgZWlnZW4gYnV1cnQgZXJiaWoNCnBjNCRpbncyMDE0X2FhbmdyIDwtIHBjNCRpbncyMDE0X2FhbmdyICsgcGM0JGludzIwMTRfcGM0DQpwYzQkcG53YWwyMDE0X2FhbmdyIDwtIChwYzQkcG53YWwyMDE0X2FhbmdyKnBjNCRpbncyMDE0X2FhbmdyICsgcGM0JHBud2FsMjAxNF9wYzQqcGM0JGludzIwMTRfcGM0KS8ocGM0JGludzIwMTRfYWFuZ3IrcGM0JGludzIwMTRfcGM0KQ0KcGM0JHdvejIwMTJfYWFuZ3IgPC0gKChwYzQkd296MjAxMl9hYW5ncipwYzQkd296bGVuZ3RoKSArIHBjNCR3b3oyMDEyX3BjNCkvKHBjNCR3b3psZW5ndGgrMSkNCg0KcGM0IDwtIHBjNFssYygxOm5jb2wocGM0KS0xKV0NCg0KI0dFTUVFTlRFUyBjb250ZXh0IGRhdGENCm5lZGcgPC0gcmVhZE9HUigiVTovUGhEIERvY3VtZW50cy9DQlMgc2hhcGVmaWxlcy9zaGFwZSAyMDE0IiwgbGF5ZXI9ImdlbV8yMDE0IikNCiN0aHVpcw0KI25lZGcgPC0gcmVhZE9HUigiQzovVXNlcnMvSm9yYW4vRG9jdW1lbnRzL1BoRCBOaWptZWdlbi9DQlMgc2hhcGVmaWxlcy9zaGFwZSAyMDE0IiwgbGF5ZXI9ImdlbV8yMDE0IikNCg0KbmVkZyA8LSBuZWRnW25lZGckV0FURVI9PSJORUUiLF0NCmdlbWVlbnRlPC1hcy5jaGFyYWN0ZXIobmVkZ0BkYXRhJEdNX0NPREUpDQpnZW1lZW50ZSA8LSBzdWJzdHIoZ2VtZWVudGUsIDMsIGxlbmd0aChnZW1lZW50ZSkpDQpuZWRnJGdjb2RlIDwtIGFzLm51bWVyaWMoZ2VtZWVudGUpDQoNCiNvcHBlcnZsYWt0ZQ0Kb3BwdiA8LSBhcy5udW1lcmljKGdBcmVhKG5lZGcsIGJ5aWQ9VCkvMTAwMF4yKSAjbnUgaW4gdmllcmthbnRlIGttDQojMTM0a21eMiB2b29yIHBvc3Rjb2RlIDgyNTIga2xvcHQNCm9wcHYgPC0gYXMuZGF0YS5mcmFtZShjYmluZChvcHB2LCBuZWRnJGdjb2RlKSkNCm9wcHYgPC0gcmVuYW1lKG9wcHYsIGMoIlYyIj0iZ2NvZGUiKSkNCg0KI1RyYW5zZm9ybSBpbnRvIHNwYXRpYWwgZGF0YQ0KbmVkZyA8LSBzcFRyYW5zZm9ybShuZWRnLENSUygiK3Byb2o9bG9uZ2xhdCArZWxscHM9V0dTODQiKSkNCiNncmlkY2VsbHMgdm9vciBlbGtlIGdlbWVlbnRlIHNlbGVjdGVyZW4NCmxsQ1JTPC1DUlMoIitwcm9qPWxvbmdsYXQgK2VsbHBzPVdHUzg0IikNCmxvY19nPC1TcGF0aWFsUG9pbnRzKGNiczEwMCxwcm9qNHN0cmluZz1sbENSUykNCnByb2o0c3RyaW5nKGxvY19nKTwtcHJvajRzdHJpbmcobmVkZykNCmxvY2c8LW92ZXIobmVkZywgbG9jX2csIHJldHVybkxpc3Q9VCkNCg0KI3NlbGVjdCBuZWNlc3NhcnkgZGF0YQ0KcG9wY291bnRzIDwtIGNiczEwMFtjKCJuYXV0bzIwMTQiLCAibndhbDIwMTQiLCAibm53YWwyMDE0IiwgImludzIwMTQiKV0NCnBvcGNvdW50cyRpbncyMDE0W3BvcGNvdW50cyRpbncyMDE0PDBdIDwtIE5BDQoNCiNjYWxjdWxhdGUgcHJvcG9ydGlvbnMgZm9yIGV2ZXJ5IGdlbS4NCnByb3AgPC0gZnVuY3Rpb24oeCkgew0KaWZlbHNlKGNiaW5kKGxlbmd0aCh4KSE9MCwgbGVuZ3RoKHgpIT0wLCBsZW5ndGgoeCkhPTApLCBjb2xTdW1zKGFzLmRhdGEuZnJhbWUocG9wY291bnRzQGRhdGFbeCwxOjNdKSkvc3VtKGNvbFN1bXMoYXMuZGF0YS5mcmFtZShwb3Bjb3VudHNAZGF0YVt4LDE6M10pKSksYyhOQSxOQSxOQSkpIH0NCnByb3AyIDwtIGxhcHBseShsb2NnLCBwcm9wKQ0KZ2VtcHJvcCA8LWRhdGEuZnJhbWUobWF0cml4KHVubGlzdChwcm9wMiksIG5yb3c9bGVuZ3RoKGxvY2cpLG5jb2w9MywgYnlyb3c9VCkpDQpjb2xuYW1lcyhnZW1wcm9wKSA8LSBjKCJwYXV0bzIwMTQiLCAicHdhbDIwMTQiLCAgInBud2FsMjAxNCIpDQoNCmdlbXByb3AgPC0gY2JpbmQoZ2VtcHJvcCwgbmVkZyRnY29kZSkNCmdlbSA8LSByZW5hbWUoZ2VtcHJvcCwgYygibmVkZyRnY29kZSI9Imdjb2RlIikpDQpoZWFkKGdlbSkNCg0KI2NhbGN1bGF0ZSBhYW50aW53DQppbncgPC0gZnVuY3Rpb24oeCkgew0KaWZlbHNlKGxlbmd0aCh4KSE9MCwgc3VtKGFzLmRhdGEuZnJhbWUocG9wY291bnRzQGRhdGFbeCw0XSksbmEucm0gPSBUUlVFKSxjKE5BKSkgfQ0KaW53MiA8LSBsYXBwbHkobG9jZywgaW53KQ0KZ2VtaW53IDwtZGF0YS5mcmFtZShtYXRyaXgodW5saXN0KGludzIpLCBucm93PWxlbmd0aChsb2NnKSxuY29sPTEsIGJ5cm93PVQpKQ0KY29sbmFtZXMoZ2VtaW53KSA8LSBjKCJpbncyMDE0IikNCg0KZ2VtaW53IDwtIGNiaW5kKGdlbWludywgbmVkZyRnY29kZSkNCmdlbWludyA8LSByZW5hbWUoZ2VtaW53LCBjKCJuZWRnJGdjb2RlIj0iZ2NvZGUiKSkNCmhlYWQoZ2VtaW53KQ0KDQpnZW0gPC0gbWVyZ2UoZ2VtLCBnZW1pbncsIGJ5PSJnY29kZSIpDQoNCiNjYWxjdWxhdGUgd2VpZ2h0ZWR3b3oNCndvemNvdW50cyA8LSBjYnMxMDBbYygid296d29uMjAxMiIsICJ3b24yMDEyIildDQp3b3pjb3VudHMkd296d29uMjAxMlt3b3pjb3VudHMkd296d29uMjAxMjwwXSA8LSBOQQ0Kd296Y291bnRzJHdvbjIwMTJbd296Y291bnRzJHdvbjIwMTI8MF0gPC0gTkENCg0Kd296IDwtIGZ1bmN0aW9uKHgpIHsNCmlmZWxzZShsZW5ndGgoeCkhPTAsIHN1bShhcy5kYXRhLmZyYW1lKHdvemNvdW50c0BkYXRhW3gsMV0pKmFzLmRhdGEuZnJhbWUod296Y291bnRzQGRhdGFbeCwyXSksbmEucm09VCkvc3VtKGFzLmRhdGEuZnJhbWUod296Y291bnRzQGRhdGFbeCwyXSksbmEucm09VCksYyhOQSkpIH0NCndvejIgPC0gbGFwcGx5KGxvY2csIHdveikNCmdlbXdvejwtZGF0YS5mcmFtZShtYXRyaXgodW5saXN0KHdvejIpLCBucm93PWxlbmd0aChsb2NnKSxuY29sPTEsIGJ5cm93PVQpKQ0KY29sbmFtZXMoZ2Vtd296KSA8LSBjKCJ3b3oyMDEyIikNCg0KZ2Vtd296IDwtIGNiaW5kKGdlbXdveiwgbmVkZyRnY29kZSkNCmdlbXdveiA8LSByZW5hbWUoZ2Vtd296LCBjKCJuZWRnJGdjb2RlIj0iZ2NvZGUiKSkNCmhlYWQoZ2Vtd296KQ0KDQpnZW0gPC0gbWVyZ2UoZ2VtLCBnZW13b3osIGJ5PSJnY29kZSIpIA0KDQojYWRkIG9wcHYNCmdlbSA8LSBtZXJnZShnZW0sIG9wcHYsIGJ5PSJnb2NkZSIpDQoNCiNhZGQgY2VudHJvaWQgY29vcmRpbmF0ZXMgZm9yIGdlbQ0KaGVhZChjb29yZGluYXRlcyhuZWRnKSkNCmdlbSRsIDwtIGNvb3JkaW5hdGVzKG5lZGcpWywxXQ0KZ2VtJGogPC0gY29vcmRpbmF0ZXMobmVkZylbLDJdDQoNCiNfZ2MgdG8gZGF0YW5hbWVzIA0KY29sbmFtZXMoZ2VtKVsyOjhdIDwtIHBhc3RlKGNvbG5hbWVzKGdlbVsyOjhdKSwiZ2MiLCBzZXAgPSAiXyIpDQoNCiNSRUFEIElOIDFWT1AgREFUQQ0KI3NldHdkKCJDOi9Vc2Vycy9VNDk3MTMwL0FwcERhdGEvTG9jYWwvc3VyZmRyaXZlX2RhdGEvYXJ0aWtlbCBhemMvZGF0YS8iKQ0KI3RodWlzDQojc2V0d2QoIkM6L1VzZXJzL0pvcmFuL1NVUkZkcml2ZS9hcnRpa2VsIGF6Yy9kYXRhLyIpDQpzZXR3ZCgiVTovU3VyZmRyaXZlIGJhY2t1cC9BcnRpa2VsIGF6Yy9kYXRhIikNCg0KI0RhdGEgQmVpZGUgV2F2ZXMNCiNkYXRhIFcyIDF2YW5kYWFnDQpldl90MiA8LSByZWFkLnNwc3MoZmlsZT0iQVpDIFRPTFNNQSAzXzE3LjExLjE1XzA4LjQwLjE1LkFNLnNhdiIsdXNlLnZhbHVlLmxhYmVscz1GQUxTRSwgdG8uZGF0YS5mcmFtZT1UKQ0KDQojcGM0IHZhciBhYW5tYWtlbg0KbmFtZXMoZXZfdDIpDQpldl90MiA8LSByZW5hbWUoZXZfdDIsIGMoUG9zdGNvZGVfT3BpbmllPSJwYzQiKSkNCmV2X3QyJHBjNCA8LSBzdHJfdHJpbShldl90MiRwYzQpDQpldl90MiRwYzQgPC0gYXMubnVtZXJpYyhldl90MiRwYzQpICM2NjYgem9uZGVyIGdlbGRpZ2UgcGM0DQoNCiNzZWxlY3QgbmVjZXNzYXJ5IHZhcnMNCmV2X3QyIDwtIGV2X3QyWyxjKDEsMjk6MzUsNDU6NDcsNTg6NjAsNzE6NzQsOTU6OTksMTA5LDE3MzoxNzYsMTgzOjE5NywxOTkpXQ0KbmFtZXMoZXZfdDIpIA0KDQojICNSZWNvZGUgdmFycyBtZXQgX3QyIGVyYmlqIGV4Y2VwdCBpZCBhbmQgcGM0DQojIGNvbG5hbWVzKGV2X3QyKSA8LSBwYXN0ZShjb2xuYW1lcyhldl90MiksInQyIiwgc2VwID0gIl8iKQ0KIyBldl90MiA8LSByZW5hbWUoZXZfdDIsIGMoUGFuZWxpc3RJZFF1ZXN0aW9uX3QyPSJQYW5lbGlzdElkUXVlc3Rpb24iKSkNCiMgZXZfdDIgPC0gcmVuYW1lKGV2X3QyLCBjKHBjNF90Mj0icGM0IikpDQoNCiNkYXRhIFcxIDF2YW5kYWFnDQpldl90MSA8LSByZWFkLnNwc3MoZmlsZT0idG9wMXByb3ZpbmNpYWxlc3RhdGVuLnNhdiIsdXNlLnZhbHVlLmxhYmVscz1GQUxTRSwgdG8uZGF0YS5mcmFtZT1UKQ0KDQojcGM0IHZhciBhYW5tYWtlbg0KbmFtZXMoZXZfdDEpDQpldl90MSA8LSByZW5hbWUoZXZfdDEsIGMoUG9zdGNvZGVfT3BpbmllPSJwYzQiKSkNCmV2X3QxJHBjNCA8LSBzdHJfdHJpbShldl90MSRwYzQpDQpldl90MSRwYzRbMTEzMTddIDwtIHN1YnN0cihldl90MSRwYzRbMTEzMTddLCAxLCA0KQ0KZXZfdDEkcGM0IDwtIGFzLm51bWVyaWMoZXZfdDEkcGM0KSAjNDczIHpvbmRlciBnZWxkaWdlIHBjNA0KDQojc2VsZWN0IG5lY2Vzc2FyeSB2YXJzDQpldl90MSA8LSBldl90MVssYygxLDE1LDE5OjM3KV0NCm5hbWVzKGV2X3QxKSANCiANCiMgI1JlY29kZSB2YXJzIG1ldCBfdDEgZXJiaWogZXhjZXB0IGlkIGFuZCBwYzQNCiMgY29sbmFtZXMoZXZfdDEpIDwtIHBhc3RlKGNvbG5hbWVzKGV2X3QxKSwidDEiLCBzZXAgPSAiXyIpDQojIGV2X3QxIDwtIHJlbmFtZShldl90MSwgYyhQYW5lbGlzdElkUXVlc3Rpb25fdDE9IlBhbmVsaXN0SWRRdWVzdGlvbiIpKQ0KIyBldl90MSA8LSByZW5hbWUoZXZfdDEsIGMocGM0X3QxPSJwYzQiKSkNCiANCiNtZXJnZSB3YXZlcyAtIENPTFVNTi1XSVNFIA0KIyBldnBhbmVsIDwtIG1lcmdlKGV2X3QyLCBldl90MSwgYnkueD0iUGFuZWxpc3RJZFF1ZXN0aW9uIiwgYnkueT0iUGFuZWxpc3RJZFF1ZXN0aW9uIiwgc29ydD1GKSAjMjA4NDQgcmVzcHMNCiMgZXZwYW5lbCRwYzQgPC0gaWZlbHNlKGlzLm5hKGV2cGFuZWwkcGM0X3QxKSwgZXZwYW5lbCRwYzRfdDIsIGV2cGFuZWwkcGM0X3QyKSAjc2FtZSBwYzRzIG1pc3NpbmdzIGJlaWRlIHdhdmVzDQoNCiNtZXJnZSB3YXZlcyAtIFJPVy1XSVNFIA0KI0lEIHZhciBmb3Igd2F2ZQ0KZXZfdDEkdGlqZCA8LSAxDQpldl90MiR0aWpkIDwtIDINCmhlYWQoZXZfdDEkUGFuZWxpc3RJZFF1ZXN0aW9uKQ0KaGVhZChldl90MiRQYW5lbGlzdElkUXVlc3Rpb24pDQojUm93YmluZCBhbmQgb3JkZXIgdHdvIGRhdGFmcmFtZXMNCmV2cGFuZWwgPC0gcmJpbmQuZmlsbChldl90MSwgZXZfdDIpDQpldnBhbmVsIDwtIGV2cGFuZWxbb3JkZXIoZXZwYW5lbFssIlBhbmVsaXN0SWRRdWVzdGlvbiJdLCBldnBhbmVsWywidGlqZCJdKSxdDQpoZWFkKGV2cGFuZWwpDQpuYW1lcyhldnBhbmVsKQ0KDQojbWVyZ2UgMXZhbmRhYWcgYWFuIGdjIGNvZGVzDQpoZWFkKHBjNGdjXzIwMTMpDQpldnBhbmVsIDwtIG1lcmdlKGV2cGFuZWwsIHBjNGdjXzIwMTMsIGFsbC54PVQsIGJ5PSJwYzQiLCBzb3J0PUYpDQoNCiNHQ0NPREVTIDIwMTMgT01aRVRURU4gTkFBUiBHQ09ERVMgMjAxNCwgWk9WRVIgQUxTIE1PR0VMSUpLDQp1bmlxdWUoZXZwYW5lbCRnY1shKGV2cGFuZWwkZ2MgJWluJSBuZWRnJGdjb2RlKV0pICMgNDk5ICAgODIgICA1NSAgIDUxIDE2NzIgIDY1MyANCg0KI2djb2RlcyAyMDEzIHNoYXBlIGxhZGVuDQpuZWRnMiA8LSByZWFkT0dSKCJVOi9QaEQgRG9jdW1lbnRzL0NCUyBzaGFwZWZpbGVzL3NoYXBlIDIwMTMiLCBsYXllcj0iZ2VtXzIwMTNfdjEiKQ0KbmVkZzIgPC0gbmVkZzJbbmVkZzIkV0FURVI9PSJORUUiLF0NCmdlbWVlbnRlPC1hcy5jaGFyYWN0ZXIobmVkZzJAZGF0YSRHTV9DT0RFKQ0KZ2VtZWVudGUgPC0gc3Vic3RyKGdlbWVlbnRlLCAzLCBsZW5ndGgoZ2VtZWVudGUpKQ0KbmVkZzIkZ2NvZGUgPC0gYXMubnVtZXJpYyhnZW1lZW50ZSkNCg0KbmVkZzIkR01fTkFBTVtuZWRnMiRnY29kZT09NDk5XSAjIGJvc2tvb3Agd29yZHQgYWxocGVuIGFhbiBkZSByaWpuDQpuZWRnMiRHTV9OQUFNW25lZGcyJGdjb2RlPT0xNjcyXSAjcmlqbndvdWRlIHdvcmR0IGFsaHBlbiBhYW4gZGUgcmlqbg0KbmVkZzIkR01fTkFBTVtuZWRnMiRnY29kZT09ODJdICNsZW1zdGVybGFuZCB3b3JkdCBkZSBmcmllc2UgbWVyZW4NCm5lZGcyJEdNX05BQU1bbmVkZzIkZ2NvZGU9PTU1XSAjQm9hcm5zdGVyaGltIHdvcmR0IGRlIGZyaWVzZSBtZXJlbg0KbmVkZzIkR01fTkFBTVtuZWRnMiRnY29kZT09NTFdICNTa2Fyc3RlcmzDg8KibiB3b3JkdCBkZSBmcmllc2UgbWVyZW4NCm5lZGcyJEdNX05BQU1bbmVkZzIkZ2NvZGU9PTY1M10gI0dhYXN0ZXJsw4PCom4tU2xlYXQgd29yZHQgZGUgZnJpZXNlIG1lcmVuDQoNCm5lZGckZ2NvZGVbbmVkZyRHTV9OQUFNPT0iQWxwaGVuIGFhbiBkZW4gUmlqbiJdICM0ODQNCm5lZGckZ2NvZGVbbmVkZyRHTV9OQUFNPT0iRGUgRnJpZXNlIE1lcmVuIl0gIzE5MjENCg0KZXZwYW5lbCRnY1tldnBhbmVsJGdjPT00OTldIDwtIDQ4NA0KZXZwYW5lbCRnY1tldnBhbmVsJGdjPT0xNjcyXSA8LSA0ODQNCmV2cGFuZWwkZ2NbZXZwYW5lbCRnYz09ODJdIDwtIDE5MjENCmV2cGFuZWwkZ2NbZXZwYW5lbCRnYz09NTFdIDwtIDE5MjENCmV2cGFuZWwkZ2NbZXZwYW5lbCRnYz09NTVdIDwtIDE5MjENCmV2cGFuZWwkZ2NbZXZwYW5lbCRnYz09NjUzXSA8LSAxOTIxDQoNCg0KI09ORSBQRVJTT04gSU4gTkVXIEFSRUEsIFNIT1VMRCBIQVZFIEEgR0NPREUNCnBjNCRQQzROUltpcy5uYShwYzQkZ2MpXSAjICgxMTE0KSAxNzA2ICg1MDU3KQ0KZXZwYW5lbCRwYzRbZXZwYW5lbCRwYzQ9PTExMTQgfCBldnBhbmVsJHBjND09MTcwNiB8IGV2cGFuZWwkcGM0PT01MDU3XSAjb25lIHJlc3BvbmRlbnQgaW4gMTcwNg0KIzE3MDYgaXMgaGVlcmh1Z293YWFyZA0KbmFtZXMobmVkZykNCm5lZGdbbmVkZyRHTV9OQUFNPT0iSGVlcmh1Z293YWFyZCIsXSAjIGdjID0gMzk4DQpldnBhbmVsJGdjWyFpcy5uYShldnBhbmVsJHBjNCkgJiBldnBhbmVsJHBjND09MTcwNl0gPC0gMzk4DQoNCiNwYzRzIHRoYXQgYXJlIG5vdCBpbiBwYzQgc2hhcGUNCmV2cGFuZWwkcGM0WyEoZXZwYW5lbCRwYzQgJWluJSBwYzQkUEM0TlIpXQ0KDQojWzFdIDEwMDAgMTAwMSAxMDIwIDEwNTAgMTA3MCAxMDkwIDExMDAgMTEzMCAxMjAwIDEyMjQgMTIzNCAxMjUwIDEyNzAgMTMwMCAxNTAwIDE1MzMgMTU1MA0KI1sxOV0gMTYxMiAxNjcyIDE4MDAgMTkxNyAxOTIyIDE5NDAgMTk4NiAyMDAwIDIwMzAgMjEwMCAyMTMwIDIzMDAgMjMxMCAyMzk5IDI0MDAgMjQ4MiAyNTAwIDI1MDENCiNbMzddIDI1NjkgMjU4OCAyNjAwIDI2OTUgMjcwMCAyODAwIDI5MDAgMzAwMCAzMTI3IDMxNjAgMzIwMCAzMjgzIDMzMDAgMzM1MCAzMzc3IDMzOTEgMzQwNyAzNDQwDQojWzU1XSAzNDUwIDM1MDAgMzUxOSAzNTM1IDM2MDAgMzYyMCAzNjQ3IDM3MDAgMzc0NSAzNzYwIDM4MDAgMzgxMCAzODU0IDM5MDAgMzk2NCAzOTc3IDQyMDAgNDMzMA0KI1s3M10gNDQ5MCA0NTAwIDQ1MTcgNDUzMCA0NjAwIDQ3NTAgNDc3NyA0ODAwIDQ4MzEgNDg1NyA0OTAwIDQ5MTkgNDk0MCA1MDAwIDUxMTAgNTEyMCA1MTgzIDUyMDANCiNbOTFdIDUyMTAgNTMwMCA1MzUwIDUzNjAgNTUwMCA1NTIwIDU1NjUgNTU3MiA1NTk2IDU2MDAgNTY1MCA1NzAwIDU3NDMgNTgwMCA1OTAwIDU5NDUgNTk2NyA1OTgzDQojWzEwOV0gNjAwMCA2MDQwIDYxMDAgNjEzMCA2MjAwIDYyMDMgNjI5MyA2NDAwIDY0MzQgNjUwMCA2NTAxIDY1NTIgNjYxNCA2ODAwIDY4NzIgNjkwNiA2OTcwIDcwMDANCiNbMTI3XSA3MTUzIDcxNzUgNzIwMCA3MjE5IDcyNDAgNzI0OCA3MjcwIDczMDAgNzMyMCA3MzYwIDc0MDAgNzUwMCA3NTUwIDc2MDAgNzY1MCA3Njk4IDc3NDMgNzc3MA0KI1sxNDVdIDc4MDAgNzkwMCA3OTc2IDgwMDAgODEwMCA4MTgwIDgyMDAgODIzNCA4MzUyIDg0NDAgODQ3MCA4NTAwIDg1MjAgODU0MyA4NjkyIDg3MDUgODc5NSA4ODQ3DQojWzE2M10gODg2MCA4OTAwIDk0MDAgOTQ4MCA5NTAwIDk1MDQgOTUwNiA5NTQwIDk2MDAgOTcwMCA5NzA0IDk4MDAgOTgxOCA5OTMwDQoNCiNvdGhlciBwYzQgdGhhdCBzaG91bGQgaGF2ZSBnYyBjb2Rlcw0KbmVkZ1tuZWRnJEdNX05BQU09PSJCbGFyaWN1bSIsXSAjIGdjID0gMzc2DQpldnBhbmVsJGdjWyFpcy5uYShldnBhbmVsJHBjNCkgJiBldnBhbmVsJHBjND09MTI2Ml0gPC0gMzc2DQoNCiNwYzRzIG9uIE5BIGRpZSBuaWV0IGJlc3RhYW4sIG9uIHRoZSBiYXNpcyBvZiBwYzQgc2hhcGUsIHBvc3RidXNzZW4gZXRjDQpldnBhbmVsJHBjNFshKGV2cGFuZWwkcGM0ICVpbiUgcGM0JFBDNE5SKV0gPC0gTkENCg0KDQojTUFUQ0ggRVYgREFUQSBUTyBBWkNTICYgT1RIRVIgREFUQQ0KcGM0X3NlbCA8LSBwYzRbLGMoMSwzOjI1LDI4OjMxKV0NCmV2cGFuZWwgPC0gbWVyZ2UoZXZwYW5lbCwgcGM0X3NlbCwgYWxsLng9VCwgYnkueD0icGM0IiwgYnkueT0iUEM0TlIiLCBzb3J0PUYpDQoNCmdlbV9zZWwgPC0gZ2VtWyxjKDE6NildDQpldnBhbmVsIDwtIG1lcmdlKGV2cGFuZWwsIGdlbV9zZWwsIGFsbC54PVQsIGJ5Lng9ImdjIiwgYnkueT0iZ2NvZGUiLCBzb3J0PUYpDQoNCg0KI0FaQyBTSVpFIEFTIG51bWJlciBvZiBzZWVrZXJzIHBlciAxMDAwaW5oYWIgT0YgUEM0L1BDNGFhbmdyL0dDDQphemNwcm9wcGM0IDwtIGV2cGFuZWxbLGMoNTY6NjEpXS8oZXZwYW5lbFssYyg3NyldLzEwMDApDQpzdW1tYXJ5KGV2cGFuZWxbaXMubmEoZXZwYW5lbCRpbncyMDE0X3BjNCksYygxLDIsNTY6NjEpXSkgDQojYXpjcHJvcHBjNFtpcy5uYShhemNwcm9wcGM0KSAmICFpcy5uYShldnBhbmVsJHBjNCldIDwtIDAgI2FsbGVtYWFsIDAsIGR1cyBOQSBrYW4gb3AgMA0KY29sbmFtZXMoYXpjcHJvcHBjNCkgPC0gcGFzdGUoY29sbmFtZXMoYXpjcHJvcHBjNCksInJlbCIsIHNlcCA9ICIiKQ0KZXZwYW5lbCA8LSBjYmluZChldnBhbmVsLCBhemNwcm9wcGM0KQ0KDQphemNwcm9wYWFuZ3IgPC0gZXZwYW5lbFssYyg2ODo3MyldLyhldnBhbmVsWyxjKDgxKV0vMTAwMCkNCnN1bW1hcnkoZXZwYW5lbFtpcy5uYShldnBhbmVsJGludzIwMTRfcGM0KSxjKDEsMiw2ODo3MyldKSANCiNhemNwcm9wYWFuZ3JbaXMubmEoYXpjcHJvcGFhbmdyKV0gPC0gMCAjYWxsZW1hYWwgMCwgZHVzIE5BIGthbiBvcCAwDQpjb2xuYW1lcyhhemNwcm9wYWFuZ3IpIDwtIHBhc3RlKGNvbG5hbWVzKGF6Y3Byb3BhYW5nciksInJlbCIsIHNlcCA9ICIiKQ0KZXZwYW5lbCA8LSBjYmluZChldnBhbmVsLCBhemNwcm9wYWFuZ3IpDQoNCmF6Y3Byb3BnYyA8LSBldnBhbmVsWyxjKDYyOjY3KV0vKGV2cGFuZWxbLGMoODYpXS8xMDAwKQ0Kc3VtbWFyeShldnBhbmVsW2lzLm5hKGV2cGFuZWwkaW53MjAxNF9nYyksYygxLDIsNjI6NjcpXSkgDQojYXpjcHJvcGdjW2lzLm5hKGF6Y3Byb3BnYyldIDwtIDAgI2FsbGVtYWFsIDAsIGR1cyBOQSBrYW4gb3AgMA0KY29sbmFtZXMoYXpjcHJvcGdjKSA8LSBwYXN0ZShjb2xuYW1lcyhhemNwcm9wZ2MpLCJyZWwiLCBzZXAgPSAiIikNCmV2cGFuZWwgPC0gY2JpbmQoZXZwYW5lbCwgYXpjcHJvcGdjKQ0KZXZwYW5lbFshaXMubmEoZXZwYW5lbCRnYykgJiBpcy5uYShldnBhbmVsJHMxY2FwX2djdDFyZWwpLGMoMTAwOjEwNSldIDwtIDANCm5hbWVzKGV2cGFuZWwpDQoNCiNBWkMgU0laRSBBUyBudW1iZXIgb2Ygc2Vla2VycyBwZXIgbmIgbm9uIHdlc3QgT0YgUEM0DQphemNud3BjNCA8LSBldnBhbmVsWyxjKDU2OjYxKV0vKGV2cGFuZWxbLGMoNzkpXSkNCnN1bW1hcnkoZXZwYW5lbFtpcy5uYShldnBhbmVsJGludzIwMTRfcGM0KSxjKDEsMiw1Njo2MSldKSANCiNhemNwcm9wcGM0W2lzLm5hKGF6Y3Byb3BwYzQpICYgIWlzLm5hKGV2cGFuZWwkcGM0KV0gPC0gMCAjYWxsZW1hYWwgMCwgZHVzIE5BIGthbiBvcCAwDQpjb2xuYW1lcyhhemNud3BjNCkgPC0gcGFzdGUoY29sbmFtZXMoYXpjbndwYzQpLCJudyIsIHNlcCA9ICIiKQ0KZXZwYW5lbCA8LSBjYmluZChldnBhbmVsLCBhemNud3BjNCkNCg0KIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjDQojQ1JlYXRlIGluZGl2aWR1YWwgVkFSSUFCTEVTDQoNCiNTZWxlY3Qgb25seSBuYXRpdmUgRHV0Y2ggcmVzcG9uZGVudHMNCnRhYmxlKGV2cGFuZWwkSGVya29tc3RfZmFtaWxpZV9PcGluaWUsIHVzZU5BPSJhbHdheXMiKQ0KZXZwYW5lbCA8LSBldnBhbmVsW2V2cGFuZWwkSGVya29tc3RfZmFtaWxpZV9PcGluaWU9PTEgJiAhaXMubmEoZXZwYW5lbCRIZXJrb21zdF9mYW1pbGllX09waW5pZSksXSAjIG1pbnVzICg4NDkpIHJlc3BvbmRlbnRzIA0KdGFibGUoZXZwYW5lbCRIZXJrb21zdF9mYW1pbGllX09waW5pZSwgdXNlTkE9ImFsd2F5cyIpDQoNCg0KI0RFUEVOREVOVCBWQVJJQUJMRVMNCg0KI1ZvdGluZyBpbnRlbnRpb25zIC0gVzENCnRhYmxlKGV2cGFuZWwkc3RlbXZyYWFnLCB1c2VOQT0iYWx3YXlzIikNCmV2cGFuZWwkdm90ZSA8LSBldnBhbmVsJHN0ZW12cmFhZw0KI3QxOiAiMSI9InZ2ZCIsICIyIj0icHZkYSIsICIzIj0icHZ2IiwgIjQiPSJjZGEiLCAiNSI9InNwIiwgIjYiPSJkNjYiLCAiNyI9ImdsIiwgIjgiPSJjdSIsICI5Ij0ic2dwIiwgIjEwIj0iZGllciIsICIxMSI9IjUwcGx1cyIsICIxMiI9ImJsYW5jbyIsICIxMyI9ImRvbnRrbm93IiwgIjE0Ij0ibm92b3RlIiwiMTUiPW5vdCBhbGxvd2VkIiwiMTYiPSJubyBhbnN3ZXIiLCAiMTciPSJvdGhlciINCiN0MjogIjEiPSJ2dmQiLCAiMiI9InB2ZGEiLCAiMyI9InB2diIsICI0Ij0iY2RhIiwgIjUiPSJzcCIsICI2Ij0iZDY2IiwgIjciPSJnbCIsICI4Ij0iY3UiLCAiOSI9InNncCIsICIxMCI9ImRpZXIiLCAiMTEiPSI1MHBsdXMiLCAiMTIiPSJ2bmwiLCIxMyI9ImJsYW5jbyIsICIxNCI9ImRvbnRrbm93IiwgIjE1Ij0ibm92b3RlIiwgIjE2Ij1ub3QgYWxsb3dlZCIsIjE3Ij0ibm8gYW5zd2VyIiwgIjE4Ij0ib3RoZXIiKSkNCmV2cGFuZWwkdm90ZVtldnBhbmVsJHRpamQ9PTEgJiBldnBhbmVsJHZvdGU9PTE3XSA8LSAxOA0KZXZwYW5lbCR2b3RlW2V2cGFuZWwkdGlqZD09MSAmIGV2cGFuZWwkdm90ZT09MTZdIDwtIDE3DQpldnBhbmVsJHZvdGVbZXZwYW5lbCR0aWpkPT0xICYgZXZwYW5lbCR2b3RlPT0xNV0gPC0gMTYNCmV2cGFuZWwkdm90ZVtldnBhbmVsJHRpamQ9PTEgJiBldnBhbmVsJHZvdGU9PTE0XSA8LSAxNQ0KZXZwYW5lbCR2b3RlW2V2cGFuZWwkdGlqZD09MSAmIGV2cGFuZWwkdm90ZT09MTNdIDwtIDE0DQpldnBhbmVsJHZvdGVbZXZwYW5lbCR0aWpkPT0xICYgZXZwYW5lbCR2b3RlPT0xMl0gPC0gMTMNCg0KI2V2cGFuZWwkdm90ZSA8LSBpZmVsc2UoZXZwYW5lbCR2b3RlPT0xMyxOQSxldnBhbmVsJHZvdGUpDQojZXZwYW5lbCR2b3RlIDwtIGlmZWxzZShldnBhbmVsJHZvdGU9PTE1LE5BLGV2cGFuZWwkdm90ZSkNCiNldnBhbmVsJHZvdGUgPC0gaWZlbHNlKGV2cGFuZWwkdm90ZT09MTYsTkEsZXZwYW5lbCR2b3RlKQ0KI2V2cGFuZWwkdm90ZSA8LSBpZmVsc2UoZXZwYW5lbCR2b3RlPT0xNyxOQSxldnBhbmVsJHZvdGUpDQp0YWJsZShldnBhbmVsJHZvdGUsIHVzZU5BPSJhbHdheXMiKQ0KDQojUFZWIHZvdGUNCiMgMTI9QmxhbmNvICgwLjYlKSwgMTM9V2VldCBpayBub2cgbmlldCAoMTEsNCUpLCAxND1XZWwgZ2VyZWNodGlnZCwgZ2EgbmlldCAoMSwxJSksIDE1PW5pZXQgc3RlbWdlcmVjdGlnZCAoMC4wMDQlKSwgMTY9Z2VlbiBvcGdhdmUgKDAuNSUpLDE3PWFuZGVyZSBwYXJ0aWoNCmV2cGFuZWwkUFZWPC1pZmVsc2UoZXZwYW5lbCR2b3RlPT0zLDEsMCkNCnRhYmxlKGV2cGFuZWwkUFZWLCB1c2VOQT0iYWx3YXlzIikNCg0KI1ZvdGUgR0wgDQpldnBhbmVsJEdMPC1pZmVsc2UoZXZwYW5lbCR2b3RlPT03LDEsMCkNCnRhYmxlKGV2cGFuZWwkR0wsIHVzZU5BPSJhbHdheXMiKQ0KDQoNCiN0aHJlYXQNCiNmb3IgdGhyZWF0RFYgYXMgRFYgZG9udCBrbm93IHdpdGggDQpldnBhbmVsJHRocmVhdCA8LSBOQQ0KZXZwYW5lbCR0aHJlYXRbZXZwYW5lbCRSQl8xPT0xXSA8LSA0DQpldnBhbmVsJHRocmVhdFtldnBhbmVsJFJCXzE9PTJdIDwtIDMNCmV2cGFuZWwkdGhyZWF0W2V2cGFuZWwkUkJfMT09M10gPC0gMg0KZXZwYW5lbCR0aHJlYXRbZXZwYW5lbCRSQl8xPT00XSA8LSAxDQpldnBhbmVsJHRocmVhdFtldnBhbmVsJFJCXzE9PTVdIDwtIDANCmV2cGFuZWwkdGhyZWF0W2V2cGFuZWwkUkJfMT09Nl0gPC0gMiAjZG9udCBrbm93IGNhdC4NCnRhYmxlKGV2cGFuZWwkdGhyZWF0LCB1c2VOQT0iYWx3YXlzIikNCg0KDQpldnBhbmVsJHRocmVhdFtldnBhbmVsJGtvbXN0X21pbmRlcmhlZGVuPT0xXSA8LSA0DQpldnBhbmVsJHRocmVhdFtldnBhbmVsJGtvbXN0X21pbmRlcmhlZGVuPT0yXSA8LSAzDQpldnBhbmVsJHRocmVhdFtldnBhbmVsJGtvbXN0X21pbmRlcmhlZGVuPT0zXSA8LSAyDQpldnBhbmVsJHRocmVhdFtldnBhbmVsJGtvbXN0X21pbmRlcmhlZGVuPT00XSA8LSAxDQpldnBhbmVsJHRocmVhdFtldnBhbmVsJGtvbXN0X21pbmRlcmhlZGVuPT01XSA8LSAwDQpldnBhbmVsJHRocmVhdFtldnBhbmVsJGtvbXN0X21pbmRlcmhlZGVuPT02XSA8LSAyICNkb250IGtub3cgY2F0Lg0KdGFibGUoZXZwYW5lbCR0aHJlYXQsIHVzZU5BPSJhbHdheXMiKQ0KDQoNCiNjb250YWN0DQojQ29udGFjdCAoSG9lIHZhYWsgaGVlZnQgdSBpbiB1dyBidXVydCBwZXJzb29ubGlqayBjb250YWN0IG1ldCBpZW1hbmQgdmFuIG5pZXQtd2VzdGVyc2UgaGVya29tc3Qvb29zdCBldXJvcGVlcykNCiMxPWJpam5hIGVsa2UgZGFnLCA3PW5vb2l0LCA4PW52dA0KZXZwYW5lbCRjb250YWN0bncgPC0gTkENCmV2cGFuZWwkY29udGFjdG53W2V2cGFuZWwkUkJfM2E9PTFdIDwtIDYNCmV2cGFuZWwkY29udGFjdG53W2V2cGFuZWwkUkJfM2E9PTJdIDwtIDUNCmV2cGFuZWwkY29udGFjdG53W2V2cGFuZWwkUkJfM2E9PTNdIDwtIDQNCmV2cGFuZWwkY29udGFjdG53W2V2cGFuZWwkUkJfM2E9PTRdIDwtIDMNCmV2cGFuZWwkY29udGFjdG53W2V2cGFuZWwkUkJfM2E9PTVdIDwtIDINCmV2cGFuZWwkY29udGFjdG53W2V2cGFuZWwkUkJfM2E9PTZdIDwtIDENCmV2cGFuZWwkY29udGFjdG53W2V2cGFuZWwkUkJfM2E9PTddIDwtIDAgI05PT0lUDQpldnBhbmVsJGNvbnRhY3Rud1tldnBhbmVsJFJCXzNhPT04XSA8LSAwICNOVlQNCnRhYmxlKGV2cGFuZWwkY29udGFjdG53LCB1c2VOQT0iYWx3YXlzIikNCg0KdGFibGUoZXZwYW5lbCROaWV0X3dlc3RlcnMpDQpldnBhbmVsJGNvbnRhY3Rud1tldnBhbmVsJE5pZXRfd2VzdGVycz09MV0gPC0gNg0KZXZwYW5lbCRjb250YWN0bndbZXZwYW5lbCROaWV0X3dlc3RlcnM9PTJdIDwtIDUNCmV2cGFuZWwkY29udGFjdG53W2V2cGFuZWwkTmlldF93ZXN0ZXJzPT0zXSA8LSA0DQpldnBhbmVsJGNvbnRhY3Rud1tldnBhbmVsJE5pZXRfd2VzdGVycz09NF0gPC0gMw0KZXZwYW5lbCRjb250YWN0bndbZXZwYW5lbCROaWV0X3dlc3RlcnM9PTVdIDwtIDINCmV2cGFuZWwkY29udGFjdG53W2V2cGFuZWwkTmlldF93ZXN0ZXJzPT02XSA8LSAxDQpldnBhbmVsJGNvbnRhY3Rud1tldnBhbmVsJE5pZXRfd2VzdGVycz09N10gPC0gMA0KZXZwYW5lbCRjb250YWN0bndbZXZwYW5lbCROaWV0X3dlc3RlcnM9PThdIDwtIDANCnRhYmxlKGV2cGFuZWwkY29udGFjdG53LCB1c2VOQT0iYWx3YXlzIikNCg0KDQojYXpjIHZhcnMNCg0KI3BlcmNlcHRpZSBhemMgaW4gZGUgYnV1cnQ/DQojV29yZGVuIGVyIGluIHV3IGJ1dXJ0IHZsdWNodGVsaW5nZW4gb3BnZXZhbmdlbiBvZiB6aWpuIGRhYXIgcGxhbm5lbiB2b29yPw0KIzEuSmEsIGluIG1pam4gYnV1cnQgc3RhYXQgZWVuIGF6Yw0KIzIuSmEsIGluIG1pam4gYnV1cnQgaXMgZXIgZWVuIHRpamRlbGlqa2Ugb3B2YW5nIHZvb3Igdmx1Y2h0ZWxpbmdlbg0KIzMuTmVlLCBtYWFyIGRhYXIgemlqbiB3ZWwgcGxhbm5lbiB2b29yDQojNC5OZWUsIGluIG1pam4gYnV1cnQgd29yZGVuIGdlZW4gdmx1Y2h0ZWxpbmdlbiBvcGdldmFuZ2VuDQojNS5XZWV0IG5pZXQgLyBnZWVuIG1lbmluZw0KIyB0YWJsZShldnBhbmVsJE9wdmFuZ19idXVydCwgdXNlTkE9ImFsd2F5cyIpDQojIGV2cGFuZWwkcGVyY3BjNGF6YyA8LSBpZmVsc2UoZXZwYW5lbCRPcHZhbmdfYnV1cnQ9PTEgfCAgZXZwYW5lbCRPcHZhbmdfYnV1cnQ9PTIsIDEsIDApDQojIHRhYmxlKGV2cGFuZWwkcGVyY3BjNGF6YywgdXNlTkE9ImFsd2F5cyIpDQojICNkdW1teSB2ZXJzaW9uDQojIGV2cGFuZWwkcGVyY3BjNGF6Y19kdW0gPC0gYXMuZmFjdG9yKGV2cGFuZWwkT3B2YW5nX2J1dXJ0KQ0KIyBsZXZlbHMoZXZwYW5lbCRwZXJjcGM0YXpjX2R1bSApIDwtIGMoImphLCBhemMiLCJqYSwgdGlqZGVsaWprIiwid2VsIHBsYW5uZW4iLCAibmVlIiwgIndlZXQgbmlldCIpDQoNCiNDb3ZhcmlhdGVzDQoNCiNHZW5kZXINCnRhYmxlKGV2cGFuZWwkR2VzbGFjaHRfT3BpbmllLCB1c2VOQT0iYWx3YXlzIikNCmV2cGFuZWwkZ2VuZGVyIDwtIGlmZWxzZShldnBhbmVsJEdlc2xhY2h0X09waW5pZT09MSwgMSwwKSAjIDE9IG1hbGUNCnRhYmxlKGV2cGFuZWwkZ2VuZGVyLCB1c2VOQT0iYWx3YXlzIikNCg0KI0FnZQ0KI3RhYmxlKGV2cGFuZWwkR2Vib29ydGVkYXR1bV9PcGluaWUpDQpldnBhbmVsJGdlYmRhdCA8LSBhcy5QT1NJWGx0KGV2cGFuZWwkR2Vib29ydGVkYXR1bV9PcGluaWUsIG9yaWdpbj0iMTU4Mi8xMC8xNCIpIA0KZXZwYW5lbCRhZ2VzIDwtIGFzLmNoYXJhY3RlcihldnBhbmVsJGdlYmRhdCkNCmV2cGFuZWwkYWdlIDwtIHN1YnN0cihldnBhbmVsJGFnZXMsIDEsIDQpDQpldnBhbmVsJGFnZSA8LSBhcy5udW1lcmljKGV2cGFuZWwkYWdlKQ0KZXZwYW5lbCRhZ2UgPC0gMjAxNSAtIGV2cGFuZWwkYWdlDQp0YWJsZShldnBhbmVsJGFnZSwgdXNlTkE9ImFsd2F5cyIpDQojU2VsZWN0IG9uIEFnZSBoaWdoZXIgdGhhbiAxOA0KZXZwYW5lbCA8LSBldnBhbmVsW2V2cGFuZWwkYWdlPj0xOCxdDQoNCiMgRWR1Y2F0aW9uICh5ZWFycyBvZiBlZHVjYXRpb24gdGhhdCBjb25zdGl0dXRlIHRoZSBzaG9ydGVzdCByb3V0ZSB0byBvYnRhaW4gYSB1bml2ZXJzaXR5IGRlZ3JlZUFmdGVyIHRoaXMgY29kaW5nLCBhbGwgdmFsdWVzIGFyZSBzdWJ0cmFjdGVkIGZyb20gdGhlIG1heGltdW0geWVhcnMgb2Ygc2Nob29saW5nIG5lY2Vzc2FyeSB0byBvYnRhaW4gYSB1bml2ZXJzaXR5IGdyYWRlKSkNCiMoMSkgNSBsYWdlcmUgc2Nob29sIG5vdCBmaW5pc2hlZCAoNHlycykgL2xhZ2VyZSBzY2hvb2wgKDZ5cnMpIA0KIygyKSA3IGxibywgdm1iby1rYi9iYmwgKDYsNXlycykgL21hdm8sIHZtYm8tdGwgKDh5cnMpIA0KIygzKSAxMSBoYXZvICgxMHlycykgLyB2d28vZ3ltbmFzaXVtICgxMnlycykNCiMoNCkgOSw1IG1iby1rb3J0IChrbWJvKSAoOCw1eXJzKSAvbWJvLXR1c3Nlbi9sYW5nIChtYm8pICgxMCw1eXJzKSANCiMoNSkgMTQgaGJvICgxNHlycykgDQojKDYpIDE2LDUgdW5pdmVyc2l0ZWl0IChiYWNoZWxvcm1hc3RlciwgZG9jdG9yYWFsKSgxNiw1KQ0KDQp0YWJsZShldnBhbmVsJE9wbGVpZGluZ19PcGluaWUsIHVzZU5BPSJhbHdheXMiKQ0KZXZwYW5lbCRlZHVjIDwtIE5BDQpldnBhbmVsJGVkdWNbZXZwYW5lbCRPcGxlaWRpbmdfT3BpbmllPT0xXSA8LSA1IA0KZXZwYW5lbCRlZHVjW2V2cGFuZWwkT3BsZWlkaW5nX09waW5pZT09Ml0gPC0gNyANCmV2cGFuZWwkZWR1Y1tldnBhbmVsJE9wbGVpZGluZ19PcGluaWU9PTNdIDwtIDExIA0KZXZwYW5lbCRlZHVjW2V2cGFuZWwkT3BsZWlkaW5nX09waW5pZT09NF0gPC0gOS41IA0KZXZwYW5lbCRlZHVjW2V2cGFuZWwkT3BsZWlkaW5nX09waW5pZT09NV0gPC0gMTQgDQpldnBhbmVsJGVkdWNbZXZwYW5lbCRPcGxlaWRpbmdfT3BpbmllPT02XSA8LSAxNi41IA0KdGFibGUoZXZwYW5lbCRlZHVjLCB1c2VOQT0iYWx3YXlzIikNCg0KI0NpdmlsIHN0YXR1cw0KIzE9Z2VodXdkL2dlcmVnIHBhcnRuZXIsIDI9Z2VzY2hlaWRlbiwzPXdlZHV3ZSw0PW9uZ2VodXdkDQp0YWJsZShldnBhbmVsJEJ1cmdlcmxpamtlX3N0YWF0X09waW5pZSwgdXNlTkE9ImFsd2F5cyIpDQpldnBhbmVsJGNpdmlsc3RhdHVzIDwtIGV2cGFuZWwkQnVyZ2VybGlqa2Vfc3RhYXRfT3BpbmllDQp0YWJsZShldnBhbmVsJGNpdmlsc3RhdHVzLCB1c2VOQT0iYWx3YXlzIikNCg0KI0hvdXNlaG9sZCBjb21wDQojMT1pbncgYmlqIG91ZGVycywyPXNpbmdsZSBubyBraWRzLCAzPXNpbmdsZSBraWRzLCA0PXN0dWRlbnQvY29tbXVuaXR5LDU9bWFycmllZCBubyBraWRzLCA2PW1hcnJpZWQga2lkcywgNz1vdGhlcg0KdGFibGUoZXZwYW5lbCRTaXR1YXRpZV9odWlzaG91ZGVuX09waW5pZSwgdXNlTkE9ImFsd2F5cyIpDQpldnBhbmVsJGhvdXNlaG9sZCA8LSBOQQ0KZXZwYW5lbCRob3VzZWhvbGRbZXZwYW5lbCRTaXR1YXRpZV9odWlzaG91ZGVuX09waW5pZT09Ml0gPC0gMQ0KZXZwYW5lbCRob3VzZWhvbGRbZXZwYW5lbCRTaXR1YXRpZV9odWlzaG91ZGVuX09waW5pZT09M10gPC0gMg0KZXZwYW5lbCRob3VzZWhvbGRbZXZwYW5lbCRTaXR1YXRpZV9odWlzaG91ZGVuX09waW5pZT09NV0gPC0gMw0KZXZwYW5lbCRob3VzZWhvbGRbZXZwYW5lbCRTaXR1YXRpZV9odWlzaG91ZGVuX09waW5pZT09Nl0gPC0gNA0KZXZwYW5lbCRob3VzZWhvbGRbZXZwYW5lbCRTaXR1YXRpZV9odWlzaG91ZGVuX09waW5pZT09MV0gPC0gNQ0KZXZwYW5lbCRob3VzZWhvbGRbZXZwYW5lbCRTaXR1YXRpZV9odWlzaG91ZGVuX09waW5pZT09NF0gPC0gNQ0KZXZwYW5lbCRob3VzZWhvbGRbZXZwYW5lbCRTaXR1YXRpZV9odWlzaG91ZGVuX09waW5pZT09N10gPC0gNQ0KdGFibGUoZXZwYW5lbCRob3VzZWhvbGQsIHVzZU5BPSJhbHdheXMiKQ0KIzE9c2luZ2xlIG5vIGtpZHMsIDI9c2luZ2xlIGtpZHMsIDM9bWFycmllZCBubyBraWRzLCA0PW1hcnJpZWQga2lkcywgNT1vdGhlcg0KDQojRGFpbHkgYWN0aXZpdHkNCiMxPWJldGFhbGQgd2VyaywgMj16ZWxmc3RhbmRpZywzPXdlcmt6b2VrZW5kLDQ9YXJiZWlkc29uZyw1PXN0dWRlbnQsNj1odWlzdnJvdXcsNz1wZW5zb2VuLDg9b3RoZXINCnRhYmxlKGV2cGFuZWwkRGFnZWxpamtzZV9hY3Rpdml0ZWl0X09waW5pZSwgdXNlTkE9ImFsd2F5cyIpDQpldnBhbmVsJGRhaWx5YWN0IDwtIE5BDQpldnBhbmVsJGRhaWx5YWN0W2V2cGFuZWwkRGFnZWxpamtzZV9hY3Rpdml0ZWl0X09waW5pZT09MV0gPC0gMQ0KZXZwYW5lbCRkYWlseWFjdFtldnBhbmVsJERhZ2VsaWprc2VfYWN0aXZpdGVpdF9PcGluaWU9PTJdIDwtIDENCmV2cGFuZWwkZGFpbHlhY3RbZXZwYW5lbCREYWdlbGlqa3NlX2FjdGl2aXRlaXRfT3BpbmllPT0zXSA8LSAyDQpldnBhbmVsJGRhaWx5YWN0W2V2cGFuZWwkRGFnZWxpamtzZV9hY3Rpdml0ZWl0X09waW5pZT09NF0gPC0gMw0KZXZwYW5lbCRkYWlseWFjdFtldnBhbmVsJERhZ2VsaWprc2VfYWN0aXZpdGVpdF9PcGluaWU9PTVdIDwtIDQNCmV2cGFuZWwkZGFpbHlhY3RbZXZwYW5lbCREYWdlbGlqa3NlX2FjdGl2aXRlaXRfT3BpbmllPT02XSA8LSA1DQpldnBhbmVsJGRhaWx5YWN0W2V2cGFuZWwkRGFnZWxpamtzZV9hY3Rpdml0ZWl0X09waW5pZT09N10gPC0gNg0KZXZwYW5lbCRkYWlseWFjdFtldnBhbmVsJERhZ2VsaWprc2VfYWN0aXZpdGVpdF9PcGluaWU9PThdIDwtIDcNCiMxPWJldGFhbGQgd2Vyay96ZWxmc3RhbmRpZywyPXdlcmt6b2VrZW5kLDM9YXJiZWlkc29uZyw0PXN0dWRlbnQsNT1odWlzdnJvdXcsNj1wZW5zb2VuLDc9b3RoZXINCnRhYmxlKGV2cGFuZWwkZGFpbHlhY3QsIHVzZU5BPSJhbHdheXMiKQ0KDQoNCiNvbmx5IGtlZXAgcmVsZXZhbnQgdmFycw0KZXZwYW5lbF9zZWwgPC0gZXZwYW5lbFssYygxLDIsMTgsMjMsNTY6MTEzLDExNToxMTcsMTIwOjEyNCldDQoNCm5hbWVzKGV2cGFuZWwpDQoNCiNTRUxFQ1RJT04gT04gUEFORUwgcmVzcHMNCmV2cGFuZWxfc2VsIDwtIGV2cGFuZWxfc2VsW2V2cGFuZWxfc2VsJFBhbmVsaXN0SWRRdWVzdGlvbiAlaW4lIGV2cGFuZWxfc2VsJFBhbmVsaXN0SWRRdWVzdGlvbltkdXBsaWNhdGVkKGV2cGFuZWxfc2VsJFBhbmVsaXN0SWRRdWVzdGlvbildLF0NCg0KDQojQUREIFdFSUdIVFMgVE8gRGF0YQ0KDQojbWFrZSBjYXNlaWRuDQpldnBhbmVsX3NlbCRjYXNlaWRuIDwtIDE6bGVuZ3RoKGV2cGFuZWxfc2VsWywxXSkNCg0KI01BS0UgVEFSR0VUIFZBTFVFUw0KI0dlc2xhY2h0DQpnZW5kZXJfdyA8LSBjKDAuNTAzLDAuNDk3KSAjIHZyb3V3IC0gbWFuDQpzdW0oZ2VuZGVyX3cpDQoNCiNBZ2U6IDNjYXRzDQphZ2VfdyA8LSBjKDAuMjM4LDAuMzQ0LDAuNDE4KSAjMTgtMzUsMzUtNTUsNTUrDQpuYW1lcyhhZ2VfdykgPC0gYygiYWdlMSIsICJhZ2UyIiwgImFnZTMiKQ0Kc3VtKGFnZV93KQ0KDQojT3BsOiAzY2F0cw0KZWR1Y193IDwtIGMoMC4zMjMsMC4zOTMsMC4yODQpICNiYXNpcy92bWJvL21ibzEsbWJvMi00L0hWL1ZXTyxIQk8vV08gDQpuYW1lcyhlZHVjX3cpIDwtIGMoIm9wbDEiLCAib3BsMiIsICJvcGwzIikNCnN1bShlZHVjX3cpDQoNCnRhcmdldHMgPC0gbGlzdChnZW5kZXJfdyxhZ2VfdywgZWR1Y193KSANCm5hbWVzKHRhcmdldHMpIDwtIGMoImdlbmRlcl93IiwiYWdlX3ciLCAiZWR1Y193IikgDQoNCiNjaGVjayB2YXJpYWJsZXMgaW4gZGF0YQ0KdGFibGUoZXZwYW5lbF9zZWwkZ2VuZGVyLCB1c2VOQT0iYWx3YXlzIikgI21hbj0xDQpldnBhbmVsX3NlbCRnZW5kZXJfdyA8LSBhcy5sb2dpY2FsKGV2cGFuZWxfc2VsJGdlbmRlcikNCnRhYmxlKGV2cGFuZWxfc2VsJGdlbmRlcl93LCB1c2VOQT0iYWx3YXlzIikNCg0KI2FnZTogM2NhdHMNCnRhYmxlKGV2cGFuZWxfc2VsJGFnZSwgdXNlTkE9ImFsd2F5cyIpICMxOC0zNSwzNS01NSw1NSsNCmV2cGFuZWxfc2VsJGFnZV93IDwtIE5BDQpldnBhbmVsX3NlbCRhZ2Vfd1tldnBhbmVsX3NlbCRhZ2U8PTM1XSA8LSAxDQpldnBhbmVsX3NlbCRhZ2Vfd1tldnBhbmVsX3NlbCRhZ2U+MzUgJiBldnBhbmVsX3NlbCRhZ2U8PTU1XSA8LSAyDQpldnBhbmVsX3NlbCRhZ2Vfd1tldnBhbmVsX3NlbCRhZ2U+NTVdIDwtIDMgDQpldnBhbmVsX3NlbCRhZ2VfdyA8LSBhcy5mYWN0b3IoZXZwYW5lbF9zZWwkYWdlX3cpDQpsZXZlbHMoZXZwYW5lbF9zZWwkYWdlX3cpIDwtIGMoImFnZTEiLCAiYWdlMiIsICJhZ2UzIikNCnRhYmxlKGV2cGFuZWxfc2VsJGFnZV93LCB1c2VOQT0iYWx3YXlzIikNCg0KI09wbDogM2NhdHMNCnRhYmxlKGV2cGFuZWxfc2VsJGVkdWMsIHVzZU5BPSJhbHdheXMiKSANCmV2cGFuZWxfc2VsJGVkdWNfdyA8LSBOQQ0KZXZwYW5lbF9zZWwkZWR1Y193W2V2cGFuZWxfc2VsJGVkdWM8PThdIDwtIDENCmV2cGFuZWxfc2VsJGVkdWNfd1tldnBhbmVsX3NlbCRlZHVjPiA4ICYgZXZwYW5lbF9zZWwkZWR1Yzw9MTJdIDwtIDINCmV2cGFuZWxfc2VsJGVkdWNfd1tldnBhbmVsX3NlbCRlZHVjPjEyXSA8LSAzDQpldnBhbmVsX3NlbCRlZHVjX3cgPC0gIGFzLmZhY3RvcihldnBhbmVsX3NlbCRlZHVjX3cpDQpsZXZlbHMoZXZwYW5lbF9zZWwkZWR1Y193KSA8LSBjKCJvcGwxIiwgIm9wbDIiLCAib3BsMyIpDQp0YWJsZShldnBhbmVsX3NlbCRlZHVjX3csIHVzZU5BPSJhbHdheXMiKSANCg0KI21ha2Ugd2VpZ2h0cyAoZm9yIDNjYXRzIGNhcCBpcyA2Y2FwKQ0Kd2VpZ2h0ZWQgPC0gYW5lc3Jha2UoaW5wdXR0ZXI9dGFyZ2V0cywgZGF0YWZyYW1lPWV2cGFuZWxfc2VsLCBjaG9vc2VtZXRob2Q9Im1heCIsY2FzZWlkPWV2cGFuZWxfc2VsJGNhc2VpZG4sY2FwID0gNSkNCnRlc3QgPC0gd2VpZ2h0YXNzZXNzKHRhcmdldHMsIGV2cGFuZWxfc2VsLCB3ZWlnaHRlZCR3ZWlnaHR2ZWMpDQoNCm9wbHAgPC0gdGVzdCRlZHVjX3dbYygxOjMpLDFdKjM5OTc2DQpvcGx3IDwtIHRlc3QkZWR1Y193W2MoMTozKSw0XQ0KdGVzdDIgPC0gbWF0cml4KGMob3BscCwgb3BsdyksIGJ5cm93PVQsIG5yb3c9MikNCmRpbW5hbWVzKHRlc3QyKSA8LSBsaXN0KHdlaWdodHlwZT1jKCJwIiwidyIpLG9wbD1jKCIxIiwiMiIsIjMiKSkNCmNoaXNxLnRlc3QodGVzdDIpDQoNCmFnZXAgPC0gdGVzdCRhZ2Vfd1tjKDE6MyksMV0qMzk5NzYNCmFnZXcgPC0gdGVzdCRhZ2Vfd1tjKDE6MyksNF0NCnRlc3QyIDwtIG1hdHJpeChjKGFnZXAsIGFnZXcpLCBieXJvdz1ULCBucm93PTIpDQpkaW1uYW1lcyh0ZXN0MikgPC0gbGlzdCh3ZWlnaHR5cGU9YygicCIsInciKSxhZ2U9YygiMSIsIjIiLCIzIikpDQpjaGlzcS50ZXN0KHRlc3QyKQ0KDQpnZXNscCA8LSB0ZXN0JGdlbmRlcl93W2MoMToyKSwxXSozOTk3Ng0KZ2VzbHcgPC0gdGVzdCRnZW5kZXJfd1tjKDE6MiksNF0NCnRlc3QyIDwtIG1hdHJpeChjKGdlc2xwLCBnZXNsdyksIGJ5cm93PVQsIG5yb3c9MikNCmRpbW5hbWVzKHRlc3QyKSA8LSBsaXN0KHdlaWdodHlwZT1jKCJwIiwidyIpLGFnZT1jKCJ2IiwibSIpKQ0KY2hpc3EudGVzdCh0ZXN0MikNCg0KZXZwYW5lbF9zZWwgPC0gY2JpbmQoZXZwYW5lbF9zZWwsIHdlaWdodGVkJHdlaWdodHZlYykNCmV2cGFuZWxfc2VsIDwtIHJlbmFtZShldnBhbmVsX3NlbCwgYygid2VpZ2h0ZWQkd2VpZ2h0dmVjIj0id2VpZ2h0dmVjIikpDQoNCg0KI3NjYWxlIHdlaWdodHMgdG8gY2x1c3RlciAoaHR0cHM6Ly93d3cuc3RhdG1vZGVsLmNvbS9kb3dubG9hZC9TY2FsaW5nMy5wZGYpDQoNCiNQQzQNCm5yZXNwcGM0IDwtIGFnZ3JlZ2F0ZShldnBhbmVsX3NlbCR3ZWlnaHR2ZWMsIGJ5PWxpc3QoZXZwYW5lbF9zZWwkcGM0KSwgRlVOPWxlbmd0aCkNCndlaWdodHBjNCA8LSBhZ2dyZWdhdGUoZXZwYW5lbF9zZWwkd2VpZ2h0dmVjLCBieT1saXN0KGV2cGFuZWxfc2VsJHBjNCksIEZVTj1zdW0pDQpldnBhbmVsX3NlbCR3ZWlnaHR2ZWNfcGM0IDwtIGV2cGFuZWxfc2VsJHdlaWdodHZlYyooKG5yZXNwcGM0JHhbbWF0Y2goZXZwYW5lbF9zZWwkcGM0LG5yZXNwcGM0JEdyb3VwLjEpXSkvKHdlaWdodHBjNCR4W21hdGNoKGV2cGFuZWxfc2VsJHBjNCx3ZWlnaHRwYzQkR3JvdXAuMSldKSkNCg0KI1BDNA0KbnJlc3BnYyA8LSBhZ2dyZWdhdGUoZXZwYW5lbF9zZWwkd2VpZ2h0dmVjLCBieT1saXN0KGV2cGFuZWxfc2VsJGdjKSwgRlVOPWxlbmd0aCkNCndlaWdodGdjIDwtIGFnZ3JlZ2F0ZShldnBhbmVsX3NlbCR3ZWlnaHR2ZWMsIGJ5PWxpc3QoZXZwYW5lbF9zZWwkZ2MpLCBGVU49c3VtKQ0KZXZwYW5lbF9zZWwkd2VpZ2h0dmVjX2djIDwtIGV2cGFuZWxfc2VsJHdlaWdodHZlYyooKG5yZXNwZ2MkeFttYXRjaChldnBhbmVsX3NlbCRnYyxucmVzcGdjJEdyb3VwLjEpXSkvKHdlaWdodGdjJHhbbWF0Y2goZXZwYW5lbF9zZWwkZ2Msd2VpZ2h0Z2MkR3JvdXAuMSldKSkNCg0KDQpldnBhbmVsX3NlbCA8LSBldnBhbmVsX3NlbFssYygxOjcwLCA3NTo3NyldDQoNCiNkYXRhIHdlZ3NjcmhyaWp2ZW4NCiN3cml0ZS50YWJsZShldnBhbmVsX3NlbCwgZmlsZT0iQzovVXNlcnMvVTQ5NzEzMC9BcHBEYXRhL0xvY2FsL3N1cmZkcml2ZV9kYXRhL0FydGlrZWwgYXpjL2RhdGEvZXZhemMgdjE1MDMyMDE3LmNzdiIpDQojdGh1aXMNCiN3cml0ZS50YWJsZShldnBhbmVsX3NlbCwgZmlsZT0iQzovVXNlcnMvSm9yYW4vU1VSRmRyaXZlL0FydGlrZWwgYXpjL2RhdGEvZXZhemMgdjIyMTIyMDE3LmNzdiIpDQoNCiNkYXRhIHRvIHN0YXRhDQojd3JpdGUuZHRhKGV2cGFuZWxfc2VsLCAiQzovVXNlcnMvdTQ5NzEzMC9BcHBEYXRhL0xvY2FsL1N1cmZkcml2ZV9kYXRhL0FydGlrZWwgYXpjL2RhdGEvZXZhemMgdjIyMTIyMDE3LmR0YSIpDQojdGh1aXMNCndyaXRlLmR0YShldnBhbmVsX3NlbCwgZmlsZT0iVTovU3VyZmRyaXZlIGJhY2t1cC9BcnRpa2VsIGF6Yy9kYXRhL2V2YXpjIHYyMjEyMjAxN0lJLmR0YSIpDQoNCg0KYGBgDQotLS0gDQoNCg==</div>
+<p>Copyright &copy; 2020 Jochem Tolsma</p>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeSourceEmbed("dataprep.rmd");
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

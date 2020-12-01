@@ -1,0 +1,114 @@
+Locatienaam;Locatienaam_2;Adres;PC6;PC4;Plaats;Soort;Cap_Gem;Duur
+CNO Amsterdam;AmsterdamCal;Eliza van Calcarstraat 2;1068 RR;1068;Amsterdam;3;375;6
+CNO Amsterdam;AmsterdamVer;Polderweg 300;1093KP ;1093;Amsterdam;3;70;6
+CNO Landsmeer;Landsmeer;Marktplein 11;1121 GL ;1121;Landsmeer;3;191;6
+CNO Monnickendam;Monnickendam;Het Spil 12;1141 SE;1141;Monnickendam;3;150;6
+CNO Wijdemeren;Wijdemeren;Zuidsingel 56;1241 HD;1241;Kortenhoef;3;115;9
+CNO Laren;Laren;Schapendrift 64;1251;1251;Laren;3;150;5
+CNO Crailo;Crailo;Amersfoortsestraatweg 85a;1403 AP;1403;Bussum;3;104;37
+CNO Zeevang;Zeevang;De Krommert 25;1474 PM;1474;Oosthuizen;3;90;6
+CNO Oostzaan;Oostzaan;Twiskeweg 107;1511 BW;1511;Oostzaan;3;100;2
+CNO Drechterland;Drechterland;Sluisweg 2;1616 RT ;1616;Hoogkarspel;3;180;7
+CNO Hoorn;Hoorn;Meetketting 1-3;1689 XD ;1689;Zwaag;3;190;9
+CNO Schagen;Schagen;Zuiderweg 2a;1741 NA ;1741;Schagen;3;193;9
+CNO Hollands Kroon;HollandsKroon;Sportlaan 21;1761 ZA;1761;Anna Paulowna;3;200;8
+CNO Heemskerk;Heemskerk;Kerkweg 217;1964 KJ ;1964;Heemskerk;3;135;6
+CNO Zandvoort;Zandvoort;Duintjesveldweg 1A;2041 TA;2041; Zandvoort.;3;146;8
+CNO Haarlemmermeer;Haarlemmermeer;Stelling 1;2141 SB ;2141;Vijfhuizen;3;420;5
+CNO Lisse;Lisse;Sportlaan 21 ;2161 VA;2161;Lisse;3;150;6
+CNO Hillegom;Hillegom;Vosselaan 152;2181 CD;2181;Hillegom;3;150;6
+CNO Teijlingen;Teijlingen;Jacoba van Beierenweg 118A;2215 KZ;2215;Teijlingen (Voorhout);3;150;6
+CNO Voorschoten;Voorschoten;Burgemeester van der Haarplein 9;2251 CT;2251;Voorschoten;3;120;7
+CNO Leidschendam;Leidschendam;Fluitpolderplein 1;2262 ED;2262;Leidschendam;3;200;6
+CNO Leiden;Leiden2;Smaragdlaan 99;2332 JP;2332;Leiden;3;122;15
+CNO Oegstgeest;Oegstgeest;De Voscuyl 36;2341 BJ;2341;Oegsgeest;3;200;1
+CNO Kaag en Braassem;KaagenBraassem;Lucas van Leydenlaan 2;2371 RW ;2371;Roelofarendsveen;3;120;6
+CNO Zoeterwoude;Zoeterwoude;Hondsdrafweg 1;2381 BZ;2381;Zoeterwoude;3;120;7
+CNO Nieuwkoop;Nieuwkoop;De Verbinding 48;2421 EX;2421;Nieuwkoop;3;120;6
+CNO Pijnacker;Pijnacker;Sportlaan 1;2641 AZ;2641;Pijnacker;3;150;4
+CNO Lansingerland;Lansingerland;Burg. van Oostenweg 4;2661 HN ;2661;Bergschenhoek;3;80;6
+CNO Waddinxveen;Waddinxveen;Oude Dreef 4;2741 SR;2741;Waddinxveen;3;148;5
+CNO Bodegraven-Reeuwijk;BodegravenReeuwijk;Buitenomweg 7;2811 BM ;2811;Reeuwijk;3;110;7
+CNO ZuidplasNieuwerkerk;ZuidplasNieuwerkerk;Sportlaan 2;2913 LJ ;2913;Nieuwerkerk a/d IJssel;3;150;6
+CNO Krimpen aan de Ijssel;KrimpenadIjssel;Krimpenerbosweg 2 A;2923 LA;2923;Krimpen aan Den IJssel;3;100;26
+CNO Alblasserdam;Alblasserdam;Lelsstraat 2;2951 VE;2951;Alblasserdam;3;35;34
+CNO Bleskensgraaf/Molenwaard;BleskensgraafMolenwaard;Melkweg 16a;2971 VK;2971;Bleskensgraaf;3;30;21
+CNO Rotterdam Erasmus;RotterdamErasmus;Burgemeester Oudlaan 50;3062 PA;3062;Rotterdam;3;214;16
+CNO Maassluis;Maassluis;Rozenlaan 2;3144 NN ;3144;Maassluis;3;200;4
+CNO Brielle;Brielle;Reede 2 2;3232 CV;3232;Brielle;3;200;3
+CNO Sommelsdijk;Sommelsdijk;Olympiaweg 32;3245 DL ;3245;Sommelsdijk;3;75;6
+CNO Oud Beijerland;OudBeijerland;Hortensiastraat 5;3261 BG;3261;Oud-Beijerland;3;100;28
+CNO Dordrecht;Dordrecht;Kamerlingh Onnesweg 1;3316 GK;3316;Dordrecht;3;107;28
+CNO Zwijndrecht;Zwijndrecht;Hobbemastraat;3331;3331;Zwijndrecht;3;27;35
+CNO Hendrik Ido Ambacht;HendrikIdoAmbacht;Weteringsingel 143;3342 AH;3342;Hendrik Ido Ambacht;3;22;35
+CNO Sliedrecht;Sliedrecht;Frans Halsstraat 1;3362XA;3362;Sliedrecht;3;35;34
+CNO Woerden;Woerden;Steinhagenseweg 3a ;3446 GP;3446;Woerden;3;150;6
+CNO Stichtse Vecht;StichtseVecht;Sportweg 4;3628 AZ ;3628;Kockengen;3;150;6
+CNO Zeist;Zeist2;Huis Ter Heideweg 19;3705 MA ;3705;Zeist;3;144;13
+CNO De Bilt Maartensdijk;BiltMaartensdijk;Nachtegaallaan 30;3738 EB;3738;Maartensdijk;3;100;5
+CNO Baarn;Baarn;Goeman Borgesiuslaan 2;3741 CR ;3741;Baarn;3;150;5
+CNO Bunschoten;Bunschoten;Torenvalk 47 ;3752 SJ ;3752;Bunschoten-Spakenburg;3;121;8
+CNO Amersfoort;Amersfoort2;Leonorehof 3;3816 ST ;3816;Amersfoort;3;103;8
+CNO Amersfoort;Amersfoort3;Verdistraat 53;3816 LB;3816;Amersfoort;3;103;34
+CNO Veenendaal;Veenendaal;Sportlaan 1-3;3905 AD ;3905;Veenendaal;3;150;5
+CNO Woudenberg;Woudenberg;De Bosrand 15;3931 AP;3931;Woudenberg;3;150;6
+CNO Houten;Houten;Hefbrug 3;3991 LB;3991;Houten;3;200;1
+CNO Leerdam;Leerdam;Quirinus de Palmelaan 110;4142 CJ;4142;Leerdam;3;40;20
+CNO Woudrichem;Woudrichem;Steurstraat 59a;4285 XE;4285;Woudrichem;3;50;6
+CNO Burgh Haemstede;BurghHaemstede;Daleboutsweg 9;4328 PN ;4328;Burgh-Haamstede;3;200;3
+CNO Middelburg;Middelburg2;Kruitmolenlaan 127;4337 KP;4337;Middelburg;3;200;6
+CNO Vlissingen;Vlissingen;Rooseveltlaan 731;4383NG;4383;Vlissingen;3;194;2
+CNO Kapelle;Kapelle;Vroonlandseweg 45;4421 BW ;4421;Kapelle;3;200;3
+CNO Borsele;Borsele;Stengeplein 1;4451 CZ;4451;Heinkenszand;3;200;1
+CNO Sluis;Sluis;Noorddijk 3;4506 JE;4506;Sluist (Cadzand-Bad);3;200;5
+CNO Bergen op Zoom;BergenopZoom;De Boulevard 6;4617 HA ;4617;Bergen op Zoom;3;200;4
+CNO Roosendaal;Roosendaal;De Stok 12;4703 SZ;4703;Roosendaal;3;200;3
+CNO Breda;Breda2;Terheijdenseweg 500;4826 AB ;4826;Breda;3;250;5
+CNO Oosterhout;Oosterhout;Wilhelminakanaal Noord 3;4902 VR;4902;Oosterhout;3;50;7
+CNO Goirle;Goirle;Grobbendonckpark 42;5051 KR;5051;Goirle;3;49;5
+CNO Oisterwijk;Oisterwijk2;Burg. Verwielstraat 65;5062 GC;5062;Oisterwijk;3;48;3
+CNO Hilvarenbeek;Hilvarenbeek1;Westerwijk 6;5087 KG;5087; Diessen;3;100;3
+CNO Hilvarenbeek;Hilvarenbeek2;Esbeeksedijk 4;5087 TG;5087; Diessen;3;50;3
+CNO Heusden;Heusden;Abdijlaan 6;5253 VP ;5253;Nieuwkuijk;3;150;23
+CNO Boxtel;Boxtel;Het Klaverblad 13;5283 TV ;5283;Boxtel;3;36;55
+CNO Zaltbommel;Zaltbommel;Donkerstraat 19;5308 KB ;5308;Aalst;3;50;3
+CNO Valkenswaard;Valkenswaard;Bruninckxdal 2;5551 EV;5551;Valkenswaard;3;200;3
+CNO Best;Best;Pr. Beatrixlaan 27;5684 GJ;5684;Best;3;200;4
+CNO Beesel/Reuver;BeeselReuver;Bösdaellaan 1 ;5953 BP ;5953;Reuver;3;170;3
+CNO Maasbracht;Maasbracht;Europlein 7;6051 HM;6051;Maasbracht;3;194;4
+CNO Sittard-Geleen;SittardGeleen;Kummenaedestraat 45;6165 BT;6165;Geleen;3;250;5
+CNO Maastricht;Maastricht2;Willem Alexanderweg 21;6222 NA;6222;Maasstricht;3;100;9
+CNO Voerendaal;Voerendaal;Goswijnstraat 1;6367 BD;6367;Voerendaal;3;200;4
+CNO Overbetuwe;Overbetuwe;Schubertstraat 1;6661 AW;6661;Overbetuwe (Elst);3;125;3
+CNO Nederbetuwe;Nederbetuwe;Dalwagen 78;6669 CE;6669;Nederbetuwe (Dodewaard);3;131;7
+CNO Lingewaard;Lingewaard;Nijmeegsestraat 65c;6691 CM ;6691;Lingewaard (Gendt);3;120;4
+CNO Duiven;Duiven;Eltensestraat 4 ;6922 JB;6922;Duiven;3;300;3
+CNO Doetinchem;Doetinchem2;Bezelhorstweg 115 ;7002 CC ;7002;Doetinchem;3;41;7
+CNO Winterswijk;Winterswijk2;Meenkmolenweg 13;7109 AH ;7109;Winterswijk;3;35;12
+CNO Oost-Gelre;OostGelre;Zegendijk 3a;7136 LS;7136;Oost-Gerle (Zieuwent);3;125;7
+CNO Zutphen;Zutphen;Fanny Blankers-Koenweg 2 ;7203 AA;7203;Zutphen;3;150;3
+CNO Voorst;Voorst;Rijksstraatweg 77;7383 AM ;7383;Voorst;3;50;9
+CNO Hellendoorn;Hellendoorn;Ommerweg 150;7447 RJ ;7447;Hellendoorn;3;150;3
+CNO Rijssen-Holten;RijssenHolten;Laan Oud-Indiëgangers 1;7463 CH;7463;Rijssen;3;150;3
+CNO Hof van Twente;HofvanTwente;de Mossendam 2;7471 SJ;7471;Goor;3;189;5
+CNO Oldenzaal;Oldenzaal;Bornsedijk 62;7576 PG;7576;Oldenzaal;3;200;5
+CNO Tubbergen;Tubbergen;Pastoor Bloemenstraat 1;7651 CD;7651;Tubbergen;3;200;5
+CNO Vriezenveen;Vriezenveen;Schout Doddestraat 11;7671 GT;7671;Vriezeveen;3;200;5
+CNO Dalfsen;Dalfsen;Ruigedoornstraat 108;7721 BR;7721;Dalfsen;3;184;1
+CNO Hardenberg;Hardenberg;Energieweg 2 ;7772 TV ;7772;Hardenberg;3;300;7
+CNO Vierhouten ;Vierhouten2;Het Frusselt 30;8076 RE;8076;Vierhouten;3;40;4
+CNO Olst-Wije;OlstWije;Hooiberglaan 11;8121 RA;8121;Olst-Wijhe (Olst);3;219;10
+CNO Brummen;Brummen;Veenweg 9;8162 RJ;8162;Epe;3;20;4
+CNO Epe;Epe;Hogestraat 5;8167 PS;8167;Oene;3;24;10
+CNO Lelystad;Lelystad;Badweg 21;8223 PA;8223;Lelystad;3;100;7
+CNO Kampen;Kampen;Burg.Berghuisplein 1;8261 DD;8261;Kampen;3;131;4
+CNO Heerenveen;Heerenveen;It Hege Stik 9;8445 PZ;8445;Heerenveen;3;200;6
+CNO Workum;Workum;Weverswei 2;8711 GP;8711;Workum;3;200;16
+CNO Franeker;Franeker;Jan Rodenhuisplein 3;8801 ET;8801;Franeker;3;160;5
+CNO Harlingen;Harlingen;Westerzeedijk 15;8862 PK ;8862;Harlingen;3;200;6
+CNO Kollum;Kollum;Maartensplein 1;9291 BZ;9291;Kollum;3;100;1
+CNO Veenhuizen;Veenhuizen2;Bankenbosweg 2;9341 BE ;9341;Veenhuizen;3;157;18
+CNO Gerkesklooster;Gerkesklooster;Hoogstraten 16;9873 PE;9873;Gerkesklooster;3;46;16
+CNO Leiderdorp;Leiderdorp;Bloemerd 6; 2353 BZ; 2353;Leiderdorp;3;120;7
+CNO Tilburg;Tilburg2;Ringbaan Noord 7; 5013 EA; 5013;Tilburg;3;224;7
+CNO Waalwijk;Waalwijk;De Gaard 2; 5146AW; 5146;Waalwijk;3;94;3

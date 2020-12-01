@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Jochem Tolsma - Radboud University, the Netherlands" />
+
+
+<title>Exposure to Asylum Seekers</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<script src="site_libs/navigation-1.1/sourceembed.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="site_libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="site_libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="site_libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
+<script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.15/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+#rmd-source-code {
+  display: none;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Replication package</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Tables Manuscript</a>
+</li>
+<li>
+  <a href="SM.html">Supplementary Material</a>
+</li>
+<li>
+  <a href="dataprep.html">Data preperation</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/JochemTolsma">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+<li role="separator" class="divider"></li>
+<li><a id="rmd-download-source" href="#">Download Rmd</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Exposure to Asylum Seekers</h1>
+<h4 class="author"><a href="https://www.jochemtolsma.nl">Jochem Tolsma</a> - Radboud University, the Netherlands</h4>
+<h4 class="date">Last compiled on december, 2020</h4>
+
+</div>
+
+
+<script>
+  addClassKlippyTo("pre.r, pre.markdown");
+  addKlippy('right', 'top', 'auto', '1', 'Copy code', 'Copied!');
+</script>
+<style type="text/css">
+pre.test {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: auto;
+  margin: 0px;
+}
+
+pre.test2 {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: auto;
+  margin: 0px;
+  background-color: white
+}
+
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 24px;
+}
+
+
+</style>
+<hr />
+<p>This website is a replication package for the paper “Exposure to Asylum Seekers and Changing Support for the Radical Right: A Natural Experiment in the Netherlands” by <span class="citation">Tolsma, Laméris, and Savelkoul (n.d.)</span>. It contains R code to replicate all Tables in the manuscript.</p>
+<p>Use the top menu to navigate to the section of interest. The section replicates the <strong>Main Tables</strong> of the manuscript.</p>
+<p>To copy the code click the button in the upper right corner of the code-chunks.</p>
+<hr />
+<div id="data" class="section level2">
+<h2>Data</h2>
+<p>All data and scripts can be found on <a href="https://github.com/JochemTolsma/ExposureASC2020">Github</a></p>
+<hr />
+</div>
+<div id="contact" class="section level2">
+<h2>Contact</h2>
+<p>Questions can be addressed to the first author of the corresponding article, <a href="mailto:j.tolsma@ru.nl">Jochem Tolsma</a>.</p>
+<hr />
+</div>
+<div id="additional-dataprep" class="section level2">
+<h2>Additional dataprep</h2>
+<p>We start with a datafile in long format we obtained after performing our dataprep, see <a href="data/evazc%20v22122017.dta">here</a>.</p>
+<ul>
+<li>We delete observations of respondents where respondents were not allowed to vote or did not give an answer.<br />
+</li>
+<li>We delete observations with missing values on zipcode information.<br />
+</li>
+<li>We delete respondents with only one observation.<br />
+</li>
+<li>We construct the dichotomous dependent variable.<br />
+</li>
+<li>We construct the multinomial dependent variable.</li>
+<li>We decided to perform additional robustness checks and need to match more raw data on crisis ASC.</li>
+</ul>
+<pre class="r test"><code>rm(list = ls())
+
+library(haven)
+
+dataset &lt;- read_stata(&quot;data/evazc v22122017.dta&quot;)
+
+# dependent variable. delete not allowed to vote
+table(dataset$vote, useNA = &quot;always&quot;)
+sum(table(dataset$vote, useNA = &quot;always&quot;))
+dataset &lt;- dataset[dataset$vote != 16, ]
+dataset &lt;- dataset[dataset$vote != 17, ]
+# add &#39;VNL&#39; to other party
+dataset$vote[dataset$vote == 12] &lt;- 18
+#&#39;1&#39;=&#39;vvd&#39;, &#39;2&#39;=&#39;pvda&#39;, &#39;3&#39;=&#39;pvv&#39;, &#39;4&#39;=&#39;cda&#39;, &#39;5&#39;=&#39;sp&#39;
+#&#39;6&#39;=&#39;d66&#39;, &#39;7&#39;=&#39;gl&#39;, &#39;8&#39;=&#39;cu&#39;, &#39;9&#39;=&#39;sgp&#39;, &#39;10&#39;=&#39;dier&#39;
+#&#39;11&#39;=&#39;50plus&#39;, &#39;12&#39;=&#39;vnl&#39;,&#39;13=&#39;blanco&#39;,&#39;14&#39;=&#39;dontknow&#39;,&#39;15=&#39;no vote&#39;, &#39;18&#39;=&#39;other&#39;
+# define dichotomous dependent variable
+dataset$y_pvv &lt;- ifelse(dataset$vote == 3, 1, 0)
+# define multinomial dependent variable
+dataset$vote_rwsp &lt;- NA
+dataset$vote_rwsp[dataset$vote == 2 | dataset$vote == 6 | dataset$vote == 7 | dataset$vote == 8 | dataset$vote == 
+    10 | dataset$vote == 11 | dataset$vote == 12 | dataset$vote == 18] &lt;- 0  #other
+dataset$vote_rwsp[dataset$vote == 1 | dataset$vote == 4 | dataset$vote == 9] &lt;- 1  # right-wing
+dataset$vote_rwsp[dataset$vote == 5] &lt;- 2  # anti-establishment 
+dataset$vote_rwsp[dataset$vote == 13 | dataset$vote == 14 | dataset$vote == 15] &lt;- 3  #demobilized
+dataset$vote_rwsp[dataset$vote == 3] &lt;- 4
+# 1: right-wing; 2: anti-establishment; 3: demobilized; 0: other; 4: PVV
+
+# delete respondents with missing data on zipcode
+sum(is.na(dataset$pc4))
+dataset &lt;- dataset[!is.na(dataset$pc4), ]
+
+# delete respondents with only one observation.
+dataset$one &lt;- 1
+test &lt;- aggregate(dataset$one, by = list(dataset$PanelistIdQuestion), FUN = sum)
+names(test) &lt;- c(&quot;PanelistIdQuestion&quot;, &quot;ncases&quot;)
+dataset &lt;- merge(dataset, test)
+table(dataset$ncases)
+dataset &lt;- dataset[dataset$ncases != 1, ]
+
+# recode tijd/time variable
+table(dataset$tijd, useNA = &quot;always&quot;)
+dataset$tijd &lt;- dataset$tijd - 1
+
+# capacity of ASC s1 is regular, s2=temporary, s3=crisis, s123=total
+dataset$s1pc4 &lt;- ifelse(dataset$tijd == 0, dataset$s1cap_pc4t1rel, dataset$s1cap_pc4t2rel)
+dataset$s2pc4 &lt;- ifelse(dataset$tijd == 0, dataset$s2cap_pc4t1rel, dataset$s2cap_pc4t2rel)
+dataset$s3pc4 &lt;- ifelse(dataset$tijd == 0, dataset$s3cap_pc4t1rel, dataset$s3cap_pc4t2rel)
+dataset$s123pc4 &lt;- dataset$s1pc4 + dataset$s2pc4 + dataset$s3pc4
+
+# compute variables for hybrid model: within individual means (between vars) and deviations from mean
+# (within vars).
+test &lt;- aggregate(dataset[, c(&quot;contactnw&quot;, &quot;threat&quot;, &quot;s123pc4&quot;, &quot;s1pc4&quot;, &quot;s2pc4&quot;, &quot;s3pc4&quot;, &quot;y_pvv&quot;, &quot;vote_rwsp&quot;)], 
+    by = list(dataset$PanelistIdQuestion), FUN = mean)
+names(test) &lt;- c(&quot;PanelistIdQuestion&quot;, &quot;contactnw_mean&quot;, &quot;threat_mean&quot;, &quot;s123pc4_mean&quot;, &quot;s1pc4_mean&quot;, 
+    &quot;s2pc4_mean&quot;, &quot;s3pc4_mean&quot;, &quot;y_pvv_mean&quot;, &quot;vote_rwsp_mean&quot;)
+dataset &lt;- merge(dataset, test)
+dataset$contactnw_afw = dataset$contactnw - dataset$contactnw_mean
+dataset$threat_afw = dataset$threat - dataset$threat_mean
+dataset$s123pc4_afw = dataset$s123pc4 - dataset$s123pc4_mean
+dataset$s1pc4_afw = dataset$s1pc4 - dataset$s1pc4_mean
+dataset$s2pc4_afw = dataset$s2pc4 - dataset$s2pc4_mean
+dataset$s3pc4_afw = dataset$s3pc4 - dataset$s3pc4_mean
+
+# create filter vars for analyses: fe is fixed effects, fem is fixed effects multinomial
+dataset$sel_fe = (dataset$y_pvv != dataset$y_pvv_mean)
+dataset$sel_fem = (dataset$vote_rwsp != dataset$vote_rwsp_mean)
+dataset$sel_s123pc4 = (dataset$s123pc4 != dataset$s123pc4_mean)
+
+# match additional data on crisis ASC these data have been added in a later phase
+duur &lt;- read.csv2(&quot;data/Adressen alle AZCs_17022017.csv&quot;)
+names(duur)
+duur &lt;- duur[, c(&quot;PC4&quot;, &quot;Soort&quot;, &quot;Cap_Gem&quot;, &quot;Duur.tot.4.11&quot;)]
+names(duur) &lt;- c(&quot;pc4&quot;, &quot;soort&quot;, &quot;cap&quot;, &quot;duur&quot;)
+duur &lt;- duur[duur$soort == 3, ]
+sort(unique(duur$pc4[duur$cap &gt; 0]))
+
+# we are multiplying length of stay with number of AS
+duur$s3_altop &lt;- duur$duur * duur$cap
+duur2 &lt;- aggregate(duur[, c(&quot;cap&quot;, &quot;duur&quot;, &quot;s3_altop&quot;)], by = list(duur$pc4), FUN = sum)
+duur2
+names(duur2)[1] &lt;- c(&quot;pc4&quot;)
+
+dataset &lt;- merge(dataset, duur2, all.x = T)
+dataset$duur[is.na(dataset$duur)] &lt;- 0
+dataset$s3_altop[is.na(dataset$s3_altop)] &lt;- 0
+dataset$cap[is.na(dataset$cap)] &lt;- 0
+
+# asylum seekers in crisis centers per 1000 inhabitants weighted by length of stay
+dataset$s3_altop2 &lt;- 1000 * dataset$s3_altop/(dataset$inw2014_pc4 * dataset$pauto2014_pc4)
+dataset$cap2 &lt;- 1000 * dataset$cap/(dataset$inw2014_pc4 * dataset$pauto2014_pc4)
+dataset$s3_altop &lt;- 1000 * dataset$s3_altop/dataset$inw2014_pc4
+dataset$cap &lt;- 1000 * dataset$cap/dataset$inw2014_pc4</code></pre>
+<hr />
+</div>
+<div id="table-1" class="section level2 tabset tabset-fade">
+<h2>Table 1</h2>
+<div id="fixed-effects-sample" class="section level3">
+<h3>Fixed effects sample</h3>
+<pre class="r test"><code>library(psych)
+require(DT)
+
+dataset_sel &lt;- dataset[dataset$sel_fe == 1, ]
+# table(dataset_sel$y_pvv, dataset_sel$tijd)
+prop.table(table(dataset_sel$y_pvv, dataset_sel$tijd), margin = 2)
+
+# describeBy(dataset_sel[,c(&#39;s123pc4&#39;, &#39;s1pc4&#39;, &#39;s2pc4&#39;, &#39;s3pc4&#39;, &#39;threat&#39;, &#39;contactnw&#39;,
+# &#39;s123pc4_afw&#39;, &#39;s1pc4_afw&#39;, &#39;s2pc4_afw&#39;, &#39;s3pc4_afw&#39;, &#39;threat_afw&#39;, &#39;contactnw_afw&#39;)],
+# group=dataset_sel$tijd)
+
+
+test &lt;- describeBy(dataset_sel[, c(&quot;s123pc4&quot;, &quot;s1pc4&quot;, &quot;s2pc4&quot;, &quot;s3pc4&quot;, &quot;threat&quot;, &quot;contactnw&quot;, &quot;s123pc4_afw&quot;, 
+    &quot;s1pc4_afw&quot;, &quot;s2pc4_afw&quot;, &quot;s3pc4_afw&quot;, &quot;threat_afw&quot;, &quot;contactnw_afw&quot;)], group = dataset_sel$tijd)
+# kable(round(test[[1]],2), caption=&#39;Time 1&#39;)</code></pre>
+<pre class="test2"><code>#&gt;    
+#&gt;             0         1
+#&gt;   0 0.7588193 0.2411807
+#&gt;   1 0.2411807 0.7588193</code></pre>
+<div id="htmlwidget-1e88925cdb513b646db2" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1e88925cdb513b646db2">{"x":{"filter":"none","caption":"<caption>Time 1<\/caption>","data":[["s123pc4","s1pc4","s2pc4","s3pc4","threat","contactnw","s123pc4_afw","s1pc4_afw","s2pc4_afw","s3pc4_afw","threat_afw","contactnw_afw"],[1,2,3,4,5,6,7,8,9,10,11,12],[1389,1389,1389,1389,1389,1389,1389,1389,1389,1389,1389,1389],[1.5,1.4,0.1,0,2.92,2.34,-1.08,-0.31,-0.28,-0.5,-0.08,-0.13],[13.67,13.42,2.64,0,1.14,2.15,8.94,7.06,4.9,2.6,0.56,1.08],[0,0,0,0,3,2,0,0,0,0,0,0],[0,0,0,0,3.07,2.18,0,0,0,0,-0.06,-0.11],[0,0,0,0,1.48,2.97,0,0,0,0,0.74,0.74],[0,0,0,0,0,0,-251.42,-251.42,-125.14,-47.03,-2,-3],[292.61,292.61,71.38,0,4,6,13.81,13.81,0,0,2,3],[292.61,292.61,71.38,0,4,6,265.23,265.23,125.14,47.03,4,6],[12.94,13.5,26.3,null,-0.79,0.31,-19.88,-32.75,-23.01,-8.07,-0.13,-0.03],[210.36,225.91,690.56,null,-0.34,-1.36,491.35,1152.17,559.64,96.18,1.06,0.86],[0.37,0.36,0.07,0,0.03,0.06,0.24,0.19,0.13,0.07,0.01,0.03]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>vars<\/th>\n      <th>n<\/th>\n      <th>mean<\/th>\n      <th>sd<\/th>\n      <th>median<\/th>\n      <th>trimmed<\/th>\n      <th>mad<\/th>\n      <th>min<\/th>\n      <th>max<\/th>\n      <th>range<\/th>\n      <th>skew<\/th>\n      <th>kurtosis<\/th>\n      <th>se<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-baf10c565bed965a7398" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-baf10c565bed965a7398">{"x":{"filter":"none","caption":"<caption>Time 2<\/caption>","data":[["s123pc4","s1pc4","s2pc4","s3pc4","threat","contactnw","s123pc4_afw","s1pc4_afw","s2pc4_afw","s3pc4_afw","threat_afw","contactnw_afw"],[1,2,3,4,5,6,7,8,9,10,11,12],[1389,1389,1389,1389,1389,1389,1389,1389,1389,1389,1389,1389],[3.67,2.01,0.66,1,3.08,2.59,1.08,0.31,0.28,0.5,0.08,0.13],[23.21,20.36,10.26,5.19,1,2.24,8.94,7.06,4.9,2.6,0.56,1.08],[0,0,0,0,3,3,0,0,0,0,0,0],[0,0,0,0,3.22,2.49,0,0,0,0,0.06,0.11],[0,0,0,0,1.48,2.97,0,0,0,0,0.74,0.74],[0,0,0,0,0,0,-13.81,-13.81,0,0,-2,-3],[502.84,502.84,250.29,94.06,4,6,251.42,251.42,125.14,47.03,2,3],[502.84,502.84,250.29,94.06,4,6,265.23,265.23,125.14,47.03,4,6],[12.9,16.7,20.78,8.07,-0.92,0.1,19.88,32.75,23.01,8.07,0.13,0.03],[218.3,346.88,471.44,96.18,0.22,-1.52,491.35,1152.17,559.64,96.18,1.06,0.86],[0.62,0.55,0.28,0.14,0.03,0.06,0.24,0.19,0.13,0.07,0.01,0.03]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>vars<\/th>\n      <th>n<\/th>\n      <th>mean<\/th>\n      <th>sd<\/th>\n      <th>median<\/th>\n      <th>trimmed<\/th>\n      <th>mad<\/th>\n      <th>min<\/th>\n      <th>max<\/th>\n      <th>range<\/th>\n      <th>skew<\/th>\n      <th>kurtosis<\/th>\n      <th>se<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<ul>
+<li>respondents in FE sample: 1389<br />
+</li>
+<li>zipcodes in FE sample: 1002<br />
+</li>
+<li>respondents experiencing change in FE sample: 116<br />
+</li>
+<li>zipcodes experiencing change in FE sample: 81</li>
+</ul>
+<hr />
+</div>
+<div id="hybrid-model-sample" class="section level3">
+<h3>hybrid model sample</h3>
+<pre class="r test"><code>table(dataset$y_pvv, dataset$tijd)
+prop.table(table(dataset$y_pvv, dataset$tijd), margin = 2)
+
+describeBy(dataset[, c(&quot;s123pc4&quot;, &quot;s1pc4&quot;, &quot;s2pc4&quot;, &quot;s3pc4&quot;, &quot;threat&quot;, &quot;contactnw&quot;, &quot;s123pc4_afw&quot;, &quot;s1pc4_afw&quot;, 
+    &quot;s2pc4_afw&quot;, &quot;s3pc4_afw&quot;, &quot;threat_afw&quot;, &quot;contactnw_afw&quot;)], group = dataset$tijd)
+
+
+print(&quot;respondents in hybrid sample&quot;)
+length(unique(dataset$PanelistIdQuestion))
+
+print(&quot;zipcodes in FE sample&quot;)
+length(unique(dataset$pc4))
+
+print(&quot;respondents experiencing change in FE sample&quot;)
+length(unique(dataset$PanelistIdQuestion[dataset$s123pc4 != dataset$s123pc4_mean]))
+
+print(&quot;zipcodes experiencing change in FE sample&quot;)
+length(unique(dataset$pc4[dataset$s123pc4 != dataset$s123pc4_mean]))</code></pre>
+<pre class="test2"><code>#&gt;    
+#&gt;         0     1
+#&gt;   0 15949 15230
+#&gt;   1  3200  3919
+#&gt;    
+#&gt;             0         1
+#&gt;   0 0.8328894 0.7953418
+#&gt;   1 0.1671106 0.2046582
+#&gt; 
+#&gt;  Descriptive statistics by group 
+#&gt; group: 0
+#&gt;               vars     n  mean    sd median trimmed  mad     min    max  range   skew kurtosis   se
+#&gt; s123pc4          1 19149  1.74 15.62      0    0.00 0.00    0.00 690.65 690.65  14.62   340.58 0.11
+#&gt; s1pc4            2 19149  1.65 15.44      0    0.00 0.00    0.00 690.65 690.65  15.07   357.57 0.11
+#&gt; s2pc4            3 19149  0.09  2.48      0    0.00 0.00    0.00  71.38  71.38  28.22   794.82 0.02
+#&gt; s3pc4            4 19149  0.00  0.00      0    0.00 0.00    0.00   0.00   0.00    NaN      NaN 0.00
+#&gt; threat           5 19149  1.89  1.36      2    1.86 1.48    0.00   4.00   4.00   0.18    -1.15 0.01
+#&gt; contactnw        6 19149  2.48  2.11      2    2.37 2.97    0.00   6.00   6.00   0.18    -1.40 0.02
+#&gt; s123pc4_afw      7 19149 -1.04  8.23      0    0.00 0.00 -251.42  15.64 267.06 -17.56   409.53 0.06
+#&gt; s1pc4_afw        8 19149 -0.20  5.26      0    0.00 0.00 -251.42  15.64 267.06 -41.62  1938.93 0.04
+#&gt; s2pc4_afw        9 19149 -0.39  5.70      0    0.00 0.00 -125.14   0.00 125.14 -18.81   378.23 0.04
+#&gt; s3pc4_afw       10 19149 -0.46  2.90      0    0.00 0.00 -141.51   0.00 141.51 -17.55   607.67 0.02
+#&gt; threat_afw      11 19149 -0.05  0.52      0   -0.04 0.74   -2.00   2.00   4.00  -0.04     1.25 0.00
+#&gt; contactnw_afw   12 19149 -0.05  1.00      0   -0.04 0.74   -3.00   3.00   6.00  -0.05     1.26 0.01
+#&gt; --------------------------------------------------------------------------- 
+#&gt; group: 1
+#&gt;               vars     n mean    sd median trimmed  mad    min    max  range  skew kurtosis   se
+#&gt; s123pc4          1 19149 3.81 23.15      0    0.00 0.00   0.00 689.21 689.21 12.04   209.26 0.17
+#&gt; s1pc4            2 19149 2.04 19.31      0    0.00 0.00   0.00 689.21 689.21 16.77   392.10 0.14
+#&gt; s2pc4            3 19149 0.86 11.71      0    0.00 0.00   0.00 250.29 250.29 17.66   340.44 0.08
+#&gt; s3pc4            4 19149 0.92  5.80      0    0.00 0.00   0.00 283.02 283.02 17.55   607.67 0.04
+#&gt; threat           5 19149 1.98  1.33      2    1.98 1.48   0.00   4.00   4.00  0.08    -1.11 0.01
+#&gt; contactnw        6 19149 2.58  2.15      2    2.48 2.97   0.00   6.00   6.00  0.10    -1.45 0.02
+#&gt; s123pc4_afw      7 19149 1.04  8.23      0    0.00 0.00 -15.64 251.42 267.06 17.56   409.53 0.06
+#&gt; s1pc4_afw        8 19149 0.20  5.26      0    0.00 0.00 -15.64 251.42 267.06 41.62  1938.93 0.04
+#&gt; s2pc4_afw        9 19149 0.39  5.70      0    0.00 0.00   0.00 125.14 125.14 18.81   378.23 0.04
+#&gt; s3pc4_afw       10 19149 0.46  2.90      0    0.00 0.00   0.00 141.51 141.51 17.55   607.67 0.02
+#&gt; threat_afw      11 19149 0.05  0.52      0    0.04 0.74  -2.00   2.00   4.00  0.04     1.25 0.00
+#&gt; contactnw_afw   12 19149 0.05  1.00      0    0.04 0.74  -3.00   3.00   6.00  0.05     1.26 0.01
+#&gt; [1] &quot;respondents in hybrid sample&quot;
+#&gt; [1] 19149
+#&gt; [1] &quot;zipcodes in FE sample&quot;
+#&gt; [1] 3039
+#&gt; [1] &quot;respondents experiencing change in FE sample&quot;
+#&gt; [1] 1491
+#&gt; [1] &quot;zipcodes experiencing change in FE sample&quot;
+#&gt; [1] 175</code></pre>
+<hr />
+</div>
+</div>
+<div id="table-2" class="section level2 tabset tabset-fade">
+<h2>Table 2</h2>
+<pre class="r test"><code>require(survival)
+ev_sel &lt;- dataset_sel
+m1 &lt;- clogit(y_pvv ~ s123pc4 + tijd + strata(PanelistIdQuestion), data = ev_sel)
+summary(m1)
+
+# via different estimation of fixed effects model (a first difference design) only select
+# y_observation at timepoint 2
+ev_sel2 &lt;- ev_sel[ev_sel$tijd == 1, ]
+# need to multiply _afw with 2 (thus becomes t2-t1, instead of t2 - mean(t2,t1)
+ev_sel2$s123pc4_afw &lt;- 2 * ev_sel2$s123pc4_afw
+ev_sel2$s1pc4_afw &lt;- 2 * ev_sel2$s1pc4_afw
+ev_sel2$s2pc4_afw &lt;- 2 * ev_sel2$s2pc4_afw
+ev_sel2$s3pc4_afw &lt;- 2 * ev_sel2$s3pc4_afw
+ev_sel2$threat_afw &lt;- 2 * ev_sel2$threat_afw
+ev_sel2$contactnw_afw &lt;- 2 * ev_sel2$contactnw_afw
+
+m1_alt1 &lt;- glm(y_pvv ~ s123pc4_afw, data = ev_sel2, family = binomial)
+m1_alt2 &lt;- glm(y_pvv ~ s1pc4_afw + s2pc4_afw + s3pc4_afw, data = ev_sel2, family = binomial)
+m1_alt3 &lt;- glm(y_pvv ~ s1pc4_afw + s2pc4_afw + s3pc4_afw + contactnw_afw + threat_afw, data = ev_sel2, 
+    family = binomial)</code></pre>
+<div id="model-1" class="section level3">
+<h3>model 1</h3>
+<pre class="test2"><code>#&gt; 
+#&gt; Call:
+#&gt; glm(formula = y_pvv ~ s123pc4_afw, family = binomial, data = ev_sel2)
+#&gt; 
+#&gt; Deviance Residuals: 
+#&gt;     Min       1Q   Median       3Q      Max  
+#&gt; -2.3876   0.5200   0.7521   0.7521   0.9127  
+#&gt; 
+#&gt; Coefficients:
+#&gt;             Estimate Std. Error z value Pr(&gt;|z|)    
+#&gt; (Intercept)  1.11803    0.06373  17.543   &lt;2e-16 ***
+#&gt; s123pc4_afw  0.02166    0.01165   1.859    0.063 .  
+#&gt; ---
+#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+#&gt; 
+#&gt; (Dispersion parameter for binomial family taken to be 1)
+#&gt; 
+#&gt;     Null deviance: 1534.7  on 1388  degrees of freedom
+#&gt; Residual deviance: 1528.8  on 1387  degrees of freedom
+#&gt; AIC: 1532.8
+#&gt; 
+#&gt; Number of Fisher Scoring iterations: 5</code></pre>
+<hr />
+</div>
+<div id="model-2" class="section level3">
+<h3>model 2</h3>
+<pre class="test2"><code>#&gt; 
+#&gt; Call:
+#&gt; glm(formula = y_pvv ~ s1pc4_afw + s2pc4_afw + s3pc4_afw, family = binomial, 
+#&gt;     data = ev_sel2)
+#&gt; 
+#&gt; Deviance Residuals: 
+#&gt;     Min       1Q   Median       3Q      Max  
+#&gt; -1.9985   0.4944   0.7539   0.7539   0.8090  
+#&gt; 
+#&gt; Coefficients:
+#&gt;             Estimate Std. Error z value Pr(&gt;|z|)    
+#&gt; (Intercept) 1.112850   0.063957  17.400   &lt;2e-16 ***
+#&gt; s1pc4_afw   0.007758   0.013869   0.559   0.5759    
+#&gt; s2pc4_afw   0.056311   0.062301   0.904   0.3661    
+#&gt; s3pc4_afw   0.027981   0.016846   1.661   0.0967 .  
+#&gt; ---
+#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+#&gt; 
+#&gt; (Dispersion parameter for binomial family taken to be 1)
+#&gt; 
+#&gt;     Null deviance: 1534.7  on 1388  degrees of freedom
+#&gt; Residual deviance: 1527.5  on 1385  degrees of freedom
+#&gt; AIC: 1535.5
+#&gt; 
+#&gt; Number of Fisher Scoring iterations: 7</code></pre>
+<hr />
+</div>
+<div id="model-3" class="section level3">
+<h3>model 3</h3>
+<pre class="test2"><code>#&gt; 
+#&gt; Call:
+#&gt; glm(formula = y_pvv ~ s1pc4_afw + s2pc4_afw + s3pc4_afw + contactnw_afw + 
+#&gt;     threat_afw, family = binomial, data = ev_sel2)
+#&gt; 
+#&gt; Deviance Residuals: 
+#&gt;     Min       1Q   Median       3Q      Max  
+#&gt; -2.1981   0.4287   0.6897   0.7635   1.1680  
+#&gt; 
+#&gt; Coefficients:
+#&gt;               Estimate Std. Error z value Pr(&gt;|z|)    
+#&gt; (Intercept)   1.083612   0.064778  16.728  &lt; 2e-16 ***
+#&gt; s1pc4_afw     0.008048   0.014410   0.558    0.577    
+#&gt; s2pc4_afw     0.061377   0.066976   0.916    0.359    
+#&gt; s3pc4_afw     0.029132   0.017235   1.690    0.091 .  
+#&gt; contactnw_afw 0.034130   0.029358   1.163    0.245    
+#&gt; threat_afw    0.265371   0.058514   4.535 5.76e-06 ***
+#&gt; ---
+#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+#&gt; 
+#&gt; (Dispersion parameter for binomial family taken to be 1)
+#&gt; 
+#&gt;     Null deviance: 1534.7  on 1388  degrees of freedom
+#&gt; Residual deviance: 1504.4  on 1383  degrees of freedom
+#&gt; AIC: 1516.4
+#&gt; 
+#&gt; Number of Fisher Scoring iterations: 7</code></pre>
+<hr />
+</div>
+</div>
+<div id="table-3" class="section level2 tabset tabset-fade">
+<h2>Table 3</h2>
+<pre class="r test"><code>require(sandwich)
+require(lmtest)
+ev &lt;- dataset
+
+## hybrid model because we include ethnic density of NB and SES of NB need to remove missing values.
+
+# sum(is.na(ev$pnwal2014_pc4))
+ev_sel4 &lt;- ev[!is.na(ev$pnwal2014_pc4), ]
+# lost 90 respondents
+
+ev_sel4 &lt;- ev_sel4[!(ev_sel4$woz2012_pc4 == 0), ]
+# lost 22 respondents
+ev_sel4 &lt;- ev_sel4[!is.na(ev_sel4$woz2012_pc4), ]
+# lost 3 respondents
+
+# center variables!
+ev_sel4$age_c &lt;- ev_sel4$age - mean(ev_sel4$age)
+ev_sel4$educ_c &lt;- ev_sel4$educ - mean(ev_sel4$educ)
+ev_sel4$pnwal2014_pc4_c &lt;- ev_sel4$pnwal2014_pc4 - mean(ev_sel4$pnwal2014_pc4)
+ev_sel4$woz2012_pc4_c &lt;- ev_sel4$woz2012_pc4 - mean(ev_sel4$woz2012_pc4)
+
+# run models
+m1h &lt;- glm(y_pvv ~ tijd + s123pc4_afw + s123pc4_mean + gender + age_c + educ_c + pnwal2014_pc4_c + woz2012_pc4_c, 
+    data = ev_sel4, family = binomial)
+m2h &lt;- glm(y_pvv ~ tijd + s1pc4_afw + s2pc4_afw + s3pc4_afw + s1pc4_mean + s2pc4_mean + s3pc4_mean + 
+    gender + age_c + educ_c + pnwal2014_pc4_c + woz2012_pc4_c, data = ev_sel4, family = binomial)
+m3h &lt;- glm(y_pvv ~ tijd + s1pc4_afw + s2pc4_afw + s3pc4_afw + s1pc4_mean + s2pc4_mean + s3pc4_mean + 
+    threat_mean + contactnw_mean + gender + age_c + educ_c + pnwal2014_pc4_c + woz2012_pc4_c, data = ev_sel4, 
+    family = binomial)
+m4h &lt;- glm(y_pvv ~ tijd + s1pc4_afw * pnwal2014_pc4_c + s2pc4_afw * pnwal2014_pc4_c + s3pc4_afw * pnwal2014_pc4_c + 
+    s1pc4_mean + s2pc4_mean + s3pc4_mean + threat_mean + contactnw_mean + gender + age_c + educ_c + woz2012_pc4_c, 
+    data = ev_sel4, family = binomial)
+
+
+# summary(m1h) summary(m2h) summary(m3h) coeftest(m1h, vcov = vcovCL(m1h, cluster = ~
+# PanelistIdQuestion)) coeftest(m2h, vcov = vcovCL(m2h, cluster = ~ PanelistIdQuestion))
+# coeftest(m3h, vcov = vcovCL(m3h, cluster = ~ PanelistIdQuestion))</code></pre>
+<div id="model-1-1" class="section level3">
+<h3>model 1</h3>
+<pre class="test2"><code>#&gt; 
+#&gt; z test of coefficients:
+#&gt; 
+#&gt;                 Estimate Std. Error z value Pr(&gt;|z|)    
+#&gt; (Intercept)       -2.126      0.040 -52.973   &lt;2e-16 ***
+#&gt; tijd               0.258      0.014  19.077   &lt;2e-16 ***
+#&gt; s123pc4_afw        0.001      0.001   1.665    0.096 .  
+#&gt; s123pc4_mean       0.000      0.001   0.019    0.985    
+#&gt; gender             0.581      0.043  13.396   &lt;2e-16 ***
+#&gt; age_c             -0.014      0.002  -8.946   &lt;2e-16 ***
+#&gt; educ_c            -0.154      0.006 -27.170   &lt;2e-16 ***
+#&gt; pnwal2014_pc4_c    0.772      0.239   3.233    0.001 ***
+#&gt; woz2012_pc4_c      0.000      0.000  -0.515    0.607    
+#&gt; ---
+#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<hr />
+</div>
+<div id="model-2-1" class="section level3">
+<h3>model 2</h3>
+<pre class="test2"><code>#&gt; 
+#&gt; z test of coefficients:
+#&gt; 
+#&gt;                 Estimate Std. Error z value Pr(&gt;|z|)    
+#&gt; (Intercept)       -2.128      0.040 -52.866   &lt;2e-16 ***
+#&gt; tijd               0.256      0.014  18.852   &lt;2e-16 ***
+#&gt; s1pc4_afw          0.001      0.001   0.949    0.343    
+#&gt; s2pc4_afw          0.001      0.001   0.732    0.464    
+#&gt; s3pc4_afw          0.003      0.002   1.535    0.125    
+#&gt; s1pc4_mean         0.000      0.001  -0.040    0.968    
+#&gt; s2pc4_mean        -0.001      0.003  -0.156    0.876    
+#&gt; s3pc4_mean         0.005      0.006   0.838    0.402    
+#&gt; gender             0.582      0.043  13.402   &lt;2e-16 ***
+#&gt; age_c             -0.014      0.002  -8.955   &lt;2e-16 ***
+#&gt; educ_c            -0.154      0.006 -27.165   &lt;2e-16 ***
+#&gt; pnwal2014_pc4_c    0.775      0.239   3.246    0.001 ***
+#&gt; woz2012_pc4_c      0.000      0.000  -0.527    0.598    
+#&gt; ---
+#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<hr />
+</div>
+<div id="model-3-1" class="section level3">
+<h3>model 3</h3>
+<pre class="test2"><code>#&gt; 
+#&gt; z test of coefficients:
+#&gt; 
+#&gt;                 Estimate Std. Error z value Pr(&gt;|z|)    
+#&gt; (Intercept)       -5.324      0.084 -63.717   &lt;2e-16 ***
+#&gt; tijd               0.361      0.019  18.927   &lt;2e-16 ***
+#&gt; s1pc4_afw          0.002      0.002   0.894    0.371    
+#&gt; s2pc4_afw          0.001      0.001   0.657    0.511    
+#&gt; s3pc4_afw          0.005      0.003   1.601    0.109    
+#&gt; s1pc4_mean         0.000      0.001   0.366    0.715    
+#&gt; s2pc4_mean         0.002      0.003   0.436    0.663    
+#&gt; s3pc4_mean         0.007      0.007   1.114    0.265    
+#&gt; threat_mean        1.416      0.023  61.905   &lt;2e-16 ***
+#&gt; contactnw_mean    -0.056      0.011  -4.933   &lt;2e-16 ***
+#&gt; gender             0.234      0.050   4.695   &lt;2e-16 ***
+#&gt; age_c             -0.013      0.002  -6.953   &lt;2e-16 ***
+#&gt; educ_c            -0.074      0.007 -11.085   &lt;2e-16 ***
+#&gt; pnwal2014_pc4_c   -1.670      0.295  -5.661   &lt;2e-16 ***
+#&gt; woz2012_pc4_c      0.000      0.000  -1.127    0.260    
+#&gt; ---
+#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<hr />
+</div>
+<div id="model-4-no-interaction-with-ethnic-density" class="section level3">
+<h3>Model 4: no interaction with ethnic density</h3>
+<pre class="test2"><code>#&gt; 
+#&gt; z test of coefficients:
+#&gt; 
+#&gt;                           Estimate Std. Error z value Pr(&gt;|z|)    
+#&gt; (Intercept)                 -5.323      0.084 -63.712   &lt;2e-16 ***
+#&gt; tijd                         0.360      0.019  18.885   &lt;2e-16 ***
+#&gt; s1pc4_afw                    0.002      0.002   1.034    0.301    
+#&gt; pnwal2014_pc4_c             -1.672      0.295  -5.668   &lt;2e-16 ***
+#&gt; s2pc4_afw                    0.001      0.002   0.748    0.454    
+#&gt; s3pc4_afw                    0.005      0.003   1.600    0.110    
+#&gt; s1pc4_mean                   0.000      0.001   0.335    0.738    
+#&gt; s2pc4_mean                   0.002      0.003   0.435    0.663    
+#&gt; s3pc4_mean                   0.007      0.007   1.135    0.256    
+#&gt; threat_mean                  1.416      0.023  61.904   &lt;2e-16 ***
+#&gt; contactnw_mean              -0.056      0.011  -4.934   &lt;2e-16 ***
+#&gt; gender                       0.234      0.050   4.694   &lt;2e-16 ***
+#&gt; age_c                       -0.013      0.002  -6.951   &lt;2e-16 ***
+#&gt; educ_c                      -0.074      0.007 -11.087   &lt;2e-16 ***
+#&gt; woz2012_pc4_c                0.000      0.000  -1.128    0.260    
+#&gt; s1pc4_afw:pnwal2014_pc4_c    0.019      0.033   0.587    0.557    
+#&gt; pnwal2014_pc4_c:s2pc4_afw    0.013      0.031   0.422    0.673    
+#&gt; pnwal2014_pc4_c:s3pc4_afw    0.024      0.052   0.466    0.641    
+#&gt; ---
+#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<hr />
+</div>
+</div>
+<div id="inflow-asylum-seekers-not-related-to-pvv-support-t1." class="section level2 tabset tabset-fade">
+<h2>Inflow asylum seekers not related to PVV support T1.</h2>
+<p>In our manuscript we state the following:</p>
+<blockquote>
+<p>Voters of neighbourhoods that would experience an inflow of asylum seekers did not differ with respect to radical right support from voters that would not experience an inflow of refugees: pre-crises support for the PVV for both the ‘treated’ and ‘untreated’ groups was approximately 17%.</p>
+</blockquote>
+<div id="dichtomeous-treatment-variable-total-exposure" class="section level3">
+<h3>dichtomeous treatment variable (total exposure)</h3>
+<pre class="r test"><code># define treatment variable: whether there has been an increase in total asylum seekers.
+dataset$treatment &lt;- ifelse(dataset$tijd == 1, as.numeric(dataset$s123pc4_afw &gt; 0), as.numeric(dataset$s123pc4_afw &lt; 
+    0))
+
+# check if treatment is not correlated with pretreatment outcome
+test &lt;- table(dataset$treatment[dataset$tijd == 0], dataset$y_pvv[dataset$tijd == 0])
+dimnames(test)[[1]] &lt;- c(&quot;treatment NO&quot;, &quot;treatment YES&quot;)
+dimnames(test)[[2]] &lt;- c(&quot;PVV NO&quot;, &quot;PVV YES&quot;)
+test
+prop.table(test, margin = 1)
+test1 &lt;- glm(y_pvv ~ treatment, family = binomial, data = dataset[dataset$tijd == 0, ])
+summary(test1)</code></pre>
+<pre class="test2"><code>#&gt;                
+#&gt;                 PVV NO PVV YES
+#&gt;   treatment NO   14780    2963
+#&gt;   treatment YES   1169     237
+#&gt;                
+#&gt;                    PVV NO   PVV YES
+#&gt;   treatment NO  0.8330046 0.1669954
+#&gt;   treatment YES 0.8314367 0.1685633
+#&gt; 
+#&gt; Call:
+#&gt; glm(formula = y_pvv ~ treatment, family = binomial, data = dataset[dataset$tijd == 
+#&gt;     0, ])
+#&gt; 
+#&gt; Deviance Residuals: 
+#&gt;     Min       1Q   Median       3Q      Max  
+#&gt; -0.6076  -0.6045  -0.6045  -0.6045   1.8920  
+#&gt; 
+#&gt; Coefficients:
+#&gt;             Estimate Std. Error z value Pr(&gt;|z|)    
+#&gt; (Intercept) -1.60707    0.02013 -79.842   &lt;2e-16 ***
+#&gt; treatment    0.01123    0.07402   0.152    0.879    
+#&gt; ---
+#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+#&gt; 
+#&gt; (Dispersion parameter for binomial family taken to be 1)
+#&gt; 
+#&gt;     Null deviance: 17283  on 19148  degrees of freedom
+#&gt; Residual deviance: 17283  on 19147  degrees of freedom
+#&gt; AIC: 17287
+#&gt; 
+#&gt; Number of Fisher Scoring iterations: 3</code></pre>
+<p>This is what we report in the manuscript.</p>
+<ul>
+<li>No selective treatment!<br />
+</li>
+<li>Among both groups, PVV support just below 17%</li>
+</ul>
+<hr />
+</div>
+<div id="continuous-treatment-variable-total-exposure" class="section level3">
+<h3>continuous treatment variable (total exposure)</h3>
+<pre class="r test"><code># define treatment variable: whether there has been an increase in total asylum seekers.
+dataset$treatment_c &lt;- ifelse(dataset$tijd == 1, dataset$s123pc4_afw, -dataset$s123pc4_afw)
+
+# check if treatment is not correlated with pretreatment outcome
+summary(glm(y_pvv ~ treatment_c, family = binomial, data = dataset[dataset$tijd == 0, ]))</code></pre>
+<pre class="test2"><code>#&gt; 
+#&gt; Call:
+#&gt; glm(formula = y_pvv ~ treatment_c, family = binomial, data = dataset[dataset$tijd == 
+#&gt;     0, ])
+#&gt; 
+#&gt; Deviance Residuals: 
+#&gt;     Min       1Q   Median       3Q      Max  
+#&gt; -0.6131  -0.6052  -0.6052  -0.6052   1.9898  
+#&gt; 
+#&gt; Coefficients:
+#&gt;              Estimate Std. Error z value Pr(&gt;|z|)    
+#&gt; (Intercept) -1.604437   0.019527 -82.165   &lt;2e-16 ***
+#&gt; treatment_c -0.001810   0.002572  -0.704    0.482    
+#&gt; ---
+#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+#&gt; 
+#&gt; (Dispersion parameter for binomial family taken to be 1)
+#&gt; 
+#&gt;     Null deviance: 17283  on 19148  degrees of freedom
+#&gt; Residual deviance: 17282  on 19147  degrees of freedom
+#&gt; AIC: 17286
+#&gt; 
+#&gt; Number of Fisher Scoring iterations: 3</code></pre>
+<p>Conclusion: No selectivity in treatment with respect to pre-crisis PVV support</p>
+<hr />
+</div>
+<div id="dichtomeous-treatment-variable-crisis-exposure" class="section level3">
+<h3>dichtomeous treatment variable (crisis exposure)</h3>
+<pre class="r test"><code># define treatment variable based on crisis ASC only: whether there has been an increase in crisis
+# asylum seekers.
+dataset$treatment2 &lt;- ifelse(dataset$tijd == 1, as.numeric(dataset$s3pc4_afw &gt; 0), as.numeric(dataset$s3pc4_afw &lt; 
+    0))
+# check if treatment2 is not correlated with pretreatment outcome
+test &lt;- table(dataset$treatment2[dataset$tijd == 0], dataset$y_pvv[dataset$tijd == 0])
+dimnames(test)[[1]] &lt;- c(&quot;treatment NO&quot;, &quot;treatment YES&quot;)
+dimnames(test)[[2]] &lt;- c(&quot;PVV NO&quot;, &quot;PVV YES&quot;)
+test
+prop.table(test, margin = 1)
+test2 &lt;- glm(y_pvv ~ treatment2, family = binomial, data = dataset[dataset$tijd == 0, ])
+summary(test2)</code></pre>
+<pre class="test2"><code>#&gt;                
+#&gt;                 PVV NO PVV YES
+#&gt;   treatment NO   15188    3051
+#&gt;   treatment YES    761     149
+#&gt;                
+#&gt;                    PVV NO   PVV YES
+#&gt;   treatment NO  0.8327211 0.1672789
+#&gt;   treatment YES 0.8362637 0.1637363
+#&gt; 
+#&gt; Call:
+#&gt; glm(formula = y_pvv ~ treatment2, family = binomial, data = dataset[dataset$tijd == 
+#&gt;     0, ])
+#&gt; 
+#&gt; Deviance Residuals: 
+#&gt;     Min       1Q   Median       3Q      Max  
+#&gt; -0.6051  -0.6051  -0.6051  -0.6051   1.9024  
+#&gt; 
+#&gt; Coefficients:
+#&gt;             Estimate Std. Error z value Pr(&gt;|z|)    
+#&gt; (Intercept) -1.60504    0.01984  -80.90   &lt;2e-16 ***
+#&gt; treatment2  -0.02565    0.09176   -0.28     0.78    
+#&gt; ---
+#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+#&gt; 
+#&gt; (Dispersion parameter for binomial family taken to be 1)
+#&gt; 
+#&gt;     Null deviance: 17283  on 19148  degrees of freedom
+#&gt; Residual deviance: 17283  on 19147  degrees of freedom
+#&gt; AIC: 17287
+#&gt; 
+#&gt; Number of Fisher Scoring iterations: 3</code></pre>
+<p>Conclusion:</p>
+<ul>
+<li>no selectivity</li>
+</ul>
+<hr />
+</div>
+<div id="continuous-treatment-variable-crisis-exposure" class="section level3">
+<h3>continuous treatment variable (crisis exposure)</h3>
+<pre class="r test"><code># define treatment variable based on crisis ASC only: whether there has been an increase in crisis
+# asylum seekers.
+dataset$treatment2_c &lt;- ifelse(dataset$tijd == 1, dataset$s3pc4_afw, -dataset$s3pc4_afw)
+summary(glm(y_pvv ~ treatment2_c, family = binomial, data = dataset[dataset$tijd == 0, ]))
+# table(dataset$treatment2,dataset$treatment2_c) summary(dataset$s3pc4_afw[dataset$tijd==0])
+# summary(dataset$treatment2_c[dataset$tijd==0])</code></pre>
+<pre class="test2"><code>#&gt; 
+#&gt; Call:
+#&gt; glm(formula = y_pvv ~ treatment2_c, family = binomial, data = dataset[dataset$tijd == 
+#&gt;     0, ])
+#&gt; 
+#&gt; Deviance Residuals: 
+#&gt;     Min       1Q   Median       3Q      Max  
+#&gt; -0.6048  -0.6048  -0.6048  -0.6048   1.8940  
+#&gt; 
+#&gt; Coefficients:
+#&gt;                Estimate Std. Error z value Pr(&gt;|z|)    
+#&gt; (Intercept)  -1.606e+00  1.961e-02 -81.905   &lt;2e-16 ***
+#&gt; treatment2_c -7.577e-05  6.689e-03  -0.011    0.991    
+#&gt; ---
+#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+#&gt; 
+#&gt; (Dispersion parameter for binomial family taken to be 1)
+#&gt; 
+#&gt;     Null deviance: 17283  on 19148  degrees of freedom
+#&gt; Residual deviance: 17283  on 19147  degrees of freedom
+#&gt; AIC: 17287
+#&gt; 
+#&gt; Number of Fisher Scoring iterations: 3</code></pre>
+<p>Conclusion:</p>
+<ul>
+<li>no selectivity</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="note-3-in-manuscript" class="section level2">
+<h2>Note 3 in manuscript</h2>
+<ul>
+<li>In the manuscript we state that the treatment is not related to pretreatment PVV support.<br />
+</li>
+<li>In note 3 we state that treatment is not related to an increase in contact or threat.</li>
+</ul>
+<p>We first define a treatment variable: 1 (YES, increase in asylum seekers); 0 (NO, no increase in asylum seekers)</p>
+<pre class="r test"><code># show that treatment is not related to changes in threat and contact in fixed effect sample. note 3
+# in revised manuscript.  only select y_observation at timepoint 2
+ev_sel2 &lt;- dataset_sel[dataset_sel$tijd == 1, ]
+ev_sel2$treatment &lt;- ev_sel2$s123pc4_afw &gt; 0
+mean(ev_sel2$contactnw_afw)</code></pre>
+<pre class="test2"><code>#&gt; [1] 0.1285097</code></pre>
+<pre class="r test"><code>by(ev_sel2$contactnw_afw, ev_sel2$treatment, function(x) sd(x))</code></pre>
+<pre class="test2"><code>#&gt; ev_sel2$treatment: FALSE
+#&gt; [1] 1.08223
+#&gt; --------------------------------------------------------------------------- 
+#&gt; ev_sel2$treatment: TRUE
+#&gt; [1] 1.095071</code></pre>
+<pre class="r test"><code>with(ev_sel2, t.test(contactnw_afw ~ treatment))</code></pre>
+<pre class="test2"><code>#&gt; 
+#&gt;  Welch Two Sample t-test
+#&gt; 
+#&gt; data:  contactnw_afw by treatment
+#&gt; t = 2.2851, df = 129.37, p-value = 0.02394
+#&gt; alternative hypothesis: true difference in means is not equal to 0
+#&gt; 95 percent confidence interval:
+#&gt;  0.03319162 0.46156370
+#&gt; sample estimates:
+#&gt; mean in group FALSE  mean in group TRUE 
+#&gt;           0.1482786          -0.0990991</code></pre>
+<pre class="r test"><code># treated group decrease in contact. untreated group increase in contact. difference in difference is
+# significant.
+
+mean(ev_sel2$threat_afw)</code></pre>
+<pre class="test2"><code>#&gt; [1] 0.08243341</code></pre>
+<pre class="r test"><code>by(ev_sel2$threat_afw, ev_sel2$treatment, function(x) sd(x))</code></pre>
+<pre class="test2"><code>#&gt; ev_sel2$treatment: FALSE
+#&gt; [1] 0.5565433
+#&gt; --------------------------------------------------------------------------- 
+#&gt; ev_sel2$treatment: TRUE
+#&gt; [1] 0.5852402</code></pre>
+<pre class="r test"><code>with(ev_sel2, t.test(threat_afw ~ treatment))</code></pre>
+<pre class="test2"><code>#&gt; 
+#&gt;  Welch Two Sample t-test
+#&gt; 
+#&gt; data:  threat_afw by treatment
+#&gt; t = 0.53467, df = 127.89, p-value = 0.5938
+#&gt; alternative hypothesis: true difference in means is not equal to 0
+#&gt; 95 percent confidence interval:
+#&gt;  -0.08330397  0.14499242
+#&gt; sample estimates:
+#&gt; mean in group FALSE  mean in group TRUE 
+#&gt;          0.08489828          0.05405405</code></pre>
+<pre class="r test"><code># treated group increase in threat. untreated (less) increase in threat. difference in difference is
+# not significant.</code></pre>
+<hr />
+<div id="refs" class="references">
+<div id="ref-Tolsma2020">
+<p>Tolsma, Jochem, Joran Laméris, and Michael Savelkoul. n.d. “Exposure to Asylum Seekers and Changing Support for the Radical Right: A Natural Experiment in the Netherlands.” <em>PLOS ONE</em> - (-): –. <a href="https://journals.plos.org/plosone/">https://journals.plos.org/plosone/</a>.</p>
+</div>
+</div>
+</div>
+
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkV4cG9zdXJlIHRvIEFzeWx1bSBTZWVrZXJzIg0KYXV0aG9yOiAnW0pvY2hlbSBUb2xzbWFdKGh0dHBzOi8vd3d3LmpvY2hlbXRvbHNtYS5ubCkgLSBSYWRib3VkIFVuaXZlcnNpdHksIHRoZSBOZXRoZXJsYW5kcycNCmJpYmxpb2dyYXBoeTogcmVmZXJlbmNlcy5iaWINCmRhdGU6ICJMYXN0IGNvbXBpbGVkIG9uIGByIGZvcm1hdChTeXMudGltZSgpLCAnJUIsICVZJylgIg0Kb3V0cHV0OiANCiAgaHRtbF9kb2N1bWVudDoNCiAgICB0b2M6ICB0cnVlDQogICAgdG9jX2Zsb2F0OiB0cnVlDQogICAgbnVtYmVyX3NlY3Rpb25zOiBmYWxzZQ0KICAgIGNvZGVfZm9sZGluZzogc2hvdw0KICAgIGNvZGVfZG93bmxvYWQ6IHllcw0KLS0tDQoNCmBgYHtyLCBnbG9iYWxzZXR0aW5ncywgZWNobz1GQUxTRSwgd2FybmluZz1GQUxTRX0NCmxpYnJhcnkoa25pdHIpDQpvcHRzX2NodW5rJHNldCh0aWR5Lm9wdHM9bGlzdCh3aWR0aC5jdXRvZmY9MTAwKSx0aWR5PVRSVUUsIHdhcm5pbmcgPSBGQUxTRSwgbWVzc2FnZSA9IEZBTFNFLGNvbW1lbnQgPSAiIz4iLCBjYWNoZT1UUlVFLCBjbGFzcy5zb3VyY2U9YygidGVzdCIpLCBjbGFzcy5vdXRwdXQ9YygidGVzdDIiKSkNCm9wdGlvbnMod2lkdGggPSAxMDApDQpyZ2w6OnNldHVwS25pdHIoKQ0KDQoNCmNvbG9yaXplIDwtIGZ1bmN0aW9uKHgsIGNvbG9yKSB7DQogIGlmIChrbml0cjo6aXNfbGF0ZXhfb3V0cHV0KCkpIHsNCiAgICBzcHJpbnRmKCJcXHRleHRjb2xvcnslc317JXN9IiwgY29sb3IsIHgpDQogIH0gZWxzZSBpZiAoa25pdHI6OmlzX2h0bWxfb3V0cHV0KCkpIHsNCiAgICBzcHJpbnRmKCI8c3BhbiBzdHlsZT0nY29sb3I6ICVzOyc+JXM8L3NwYW4+IiwgY29sb3IsIA0KICAgICAgeCkNCiAgfSBlbHNlIHgNCn0NCg0KYGBgDQoNCmBgYHtyIGtsaXBweSwgZWNobz1GQUxTRSwgaW5jbHVkZT1UUlVFfQ0Ka2xpcHB5OjprbGlwcHkocG9zaXRpb24gPSBjKCd0b3AnLCAncmlnaHQnKSkNCiNrbGlwcHk6OmtsaXBweShjb2xvciA9ICdkYXJrcmVkJykNCiNrbGlwcHk6OmtsaXBweSh0b29sdGlwX21lc3NhZ2UgPSAnQ2xpY2sgdG8gY29weScsIHRvb2x0aXBfc3VjY2VzcyA9ICdEb25lJykNCmBgYA0KDQpgYGB7Y3NzLCBlY2hvPUZBTFNFfQ0KcHJlLnRlc3Qgew0KICBtYXgtaGVpZ2h0OiAzMDBweDsNCiAgb3ZlcmZsb3cteTogYXV0bzsNCiAgb3ZlcmZsb3cteDogYXV0bzsNCiAgbWFyZ2luOiAwcHg7DQp9DQoNCnByZS50ZXN0MiB7DQogIG1heC1oZWlnaHQ6IDMwMHB4Ow0KICBvdmVyZmxvdy15OiBhdXRvOw0KICBvdmVyZmxvdy14OiBhdXRvOw0KICBtYXJnaW46IDBweDsNCiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGUNCn0NCg0KDQpoMSwgLmgxLCBoMiwgLmgyLCBoMywgLmgzIHsNCiAgICBtYXJnaW4tdG9wOiAyNHB4Ow0KfQ0KDQoNCmBgYA0KDQotLS0tDQoNClRoaXMgd2Vic2l0ZSBpcyBhIHJlcGxpY2F0aW9uIHBhY2thZ2UgZm9yIHRoZSBwYXBlciAiRXhwb3N1cmUgdG8gQXN5bHVtIFNlZWtlcnMgYW5kIENoYW5naW5nIFN1cHBvcnQgZm9yIHRoZSBSYWRpY2FsIFJpZ2h0OiBBIE5hdHVyYWwgRXhwZXJpbWVudCBpbiB0aGUgTmV0aGVybGFuZHMiIGJ5IEBUb2xzbWEyMDIwLiBJdCBjb250YWlucyBSIGNvZGUgdG8gcmVwbGljYXRlIGFsbCBUYWJsZXMgaW4gdGhlIG1hbnVzY3JpcHQuIA0KDQpVc2UgdGhlIHRvcCBtZW51IHRvIG5hdmlnYXRlIHRvIHRoZSBzZWN0aW9uIG9mIGludGVyZXN0LiBUaGUgc2VjdGlvbiByZXBsaWNhdGVzIHRoZSAqKk1haW4gVGFibGVzKiogb2YgdGhlIG1hbnVzY3JpcHQuIA0KDQpUbyBjb3B5IHRoZSBjb2RlIGNsaWNrIHRoZSBidXR0b24gaW4gdGhlIHVwcGVyIHJpZ2h0IGNvcm5lciBvZiB0aGUgY29kZS1jaHVua3MuIA0KDQoNCi0tLS0NCg0KIyMgRGF0YQ0KQWxsIGRhdGEgYW5kIHNjcmlwdHMgY2FuIGJlIGZvdW5kIG9uIFtHaXRodWJdKGh0dHBzOi8vZ2l0aHViLmNvbS9Kb2NoZW1Ub2xzbWEvRXhwb3N1cmVBU0MyMDIwKQ0KDQotLS0tDQoNCiMjIENvbnRhY3QNClF1ZXN0aW9ucyBjYW4gYmUgYWRkcmVzc2VkIHRvIHRoZSBmaXJzdCBhdXRob3Igb2YgdGhlIGNvcnJlc3BvbmRpbmcgYXJ0aWNsZSwgW0pvY2hlbSBUb2xzbWFdKG1haWx0bzpqLnRvbHNtYUBydS5ubCkuIA0KDQotLS0tICANCg0KIyMgQWRkaXRpb25hbCBkYXRhcHJlcCAgDQoNCldlIHN0YXJ0IHdpdGggYSBkYXRhZmlsZSBpbiBsb25nIGZvcm1hdCB3ZSBvYnRhaW5lZCBhZnRlciBwZXJmb3JtaW5nIG91ciBkYXRhcHJlcCwgc2VlIFtoZXJlXShkYXRhL2V2YXpjIHYyMjEyMjAxNy5kdGEpLiAgDQoNCi0gV2UgZGVsZXRlIG9ic2VydmF0aW9ucyBvZiByZXNwb25kZW50cyB3aGVyZSByZXNwb25kZW50cyB3ZXJlIG5vdCBhbGxvd2VkIHRvIHZvdGUgb3IgZGlkIG5vdCBnaXZlIGFuIGFuc3dlci4gIA0KLSBXZSBkZWxldGUgb2JzZXJ2YXRpb25zIHdpdGggbWlzc2luZyB2YWx1ZXMgb24gemlwY29kZSBpbmZvcm1hdGlvbi4gIA0KLSBXZSBkZWxldGUgcmVzcG9uZGVudHMgd2l0aCBvbmx5IG9uZSBvYnNlcnZhdGlvbi4gIA0KLSBXZSBjb25zdHJ1Y3QgdGhlIGRpY2hvdG9tb3VzIGRlcGVuZGVudCB2YXJpYWJsZS4gIA0KLSBXZSBjb25zdHJ1Y3QgdGhlIG11bHRpbm9taWFsIGRlcGVuZGVudCB2YXJpYWJsZS4gDQotIFdlIGRlY2lkZWQgdG8gcGVyZm9ybSBhZGRpdGlvbmFsIHJvYnVzdG5lc3MgY2hlY2tzIGFuZCBuZWVkIHRvIG1hdGNoIG1vcmUgcmF3IGRhdGEgb24gY3Jpc2lzIEFTQy4gDQoNCg0KYGBge3IsIHJlc3VsdHM9J2hpZGUnLCBjbGFzcy5zb3VyY2U9YygidGVzdCIpfQ0Kcm0obGlzdD1scygpKQ0KDQpsaWJyYXJ5KGhhdmVuKQ0KDQpkYXRhc2V0IDwtIHJlYWRfc3RhdGEoImRhdGEvZXZhemMgdjIyMTIyMDE3LmR0YSIpDQoNCiNkZXBlbmRlbnQgdmFyaWFibGUuDQojZGVsZXRlIG5vdCBhbGxvd2VkIHRvIHZvdGUNCnRhYmxlKGRhdGFzZXQkdm90ZSwgdXNlTkEgPSAiYWx3YXlzIikNCnN1bSh0YWJsZShkYXRhc2V0JHZvdGUsIHVzZU5BID0gImFsd2F5cyIpKQ0KZGF0YXNldCA8LSBkYXRhc2V0W2RhdGFzZXQkdm90ZSE9MTYsXQ0KZGF0YXNldCA8LSBkYXRhc2V0W2RhdGFzZXQkdm90ZSE9MTcsXQ0KI2FkZCAnVk5MJyB0byBvdGhlciBwYXJ0eQ0KZGF0YXNldCR2b3RlW2RhdGFzZXQkdm90ZT09MTJdIDwtIDE4DQojIjEiPSJ2dmQiLCAiMiI9InB2ZGEiLCAiMyI9InB2diIsICI0Ij0iY2RhIiwgIjUiPSJzcCINCiMiNiI9ImQ2NiIsICI3Ij0iZ2wiLCAiOCI9ImN1IiwgIjkiPSJzZ3AiLCAiMTAiPSJkaWVyIg0KIyIxMSI9IjUwcGx1cyIsICIxMiI9InZubCIsIjEzPSJibGFuY28iLCIxNCI9ImRvbnRrbm93IiwiMTU9Im5vIHZvdGUiLCAiMTgiPSJvdGhlciINCiNkZWZpbmUgZGljaG90b21vdXMgZGVwZW5kZW50IHZhcmlhYmxlDQpkYXRhc2V0JHlfcHZ2IDwtIGlmZWxzZShkYXRhc2V0JHZvdGU9PTMsIDEsIDApDQojZGVmaW5lIG11bHRpbm9taWFsIGRlcGVuZGVudCB2YXJpYWJsZQ0KZGF0YXNldCR2b3RlX3J3c3AgPC0gTkENCmRhdGFzZXQkdm90ZV9yd3NwW2RhdGFzZXQkdm90ZT09MiB8IGRhdGFzZXQkdm90ZT09NiB8IGRhdGFzZXQkdm90ZT09NyB8IGRhdGFzZXQkdm90ZT09OCB8IGRhdGFzZXQkdm90ZT09MTAgfCBkYXRhc2V0JHZvdGU9PTExIHwgZGF0YXNldCR2b3RlPT0xMiB8IGRhdGFzZXQkdm90ZT09MThdIDwtIDAgI290aGVyDQpkYXRhc2V0JHZvdGVfcndzcFtkYXRhc2V0JHZvdGU9PTEgfCBkYXRhc2V0JHZvdGU9PTQgfCBkYXRhc2V0JHZvdGU9PTldIDwtIDEgIyByaWdodC13aW5nDQpkYXRhc2V0JHZvdGVfcndzcFtkYXRhc2V0JHZvdGU9PTVdIDwtIDIgIyBhbnRpLWVzdGFibGlzaG1lbnQgDQpkYXRhc2V0JHZvdGVfcndzcFtkYXRhc2V0JHZvdGU9PTEzIHwgZGF0YXNldCR2b3RlPT0xNCB8IGRhdGFzZXQkdm90ZT09MTVdIDwtIDMgI2RlbW9iaWxpemVkDQpkYXRhc2V0JHZvdGVfcndzcFtkYXRhc2V0JHZvdGU9PTNdIDwtIDQNCiMgMTogcmlnaHQtd2luZzsgMjogYW50aS1lc3RhYmxpc2htZW50OyAzOiBkZW1vYmlsaXplZDsgMDogb3RoZXI7IDQ6IFBWVg0KDQojZGVsZXRlIHJlc3BvbmRlbnRzIHdpdGggbWlzc2luZyBkYXRhIG9uIHppcGNvZGUNCnN1bShpcy5uYShkYXRhc2V0JHBjNCkpDQpkYXRhc2V0IDwtIGRhdGFzZXRbIWlzLm5hKGRhdGFzZXQkcGM0KSxdDQoNCiNkZWxldGUgcmVzcG9uZGVudHMgd2l0aCBvbmx5IG9uZSBvYnNlcnZhdGlvbi4NCmRhdGFzZXQkb25lIDwtIDEgDQp0ZXN0IDwtIGFnZ3JlZ2F0ZShkYXRhc2V0JG9uZSwgYnk9bGlzdChkYXRhc2V0JFBhbmVsaXN0SWRRdWVzdGlvbiksIEZVTj1zdW0pDQpuYW1lcyh0ZXN0KSA8LSBjKCJQYW5lbGlzdElkUXVlc3Rpb24iLCAibmNhc2VzIikNCmRhdGFzZXQgPC0gbWVyZ2UoZGF0YXNldCwgdGVzdCkNCnRhYmxlKGRhdGFzZXQkbmNhc2VzKQ0KZGF0YXNldCA8LSBkYXRhc2V0W2RhdGFzZXQkbmNhc2VzIT0xLF0NCg0KI3JlY29kZSB0aWpkL3RpbWUgdmFyaWFibGUNCnRhYmxlKGRhdGFzZXQkdGlqZCwgdXNlTkEgPSAiYWx3YXlzIikNCmRhdGFzZXQkdGlqZCA8LSBkYXRhc2V0JHRpamQgLSAxDQoNCiNjYXBhY2l0eSBvZiBBU0MNCiNzMSBpcyByZWd1bGFyLCBzMj10ZW1wb3JhcnksIHMzPWNyaXNpcywgczEyMz10b3RhbA0KZGF0YXNldCRzMXBjNCA8LSBpZmVsc2UoZGF0YXNldCR0aWpkPT0wLCBkYXRhc2V0JHMxY2FwX3BjNHQxcmVsLGRhdGFzZXQkczFjYXBfcGM0dDJyZWwpDQpkYXRhc2V0JHMycGM0IDwtIGlmZWxzZShkYXRhc2V0JHRpamQ9PTAsIGRhdGFzZXQkczJjYXBfcGM0dDFyZWwsZGF0YXNldCRzMmNhcF9wYzR0MnJlbCkNCmRhdGFzZXQkczNwYzQgPC0gaWZlbHNlKGRhdGFzZXQkdGlqZD09MCwgZGF0YXNldCRzM2NhcF9wYzR0MXJlbCxkYXRhc2V0JHMzY2FwX3BjNHQycmVsKQ0KZGF0YXNldCRzMTIzcGM0IDwtIGRhdGFzZXQkczFwYzQgKyBkYXRhc2V0JHMycGM0ICsgZGF0YXNldCRzM3BjNA0KDQojY29tcHV0ZSB2YXJpYWJsZXMgZm9yIGh5YnJpZCBtb2RlbDogd2l0aGluIGluZGl2aWR1YWwgbWVhbnMgKGJldHdlZW4gdmFycykgYW5kIGRldmlhdGlvbnMgZnJvbSBtZWFuICh3aXRoaW4gdmFycykuIA0KdGVzdCA8LSBhZ2dyZWdhdGUoZGF0YXNldFssYygiY29udGFjdG53IiwgInRocmVhdCIsICJzMTIzcGM0IiwgInMxcGM0IiwgInMycGM0IiwgInMzcGM0IiwgInlfcHZ2IiwgInZvdGVfcndzcCIgKV0sIGJ5PWxpc3QoZGF0YXNldCRQYW5lbGlzdElkUXVlc3Rpb24pLCBGVU49bWVhbikNCm5hbWVzKHRlc3QpIDwtIGMoIlBhbmVsaXN0SWRRdWVzdGlvbiIsICJjb250YWN0bndfbWVhbiIsICJ0aHJlYXRfbWVhbiIsICAgICJzMTIzcGM0X21lYW4iICwgICJzMXBjNF9tZWFuIiAsICAgICJzMnBjNF9tZWFuIiAsICAgICJzM3BjNF9tZWFuIiAsICAgICJ5X3B2dl9tZWFuIiwgInZvdGVfcndzcF9tZWFuIikNCmRhdGFzZXQgPC0gbWVyZ2UoZGF0YXNldCwgdGVzdCkNCmRhdGFzZXQkY29udGFjdG53X2FmdyA9IGRhdGFzZXQkY29udGFjdG53IC0gZGF0YXNldCRjb250YWN0bndfbWVhbg0KZGF0YXNldCR0aHJlYXRfYWZ3ID0gZGF0YXNldCR0aHJlYXQgLSBkYXRhc2V0JHRocmVhdF9tZWFuDQpkYXRhc2V0JHMxMjNwYzRfYWZ3ID0gZGF0YXNldCRzMTIzcGM0IC0gZGF0YXNldCRzMTIzcGM0X21lYW4NCmRhdGFzZXQkczFwYzRfYWZ3ID0gZGF0YXNldCRzMXBjNCAtIGRhdGFzZXQkczFwYzRfbWVhbg0KZGF0YXNldCRzMnBjNF9hZncgPSBkYXRhc2V0JHMycGM0IC0gZGF0YXNldCRzMnBjNF9tZWFuDQpkYXRhc2V0JHMzcGM0X2FmdyA9IGRhdGFzZXQkczNwYzQgLSBkYXRhc2V0JHMzcGM0X21lYW4NCg0KI2NyZWF0ZSBmaWx0ZXIgdmFycyBmb3IgYW5hbHlzZXM6IGZlIGlzIGZpeGVkIGVmZmVjdHMsIGZlbSBpcyBmaXhlZCBlZmZlY3RzIG11bHRpbm9taWFsDQpkYXRhc2V0JHNlbF9mZSA9IChkYXRhc2V0JHlfcHZ2ICE9IGRhdGFzZXQkeV9wdnZfbWVhbikNCmRhdGFzZXQkc2VsX2ZlbSA9IChkYXRhc2V0JHZvdGVfcndzcCAhPSBkYXRhc2V0JHZvdGVfcndzcF9tZWFuKQ0KZGF0YXNldCRzZWxfczEyM3BjNCA9IChkYXRhc2V0JHMxMjNwYzQgIT0gZGF0YXNldCRzMTIzcGM0X21lYW4pDQoNCiNtYXRjaCBhZGRpdGlvbmFsIGRhdGEgb24gY3Jpc2lzIEFTQw0KI3RoZXNlIGRhdGEgaGF2ZSBiZWVuIGFkZGVkIGluIGEgbGF0ZXIgcGhhc2UgDQpkdXVyIDwtIHJlYWQuY3N2MigiZGF0YS9BZHJlc3NlbiBhbGxlIEFaQ3NfMTcwMjIwMTcuY3N2IikNCm5hbWVzKGR1dXIpDQpkdXVyIDwtIGR1dXJbLGMoIlBDNCIsICJTb29ydCIsICJDYXBfR2VtIiwgIkR1dXIudG90LjQuMTEiKV0NCm5hbWVzKGR1dXIpIDwtIGMoInBjNCIsICJzb29ydCIsICJjYXAiLCAiZHV1ciIpDQpkdXVyIDwtIGR1dXJbZHV1ciRzb29ydD09MyxdDQpzb3J0KHVuaXF1ZShkdXVyJHBjNFtkdXVyJGNhcD4wXSkpDQoNCiN3ZSBhcmUgbXVsdGlwbHlpbmcgbGVuZ3RoIG9mIHN0YXkgd2l0aCBudW1iZXIgb2YgQVMNCmR1dXIkczNfYWx0b3AgPC0gZHV1ciRkdXVyICogZHV1ciRjYXANCmR1dXIyIDwtIGFnZ3JlZ2F0ZShkdXVyWyxjKCJjYXAiLCAiZHV1ciIsICJzM19hbHRvcCIpXSwgYnk9bGlzdChkdXVyJHBjNCksIEZVTj1zdW0pDQpkdXVyMg0KbmFtZXMoZHV1cjIpWzFdIDwtIGMoInBjNCIpDQoNCmRhdGFzZXQgPC0gbWVyZ2UoZGF0YXNldCwgZHV1cjIsIGFsbC54PVQpDQpkYXRhc2V0JGR1dXJbaXMubmEoZGF0YXNldCRkdXVyKV0gPC0gMA0KZGF0YXNldCRzM19hbHRvcFtpcy5uYShkYXRhc2V0JHMzX2FsdG9wKV0gPC0gMA0KZGF0YXNldCRjYXBbaXMubmEoZGF0YXNldCRjYXApXSA8LSAwDQoNCiNhc3lsdW0gc2Vla2VycyBpbiBjcmlzaXMgY2VudGVycyBwZXIgMTAwMCBpbmhhYml0YW50cyB3ZWlnaHRlZCBieSBsZW5ndGggb2Ygc3RheQ0KZGF0YXNldCRzM19hbHRvcDIgPC0gMTAwMCAqIGRhdGFzZXQkczNfYWx0b3AgLyAoZGF0YXNldCRpbncyMDE0X3BjNCAqIGRhdGFzZXQkcGF1dG8yMDE0X3BjNCkNCmRhdGFzZXQkY2FwMiA8LSAxMDAwICogZGF0YXNldCRjYXAgLyAoZGF0YXNldCRpbncyMDE0X3BjNCAqIGRhdGFzZXQkcGF1dG8yMDE0X3BjNCkNCmRhdGFzZXQkczNfYWx0b3AgPC0gMTAwMCAqIGRhdGFzZXQkczNfYWx0b3AgLyBkYXRhc2V0JGludzIwMTRfcGM0DQpkYXRhc2V0JGNhcCA8LSAxMDAwICogZGF0YXNldCRjYXAgLyBkYXRhc2V0JGludzIwMTRfcGM0DQoNCg0KYGBgDQoNCg0KDQoNCi0tLSAgDQoNCg0KDQojIyBUYWJsZSAxIHsudGFic2V0IC50YWJzZXQtZmFkZX0NCg0KIyMjIEZpeGVkIGVmZmVjdHMgc2FtcGxlICANCg0KYGBge3IsIHJlc3VsdHM9ImhvbGQifQ0KbGlicmFyeShwc3ljaCkNCnJlcXVpcmUoRFQpIA0KDQpkYXRhc2V0X3NlbCA8LSBkYXRhc2V0W2RhdGFzZXQkc2VsX2ZlPT0xLF0NCiN0YWJsZShkYXRhc2V0X3NlbCR5X3B2diwgZGF0YXNldF9zZWwkdGlqZCkNCnByb3AudGFibGUodGFibGUoZGF0YXNldF9zZWwkeV9wdnYsIGRhdGFzZXRfc2VsJHRpamQpLCBtYXJnaW49MikNCg0KI2Rlc2NyaWJlQnkoZGF0YXNldF9zZWxbLGMoInMxMjNwYzQiLCAiczFwYzQiLCAiczJwYzQiLCAiczNwYzQiLCAidGhyZWF0IiwgImNvbnRhY3RudyIsICJzMTIzcGM0X2FmdyIsICJzMXBjNF9hZnciLCAiczJwYzRfYWZ3IiwgInMzcGM0X2FmdyIsICJ0aHJlYXRfYWZ3IiwgImNvbnRhY3Rud19hZnciKV0sIGdyb3VwPWRhdGFzZXRfc2VsJHRpamQpDQoNCg0KdGVzdCA8LSBkZXNjcmliZUJ5KGRhdGFzZXRfc2VsWyxjKCJzMTIzcGM0IiwgInMxcGM0IiwgInMycGM0IiwgInMzcGM0IiwgInRocmVhdCIsICJjb250YWN0bnciLCAiczEyM3BjNF9hZnciLCAiczFwYzRfYWZ3IiwgInMycGM0X2FmdyIsICJzM3BjNF9hZnciLCAidGhyZWF0X2FmdyIsICJjb250YWN0bndfYWZ3IildLCBncm91cD1kYXRhc2V0X3NlbCR0aWpkKQ0KI2thYmxlKHJvdW5kKHRlc3RbWzFdXSwyKSwgY2FwdGlvbj0iVGltZSAxIikNCmBgYA0KDQpgYGB7ciwgZWNobz1GQUxTRSwgcmVzdWx0cz0iYXNpcyJ9DQpkYXRhdGFibGUocm91bmQodGVzdFtbMV1dLDIpLCBjYXB0aW9uPSJUaW1lIDEiKQ0KYGBgDQoNCmBgYHtyLCBlY2hvPUZBTFNFLCByZXN1bHRzPSJhc2lzIn0NCmRhdGF0YWJsZShyb3VuZCh0ZXN0W1syXV0sMiksIGNhcHRpb249IlRpbWUgMiIpDQpgYGANCg0KDQoqIHJlc3BvbmRlbnRzIGluIEZFIHNhbXBsZTogYHIgbGVuZ3RoKHVuaXF1ZShkYXRhc2V0X3NlbCRQYW5lbGlzdElkUXVlc3Rpb24pKWAgIA0KKiB6aXBjb2RlcyBpbiBGRSBzYW1wbGU6IGByIGxlbmd0aCh1bmlxdWUoZGF0YXNldF9zZWwkcGM0KSlgICANCiogcmVzcG9uZGVudHMgZXhwZXJpZW5jaW5nIGNoYW5nZSBpbiBGRSBzYW1wbGU6IGByIGxlbmd0aCh1bmlxdWUoZGF0YXNldF9zZWwkUGFuZWxpc3RJZFF1ZXN0aW9uW2RhdGFzZXRfc2VsJHMxMjNwYzQhPWRhdGFzZXRfc2VsJHMxMjNwYzRfbWVhbl0pKWAgIA0KKiB6aXBjb2RlcyBleHBlcmllbmNpbmcgY2hhbmdlIGluIEZFIHNhbXBsZTogYHIgbGVuZ3RoKHVuaXF1ZShkYXRhc2V0X3NlbCRwYzRbZGF0YXNldF9zZWwkczEyM3BjNCE9ZGF0YXNldF9zZWwkczEyM3BjNF9tZWFuXSkpYA0KDQotLS0gIA0KDQoNCiMjIyBoeWJyaWQgbW9kZWwgc2FtcGxlDQoNCmBgYHtyLCByZXN1bHRzPSJob2xkIn0NCg0KdGFibGUoZGF0YXNldCR5X3B2diwgZGF0YXNldCR0aWpkKQ0KcHJvcC50YWJsZSh0YWJsZShkYXRhc2V0JHlfcHZ2LCBkYXRhc2V0JHRpamQpLCBtYXJnaW49MikNCg0KZGVzY3JpYmVCeShkYXRhc2V0WyxjKCJzMTIzcGM0IiwgInMxcGM0IiwgInMycGM0IiwgInMzcGM0IiwgInRocmVhdCIsICJjb250YWN0bnciLCAiczEyM3BjNF9hZnciLCAiczFwYzRfYWZ3IiwgInMycGM0X2FmdyIsICJzM3BjNF9hZnciLCAidGhyZWF0X2FmdyIsICJjb250YWN0bndfYWZ3IildLCBncm91cD1kYXRhc2V0JHRpamQpDQoNCg0KcHJpbnQoInJlc3BvbmRlbnRzIGluIGh5YnJpZCBzYW1wbGUiKQ0KbGVuZ3RoKHVuaXF1ZShkYXRhc2V0JFBhbmVsaXN0SWRRdWVzdGlvbikpDQoNCnByaW50KCJ6aXBjb2RlcyBpbiBGRSBzYW1wbGUiKQ0KbGVuZ3RoKHVuaXF1ZShkYXRhc2V0JHBjNCkpDQoNCnByaW50KCJyZXNwb25kZW50cyBleHBlcmllbmNpbmcgY2hhbmdlIGluIEZFIHNhbXBsZSIpDQpsZW5ndGgodW5pcXVlKGRhdGFzZXQkUGFuZWxpc3RJZFF1ZXN0aW9uW2RhdGFzZXQkczEyM3BjNCE9ZGF0YXNldCRzMTIzcGM0X21lYW5dKSkNCg0KcHJpbnQoInppcGNvZGVzIGV4cGVyaWVuY2luZyBjaGFuZ2UgaW4gRkUgc2FtcGxlIikNCmxlbmd0aCh1bmlxdWUoZGF0YXNldCRwYzRbZGF0YXNldCRzMTIzcGM0IT1kYXRhc2V0JHMxMjNwYzRfbWVhbl0pKQ0KDQpgYGANCi0tLSANCg0KIyMgVGFibGUgMiB7LnRhYnNldCAudGFic2V0LWZhZGV9DQoNCmBgYHtyLCByZXN1bHRzPSJoaWRlIn0NCnJlcXVpcmUoc3Vydml2YWwpDQpldl9zZWwgPC0gZGF0YXNldF9zZWwgDQptMSA8LSBjbG9naXQoeV9wdnYgfiBzMTIzcGM0ICsgdGlqZCArIHN0cmF0YShQYW5lbGlzdElkUXVlc3Rpb24pLCBkYXRhPWV2X3NlbCkNCnN1bW1hcnkobTEpDQoNCiN2aWEgZGlmZmVyZW50IGVzdGltYXRpb24gb2YgZml4ZWQgZWZmZWN0cyBtb2RlbCAoYSBmaXJzdCBkaWZmZXJlbmNlIGRlc2lnbikNCiNvbmx5IHNlbGVjdCB5X29ic2VydmF0aW9uIGF0IHRpbWVwb2ludCAyDQpldl9zZWwyIDwtIGV2X3NlbFtldl9zZWwkdGlqZD09MSxdDQojbmVlZCB0byBtdWx0aXBseSBfYWZ3IHdpdGggMiAodGh1cyBiZWNvbWVzIHQyLXQxLCBpbnN0ZWFkIG9mIHQyIC0gbWVhbih0Mix0MSkNCmV2X3NlbDIkczEyM3BjNF9hZncgPC0gMipldl9zZWwyJHMxMjNwYzRfYWZ3DQpldl9zZWwyJHMxcGM0X2FmdyA8LSAyKmV2X3NlbDIkczFwYzRfYWZ3DQpldl9zZWwyJHMycGM0X2FmdyA8LSAyKmV2X3NlbDIkczJwYzRfYWZ3DQpldl9zZWwyJHMzcGM0X2FmdyA8LSAyKmV2X3NlbDIkczNwYzRfYWZ3DQpldl9zZWwyJHRocmVhdF9hZncgPC0gMipldl9zZWwyJHRocmVhdF9hZncNCmV2X3NlbDIkY29udGFjdG53X2FmdyA8LSAyKmV2X3NlbDIkY29udGFjdG53X2Fmdw0KDQptMV9hbHQxIDwtIGdsbSh5X3B2diB+IHMxMjNwYzRfYWZ3ICwgZGF0YT1ldl9zZWwyLCBmYW1pbHk9Ymlub21pYWwpDQptMV9hbHQyIDwtIGdsbSh5X3B2diB+IHMxcGM0X2FmdyArIHMycGM0X2FmdyArIHMzcGM0X2FmdyAsIGRhdGE9ZXZfc2VsMiwgZmFtaWx5PWJpbm9taWFsKQ0KbTFfYWx0MyA8LSBnbG0oeV9wdnYgfiBzMXBjNF9hZncgKyBzMnBjNF9hZncgKyBzM3BjNF9hZncgKyBjb250YWN0bndfYWZ3ICsgdGhyZWF0X2FmdyAsIGRhdGE9ZXZfc2VsMiwgZmFtaWx5PWJpbm9taWFsKQ0KDQpgYGANCg0KIyMjIG1vZGVsIDENCg0KYGBge3IsIGVjaG89RkFMU0V9DQpzdW1tYXJ5KG0xX2FsdDEpDQpgYGANCg0KLS0tICANCg0KIyMjIG1vZGVsIDINCg0KYGBge3IsIGVjaG89RkFMU0V9DQpzdW1tYXJ5KG0xX2FsdDIpDQpgYGANCg0KLS0tICANCg0KDQojIyMgbW9kZWwgMw0KDQpgYGB7ciwgZWNobz1GQUxTRX0NCnN1bW1hcnkobTFfYWx0MykNCmBgYA0KDQoNCi0tLSAgDQoNCg0KIyMgVGFibGUgMyB7LnRhYnNldCAudGFic2V0LWZhZGV9DQoNCmBgYHtyLCByZXN1bHRzPSJoaWRlIn0NCnJlcXVpcmUoc2FuZHdpY2gpDQpyZXF1aXJlKGxtdGVzdCkNCmV2IDwtIGRhdGFzZXQNCg0KIyNoeWJyaWQgbW9kZWwgDQojYmVjYXVzZSB3ZSBpbmNsdWRlIGV0aG5pYyBkZW5zaXR5IG9mIE5CIGFuZCBTRVMgb2YgTkIgbmVlZCB0byByZW1vdmUgbWlzc2luZyB2YWx1ZXMuDQoNCiNzdW0oaXMubmEoZXYkcG53YWwyMDE0X3BjNCkpDQpldl9zZWw0IDwtIGV2WyFpcy5uYShldiRwbndhbDIwMTRfcGM0KSxdDQojbG9zdCA5MCByZXNwb25kZW50cw0KDQpldl9zZWw0IDwtIGV2X3NlbDRbIShldl9zZWw0JHdvejIwMTJfcGM0PT0wKSxdDQojbG9zdCAyMiByZXNwb25kZW50cw0KZXZfc2VsNCA8LSBldl9zZWw0WyFpcy5uYShldl9zZWw0JHdvejIwMTJfcGM0KSxdDQojbG9zdCAzIHJlc3BvbmRlbnRzDQoNCiNjZW50ZXIgdmFyaWFibGVzISANCmV2X3NlbDQkYWdlX2MgPC0gZXZfc2VsNCRhZ2UgLSBtZWFuKGV2X3NlbDQkYWdlKQ0KZXZfc2VsNCRlZHVjX2MgPC0gZXZfc2VsNCRlZHVjIC0gbWVhbihldl9zZWw0JGVkdWMpDQpldl9zZWw0JHBud2FsMjAxNF9wYzRfYyA8LSBldl9zZWw0JHBud2FsMjAxNF9wYzQgLSBtZWFuKGV2X3NlbDQkcG53YWwyMDE0X3BjNCkNCmV2X3NlbDQkd296MjAxMl9wYzRfYyA8LSBldl9zZWw0JHdvejIwMTJfcGM0IC0gbWVhbihldl9zZWw0JHdvejIwMTJfcGM0KQ0KDQojcnVuIG1vZGVscw0KbTFoIDwtIGdsbSh5X3B2diB+IHRpamQgKyBzMTIzcGM0X2FmdyArIHMxMjNwYzRfbWVhbiArIGdlbmRlciArIGFnZV9jICsgZWR1Y19jICsgcG53YWwyMDE0X3BjNF9jICsgd296MjAxMl9wYzRfYywgZGF0YT1ldl9zZWw0LCBmYW1pbHk9Ymlub21pYWwpDQptMmggPC0gZ2xtKHlfcHZ2IH4gdGlqZCArIHMxcGM0X2FmdyArIHMycGM0X2FmdyArIHMzcGM0X2FmdyArIHMxcGM0X21lYW4gKyBzMnBjNF9tZWFuICsgczNwYzRfbWVhbiArIGdlbmRlciArIGFnZV9jICsgZWR1Y19jICsgcG53YWwyMDE0X3BjNF9jICsgd296MjAxMl9wYzRfYywgZGF0YT1ldl9zZWw0LCBmYW1pbHk9Ymlub21pYWwpDQptM2ggPC0gZ2xtKHlfcHZ2IH4gdGlqZCArIHMxcGM0X2FmdyArIHMycGM0X2FmdyArIHMzcGM0X2FmdyArIHMxcGM0X21lYW4gKyBzMnBjNF9tZWFuICsgczNwYzRfbWVhbiArIHRocmVhdF9tZWFuICsgY29udGFjdG53X21lYW4gKyBnZW5kZXIgKyBhZ2VfYyArIGVkdWNfYyArIHBud2FsMjAxNF9wYzRfYyArIHdvejIwMTJfcGM0X2MsIGRhdGE9ZXZfc2VsNCwgZmFtaWx5PWJpbm9taWFsKQ0KbTRoIDwtIGdsbSh5X3B2diB+IHRpamQgKyBzMXBjNF9hZncqcG53YWwyMDE0X3BjNF9jICsgczJwYzRfYWZ3KnBud2FsMjAxNF9wYzRfYyArIHMzcGM0X2FmdypwbndhbDIwMTRfcGM0X2MgKyBzMXBjNF9tZWFuICsgczJwYzRfbWVhbiArIHMzcGM0X21lYW4gKyB0aHJlYXRfbWVhbiArIGNvbnRhY3Rud19tZWFuICsgZ2VuZGVyICsgYWdlX2MgKyBlZHVjX2MgKyB3b3oyMDEyX3BjNF9jLCBkYXRhPWV2X3NlbDQsIGZhbWlseT1iaW5vbWlhbCkNCg0KDQojIHN1bW1hcnkobTFoKQ0KIyBzdW1tYXJ5KG0yaCkNCiMgc3VtbWFyeShtM2gpDQojIA0KIyBjb2VmdGVzdChtMWgsIHZjb3YgPSB2Y292Q0wobTFoLCBjbHVzdGVyID0gfiBQYW5lbGlzdElkUXVlc3Rpb24pKQ0KIyBjb2VmdGVzdChtMmgsIHZjb3YgPSB2Y292Q0wobTJoLCBjbHVzdGVyID0gfiBQYW5lbGlzdElkUXVlc3Rpb24pKQ0KIyBjb2VmdGVzdChtM2gsIHZjb3YgPSB2Y292Q0wobTNoLCBjbHVzdGVyID0gfiBQYW5lbGlzdElkUXVlc3Rpb24pKQ0KYGBgDQoNCiMjIyBtb2RlbCAxICANCmBgYHtyLCBlY2hvPUZBTFNFfQ0Kcm91bmQoY29lZnRlc3QobTFoLCB2Y292ID0gdmNvdkNMKG0xaCwgY2x1c3RlciA9IH4gUGFuZWxpc3RJZFF1ZXN0aW9uKSksIDMpDQpgYGANCg0KLS0tICANCg0KIyMjIG1vZGVsIDIgIA0KYGBge3IsIGVjaG89RkFMU0V9DQpyb3VuZChjb2VmdGVzdChtMmgsIHZjb3YgPSB2Y292Q0wobTJoLCBjbHVzdGVyID0gfiBQYW5lbGlzdElkUXVlc3Rpb24pKSwgMykgDQpgYGANCg0KLS0tICANCg0KIyMjIG1vZGVsIDMgIA0KYGBge3IsIGVjaG89RkFMU0V9DQpyb3VuZChjb2VmdGVzdChtM2gsIHZjb3YgPSB2Y292Q0wobTNoLCBjbHVzdGVyID0gfiBQYW5lbGlzdElkUXVlc3Rpb24pKSwgMykNCmBgYA0KDQoNCi0tLSANCg0KIyMjIE1vZGVsIDQ6IG5vIGludGVyYWN0aW9uIHdpdGggZXRobmljIGRlbnNpdHkNCg0KYGBge3IsIGVjaG89RkFMU0V9DQpyb3VuZChjb2VmdGVzdChtNGgsIHZjb3YgPSB2Y292Q0wobTRoLCBjbHVzdGVyID0gfiBQYW5lbGlzdElkUXVlc3Rpb24pKSwgMykNCmBgYA0KDQotLS0gDQoNCg0KIyMgSW5mbG93IGFzeWx1bSBzZWVrZXJzIG5vdCByZWxhdGVkIHRvIFBWViBzdXBwb3J0IFQxLiB7LnRhYnNldCAudGFic2V0LWZhZGV9DQoNCkluIG91ciBtYW51c2NyaXB0IHdlIHN0YXRlIHRoZSBmb2xsb3dpbmc6IA0KDQo+IFZvdGVycyBvZiBuZWlnaGJvdXJob29kcyB0aGF0IHdvdWxkIGV4cGVyaWVuY2UgYW4gaW5mbG93IG9mIGFzeWx1bSBzZWVrZXJzIGRpZCBub3QgZGlmZmVyIHdpdGggcmVzcGVjdCB0byByYWRpY2FsIHJpZ2h0IHN1cHBvcnQgZnJvbSB2b3RlcnMgdGhhdCB3b3VsZCBub3QgZXhwZXJpZW5jZSBhbiBpbmZsb3cgb2YgcmVmdWdlZXM6IHByZS1jcmlzZXMgc3VwcG9ydCBmb3IgdGhlIFBWViBmb3IgYm90aCB0aGUg4oCYdHJlYXRlZOKAmSBhbmQg4oCYdW50cmVhdGVk4oCZIGdyb3VwcyB3YXMgYXBwcm94aW1hdGVseSAxNyUuDQoNCiMjIyBkaWNodG9tZW91cyB0cmVhdG1lbnQgdmFyaWFibGUgKHRvdGFsIGV4cG9zdXJlKQ0KYGBge3IsIHJlc3VsdHM9J2hvbGQnfQ0KI2RlZmluZSB0cmVhdG1lbnQgdmFyaWFibGU6IHdoZXRoZXIgdGhlcmUgaGFzIGJlZW4gYW4gaW5jcmVhc2UgaW4gdG90YWwgYXN5bHVtIHNlZWtlcnMuICANCmRhdGFzZXQkdHJlYXRtZW50IDwtIGlmZWxzZShkYXRhc2V0JHRpamQ9PTEsIGFzLm51bWVyaWMoZGF0YXNldCRzMTIzcGM0X2Fmdz4wKSwgYXMubnVtZXJpYyhkYXRhc2V0JHMxMjNwYzRfYWZ3PDApKQ0KDQojY2hlY2sgaWYgdHJlYXRtZW50IGlzIG5vdCBjb3JyZWxhdGVkIHdpdGggcHJldHJlYXRtZW50IG91dGNvbWUNCnRlc3QgPC0gdGFibGUoZGF0YXNldCR0cmVhdG1lbnRbZGF0YXNldCR0aWpkPT0wXSxkYXRhc2V0JHlfcHZ2W2RhdGFzZXQkdGlqZD09MF0pDQpkaW1uYW1lcyh0ZXN0KVtbMV1dIDwtIGMoInRyZWF0bWVudCBOTyIsICJ0cmVhdG1lbnQgWUVTIiApDQpkaW1uYW1lcyh0ZXN0KVtbMl1dIDwtIGMoIlBWViBOTyIsICJQVlYgWUVTIiApDQp0ZXN0DQpwcm9wLnRhYmxlKHRlc3QsIG1hcmdpbj0xKQ0KdGVzdDEgPC0gZ2xtKHlfcHZ2IH4gdHJlYXRtZW50LCBmYW1pbHk9Ymlub21pYWwsIGRhdGE9ZGF0YXNldFtkYXRhc2V0JHRpamQ9PTAsXSkNCnN1bW1hcnkodGVzdDEpDQoNCmBgYA0KVGhpcyBpcyB3aGF0IHdlIHJlcG9ydCBpbiB0aGUgbWFudXNjcmlwdC4gIA0KDQotIE5vIHNlbGVjdGl2ZSB0cmVhdG1lbnQhICANCi0gQW1vbmcgYm90aCBncm91cHMsIFBWViBzdXBwb3J0IGp1c3QgYmVsb3cgMTclDQoNCi0tLSAgDQoNCg0KIyMjIGNvbnRpbnVvdXMgdHJlYXRtZW50IHZhcmlhYmxlICh0b3RhbCBleHBvc3VyZSkNCg0KYGBge3IsIHJlc3VsdHM9J2hvbGQnfQ0KI2RlZmluZSB0cmVhdG1lbnQgdmFyaWFibGU6IHdoZXRoZXIgdGhlcmUgaGFzIGJlZW4gYW4gaW5jcmVhc2UgaW4gdG90YWwgYXN5bHVtIHNlZWtlcnMuICANCmRhdGFzZXQkdHJlYXRtZW50X2MgPC0gaWZlbHNlKGRhdGFzZXQkdGlqZD09MSwgZGF0YXNldCRzMTIzcGM0X2FmdywgLSBkYXRhc2V0JHMxMjNwYzRfYWZ3KQ0KDQojY2hlY2sgaWYgdHJlYXRtZW50IGlzIG5vdCBjb3JyZWxhdGVkIHdpdGggcHJldHJlYXRtZW50IG91dGNvbWUNCnN1bW1hcnkoZ2xtKHlfcHZ2IH4gdHJlYXRtZW50X2MsIGZhbWlseT1iaW5vbWlhbCwgZGF0YT1kYXRhc2V0W2RhdGFzZXQkdGlqZD09MCxdKSkNCg0KYGBgDQpDb25jbHVzaW9uOiBObyBzZWxlY3Rpdml0eSBpbiB0cmVhdG1lbnQgd2l0aCByZXNwZWN0IHRvIHByZS1jcmlzaXMgUFZWIHN1cHBvcnQNCg0KLS0tICANCg0KIyMjIGRpY2h0b21lb3VzIHRyZWF0bWVudCB2YXJpYWJsZSAoY3Jpc2lzIGV4cG9zdXJlKQ0KYGBge3IsIHJlc3VsdHM9J2hvbGQnfQ0KI2RlZmluZSB0cmVhdG1lbnQgdmFyaWFibGUgYmFzZWQgb24gY3Jpc2lzIEFTQyBvbmx5OiB3aGV0aGVyIHRoZXJlIGhhcyBiZWVuIGFuIGluY3JlYXNlIGluIGNyaXNpcyBhc3lsdW0gc2Vla2Vycy4gDQpkYXRhc2V0JHRyZWF0bWVudDIgPC0gaWZlbHNlKGRhdGFzZXQkdGlqZD09MSwgYXMubnVtZXJpYyhkYXRhc2V0JHMzcGM0X2Fmdz4wKSwgYXMubnVtZXJpYyhkYXRhc2V0JHMzcGM0X2FmdzwwKSkNCiNjaGVjayBpZiB0cmVhdG1lbnQyIGlzIG5vdCBjb3JyZWxhdGVkIHdpdGggcHJldHJlYXRtZW50IG91dGNvbWUNCnRlc3QgPC0gdGFibGUoZGF0YXNldCR0cmVhdG1lbnQyW2RhdGFzZXQkdGlqZD09MF0sZGF0YXNldCR5X3B2dltkYXRhc2V0JHRpamQ9PTBdKQ0KZGltbmFtZXModGVzdClbWzFdXSA8LSBjKCJ0cmVhdG1lbnQgTk8iLCAidHJlYXRtZW50IFlFUyIgKQ0KZGltbmFtZXModGVzdClbWzJdXSA8LSBjKCJQVlYgTk8iLCAiUFZWIFlFUyIgKQ0KdGVzdA0KcHJvcC50YWJsZSh0ZXN0LCBtYXJnaW49MSkNCnRlc3QyIDwtIGdsbSh5X3B2diB+IHRyZWF0bWVudDIsIGZhbWlseT1iaW5vbWlhbCwgZGF0YT1kYXRhc2V0W2RhdGFzZXQkdGlqZD09MCxdKQ0Kc3VtbWFyeSh0ZXN0MikNCmBgYA0KQ29uY2x1c2lvbjogIA0KDQotIG5vIHNlbGVjdGl2aXR5DQoNCi0tLSAgDQoNCiMjIyBjb250aW51b3VzIHRyZWF0bWVudCB2YXJpYWJsZSAoY3Jpc2lzIGV4cG9zdXJlKQ0KDQpgYGB7ciwgcmVzdWx0cz0naG9sZCd9DQojZGVmaW5lIHRyZWF0bWVudCB2YXJpYWJsZSBiYXNlZCBvbiBjcmlzaXMgQVNDIG9ubHk6IHdoZXRoZXIgdGhlcmUgaGFzIGJlZW4gYW4gaW5jcmVhc2UgaW4gY3Jpc2lzIGFzeWx1bSBzZWVrZXJzLiANCmRhdGFzZXQkdHJlYXRtZW50Ml9jIDwtIGlmZWxzZShkYXRhc2V0JHRpamQ9PTEsIGRhdGFzZXQkczNwYzRfYWZ3LCAtIGRhdGFzZXQkczNwYzRfYWZ3KQ0Kc3VtbWFyeShnbG0oeV9wdnYgfiB0cmVhdG1lbnQyX2MsIGZhbWlseT1iaW5vbWlhbCwgZGF0YT1kYXRhc2V0W2RhdGFzZXQkdGlqZD09MCxdKSkNCiN0YWJsZShkYXRhc2V0JHRyZWF0bWVudDIsZGF0YXNldCR0cmVhdG1lbnQyX2MpDQojc3VtbWFyeShkYXRhc2V0JHMzcGM0X2Fmd1tkYXRhc2V0JHRpamQ9PTBdKQ0KI3N1bW1hcnkoZGF0YXNldCR0cmVhdG1lbnQyX2NbZGF0YXNldCR0aWpkPT0wXSkNCmBgYA0KQ29uY2x1c2lvbjogIA0KDQotIG5vIHNlbGVjdGl2aXR5DQoNCi0tLSAgDQoNCiMjIE5vdGUgMyBpbiBtYW51c2NyaXB0ICANCg0KLSBJbiB0aGUgbWFudXNjcmlwdCB3ZSBzdGF0ZSB0aGF0IHRoZSB0cmVhdG1lbnQgaXMgbm90IHJlbGF0ZWQgdG8gcHJldHJlYXRtZW50IFBWViBzdXBwb3J0LiAgDQotIEluIG5vdGUgMyB3ZSBzdGF0ZSB0aGF0IHRyZWF0bWVudCBpcyBub3QgcmVsYXRlZCB0byBhbiBpbmNyZWFzZSBpbiBjb250YWN0IG9yIHRocmVhdC4gDQoNCldlIGZpcnN0IGRlZmluZSBhIHRyZWF0bWVudCB2YXJpYWJsZTogMSAoWUVTLCBpbmNyZWFzZSBpbiBhc3lsdW0gc2Vla2Vycyk7IDAgKE5PLCBubyBpbmNyZWFzZSBpbiBhc3lsdW0gc2Vla2VycykNCg0KYGBge3J9DQoNCiNzaG93IHRoYXQgdHJlYXRtZW50IGlzIG5vdCByZWxhdGVkIHRvIGNoYW5nZXMgaW4gdGhyZWF0IGFuZCBjb250YWN0IGluIGZpeGVkIGVmZmVjdCBzYW1wbGUuIG5vdGUgMyBpbiByZXZpc2VkIG1hbnVzY3JpcHQuIA0KI29ubHkgc2VsZWN0IHlfb2JzZXJ2YXRpb24gYXQgdGltZXBvaW50IDINCmV2X3NlbDIgPC0gZGF0YXNldF9zZWxbZGF0YXNldF9zZWwkdGlqZD09MSxdDQpldl9zZWwyJHRyZWF0bWVudCA8LSBldl9zZWwyJHMxMjNwYzRfYWZ3PjANCm1lYW4oZXZfc2VsMiRjb250YWN0bndfYWZ3KQ0KYnkoZXZfc2VsMiRjb250YWN0bndfYWZ3LCBldl9zZWwyJHRyZWF0bWVudCwgZnVuY3Rpb24oeCkgc2QoeCkpDQp3aXRoKGV2X3NlbDIsIHQudGVzdChjb250YWN0bndfYWZ3fnRyZWF0bWVudCkpDQojdHJlYXRlZCBncm91cCBkZWNyZWFzZSBpbiBjb250YWN0LiB1bnRyZWF0ZWQgZ3JvdXAgaW5jcmVhc2UgaW4gY29udGFjdC4gZGlmZmVyZW5jZSBpbiBkaWZmZXJlbmNlIGlzIHNpZ25pZmljYW50LiANCg0KbWVhbihldl9zZWwyJHRocmVhdF9hZncpDQpieShldl9zZWwyJHRocmVhdF9hZncsIGV2X3NlbDIkdHJlYXRtZW50LCBmdW5jdGlvbih4KSBzZCh4KSkNCndpdGgoZXZfc2VsMiwgdC50ZXN0KHRocmVhdF9hZnd+dHJlYXRtZW50KSkNCiN0cmVhdGVkIGdyb3VwIGluY3JlYXNlIGluIHRocmVhdC4gdW50cmVhdGVkIChsZXNzKSBpbmNyZWFzZSBpbiB0aHJlYXQuIGRpZmZlcmVuY2UgaW4gZGlmZmVyZW5jZSBpcyBub3Qgc2lnbmlmaWNhbnQuIA0KDQpgYGANCg0KLS0tICANCg0K</div>
+<p>Copyright &copy; 2020 Jochem Tolsma</p>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeSourceEmbed("index.rmd");
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
