@@ -114,7 +114,7 @@ load("data/original/wave2.Rdata")
 names(wave2)
 ```
 
-```{r, echo=FALSE, results='asis'}
+```{r, echo=FALSE}
 wave2[70:80,]
 
 ```
