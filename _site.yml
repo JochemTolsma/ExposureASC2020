@@ -10,7 +10,7 @@ navbar:
     - text: "Data preperation"
       href: dataprep.html
   right:
-    - icon: fa-github
+    - icon: fab fa-github
       href: https://github.com/JochemTolsma
 output:
   html_document:

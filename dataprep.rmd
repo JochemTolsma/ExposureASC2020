@@ -64,6 +64,7 @@ h1, .h1, h2, .h2, h3, .h3 {
 
 ----
 
+
 This website is a replication package for the paper "Exposure to Asylum Seekers and Changing Support for the Radical Right: A Natural Experiment in the Netherlands" by @Tolsma2020. It contains all necessary R code and datasets to replicate all Tables in the manuscript. 
 
 Use the top menu to navigate to the section of interest. The section introduces the original survey data of [1VOP](https://eenvandaag.avrotros.nl/panels/opiniepanel/) and the data of the [Central Agency for the Reception of Asylum Seekers (COA)](https://www.coa.nl/en). 
